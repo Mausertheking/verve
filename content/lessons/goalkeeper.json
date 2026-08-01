@@ -1,0 +1,303 @@
+[
+  {
+    "id": "gk-stance-01",
+    "trackId": "goalkeeper",
+    "order": 1,
+    "title": {
+      "az": "Əsas duruş",
+      "ru": "Основная стойка",
+      "en": "Basic stance"
+    },
+    "video": {
+      "file": "gk-stance-01.mp4",
+      "durationSec": 38,
+      "caption": {
+        "az": "Əsas duruş — yandan və qarşıdan",
+        "ru": "Стойка сбоку и спереди",
+        "en": "Stance from the side and front"
+      }
+    },
+    "body": {
+      "az": [
+        "Ayaqlar çiyin genişliyində, çəki pəncələrin üstündə, dizlər bir az bükülü. Əllər bel səviyyəsində, qarşıda.",
+        "Duruş rahat olmalıdır — sən bu vəziyyətdə saniyələrlə deyil, dəqiqələrlə dayanacaqsan."
+      ],
+      "ru": [],
+      "en": [
+        "Feet shoulder-width, weight on the balls of the feet, knees slightly bent. Hands in front, around waist height.",
+        "The stance has to be comfortable — you will hold it for minutes, not seconds."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "Çəki dabanda deyil, pəncədə.",
+        "Əllər bədənin qarşısında, yanlarda yox.",
+        "Gözlər topun səviyyəsində."
+      ],
+      "ru": [],
+      "en": [
+        "Weight on the balls of the feet, not the heels.",
+        "Hands in front of the body, not by your sides.",
+        "Eyes level with the ball."
+      ]
+    },
+    "glossaryTermIds": [
+      "goalkeeper"
+    ],
+    "estMinutes": 4,
+    "status": "draft",
+    "reviewed": false,
+    "diagram": {
+      "view": "goal-area",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 26,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 58,
+          "kind": "ball"
+        }
+      ],
+      "caption": {
+        "az": "Qapı xətti ilə top arasında, mərkəzdə.",
+        "ru": "",
+        "en": "Central, between the goal line and the ball."
+      }
+    }
+  },
+  {
+    "id": "gk-footwork-01",
+    "trackId": "goalkeeper",
+    "order": 2,
+    "title": {
+      "az": "Ayaq işi",
+      "ru": "Работа ног",
+      "en": "Footwork"
+    },
+    "body": {
+      "az": [
+        "Qapıçının hərəkəti kiçik və tez addımlardan ibarətdir. Böyük addım = tarazlığın itməsi.",
+        "Yan hərəkətdə ayaqlar heç vaxt bir-birini kəsmir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Kiçik addım, tez tezlik.",
+        "Ayaqlar kəsişmir.",
+        "Hərəkət topun hərəkətindən əvvəl başlayır."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper"
+    ],
+    "estMinutes": 4,
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-catching-01",
+    "trackId": "goalkeeper",
+    "order": 3,
+    "title": {
+      "az": "Top tutma",
+      "ru": "Ловля мяча",
+      "en": "Catching"
+    },
+    "video": {
+      "file": "gk-catching-01.mp4",
+      "durationSec": 47,
+      "caption": {
+        "az": "W forması və sinəyə tutma",
+        "ru": "W-хват и приём в грудь",
+        "en": "W-shape and chest catch"
+      }
+    },
+    "body": {
+      "az": [
+        "Yuxarı toplarda əllər [[w-shape|W forması]] yaradır: baş barmaqlar bir-birinə yaxın, barmaqlar açıq.",
+        "Aşağı toplarda əllər aşağı baxır və top bədənə tərəf yığılır.",
+        "Top əlin içinə dəyəndə dirsəklər zərbəni udur — əllər sərt qalmır."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Baş barmaqlar arxada, bir-birinə yaxın.",
+        "Topu bədəninlə örtmək üçün irəli çıx.",
+        "Səs yumşaq olmalıdır — sərt səs sərt əl deməkdir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper",
+      "w-shape"
+    ],
+    "estMinutes": 6,
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-angles-01",
+    "trackId": "goalkeeper",
+    "order": 4,
+    "title": {
+      "az": "Bucaq bağlamaq",
+      "ru": "Игра на углах",
+      "en": "Closing the angle"
+    },
+    "body": {
+      "az": [
+        "Qapıdan bir addım irəli çıxmaq hücumçunun gördüyü qapı sahəsini kəskin azaldır.",
+        "İrəli çıxmaq riskdir: gec çıxsan — gec qalırsan, çox çıxsan — üstündən aşırırlar."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Top və qapının mərkəzini birləşdirən xətt üzərində dayan.",
+        "İrəli çıxarkən tarazlığı saxla.",
+        "Qərar zərbədən əvvəl verilir, zərbə anında yox."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper",
+      "goal"
+    ],
+    "estMinutes": 6,
+    "status": "draft",
+    "reviewed": false,
+    "diagram": {
+      "view": "goal-area",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 22,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "a",
+          "x": 50,
+          "y": 56,
+          "kind": "opponent"
+        },
+        {
+          "id": "b",
+          "x": 54,
+          "y": 56,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 50,
+            "y": 56
+          },
+          "to": {
+            "x": 26,
+            "y": 8
+          },
+          "kind": "shot"
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 56
+          },
+          "to": {
+            "x": 74,
+            "y": 8
+          },
+          "kind": "shot"
+        }
+      ],
+      "caption": {
+        "az": "İrəli çıxdıqca hücumçunun gördüyü sahə daralır.",
+        "ru": "",
+        "en": "Stepping forward narrows what the striker can see."
+      }
+    }
+  },
+  {
+    "id": "gk-distribution-01",
+    "trackId": "goalkeeper",
+    "order": 5,
+    "title": {
+      "az": "Paylama",
+      "ru": "Ввод мяча",
+      "en": "Distribution"
+    },
+    "body": {
+      "az": [
+        "Topu tutduqdan sonra oyun bitmir — komandanın hücumu sənin əlindən başlayır."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Topu tutan kimi baş qaldır.",
+        "Yaxın və təhlükəsiz seçim, uzaq və riskli seçimdən yaxşıdır.",
+        "Yan tərəfə paylama mərkəzdən təhlükəsizdir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper",
+      "pass"
+    ],
+    "estMinutes": 5,
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-1v1-01",
+    "trackId": "goalkeeper",
+    "order": 6,
+    "title": {
+      "az": "Təkbətək",
+      "ru": "Один на один",
+      "en": "One-v-one"
+    },
+    "body": {
+      "az": [
+        "Təkbətək vəziyyətdə qapıçının işi topu tutmaq deyil — hücumçunu səhv qərara məcbur etməkdir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Erkən çıx, gec yerə düş.",
+        "Böyük ol: qollar və ayaqlar açıq.",
+        "Hücumçunun ayağına yox, topa reaksiya ver."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper"
+    ],
+    "estMinutes": 6,
+    "status": "draft",
+    "reviewed": false
+  }
+]

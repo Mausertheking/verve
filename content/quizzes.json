@@ -1,0 +1,229 @@
+[
+  {
+    "id": "quiz-rules",
+    "trackId": "rules",
+    "status": "todo",
+    "reviewed": false,
+    "questions": []
+  },
+  {
+    "id": "quiz-positions",
+    "trackId": "positions",
+    "status": "todo",
+    "reviewed": false,
+    "questions": []
+  },
+  {
+    "id": "quiz-goalkeeper",
+    "trackId": "goalkeeper",
+    "status": "draft",
+    "reviewed": false,
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": {
+          "az": "Əsas duruşda çəki harada olmalıdır?",
+          "ru": "",
+          "en": "In the basic stance, where should your weight be?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Dabanların üstündə",
+              "ru": "",
+              "en": "On the heels"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Pəncələrin üstündə",
+              "ru": "",
+              "en": "On the balls of the feet"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Bir ayağın üstündə",
+              "ru": "",
+              "en": "On one foot"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Dabanda dayanan qapıçı hər istiqamətə gec başlayır. Pəncədə çəki ilk addımı sürətləndirir.",
+          "ru": "",
+          "en": "Weight on the heels delays the first step in every direction. On the balls of the feet you start faster."
+        },
+        "reviseLessonId": "gk-stance-01"
+      },
+      {
+        "id": "q2",
+        "prompt": {
+          "az": "Yan hərəkət zamanı ayaqlar nə etməlidir?",
+          "ru": "",
+          "en": "What should your feet do when moving sideways?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Bir-birini kəsməli",
+              "ru": "",
+              "en": "Cross over each other"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Kəsişmədən yan addımlarla hərəkət etməli",
+              "ru": "",
+              "en": "Side-step without crossing"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Sıçrayışla hərəkət etməli",
+              "ru": "",
+              "en": "Move by jumping"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Ayaqlar kəsişəndə tarazlıq bir an itir. Məhz o anda zərbə gəlsə, hərəkətə başlaya bilmirsən.",
+          "ru": "",
+          "en": "Crossing costs you balance for a moment. If the shot comes in that moment, you cannot push off."
+        },
+        "reviseLessonId": "gk-footwork-01"
+      },
+      {
+        "id": "q3",
+        "prompt": {
+          "az": "Yuxarı topu tutarkən baş barmaqlar harada olur?",
+          "ru": "",
+          "en": "Catching a high ball, where are your thumbs?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Bir-birindən uzaq, yanlarda",
+              "ru": "",
+              "en": "Far apart, at the sides"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Topun arxasında, bir-birinə yaxın",
+              "ru": "",
+              "en": "Behind the ball, close together"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Aşağı baxaraq",
+              "ru": "",
+              "en": "Pointing down"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Baş barmaqlar bir-birinə yaxın olanda əllər W forması yaradır və top əllərin arasından keçə bilmir.",
+          "ru": "",
+          "en": "With the thumbs close, the hands form a W and the ball cannot slip between them."
+        },
+        "reviseLessonId": "gk-catching-01"
+      },
+      {
+        "id": "q4",
+        "prompt": {
+          "az": "Hücumçu təkbətək çıxanda qapıçı nə etməlidir?",
+          "ru": "",
+          "en": "In a one-v-one, what should the keeper do?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Qapı xəttində gözləmək",
+              "ru": "",
+              "en": "Wait on the goal line"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Erkən irəli çıxmaq və böyük görünmək",
+              "ru": "",
+              "en": "Come out early and make herself big"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Dərhal yerə düşmək",
+              "ru": "",
+              "en": "Go to ground immediately"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Qapı xəttində gözləmək hücumçuya bütün qapını göstərir. Erkən çıxış onun gördüyü sahəni azaldır. Erkən yerə düşmək isə topu asanlıqla yan keçirməyə imkan verir.",
+          "ru": "",
+          "en": "Waiting on the line shows the striker the whole goal. Coming out early cuts down what she can see. Going down early lets her simply roll it past you."
+        },
+        "reviseLessonId": "gk-1v1-01"
+      },
+      {
+        "id": "q5",
+        "prompt": {
+          "az": "Topu tutduqdan sonra ilk iş nədir?",
+          "ru": "",
+          "en": "After catching the ball, what comes first?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Dərhal uzağa təpikləmək",
+              "ru": "",
+              "en": "Immediately kick it long"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Baş qaldırıb komanda yoldaşlarına baxmaq",
+              "ru": "",
+              "en": "Lift your head and look for team-mates"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Topu yerə qoymaq",
+              "ru": "",
+              "en": "Put the ball on the ground"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Hücum sənin əlindən başlayır. Baxmadan vurulan uzun top çox vaxt birbaşa rəqibə çatır.",
+          "ru": "",
+          "en": "The attack starts in your hands. A long ball hit without looking usually goes straight to the opposition."
+        },
+        "reviseLessonId": "gk-distribution-01"
+      }
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "rules",
+    "title": {
+      "az": "Oyunun qaydaları",
+      "ru": "Правила игры",
+      "en": "Rules of the game"
+    },
+    "summary": {
+      "az": "Meydan, mövqelər, ofsayd, qayda pozuntuları, zərbələr.",
+      "ru": "Поле, позиции, офсайд, нарушения, удары.",
+      "en": "Pitch, positions, offside, fouls, set pieces."
+    },
+    "quizId": "quiz-rules"
+  },
+  {
+    "id": "positions",
+    "title": {
+      "az": "Mövqelər",
+      "ru": "Позиции",
+      "en": "Positions"
+    },
+    "summary": {
+      "az": "Hər mövqe əslində nə edir — və sənə hansı uyğun gəlir.",
+      "ru": "Что на самом деле делает каждая позиция — и какая подходит тебе.",
+      "en": "What each position actually does — and which suits you."
+    },
+    "quizId": "quiz-positions"
+  },
+  {
+    "id": "goalkeeper",
+    "title": {
+      "az": "Qapıçı",
+      "ru": "Вратарь",
+      "en": "Goalkeeper"
+    },
+    "summary": {
+      "az": "Duruş, ayaq işi, top tutma, paylama, bucaq, təkbətək.",
+      "ru": "Стойка, работа ног, ловля, ввод мяча, углы, один на один.",
+      "en": "Stance, footwork, catching, distribution, angles, 1v1."
+    },
+    "quizId": "quiz-goalkeeper"
+  }
+]

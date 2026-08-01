@@ -1,0 +1,255 @@
+[
+  {
+    "id": "pos-goalkeeper-01",
+    "trackId": "positions",
+    "order": 1,
+    "title": {
+      "az": "Qapıçı",
+      "ru": "Вратарь",
+      "en": "Goalkeeper"
+    },
+    "video": {
+      "file": "pos-goalkeeper-01.mp4",
+      "durationSec": 52,
+      "caption": {
+        "az": "Qapıçının bir oyundakı işi",
+        "ru": "Работа вратаря в матче",
+        "en": "What a keeper does in a match"
+      }
+    },
+    "body": {
+      "az": [
+        "Komandada [[goalkeeper|qapıçı]] cərimə meydançası daxilində topa əl ilə toxuna bilən yeganə oyunçudur.",
+        "İş yalnız zərbələri dayandırmaq deyil: qapıçı müdafiəni idarə edir, hücumu paylama ilə başladır və arxa boşluğu oxuyur.",
+        "Yaxşı qapıçı çox vaxt heç bir möhtəşəm xilasetmə etmir — sadəcə həmişə düzgün yerdə dayanır."
+      ],
+      "ru": [],
+      "en": [
+        "The [[goalkeeper|goalkeeper]] is the only player allowed to handle the ball inside the penalty area.",
+        "The job is not only stopping shots: the keeper organises the defence, starts attacks with distribution, and reads the space behind.",
+        "A good keeper often makes no spectacular save at all — she is simply always standing in the right place."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "Əl ilə oynamaq yalnız öz cərimə meydançasında.",
+        "Səs qapıçının əsas alətidir — müdafiəni sən idarə edirsən.",
+        "Mövqe seçimi refleksdən vacibdir."
+      ],
+      "ru": [],
+      "en": [
+        "Handling is allowed only inside your own penalty area.",
+        "Your voice is the main tool — you organise the defence.",
+        "Positioning matters more than reflexes."
+      ]
+    },
+    "glossaryTermIds": [
+      "goalkeeper",
+      "penalty"
+    ],
+    "estMinutes": 4,
+    "status": "draft",
+    "reviewed": false,
+    "diagram": {
+      "view": "goal-area",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 30,
+          "kind": "keeper",
+          "label": "GK"
+        }
+      ],
+      "zones": [
+        {
+          "x": 22,
+          "y": 6,
+          "w": 56,
+          "h": 34,
+          "kind": "highlight",
+          "label": "əl ilə oynama zonası"
+        }
+      ],
+      "caption": {
+        "az": "Əl ilə oynamağa icazə verilən sahə.",
+        "ru": "",
+        "en": "The area where handling is allowed."
+      }
+    }
+  },
+  {
+    "id": "pos-centreback-01",
+    "trackId": "positions",
+    "order": 2,
+    "title": {
+      "az": "Mərkəz müdafiəçi",
+      "ru": "Центральный защитник",
+      "en": "Centre-back"
+    },
+    "body": {
+      "az": [
+        "Mərkəz [[defender|müdafiəçi]] qapıya ən yaxın sahəni qoruyur. Əsas iş — hücumçunu topdan ayırmaq və topu təhlükəsiz sahəyə çıxarmaq.",
+        "Cütlükdə oynayır: biri hücumçuya çıxır, digəri arxada örtür."
+      ],
+      "ru": [],
+      "en": [
+        "The centre-[[defender|back]] protects the space closest to goal. The core job is separating the striker from the ball and clearing it to a safe area.",
+        "They work in pairs: one steps out to the attacker, the other covers behind."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "Topa yox, hücumçunun bədəninə bax.",
+        "Cütlüyünlə eyni xətdə qal.",
+        "Şübhə varsa — topu uzağa və yana çıxar."
+      ],
+      "ru": [],
+      "en": [
+        "Watch the attacker's body, not the ball.",
+        "Stay level with your partner.",
+        "When in doubt, clear it wide and far."
+      ]
+    },
+    "glossaryTermIds": [
+      "defender",
+      "foul"
+    ],
+    "estMinutes": 4,
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "pos-fullback-01",
+    "trackId": "positions",
+    "order": 3,
+    "title": {
+      "az": "Cinah müdafiəçi",
+      "ru": "Крайний защитник",
+      "en": "Full-back"
+    },
+    "body": {
+      "az": [
+        "Cinah müdafiəçi yan xətt boyunca həm müdafiə, həm hücum edir. Ən çox qaçan mövqelərdən biridir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Hücuma qalxanda arxanı kimin örtdüyünü bil.",
+        "Cinah hücumçusunu içəri yox, kənara sıxışdır.",
+        "Kondisiya bu mövqedə texnikadan az əhəmiyyətli deyil."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "defender",
+      "pitch"
+    ],
+    "estMinutes": 3,
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "pos-midfielder-01",
+    "trackId": "positions",
+    "order": 4,
+    "title": {
+      "az": "Yarımmüdafiəçi",
+      "ru": "Полузащитник",
+      "en": "Midfielder"
+    },
+    "body": {
+      "az": [
+        "[[midfielder|Yarımmüdafiəçi]] oyunun mərkəzidir — top demək olar ki, həmişə onun yaxınlığından keçir.",
+        "Topu almazdan əvvəl çiyin üstündən baxmaq bu mövqedə ən vacib vərdişdir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Topu almamışdan əvvəl ətrafa bax.",
+        "Sadə ötürmə çox vaxt ən yaxşı ötürmədir.",
+        "Topsuz hərəkət topla hərəkət qədər vacibdir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "midfielder",
+      "pass"
+    ],
+    "estMinutes": 4,
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "pos-winger-01",
+    "trackId": "positions",
+    "order": 5,
+    "title": {
+      "az": "Cinah hücumçusu",
+      "ru": "Вингер",
+      "en": "Winger"
+    },
+    "body": {
+      "az": [
+        "Cinah hücumçusu meydanın enini istifadə edir: yan xəttə yaxın qalır, sonra sürətlə içəri və ya dibə keçir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Enə yayıl — müdafiəni dartmaq üçün.",
+        "Birinci toxunuş müdafiəçidən uzağa olsun.",
+        "Baş qaldır: dibə keçmək həmişə ən yaxşı seçim deyil."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "dribble",
+      "pass"
+    ],
+    "estMinutes": 3,
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "pos-striker-01",
+    "trackId": "positions",
+    "order": 6,
+    "title": {
+      "az": "Mərkəz hücumçu",
+      "ru": "Центральный нападающий",
+      "en": "Striker"
+    },
+    "body": {
+      "az": [
+        "Mərkəz [[forward|hücumçu]] qol vurmaq üçün deyil, qol vurma vəziyyəti yaratmaq üçün hərəkət edir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "takeaways": {
+      "az": [
+        "Müdafiəçinin kor nöqtəsində dayan.",
+        "Zərbədən əvvəl qapıçının yerinə bax.",
+        "Uğursuz cəhddən sonra dərhal növbəti hərəkətə hazır ol."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "forward",
+      "goal"
+    ],
+    "estMinutes": 3,
+    "status": "draft",
+    "reviewed": false
+  }
+]

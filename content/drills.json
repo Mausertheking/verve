@@ -1,0 +1,526 @@
+[
+  {
+    "id": "gk-stance-drill-01",
+    "title": {
+      "az": "Duruşda dayanma",
+      "ru": "Удержание стойки",
+      "en": "Holding the stance"
+    },
+    "positions": [
+      "goalkeeper"
+    ],
+    "equipment": [
+      "none"
+    ],
+    "space": "bedroom",
+    "group": "solo",
+    "minutes": 6,
+    "difficulty": 1,
+    "steps": {
+      "az": [
+        "Əsas duruşu al: ayaqlar çiyin genişliyində, çəki pəncədə.",
+        "30 saniyə tərpənmədən dayan.",
+        "10 saniyə fasilə. 6 dəst.",
+        "Hər dəstdən sonra güzgüdə əllərin yerini yoxla."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Dabanlar yerə dəymir.",
+        "Çiyinlər qalxmır, nəfəs sakitdir.",
+        "Əllər aşağı düşmür."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-catching-01",
+    "title": {
+      "az": "Divara atma və tutma",
+      "ru": "Бросок в стену и ловля",
+      "en": "Wall throw and catch"
+    },
+    "video": {
+      "file": "gk-catching-01.mp4",
+      "durationSec": 47,
+      "caption": {
+        "az": "W forması ilə tutma",
+        "ru": "",
+        "en": "Catching with the W-shape"
+      }
+    },
+    "positions": [
+      "goalkeeper"
+    ],
+    "equipment": [
+      "ball",
+      "wall"
+    ],
+    "space": "yard",
+    "group": "solo",
+    "minutes": 10,
+    "difficulty": 1,
+    "steps": {
+      "az": [
+        "Divardan 3 addım aralı dur.",
+        "Topu divara at, sıçrayışdan sonra sinənə tut.",
+        "Əllər [[w-shape|W forması]]nda olsun.",
+        "30 təkrar, 1 dəqiqə fasilə, 3 dəst."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Top əllərə dəyəndə səs yumşaqdır.",
+        "Top sinəyə çırpılmır, barmaqlar arxaya əyilmir.",
+        "Hər tutmadan sonra top bədənə yığılır."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper",
+      "w-shape"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-footwork-01",
+    "title": {
+      "az": "Kiçik addımlar",
+      "ru": "Мелкие шаги",
+      "en": "Small steps"
+    },
+    "positions": [
+      "goalkeeper"
+    ],
+    "equipment": [
+      "none"
+    ],
+    "space": "bedroom",
+    "group": "solo",
+    "minutes": 6,
+    "difficulty": 1,
+    "steps": {
+      "az": [
+        "Yerində sürətli kiçik addımlar — 15 saniyə.",
+        "Sağa 3 addım, sola 3 addım — ayaqlar kəsişmədən.",
+        "15 saniyə fasilə. 8 dəst."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Ayaqlar heç vaxt bir-birini kəsmir.",
+        "Çiyinlər qapıya paralel qalır.",
+        "Addım səsi bərabər ritmdədir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-reaction-01",
+    "title": {
+      "az": "Divardan reaksiya",
+      "ru": "Реакция от стены",
+      "en": "Wall reaction"
+    },
+    "positions": [
+      "goalkeeper"
+    ],
+    "equipment": [
+      "ball",
+      "wall"
+    ],
+    "space": "yard",
+    "group": "solo",
+    "minutes": 8,
+    "difficulty": 2,
+    "steps": {
+      "az": [
+        "Divara 2 addım yaxın dur.",
+        "Topu güclü at, qayıdan topa reaksiya ver.",
+        "Topu tuta bilməsən — yolunu kəs.",
+        "20 təkrar, 3 dəst."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Əllər bədəndən əvvəl hərəkət edir.",
+        "Gözlər topdan ayrılmır.",
+        "Hər təkrardan sonra duruş bərpa olunur."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-diving-01",
+    "title": {
+      "az": "Yana atılma — yumşaq səth",
+      "ru": "Падение вбок — мягкая поверхность",
+      "en": "Sideways dive — soft surface"
+    },
+    "positions": [
+      "goalkeeper"
+    ],
+    "equipment": [
+      "none"
+    ],
+    "space": "bedroom",
+    "group": "solo",
+    "minutes": 10,
+    "difficulty": 2,
+    "steps": {
+      "az": [
+        "Yatağın və ya yumşaq döşəyin yanında diz üstə otur.",
+        "Yana aşağı düş — əvvəl bud, sonra çiyin.",
+        "Hər iki tərəfə 10 təkrar, 3 dəst."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Dirsək yerə birinci dəymir.",
+        "Baş yerə toxunmur.",
+        "Yerə düşmə səsi bir dəfə eşidilir, iki yox."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-distribution-01",
+    "title": {
+      "az": "Əl ilə paylama",
+      "ru": "Ввод рукой",
+      "en": "Throwing distribution"
+    },
+    "positions": [
+      "goalkeeper"
+    ],
+    "equipment": [
+      "ball",
+      "partner"
+    ],
+    "space": "half-pitch",
+    "group": "group",
+    "minutes": 12,
+    "difficulty": 2,
+    "steps": {
+      "az": [
+        "Partnyor 15 addım aralıda dayanır.",
+        "Topu yerlə yuvarlayaraq onun ayağına çatdır.",
+        "Sonra çiyin üstündən at.",
+        "Hər növdən 15 təkrar."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Top partnyorun ayağına sakit çatır, sıçramır.",
+        "Baş atmadan əvvəl qalxır.",
+        "Ötürmə istiqaməti dəyişməz qalır."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper",
+      "pass"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "gk-angles-01",
+    "title": {
+      "az": "Bucaq bağlama — konuslarla",
+      "ru": "Углы с конусами",
+      "en": "Angles with cones"
+    },
+    "positions": [
+      "goalkeeper"
+    ],
+    "equipment": [
+      "cones",
+      "ball",
+      "partner"
+    ],
+    "space": "half-pitch",
+    "group": "group",
+    "minutes": 15,
+    "difficulty": 3,
+    "steps": {
+      "az": [
+        "Qapının qarşısında yarımdairə şəklində 5 konus düz.",
+        "Partnyor hər konusdan zərbə vurur.",
+        "Hər zərbədən əvvəl mövqeyini düzəlt.",
+        "2 dövrə."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Hər dəfə top-qapı xətti üzərində dayanırsan.",
+        "İrəli çıxış tarazlığı pozmur.",
+        "Zərbə anında hərəkət dayanıb."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "goalkeeper",
+      "goal"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "field-passing-01",
+    "title": {
+      "az": "Divara ötürmə",
+      "ru": "Пас в стену",
+      "en": "Wall passing"
+    },
+    "positions": [
+      "defender",
+      "midfielder",
+      "forward"
+    ],
+    "equipment": [
+      "ball",
+      "wall"
+    ],
+    "space": "yard",
+    "group": "solo",
+    "minutes": 10,
+    "difficulty": 1,
+    "steps": {
+      "az": [
+        "Divardan 5 addım aralı dur.",
+        "Ayağın içi ilə ötür, qayıdan topu bir toxunuşla dayandır.",
+        "Sağ və sol ayaqla növbələş.",
+        "40 təkrar."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Top düz qayıdır, yana yox.",
+        "Birinci toxunuş topu bədənə yaxın saxlayır.",
+        "Zərbə ayağın içi ilə, burnu ilə yox."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "pass"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "field-control-01",
+    "title": {
+      "az": "Topu qəbul etmə",
+      "ru": "Приём мяча",
+      "en": "First touch"
+    },
+    "positions": [
+      "midfielder",
+      "forward",
+      "defender"
+    ],
+    "equipment": [
+      "ball"
+    ],
+    "space": "yard",
+    "group": "solo",
+    "minutes": 8,
+    "difficulty": 1,
+    "steps": {
+      "az": [
+        "Topu yuxarı at.",
+        "Düşən topu bir toxunuşla yerə yatır.",
+        "Ayaq, bud və sinə ilə növbələş.",
+        "Hər səthdən 15 təkrar."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Top birinci toxunuşdan sonra bir addım məsafədə qalır.",
+        "Bədən topu qarşılamağa doğru hərəkət edir.",
+        "Baş topa baxır, ayağa yox."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "dribble"
+    ],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "fitness-agility-01",
+    "title": {
+      "az": "Konuslar arası sürət",
+      "ru": "Скорость между конусами",
+      "en": "Cone agility"
+    },
+    "positions": [
+      "any"
+    ],
+    "equipment": [
+      "cones"
+    ],
+    "space": "yard",
+    "group": "solo",
+    "minutes": 10,
+    "difficulty": 2,
+    "steps": {
+      "az": [
+        "5 konusu 2 addım aralı düz.",
+        "Yan addımlarla irəli-geri keç.",
+        "Hər dövrədən sonra 30 saniyə fasilə.",
+        "6 dövrə."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Dönüşlərdə çəki aşağıda qalır.",
+        "Ayaqlar kəsişmir.",
+        "Son dövrə birinci dövrə qədər təmizdir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "field-wallvolley-01",
+    "title": {
+      "az": "Divara hava zərbəsi",
+      "ru": "Удар с лёта в стену",
+      "en": "Wall volley"
+    },
+    "positions": [
+      "midfielder",
+      "forward"
+    ],
+    "equipment": [
+      "ball",
+      "wall"
+    ],
+    "space": "yard",
+    "group": "solo",
+    "minutes": 8,
+    "difficulty": 3,
+    "steps": {
+      "az": [
+        "Topu özünə at.",
+        "Yerə dəymədən divara vur.",
+        "Qayıdan topu tut və təkrarla.",
+        "Hər ayaqla 15 təkrar."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Zərbə anında bədən topun üstündədir.",
+        "Top divara düz gedir.",
+        "Ayaq biləyi bərkdir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [],
+    "status": "draft",
+    "reviewed": false
+  },
+  {
+    "id": "group-rondo-01",
+    "title": {
+      "az": "Rondo 3v1",
+      "ru": "Ронда 3в1",
+      "en": "Rondo 3v1"
+    },
+    "positions": [
+      "any"
+    ],
+    "equipment": [
+      "ball",
+      "cones",
+      "partner"
+    ],
+    "space": "half-pitch",
+    "group": "group",
+    "minutes": 15,
+    "difficulty": 2,
+    "steps": {
+      "az": [
+        "4 konusla kvadrat düz.",
+        "Üç nəfər kənarda, bir nəfər içəridə.",
+        "Topu itirən içəri keçir.",
+        "10 dəqiqə fasiləsiz."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "whatGoodLooksLike": {
+      "az": [
+        "Ötürmədən əvvəl baş qalxır.",
+        "Top yerlə gedir.",
+        "Ötürmədən sonra oyunçu yerini dəyişir."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "pass"
+    ],
+    "status": "draft",
+    "reviewed": false
+  }
+]

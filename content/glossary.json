@@ -1,0 +1,300 @@
+[
+  {
+    "id": "offside",
+    "term": {
+      "az": "ofsayt",
+      "ru": "офсайд",
+      "en": "offside"
+    },
+    "alsoKnownAs": [
+      "ofsayd"
+    ],
+    "definition": {
+      "az": "TODO — dəqiq tərif IFAB Law 11 mətnindən yazılacaq.",
+      "ru": "TODO — точное определение по IFAB Law 11.",
+      "en": "TODO — exact definition from IFAB Law 11."
+    },
+    "seeLessonId": "rules-offside-01",
+    "reviewed": false
+  },
+  {
+    "id": "penalty",
+    "term": {
+      "az": "penalti",
+      "ru": "пенальти",
+      "en": "penalty"
+    },
+    "definition": {
+      "az": "TODO — şərtlər Law 14 mətnindən.",
+      "ru": "",
+      "en": "TODO — conditions from Law 14."
+    },
+    "seeLessonId": "rules-penalty-01",
+    "reviewed": false
+  },
+  {
+    "id": "goalkeeper",
+    "term": {
+      "az": "qapıçı",
+      "ru": "вратарь",
+      "en": "goalkeeper"
+    },
+    "definition": {
+      "az": "Öz cərimə meydançasında topa əl ilə toxuna bilən oyunçu.",
+      "ru": "Игрок, которому разрешено играть руками в своей штрафной.",
+      "en": "The player allowed to handle the ball inside her own penalty area."
+    },
+    "seeLessonId": "pos-goalkeeper-01",
+    "relatedTermIds": [
+      "penalty"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "defender",
+    "term": {
+      "az": "müdafiəçi",
+      "ru": "защитник",
+      "en": "defender"
+    },
+    "definition": {
+      "az": "Öz qapısına yaxın sahəni qoruyan oyunçu.",
+      "ru": "",
+      "en": "A player who protects the area near her own goal."
+    },
+    "seeLessonId": "pos-centreback-01",
+    "reviewed": false
+  },
+  {
+    "id": "midfielder",
+    "term": {
+      "az": "yarımmüdafiəçi",
+      "ru": "полузащитник",
+      "en": "midfielder"
+    },
+    "definition": {
+      "az": "Müdafiə ilə hücum arasında oynayan oyunçu.",
+      "ru": "",
+      "en": "A player who works between defence and attack."
+    },
+    "seeLessonId": "pos-midfielder-01",
+    "reviewed": false
+  },
+  {
+    "id": "forward",
+    "term": {
+      "az": "hücumçu",
+      "ru": "нападающий",
+      "en": "forward"
+    },
+    "definition": {
+      "az": "Rəqib qapısına ən yaxın oynayan oyunçu.",
+      "ru": "",
+      "en": "The player operating closest to the opposition goal."
+    },
+    "seeLessonId": "pos-striker-01",
+    "reviewed": false
+  },
+  {
+    "id": "referee",
+    "term": {
+      "az": "hakim",
+      "ru": "судья",
+      "en": "referee"
+    },
+    "definition": {
+      "az": "Oyunu idarə edən və qaydaları tətbiq edən şəxs.",
+      "ru": "",
+      "en": "The official who controls the match and applies the Laws."
+    },
+    "seeLessonId": "rules-referee-01",
+    "reviewed": false
+  },
+  {
+    "id": "foul",
+    "term": {
+      "az": "qayda pozuntusu",
+      "ru": "фол",
+      "en": "foul"
+    },
+    "alsoKnownAs": [
+      "faul"
+    ],
+    "definition": {
+      "az": "TODO — hansı hərəkətlərin qayda pozuntusu sayıldığı Law 12-dən.",
+      "ru": "",
+      "en": "TODO — which actions count as fouls, from Law 12."
+    },
+    "seeLessonId": "rules-fouls-01",
+    "reviewed": false
+  },
+  {
+    "id": "free-kick",
+    "term": {
+      "az": "sərbəst zərbə",
+      "ru": "штрафной удар",
+      "en": "free kick"
+    },
+    "definition": {
+      "az": "TODO — birbaşa və dolayı fərqi Law 13-dən.",
+      "ru": "",
+      "en": "TODO — direct vs indirect, from Law 13."
+    },
+    "seeLessonId": "rules-freekick-01",
+    "reviewed": false
+  },
+  {
+    "id": "wall",
+    "term": {
+      "az": "divar",
+      "ru": "стенка",
+      "en": "wall"
+    },
+    "definition": {
+      "az": "Sərbəst zərbə zamanı qapı qarşısında sıraya duran oyunçular.",
+      "ru": "",
+      "en": "The line of players standing in front of goal at a free kick."
+    },
+    "seeLessonId": "rules-freekick-01",
+    "reviewed": false
+  },
+  {
+    "id": "throw-in",
+    "term": {
+      "az": "autdan atma",
+      "ru": "вбрасывание",
+      "en": "throw-in"
+    },
+    "alsoKnownAs": [
+      "aut"
+    ],
+    "definition": {
+      "az": "TODO — icra qaydası Law 15-dən.",
+      "ru": "",
+      "en": "TODO — how it is taken, from Law 15."
+    },
+    "seeLessonId": "rules-throwin-01",
+    "reviewed": false
+  },
+  {
+    "id": "corner",
+    "term": {
+      "az": "künc zərbəsi",
+      "ru": "угловой",
+      "en": "corner kick"
+    },
+    "definition": {
+      "az": "TODO — verilmə şərti Law 17-dən.",
+      "ru": "",
+      "en": "TODO — when it is awarded, from Law 17."
+    },
+    "seeLessonId": "rules-corner-01",
+    "reviewed": false
+  },
+  {
+    "id": "yellow-card",
+    "term": {
+      "az": "sarı vərəqə",
+      "ru": "жёлтая карточка",
+      "en": "yellow card"
+    },
+    "definition": {
+      "az": "TODO — hansı hallarda göstərilir, Law 12-dən.",
+      "ru": "",
+      "en": "TODO — when it is shown, from Law 12."
+    },
+    "seeLessonId": "rules-fouls-01",
+    "reviewed": false
+  },
+  {
+    "id": "red-card",
+    "term": {
+      "az": "qırmızı vərəqə",
+      "ru": "красная карточка",
+      "en": "red card"
+    },
+    "definition": {
+      "az": "TODO — hansı hallarda göstərilir, Law 12-dən.",
+      "ru": "",
+      "en": "TODO — when it is shown, from Law 12."
+    },
+    "seeLessonId": "rules-fouls-01",
+    "reviewed": false
+  },
+  {
+    "id": "pitch",
+    "term": {
+      "az": "meydan",
+      "ru": "поле",
+      "en": "pitch"
+    },
+    "definition": {
+      "az": "Oyunun keçirildiyi sahə.",
+      "ru": "",
+      "en": "The field of play."
+    },
+    "seeLessonId": "rules-pitch-01",
+    "reviewed": false
+  },
+  {
+    "id": "goal",
+    "term": {
+      "az": "qapı",
+      "ru": "ворота",
+      "en": "goal"
+    },
+    "definition": {
+      "az": "Qapı dirəkləri və üst dirəkdən ibarət konstruksiya. Həm də qol deməkdir.",
+      "ru": "",
+      "en": "The frame of posts and crossbar. Also the word for a scored goal."
+    },
+    "seeLessonId": "rules-pitch-01",
+    "reviewed": false
+  },
+  {
+    "id": "pass",
+    "term": {
+      "az": "ötürmə",
+      "ru": "пас",
+      "en": "pass"
+    },
+    "alsoKnownAs": [
+      "pas"
+    ],
+    "definition": {
+      "az": "Topun komanda yoldaşına ötürülməsi.",
+      "ru": "",
+      "en": "Playing the ball to a team-mate."
+    },
+    "reviewed": false
+  },
+  {
+    "id": "dribble",
+    "term": {
+      "az": "driblinq",
+      "ru": "дриблинг",
+      "en": "dribble"
+    },
+    "definition": {
+      "az": "Topu ayaqla idarə edərək irəli aparmaq.",
+      "ru": "",
+      "en": "Carrying the ball forward under close control."
+    },
+    "reviewed": false
+  },
+  {
+    "id": "w-shape",
+    "term": {
+      "az": "W forması",
+      "ru": "W-хват",
+      "en": "W-shape"
+    },
+    "definition": {
+      "az": "Yuxarı topu tutarkən əllərin aldığı forma: baş barmaqlar bir-birinə yaxın.",
+      "ru": "",
+      "en": "The hand shape for catching a high ball: thumbs close together behind the ball."
+    },
+    "seeLessonId": "gk-catching-01",
+    "reviewed": false
+  }
+]

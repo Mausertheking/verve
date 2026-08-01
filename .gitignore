@@ -110,3 +110,7 @@ Thumbs.db
 assets/videos/*
 !assets/videos/README.md
 !assets/videos/.gitkeep
+
+# Expo Router generated types
+.expo/types/
+expo-env.d.ts

@@ -1,0 +1,368 @@
+[
+  {
+    "id": "rules-pitch-01",
+    "trackId": "rules",
+    "order": 1,
+    "title": {
+      "az": "Meydan",
+      "ru": "Поле",
+      "en": "The pitch"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "pitch",
+      "goal"
+    ],
+    "estMinutes": 4,
+    "status": "todo",
+    "reviewed": false,
+    "diagram": {
+      "view": "full",
+      "caption": {
+        "az": "Meydanın hissələri — adlar TODO.",
+        "ru": "Части поля — названия TODO.",
+        "en": "Parts of the pitch — labels TODO."
+      }
+    }
+  },
+  {
+    "id": "rules-offside-01",
+    "trackId": "rules",
+    "order": 2,
+    "title": {
+      "az": "Ofsayd",
+      "ru": "Офсайд",
+      "en": "Offside"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "offside",
+      "defender"
+    ],
+    "estMinutes": 6,
+    "status": "todo",
+    "reviewed": false,
+    "diagram": {
+      "view": "half",
+      "caption": {
+        "az": "Diaqram nümunəsi — qayda mətni hələ yoxdur.",
+        "ru": "Пример диаграммы — текста правила пока нет.",
+        "en": "Diagram sample — the rule text is not written yet."
+      },
+      "zones": [],
+      "markers": [
+        {
+          "id": "d1",
+          "x": 50,
+          "y": 16,
+          "kind": "opponent"
+        },
+        {
+          "id": "d2",
+          "x": 50,
+          "y": 48,
+          "kind": "opponent"
+        },
+        {
+          "id": "a1",
+          "x": 62,
+          "y": 24,
+          "kind": "player"
+        },
+        {
+          "id": "a2",
+          "x": 82,
+          "y": 42,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 86,
+          "y": 42,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 84,
+            "y": 40
+          },
+          "to": {
+            "x": 64,
+            "y": 26
+          },
+          "kind": "pass"
+        }
+      ],
+      "lines": [
+        {
+          "x": 50,
+          "label": {
+            "az": "ofsayd xətti",
+            "ru": "линия офсайда",
+            "en": "offside line"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "rules-fouls-01",
+    "trackId": "rules",
+    "order": 3,
+    "title": {
+      "az": "Qayda pozuntuları",
+      "ru": "Нарушения",
+      "en": "Fouls"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "foul",
+      "yellow-card",
+      "red-card"
+    ],
+    "estMinutes": 5,
+    "status": "todo",
+    "reviewed": false
+  },
+  {
+    "id": "rules-freekick-01",
+    "trackId": "rules",
+    "order": 4,
+    "title": {
+      "az": "Sərbəst zərbələr",
+      "ru": "Штрафные удары",
+      "en": "Free kicks"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "free-kick",
+      "wall"
+    ],
+    "estMinutes": 5,
+    "status": "todo",
+    "reviewed": false
+  },
+  {
+    "id": "rules-throwin-01",
+    "trackId": "rules",
+    "order": 5,
+    "title": {
+      "az": "Autdan atma",
+      "ru": "Вбрасывание",
+      "en": "Throw-in"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "throw-in"
+    ],
+    "estMinutes": 3,
+    "status": "todo",
+    "reviewed": false
+  },
+  {
+    "id": "rules-penalty-01",
+    "trackId": "rules",
+    "order": 6,
+    "title": {
+      "az": "Penalti",
+      "ru": "Пенальти",
+      "en": "Penalty"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "penalty",
+      "goalkeeper"
+    ],
+    "estMinutes": 4,
+    "status": "todo",
+    "reviewed": false
+  },
+  {
+    "id": "rules-corner-01",
+    "trackId": "rules",
+    "order": 7,
+    "title": {
+      "az": "Künc zərbəsi",
+      "ru": "Угловой",
+      "en": "Corner kick"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "corner"
+    ],
+    "estMinutes": 3,
+    "status": "todo",
+    "reviewed": false
+  },
+  {
+    "id": "rules-referee-01",
+    "trackId": "rules",
+    "order": 8,
+    "title": {
+      "az": "Hakimin işarələri",
+      "ru": "Жесты судьи",
+      "en": "Referee's signals"
+    },
+    "body": {
+      "az": [
+        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+      ],
+      "ru": [
+        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+      ],
+      "en": [
+        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+      ]
+    },
+    "takeaways": {
+      "az": [
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra.",
+        "TODO — məşqçi yoxlamasından sonra."
+      ],
+      "ru": [],
+      "en": []
+    },
+    "glossaryTermIds": [
+      "referee"
+    ],
+    "estMinutes": 5,
+    "status": "todo",
+    "reviewed": false
+  }
+]

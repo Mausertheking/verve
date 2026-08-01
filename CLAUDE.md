@@ -35,8 +35,16 @@ fail without a connection does not belong in v1.
 - AsyncStorage for progress (expo-sqlite only if genuinely needed)
 - i18next for localization: `az` (default), `ru`, `en`
 - react-native-svg for all diagrams
-- expo-av for video playback
+- **expo-video** for video playback (not expo-av — see Resolved decisions)
 - Keep dependencies minimal. No paid services.
+
+### Dependency pins that matter
+
+`react-dom` is pinned to an **exact** version matching `react` (no caret).
+Expo pins React itself, and a caret lets npm pull a newer `react-dom` whose
+peer range demands a React that Expo will not install — the install then fails
+with an ERESOLVE that looks like it is about whatever you were adding at the
+time. If you see a peer conflict mentioning `react-dom`, check this first.
 
 ## V1 scope — build only these five
 
