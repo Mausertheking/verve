@@ -114,3 +114,6 @@ assets/videos/*
 # Expo Router generated types
 .expo/types/
 expo-env.d.ts
+
+# Web build output for GitHub Pages (deployed to the gh-pages branch)
+/dist/
