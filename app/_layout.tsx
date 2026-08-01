@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import '@/i18n';
+import { ProgressProvider } from '@/storage/progress';
 import { colors } from '@/theme';
 
 /**
@@ -14,19 +15,22 @@ import { colors } from '@/theme';
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <StatusBar style="light" />
-      <Stack
-        screenOptions={{
-          animation: 'none',
-          contentStyle: { backgroundColor: colors.bg },
-          headerStyle: { backgroundColor: colors.bg },
-          headerTintColor: colors.accent,
-          headerTitleStyle: { color: colors.textPrimary, fontSize: 17, fontWeight: '600' },
-          headerShadowVisible: false,
-        }}
-      >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+      <ProgressProvider>
+        <StatusBar style="light" />
+        <Stack
+          screenOptions={{
+            animation: 'none',
+            contentStyle: { backgroundColor: colors.bg },
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.accent,
+            headerTitleStyle: { color: colors.textPrimary, fontSize: 17, fontWeight: '600' },
+            headerShadowVisible: false,
+          }}
+        >
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="term/[id]" options={{ presentation: 'modal' }} />
+        </Stack>
+      </ProgressProvider>
     </SafeAreaProvider>
   );
 }
