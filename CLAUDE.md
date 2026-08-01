@@ -87,8 +87,34 @@ Videos will be filmed and added later by the developer. Build the space now.
 
 - Dark UI, high contrast, single strong accent colour. System fonts only.
   Readable outdoors. Large tap targets. Usable one-handed.
-- Serious training tool, **not pink-by-default**.
+- Serious training tool. The accent is a **desaturated dusty rose**, chosen
+  deliberately — muted and adult, not a bright candy pink.
 - **NO purple.** No purple/violet accent, no purple gradients.
+
+### Palette (locked — every value contrast-checked)
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `bg` | `#0B0E14` | app background — near-black, cold blue undertone |
+| `surface` | `#131A24` | cards, sheets, filter bars |
+| `surfaceRaised` | `#1B2432` | pressed states, selected chips |
+| `border` | `#232C3A` | hairlines — surfaces are separated by borders, not shadows |
+| `accent` | `#C2687A` | dusty rose. 5.11:1 on `bg`, 4.63:1 on `surface` — AA for body text |
+| `accentPressed` | `#A85C6E` | pressed state for accent fills |
+| `onAccent` | `#0B0E14` | text/icons **on** an accent fill — 5.56:1. Never white (3.78:1, fails AA) |
+| `textPrimary` | `#E9ECF2` | 16.3:1 on `bg` |
+| `textSecondary` | `#9AA5B5` | 7.8:1 on `bg` — still AA at small sizes |
+
+Depth comes from borders and flat surface steps only. **No shadows, no glow,
+no gradients.**
+
+### Resolved decisions
+
+- **Video:** `expo-video`, not `expo-av`. The player is confined to
+  `<VideoSlot>` so the dependency is swappable in one file.
+- **Translations:** Azerbaijani is required; `ru` and `en` may be empty strings
+  and fall back to `az` at render time. Content validation warns on missing
+  locales, never fails. Never machine-translate content silently.
 - **NO glow.** No neon, bloom, drop-shadow-glow, or box-shadow "glow" anywhere.
   Flat, solid colours only.
 - **NO animations of any kind in v1.** No scroll animations, no fade-in or
