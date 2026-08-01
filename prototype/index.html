@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verve — prototype</title>
+<style>
+:root{
+  --bg:#0B0E14; --surface:#131A24; --surfaceRaised:#1B2432; --border:#232C3A;
+  --accent:#C2687A; --accentPressed:#A85C6E; --onAccent:#0B0E14;
+  --textPrimary:#E9ECF2; --textSecondary:#9AA5B5;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:#06080C;color:var(--textPrimary);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;padding:0}
+
+/* device frame — collapses to full-bleed on a real phone */
+#device{width:100%;max-width:400px;height:100vh;max-height:860px;background:var(--bg);
+  display:flex;flex-direction:column;overflow:hidden;position:relative;
+  border-left:1px solid var(--border);border-right:1px solid var(--border)}
+@media(min-width:420px){#device{border:1px solid var(--border);border-radius:20px;height:844px}}
+
+#main{flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ---------- app bar ---------- */
+.bar{padding:14px 16px 12px;border-bottom:1px solid var(--border);background:var(--bg);
+  display:flex;align-items:flex-start;gap:11px;position:sticky;top:0;z-index:5}
+.bar .back{font-size:22px;line-height:1;color:var(--textSecondary);padding:0 2px;cursor:pointer}
+.bar .grow{flex:1;min-width:0}
+.bar h1{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.bar .sub{font-size:12px;color:var(--textSecondary);margin-top:3px}
+.bar .lang{font-size:11px;font-weight:700;color:var(--textSecondary);border:1px solid var(--border);
+  border-radius:6px;padding:5px 8px;cursor:pointer;letter-spacing:.06em}
+
+/* ---------- tab bar ---------- */
+#tabs{display:flex;border-top:1px solid var(--border);background:var(--bg);flex:0 0 auto}
+#tabs button{flex:1;background:none;border:0;font-family:var(--font);color:var(--textSecondary);
+  font-size:10.5px;padding:9px 2px calc(12px + env(safe-area-inset-bottom));cursor:pointer;line-height:1.3}
+#tabs button .ic{display:block;font-size:17px;margin-bottom:4px;line-height:1}
+#tabs button.on{color:var(--accent);font-weight:700}
+
+/* ---------- primitives ---------- */
+.pad{padding:16px}
+.sec{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--textSecondary);
+  margin:22px 0 10px}
+.sec:first-child{margin-top:0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;
+  margin-bottom:10px;cursor:pointer;display:block;width:100%;text-align:left;font-family:var(--font);color:inherit}
+.card:active{background:var(--surfaceRaised)}
+.card.flat{cursor:default}
+.card h3{font-size:15px;font-weight:600;margin-bottom:4px;letter-spacing:-.005em;line-height:1.3}
+.card p{font-size:13px;color:var(--textSecondary);line-height:1.5}
+.rowb{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.chev{color:var(--accent);font-size:20px;line-height:1;flex:0 0 auto}
+
+.meter{height:4px;background:var(--surfaceRaised);border-radius:2px;overflow:hidden;margin-top:12px}
+.meter i{display:block;height:100%;background:var(--accent)}
+.meterlbl{font-size:11px;color:var(--textSecondary);margin-top:6px}
+
+.tag{font-size:11px;padding:3px 8px;border-radius:5px;background:var(--surfaceRaised);
+  border:1px solid var(--border);color:var(--textSecondary);white-space:nowrap}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+
+.btn{display:block;width:100%;text-align:center;background:var(--accent);color:var(--onAccent);
+  font-weight:700;font-size:15px;padding:15px;border-radius:10px;border:0;font-family:var(--font);
+  cursor:pointer;margin-top:6px}
+.btn:active{background:var(--accentPressed)}
+.btn[disabled]{background:var(--surfaceRaised);color:var(--textSecondary);cursor:default}
+.btn.ghost{background:none;border:1px solid var(--border);color:var(--textPrimary);font-weight:600}
+
+.input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  padding:11px 13px;color:var(--textPrimary);font-size:15px;font-family:var(--font)}
+.input::placeholder{color:var(--textSecondary)}
+
+/* ---------- video slot: fixed 16:9, identical either state ---------- */
+.vslot{position:relative;width:100%;aspect-ratio:16/9;background:var(--surface);
+  border-bottom:1px solid var(--border);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;overflow:hidden}
+.vslot .pbtn{width:52px;height:52px;border-radius:26px;border:1px solid var(--border);
+  background:var(--surfaceRaised);display:flex;align-items:center;justify-content:center}
+.vslot .cap{font-size:12px;color:var(--textSecondary)}
+.vslot .ctrl{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;display:flex;
+  align-items:center;gap:10px;background:rgba(11,14,20,.88)}
+.vslot .ctrl .pb{width:30px;height:30px;border-radius:15px;background:var(--accent);border:0;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;cursor:pointer}
+.vslot .ctrl .bar2{flex:1;height:3px;background:#2A3242;border-radius:2px}
+.vslot .ctrl .t{font-size:11px;color:var(--textSecondary)}
+
+/* ---------- lesson body ---------- */
+.body p{font-size:15px;line-height:1.65;margin-bottom:14px}
+.term{color:var(--accent);border-bottom:1px solid var(--accentPressed);cursor:pointer}
+.todo{border:1px dashed var(--border);border-radius:12px;padding:14px;background:var(--surface)}
+.todo .badge{display:inline-block;font-size:10px;letter-spacing:.08em;font-weight:700;
+  color:var(--onAccent);background:var(--accent);padding:3px 7px;border-radius:4px;margin-bottom:9px}
+.todo .badge.draft{background:var(--surfaceRaised);color:var(--textSecondary);border:1px solid var(--border)}
+.todo p{font-size:13px;color:var(--textSecondary);line-height:1.55}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--textPrimary)}
+
+ul.take{list-style:none;display:flex;flex-direction:column;gap:11px}
+ul.take li{display:flex;gap:10px;font-size:14px;line-height:1.5}
+ul.take .n{flex:0 0 auto;width:20px;height:20px;border-radius:10px;background:var(--accent);
+  color:var(--onAccent);font-size:11px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;margin-top:2px}
+
+/* ---------- filters ---------- */
+.flabel{font-size:11px;color:var(--textSecondary);margin:15px 0 7px;letter-spacing:.05em;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid var(--border);
+  background:var(--surface);color:var(--textSecondary);cursor:pointer;font-family:var(--font)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--onAccent);font-weight:700}
+
+/* ---------- quiz ---------- */
+.opt{width:100%;text-align:left;border:1px solid var(--border);background:var(--surface);
+  border-radius:10px;padding:13px 14px;margin-bottom:9px;font-size:14px;display:flex;gap:11px;
+  align-items:flex-start;cursor:pointer;font-family:var(--font);color:inherit;line-height:1.45}
+.opt .k{flex:0 0 auto;width:22px;height:22px;border-radius:11px;border:1px solid var(--border);
+  font-size:11px;display:flex;align-items:center;justify-content:center;color:var(--textSecondary);font-weight:700}
+.opt.picked{border-color:var(--accent)}
+.opt.picked .k{background:var(--accent);color:var(--onAccent);border-color:var(--accent)}
+.opt.right{border-color:var(--textPrimary)}
+.opt.right .k{background:var(--textPrimary);color:var(--bg);border-color:var(--textPrimary)}
+.expl{border-left:2px solid var(--accent);padding:10px 0 10px 12px;margin:2px 0 14px;
+  font-size:13px;color:var(--textSecondary);line-height:1.55}
+
+/* ---------- glossary ---------- */
+.gitem{border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer}
+.gitem:last-child{border-bottom:0}
+.gitem .az{font-size:15px;font-weight:600}
+.gitem .rest{font-size:13px;color:var(--textSecondary);margin-top:3px}
+.gitem .def{font-size:13px;color:var(--textSecondary);margin-top:6px;line-height:1.5}
+
+/* ---------- sheet ---------- */
+#sheet{position:absolute;inset:0;background:rgba(6,8,12,.72);display:none;
+  align-items:flex-end;z-index:20}
+#sheet.open{display:flex}
+#sheet .panel{width:100%;background:var(--surface);border-top:1px solid var(--border);
+  border-radius:16px 16px 0 0;padding:18px 16px calc(22px + env(safe-area-inset-bottom));max-height:78%;overflow-y:auto}
+
+/* ---------- empty ---------- */
+.empty{text-align:center;padding:54px 22px}
+.empty .ic{width:56px;height:56px;border-radius:28px;background:var(--surface);border:1px solid var(--border);
+  margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
+.empty h3{font-size:16px;margin-bottom:8px}
+.empty p{font-size:13px;color:var(--textSecondary);line-height:1.6;max-width:34ch;margin:0 auto}
+
+.diagram{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:10px}
+.dcap{font-size:12px;color:var(--textSecondary);margin-top:8px;line-height:1.5}
+
+/* ---------- dev drawer ---------- */
+#devbtn{position:absolute;right:8px;bottom:calc(64px + env(safe-area-inset-bottom));width:30px;height:30px;
+  border-radius:15px;background:var(--surfaceRaised);border:1px solid var(--border);color:var(--textSecondary);
+  font-size:13px;cursor:pointer;z-index:10}
+#dev{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--border);
+  padding:16px 16px calc(18px + env(safe-area-inset-bottom));display:none;z-index:25;max-height:70%;overflow-y:auto}
+#dev.open{display:block}
+#dev h4{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--textSecondary);margin-bottom:12px}
+#dev .drow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;
+  border-bottom:1px solid var(--border);font-size:13px}
+#dev .drow:last-of-type{border-bottom:0}
+#dev .sw{width:44px;height:26px;border-radius:13px;background:var(--surfaceRaised);border:1px solid var(--border);
+  position:relative;cursor:pointer;flex:0 0 auto}
+#dev .sw i{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:10px;background:var(--textSecondary)}
+#dev .sw.on{background:var(--accent);border-color:var(--accent)}
+#dev .sw.on i{left:20px;background:var(--onAccent)}
+.stat{font-size:12px;color:var(--textSecondary);line-height:1.7}
+.stat b{color:var(--textPrimary)}
+</style>
+</head>
+<body>
+
+<div id="device">
+  <div id="main"></div>
+  <div id="tabs"></div>
+  <button id="devbtn" title="Developer panel">⚙</button>
+  <div id="dev"></div>
+  <div id="sheet"><div class="panel" id="sheetBody"></div></div>
+</div>
+
+<script>
+/* ===========================================================================
+   VERVE — interactive prototype
+   Single file, no network, no build. Mirrors the proposed content schema
+   exactly, so this data is the seed for /content in the real app.
+
+   Coordinate note: diagram space is x 0..100, y 0..65 (pitch aspect ~1.54).
+   =========================================================================== */
+
+const LOCALES = ['az','ru','en'];
+let locale = localStorage.getItem('verve.locale') || 'az';
+
+/** Falls back to Azerbaijani when a translation is missing — the agreed policy. */
+function t(obj){
+  if(!obj) return '';
+  if(typeof obj === 'string') return obj;
+  return obj[locale] || obj.az || '';
+}
+function tl(obj){
+  if(!obj) return [];
+  const v = obj[locale];
+  return (v && v.length) ? v : (obj.az || []);
+}
+
+/* --------------------------------------------------------------------------
+   UI chrome strings (i18n/locales/*.json in the real app)
+   -------------------------------------------------------------------------- */
+const UI = {
+  learn:{az:'Öyrən',ru:'Учись',en:'Learn'},
+  train:{az:'Məşq',ru:'Тренировка',en:'Train'},
+  teams:{az:'Komanda',ru:'Команда',en:'Teams'},
+  glossary:{az:'Lüğət',ru:'Словарь',en:'Glossary'},
+  videoSoon:{az:'Video tezliklə',ru:'Видео скоро',en:'Video coming soon'},
+  takeaways:{az:'Əsas fikirlər',ru:'Главное',en:'Key takeaways'},
+  steps:{az:'Addımlar',ru:'Шаги',en:'Steps'},
+  whatGood:{az:'Düzgün icra necə görünür',ru:'Как выглядит правильно',en:'What good looks like'},
+  howItLooks:{az:'Necə görünür',ru:'Как это выглядит',en:'How it looks'},
+  next:{az:'Növbəti',ru:'Далее',en:'Next'},
+  nextLesson:{az:'Növbəti dərs',ru:'Следующий урок',en:'Next lesson'},
+  markDone:{az:'Tamamlandı olaraq işarələ',ru:'Отметить пройденным',en:'Mark as done'},
+  done:{az:'Tamamlanıb',ru:'Пройдено',en:'Completed'},
+  startQuiz:{az:'Testə başla',ru:'Начать тест',en:'Start quiz'},
+  quizLocked:{az:'Test hazır deyil',ru:'Тест не готов',en:'Quiz not ready'},
+  results:{az:'Nəticə',ru:'Результат',en:'Result'},
+  retry:{az:'Yenidən cəhd et',ru:'Пройти снова',en:'Try again'},
+  searchTerm:{az:'Termin axtar…',ru:'Поиск термина…',en:'Search a term…'},
+  searchCity:{az:'Şəhər axtar…',ru:'Поиск города…',en:'Search a city…'},
+  results_n:{az:'nəticə',ru:'результатов',en:'results'},
+  noResults:{az:'Nəticə yoxdur',ru:'Ничего не найдено',en:'No results'},
+  noResultsBody:{az:'Filtrlərdən birini götür və yenidən yoxla.',ru:'Снимите один из фильтров и попробуйте снова.',en:'Remove one of the filters and try again.'},
+  position:{az:'Mövqe',ru:'Позиция',en:'Position'},
+  equipment:{az:'Nəyim var',ru:'Что у меня есть',en:'What I have'},
+  equipmentHint:{az:'Seçdiyin avadanlıqla edə biləcəyin bütün məşqlər — daha az avadanlıq tələb edənlər də daxil.',
+                 ru:'Все упражнения, которые можно сделать с выбранным инвентарём — включая те, которым нужно меньше.',
+                 en:'Everything you can do with what you picked — including drills that need less.'},
+  space:{az:'Məkan',ru:'Место',en:'Space'},
+  who:{az:'Tək / qrup',ru:'Один / группа',en:'Solo / group'},
+  time:{az:'Vaxt',ru:'Время',en:'Time'},
+  clear:{az:'Filtrləri təmizlə',ru:'Сбросить фильтры',en:'Clear filters'},
+  min:{az:'dəq',ru:'мин',en:'min'},
+  lessons:{az:'dərs',ru:'уроков',en:'lessons'},
+  notStarted:{az:'Başlanmayıb',ru:'Не начато',en:'Not started'},
+  ofDone:{az:'tamamlandı',ru:'пройдено',en:'completed'},
+  continue:{az:'Davam et',ru:'Продолжить',en:'Continue'},
+  relatedLesson:{az:'Bu sual haradan',ru:'Откуда вопрос',en:'Where this comes from'},
+  seeAlso:{az:'Həmçinin bax',ru:'См. также',en:'See also'},
+  teamsEmptyTitle:{az:'Siyahı hazırlanır',ru:'Список готовится',en:'List in progress'},
+  teamsEmptyBody:{
+    az:'Qızları qəbul edən klublar və məktəb komandaları bir-bir yoxlanılır. Yoxlanılmamış heç bir ad buraya əlavə edilmir.',
+    ru:'Клубы и школьные команды, принимающие девочек, проверяются по одному. Непроверенные названия сюда не добавляются.',
+    en:'Clubs and school teams that accept girls are being verified one by one. No unverified name gets added here.'},
+};
+const ui = k => t(UI[k]);
+
+/* --------------------------------------------------------------------------
+   CONTENT
+   Rules content is TODO by policy — the Laws of the Game are not paraphrased
+   from memory. Drafted content carries reviewed:false.
+   -------------------------------------------------------------------------- */
+
+const TRACKS = [
+  {id:'rules', title:{az:'Oyunun qaydaları',ru:'Правила игры',en:'Rules of the game'},
+   summary:{az:'Meydan, mövqelər, ofsayd, qayda pozuntuları, zərbələr.',
+            ru:'Поле, позиции, офсайд, нарушения, удары.',
+            en:'Pitch, positions, offside, fouls, set pieces.'}, quizId:'quiz-rules'},
+  {id:'positions', title:{az:'Mövqelər',ru:'Позиции',en:'Positions'},
+   summary:{az:'Hər mövqe əslində nə edir — və sənə hansı uyğun gəlir.',
+            ru:'Что на самом деле делает каждая позиция — и какая подходит тебе.',
+            en:'What each position actually does — and which suits you.'}, quizId:'quiz-positions'},
+  {id:'goalkeeper', title:{az:'Qapıçı',ru:'Вратарь',en:'Goalkeeper'},
+   summary:{az:'Duruş, ayaq işi, top tutma, paylama, bucaq, təkbətək.',
+            ru:'Стойка, работа ног, ловля, ввод мяча, углы, один на один.',
+            en:'Stance, footwork, catching, distribution, angles, 1v1.'}, quizId:'quiz-goalkeeper'},
+];
+
+const TODO_BODY = {az:['TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox.'],
+  ru:['TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером.'],
+  en:['TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not.']};
+const TODO_TAKE = {az:['TODO — məşqçi yoxlamasından sonra.','TODO — məşqçi yoxlamasından sonra.','TODO — məşqçi yoxlamasından sonra.']};
+
+const LESSONS = [
+  /* ---- RULES: structure only, no invented rules ---- */
+  {id:'rules-pitch-01',trackId:'rules',order:1,title:{az:'Meydan',ru:'Поле',en:'The pitch'},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['pitch','goal'],estMinutes:4,status:'todo',reviewed:false,
+   diagram:{view:'full',caption:{az:'Meydanın hissələri — adlar TODO.',ru:'Части поля — названия TODO.',en:'Parts of the pitch — labels TODO.'}}},
+  {id:'rules-offside-01',trackId:'rules',order:2,title:{az:'Ofsayd',ru:'Офсайд',en:'Offside'},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['offside','defender'],estMinutes:6,status:'todo',reviewed:false,
+   diagram:{view:'half',caption:{az:'Diaqram nümunəsi — qayda mətni hələ yoxdur.',ru:'Пример диаграммы — текста правила пока нет.',en:'Diagram sample — the rule text is not written yet.'},
+     zones:[],markers:[{id:'d1',x:50,y:16,kind:'opponent'},{id:'d2',x:50,y:48,kind:'opponent'},
+       {id:'a1',x:62,y:24,kind:'player'},{id:'a2',x:82,y:42,kind:'player'},{id:'b',x:86,y:42,kind:'ball'}],
+     paths:[{from:{x:84,y:40},to:{x:64,y:26},kind:'pass'}],
+     lines:[{x:50,label:{az:'ofsayd xətti',ru:'линия офсайда',en:'offside line'}}]}},
+  {id:'rules-fouls-01',trackId:'rules',order:3,title:{az:'Qayda pozuntuları',ru:'Нарушения',en:'Fouls'},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['foul','yellow-card','red-card'],estMinutes:5,status:'todo',reviewed:false},
+  {id:'rules-freekick-01',trackId:'rules',order:4,title:{az:'Sərbəst zərbələr',ru:'Штрафные удары',en:'Free kicks'},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['free-kick','wall'],estMinutes:5,status:'todo',reviewed:false},
+  {id:'rules-throwin-01',trackId:'rules',order:5,title:{az:'Autdan atma',ru:'Вбрасывание',en:'Throw-in'},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['throw-in'],estMinutes:3,status:'todo',reviewed:false},
+  {id:'rules-penalty-01',trackId:'rules',order:6,title:{az:'Penalti',ru:'Пенальти',en:'Penalty'},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['penalty','goalkeeper'],estMinutes:4,status:'todo',reviewed:false},
+  {id:'rules-corner-01',trackId:'rules',order:7,title:{az:'Künc zərbəsi',ru:'Угловой',en:'Corner kick'},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['corner'],estMinutes:3,status:'todo',reviewed:false},
+  {id:'rules-referee-01',trackId:'rules',order:8,title:{az:'Hakimin işarələri',ru:'Жесты судьи',en:"Referee's signals"},
+   body:TODO_BODY,takeaways:TODO_TAKE,glossaryTermIds:['referee'],estMinutes:5,status:'todo',reviewed:false},
+
+  /* ---- POSITIONS: role descriptions, drafted, reviewed:false ---- */
+  {id:'pos-goalkeeper-01',trackId:'positions',order:1,title:{az:'Qapıçı',ru:'Вратарь',en:'Goalkeeper'},
+   video:{file:'pos-goalkeeper-01.mp4',durationSec:52,caption:{az:'Qapıçının bir oyundakı işi',ru:'Работа вратаря в матче',en:'What a keeper does in a match'}},
+   body:{az:['Komandada [[goalkeeper|qapıçı]] cərimə meydançası daxilində topa əl ilə toxuna bilən yeganə oyunçudur.',
+             'İş yalnız zərbələri dayandırmaq deyil: qapıçı müdafiəni idarə edir, hücumu paylama ilə başladır və arxa boşluğu oxuyur.',
+             'Yaxşı qapıçı çox vaxt heç bir möhtəşəm xilasetmə etmir — sadəcə həmişə düzgün yerdə dayanır.'],
+         en:['The [[goalkeeper|goalkeeper]] is the only player allowed to handle the ball inside the penalty area.',
+             'The job is not only stopping shots: the keeper organises the defence, starts attacks with distribution, and reads the space behind.',
+             'A good keeper often makes no spectacular save at all — she is simply always standing in the right place.']},
+   takeaways:{az:['Əl ilə oynamaq yalnız öz cərimə meydançasında.','Səs qapıçının əsas alətidir — müdafiəni sən idarə edirsən.','Mövqe seçimi refleksdən vacibdir.'],
+              en:['Handling is allowed only inside your own penalty area.','Your voice is the main tool — you organise the defence.','Positioning matters more than reflexes.']},
+   glossaryTermIds:['goalkeeper','penalty'],estMinutes:4,status:'draft',reviewed:false,
+   diagram:{view:'goal-area',markers:[{id:'gk',x:50,y:30,kind:'keeper',label:'GK'}],
+     zones:[{x:22,y:6,w:56,h:34,kind:'highlight',label:'əl ilə oynama zonası'}],
+     caption:{az:'Əl ilə oynamağa icazə verilən sahə.',en:'The area where handling is allowed.'}}},
+  {id:'pos-centreback-01',trackId:'positions',order:2,title:{az:'Mərkəz müdafiəçi',ru:'Центральный защитник',en:'Centre-back'},
+   body:{az:['Mərkəz [[defender|müdafiəçi]] qapıya ən yaxın sahəni qoruyur. Əsas iş — hücumçunu topdan ayırmaq və topu təhlükəsiz sahəyə çıxarmaq.',
+             'Cütlükdə oynayır: biri hücumçuya çıxır, digəri arxada örtür.'],
+         en:['The centre-[[defender|back]] protects the space closest to goal. The core job is separating the striker from the ball and clearing it to a safe area.',
+             'They work in pairs: one steps out to the attacker, the other covers behind.']},
+   takeaways:{az:['Topa yox, hücumçunun bədəninə bax.','Cütlüyünlə eyni xətdə qal.','Şübhə varsa — topu uzağa və yana çıxar.'],
+              en:['Watch the attacker\'s body, not the ball.','Stay level with your partner.','When in doubt, clear it wide and far.']},
+   glossaryTermIds:['defender','foul'],estMinutes:4,status:'draft',reviewed:false},
+  {id:'pos-fullback-01',trackId:'positions',order:3,title:{az:'Cinah müdafiəçi',ru:'Крайний защитник',en:'Full-back'},
+   body:{az:['Cinah müdafiəçi yan xətt boyunca həm müdafiə, həm hücum edir. Ən çox qaçan mövqelərdən biridir.']},
+   takeaways:{az:['Hücuma qalxanda arxanı kimin örtdüyünü bil.','Cinah hücumçusunu içəri yox, kənara sıxışdır.','Kondisiya bu mövqedə texnikadan az əhəmiyyətli deyil.']},
+   glossaryTermIds:['defender','pitch'],estMinutes:3,status:'draft',reviewed:false},
+  {id:'pos-midfielder-01',trackId:'positions',order:4,title:{az:'Yarımmüdafiəçi',ru:'Полузащитник',en:'Midfielder'},
+   body:{az:['[[midfielder|Yarımmüdafiəçi]] oyunun mərkəzidir — top demək olar ki, həmişə onun yaxınlığından keçir.',
+             'Topu almazdan əvvəl çiyin üstündən baxmaq bu mövqedə ən vacib vərdişdir.']},
+   takeaways:{az:['Topu almamışdan əvvəl ətrafa bax.','Sadə ötürmə çox vaxt ən yaxşı ötürmədir.','Topsuz hərəkət topla hərəkət qədər vacibdir.']},
+   glossaryTermIds:['midfielder','pass'],estMinutes:4,status:'draft',reviewed:false},
+  {id:'pos-winger-01',trackId:'positions',order:5,title:{az:'Cinah hücumçusu',ru:'Вингер',en:'Winger'},
+   body:{az:['Cinah hücumçusu meydanın enini istifadə edir: yan xəttə yaxın qalır, sonra sürətlə içəri və ya dibə keçir.']},
+   takeaways:{az:['Enə yayıl — müdafiəni dartmaq üçün.','Birinci toxunuş müdafiəçidən uzağa olsun.','Baş qaldır: dibə keçmək həmişə ən yaxşı seçim deyil.']},
+   glossaryTermIds:['dribble','pass'],estMinutes:3,status:'draft',reviewed:false},
+  {id:'pos-striker-01',trackId:'positions',order:6,title:{az:'Mərkəz hücumçu',ru:'Центральный нападающий',en:'Striker'},
+   body:{az:['Mərkəz [[forward|hücumçu]] qol vurmaq üçün deyil, qol vurma vəziyyəti yaratmaq üçün hərəkət edir.']},
+   takeaways:{az:['Müdafiəçinin kor nöqtəsində dayan.','Zərbədən əvvəl qapıçının yerinə bax.','Uğursuz cəhddən sonra dərhal növbəti hərəkətə hazır ol.']},
+   glossaryTermIds:['forward','goal'],estMinutes:3,status:'draft',reviewed:false},
+
+  /* ---- GOALKEEPER: technique, drafted, reviewed:false ---- */
+  {id:'gk-stance-01',trackId:'goalkeeper',order:1,title:{az:'Əsas duruş',ru:'Основная стойка',en:'Basic stance'},
+   video:{file:'gk-stance-01.mp4',durationSec:38,caption:{az:'Əsas duruş — yandan və qarşıdan',ru:'Стойка сбоку и спереди',en:'Stance from the side and front'}},
+   body:{az:['Ayaqlar çiyin genişliyində, çəki pəncələrin üstündə, dizlər bir az bükülü. Əllər bel səviyyəsində, qarşıda.',
+             'Duruş rahat olmalıdır — sən bu vəziyyətdə saniyələrlə deyil, dəqiqələrlə dayanacaqsan.'],
+         en:['Feet shoulder-width, weight on the balls of the feet, knees slightly bent. Hands in front, around waist height.',
+             'The stance has to be comfortable — you will hold it for minutes, not seconds.']},
+   takeaways:{az:['Çəki dabanda deyil, pəncədə.','Əllər bədənin qarşısında, yanlarda yox.','Gözlər topun səviyyəsində.'],
+              en:['Weight on the balls of the feet, not the heels.','Hands in front of the body, not by your sides.','Eyes level with the ball.']},
+   glossaryTermIds:['goalkeeper'],estMinutes:4,status:'draft',reviewed:false,
+   diagram:{view:'goal-area',markers:[{id:'gk',x:50,y:26,kind:'keeper',label:'GK'},{id:'b',x:50,y:58,kind:'ball'}],
+     caption:{az:'Qapı xətti ilə top arasında, mərkəzdə.',en:'Central, between the goal line and the ball.'}}},
+  {id:'gk-footwork-01',trackId:'goalkeeper',order:2,title:{az:'Ayaq işi',ru:'Работа ног',en:'Footwork'},
+   body:{az:['Qapıçının hərəkəti kiçik və tez addımlardan ibarətdir. Böyük addım = tarazlığın itməsi.',
+             'Yan hərəkətdə ayaqlar heç vaxt bir-birini kəsmir.']},
+   takeaways:{az:['Kiçik addım, tez tezlik.','Ayaqlar kəsişmir.','Hərəkət topun hərəkətindən əvvəl başlayır.']},
+   glossaryTermIds:['goalkeeper'],estMinutes:4,status:'draft',reviewed:false},
+  {id:'gk-catching-01',trackId:'goalkeeper',order:3,title:{az:'Top tutma',ru:'Ловля мяча',en:'Catching'},
+   video:{file:'gk-catching-01.mp4',durationSec:47,caption:{az:'W forması və sinəyə tutma',ru:'W-хват и приём в грудь',en:'W-shape and chest catch'}},
+   body:{az:['Yuxarı toplarda əllər [[w-shape|W forması]] yaradır: baş barmaqlar bir-birinə yaxın, barmaqlar açıq.',
+             'Aşağı toplarda əllər aşağı baxır və top bədənə tərəf yığılır.',
+             'Top əlin içinə dəyəndə dirsəklər zərbəni udur — əllər sərt qalmır.']},
+   takeaways:{az:['Baş barmaqlar arxada, bir-birinə yaxın.','Topu bədəninlə örtmək üçün irəli çıx.','Səs yumşaq olmalıdır — sərt səs sərt əl deməkdir.']},
+   glossaryTermIds:['goalkeeper','w-shape'],estMinutes:6,status:'draft',reviewed:false},
+  {id:'gk-angles-01',trackId:'goalkeeper',order:4,title:{az:'Bucaq bağlamaq',ru:'Игра на углах',en:'Closing the angle'},
+   body:{az:['Qapıdan bir addım irəli çıxmaq hücumçunun gördüyü qapı sahəsini kəskin azaldır.',
+             'İrəli çıxmaq riskdir: gec çıxsan — gec qalırsan, çox çıxsan — üstündən aşırırlar.']},
+   takeaways:{az:['Top və qapının mərkəzini birləşdirən xətt üzərində dayan.','İrəli çıxarkən tarazlığı saxla.','Qərar zərbədən əvvəl verilir, zərbə anında yox.']},
+   glossaryTermIds:['goalkeeper','goal'],estMinutes:6,status:'draft',reviewed:false,
+   diagram:{view:'goal-area',markers:[{id:'gk',x:50,y:22,kind:'keeper',label:'GK'},{id:'a',x:50,y:56,kind:'opponent'},{id:'b',x:54,y:56,kind:'ball'}],
+     paths:[{from:{x:50,y:56},to:{x:26,y:8},kind:'shot'},{from:{x:50,y:56},to:{x:74,y:8},kind:'shot'}],
+     caption:{az:'İrəli çıxdıqca hücumçunun gördüyü sahə daralır.',en:'Stepping forward narrows what the striker can see.'}}},
+  {id:'gk-distribution-01',trackId:'goalkeeper',order:5,title:{az:'Paylama',ru:'Ввод мяча',en:'Distribution'},
+   body:{az:['Topu tutduqdan sonra oyun bitmir — komandanın hücumu sənin əlindən başlayır.']},
+   takeaways:{az:['Topu tutan kimi baş qaldır.','Yaxın və təhlükəsiz seçim, uzaq və riskli seçimdən yaxşıdır.','Yan tərəfə paylama mərkəzdən təhlükəsizdir.']},
+   glossaryTermIds:['goalkeeper','pass'],estMinutes:5,status:'draft',reviewed:false},
+  {id:'gk-1v1-01',trackId:'goalkeeper',order:6,title:{az:'Təkbətək',ru:'Один на один',en:'One-v-one'},
+   body:{az:['Təkbətək vəziyyətdə qapıçının işi topu tutmaq deyil — hücumçunu səhv qərara məcbur etməkdir.']},
+   takeaways:{az:['Erkən çıx, gec yerə düş.','Böyük ol: qollar və ayaqlar açıq.','Hücumçunun ayağına yox, topa reaksiya ver.']},
+   glossaryTermIds:['goalkeeper'],estMinutes:6,status:'draft',reviewed:false},
+];
+
+const DRILLS = [
+  {id:'gk-stance-drill-01',title:{az:'Duruşda dayanma',ru:'Удержание стойки',en:'Holding the stance'},
+   positions:['goalkeeper'],equipment:['none'],space:'bedroom',group:'solo',minutes:6,difficulty:1,
+   steps:{az:['Əsas duruşu al: ayaqlar çiyin genişliyində, çəki pəncədə.','30 saniyə tərpənmədən dayan.','10 saniyə fasilə. 6 dəst.','Hər dəstdən sonra güzgüdə əllərin yerini yoxla.']},
+   whatGoodLooksLike:{az:['Dabanlar yerə dəymir.','Çiyinlər qalxmır, nəfəs sakitdir.','Əllər aşağı düşmür.']},
+   glossaryTermIds:['goalkeeper'],status:'draft',reviewed:false},
+  {id:'gk-catching-01',title:{az:'Divara atma və tutma',ru:'Бросок в стену и ловля',en:'Wall throw and catch'},
+   video:{file:'gk-catching-01.mp4',durationSec:47,caption:{az:'W forması ilə tutma',en:'Catching with the W-shape'}},
+   positions:['goalkeeper'],equipment:['ball','wall'],space:'yard',group:'solo',minutes:10,difficulty:1,
+   steps:{az:['Divardan 3 addım aralı dur.','Topu divara at, sıçrayışdan sonra sinənə tut.','Əllər [[w-shape|W forması]]nda olsun.','30 təkrar, 1 dəqiqə fasilə, 3 dəst.']},
+   whatGoodLooksLike:{az:['Top əllərə dəyəndə səs yumşaqdır.','Top sinəyə çırpılmır, barmaqlar arxaya əyilmir.','Hər tutmadan sonra top bədənə yığılır.']},
+   glossaryTermIds:['goalkeeper','w-shape'],status:'draft',reviewed:false},
+  {id:'gk-footwork-01',title:{az:'Kiçik addımlar',ru:'Мелкие шаги',en:'Small steps'},
+   positions:['goalkeeper'],equipment:['none'],space:'bedroom',group:'solo',minutes:6,difficulty:1,
+   steps:{az:['Yerində sürətli kiçik addımlar — 15 saniyə.','Sağa 3 addım, sola 3 addım — ayaqlar kəsişmədən.','15 saniyə fasilə. 8 dəst.']},
+   whatGoodLooksLike:{az:['Ayaqlar heç vaxt bir-birini kəsmir.','Çiyinlər qapıya paralel qalır.','Addım səsi bərabər ritmdədir.']},
+   glossaryTermIds:['goalkeeper'],status:'draft',reviewed:false},
+  {id:'gk-reaction-01',title:{az:'Divardan reaksiya',ru:'Реакция от стены',en:'Wall reaction'},
+   positions:['goalkeeper'],equipment:['ball','wall'],space:'yard',group:'solo',minutes:8,difficulty:2,
+   steps:{az:['Divara 2 addım yaxın dur.','Topu güclü at, qayıdan topa reaksiya ver.','Topu tuta bilməsən — yolunu kəs.','20 təkrar, 3 dəst.']},
+   whatGoodLooksLike:{az:['Əllər bədəndən əvvəl hərəkət edir.','Gözlər topdan ayrılmır.','Hər təkrardan sonra duruş bərpa olunur.']},
+   glossaryTermIds:['goalkeeper'],status:'draft',reviewed:false},
+  {id:'gk-diving-01',title:{az:'Yana atılma — yumşaq səth',ru:'Падение вбок — мягкая поверхность',en:'Sideways dive — soft surface'},
+   positions:['goalkeeper'],equipment:['none'],space:'bedroom',group:'solo',minutes:10,difficulty:2,
+   steps:{az:['Yatağın və ya yumşaq döşəyin yanında diz üstə otur.','Yana aşağı düş — əvvəl bud, sonra çiyin.','Hər iki tərəfə 10 təkrar, 3 dəst.']},
+   whatGoodLooksLike:{az:['Dirsək yerə birinci dəymir.','Baş yerə toxunmur.','Yerə düşmə səsi bir dəfə eşidilir, iki yox.']},
+   glossaryTermIds:['goalkeeper'],status:'draft',reviewed:false},
+  {id:'gk-distribution-01',title:{az:'Əl ilə paylama',ru:'Ввод рукой',en:'Throwing distribution'},
+   positions:['goalkeeper'],equipment:['ball','partner'],space:'half-pitch',group:'group',minutes:12,difficulty:2,
+   steps:{az:['Partnyor 15 addım aralıda dayanır.','Topu yerlə yuvarlayaraq onun ayağına çatdır.','Sonra çiyin üstündən at.','Hər növdən 15 təkrar.']},
+   whatGoodLooksLike:{az:['Top partnyorun ayağına sakit çatır, sıçramır.','Baş atmadan əvvəl qalxır.','Ötürmə istiqaməti dəyişməz qalır.']},
+   glossaryTermIds:['goalkeeper','pass'],status:'draft',reviewed:false},
+  {id:'gk-angles-01',title:{az:'Bucaq bağlama — konuslarla',ru:'Углы с конусами',en:'Angles with cones'},
+   positions:['goalkeeper'],equipment:['cones','ball','partner'],space:'half-pitch',group:'group',minutes:15,difficulty:3,
+   steps:{az:['Qapının qarşısında yarımdairə şəklində 5 konus düz.','Partnyor hər konusdan zərbə vurur.','Hər zərbədən əvvəl mövqeyini düzəlt.','2 dövrə.']},
+   whatGoodLooksLike:{az:['Hər dəfə top-qapı xətti üzərində dayanırsan.','İrəli çıxış tarazlığı pozmur.','Zərbə anında hərəkət dayanıb.']},
+   glossaryTermIds:['goalkeeper','goal'],status:'draft',reviewed:false},
+  {id:'field-passing-01',title:{az:'Divara ötürmə',ru:'Пас в стену',en:'Wall passing'},
+   positions:['defender','midfielder','forward'],equipment:['ball','wall'],space:'yard',group:'solo',minutes:10,difficulty:1,
+   steps:{az:['Divardan 5 addım aralı dur.','Ayağın içi ilə ötür, qayıdan topu bir toxunuşla dayandır.','Sağ və sol ayaqla növbələş.','40 təkrar.']},
+   whatGoodLooksLike:{az:['Top düz qayıdır, yana yox.','Birinci toxunuş topu bədənə yaxın saxlayır.','Zərbə ayağın içi ilə, burnu ilə yox.']},
+   glossaryTermIds:['pass'],status:'draft',reviewed:false},
+  {id:'field-control-01',title:{az:'Topu qəbul etmə',ru:'Приём мяча',en:'First touch'},
+   positions:['midfielder','forward','defender'],equipment:['ball'],space:'yard',group:'solo',minutes:8,difficulty:1,
+   steps:{az:['Topu yuxarı at.','Düşən topu bir toxunuşla yerə yatır.','Ayaq, bud və sinə ilə növbələş.','Hər səthdən 15 təkrar.']},
+   whatGoodLooksLike:{az:['Top birinci toxunuşdan sonra bir addım məsafədə qalır.','Bədən topu qarşılamağa doğru hərəkət edir.','Baş topa baxır, ayağa yox.']},
+   glossaryTermIds:['dribble'],status:'draft',reviewed:false},
+  {id:'fitness-agility-01',title:{az:'Konuslar arası sürət',ru:'Скорость между конусами',en:'Cone agility'},
+   positions:['any'],equipment:['cones'],space:'yard',group:'solo',minutes:10,difficulty:2,
+   steps:{az:['5 konusu 2 addım aralı düz.','Yan addımlarla irəli-geri keç.','Hər dövrədən sonra 30 saniyə fasilə.','6 dövrə.']},
+   whatGoodLooksLike:{az:['Dönüşlərdə çəki aşağıda qalır.','Ayaqlar kəsişmir.','Son dövrə birinci dövrə qədər təmizdir.']},
+   glossaryTermIds:[],status:'draft',reviewed:false},
+  {id:'field-wallvolley-01',title:{az:'Divara hava zərbəsi',ru:'Удар с лёта в стену',en:'Wall volley'},
+   positions:['midfielder','forward'],equipment:['ball','wall'],space:'yard',group:'solo',minutes:8,difficulty:3,
+   steps:{az:['Topu özünə at.','Yerə dəymədən divara vur.','Qayıdan topu tut və təkrarla.','Hər ayaqla 15 təkrar.']},
+   whatGoodLooksLike:{az:['Zərbə anında bədən topun üstündədir.','Top divara düz gedir.','Ayaq biləyi bərkdir.']},
+   glossaryTermIds:[],status:'draft',reviewed:false},
+  {id:'group-rondo-01',title:{az:'Rondo 3v1',ru:'Ронда 3в1',en:'Rondo 3v1'},
+   positions:['any'],equipment:['ball','cones','partner'],space:'half-pitch',group:'group',minutes:15,difficulty:2,
+   steps:{az:['4 konusla kvadrat düz.','Üç nəfər kənarda, bir nəfər içəridə.','Topu itirən içəri keçir.','10 dəqiqə fasiləsiz.']},
+   whatGoodLooksLike:{az:['Ötürmədən əvvəl baş qalxır.','Top yerlə gedir.','Ötürmədən sonra oyunçu yerini dəyişir.']},
+   glossaryTermIds:['pass'],status:'draft',reviewed:false},
+];
+
+const QUIZZES = [
+  {id:'quiz-rules',trackId:'rules',status:'todo',reviewed:false,questions:[]},
+  {id:'quiz-positions',trackId:'positions',status:'todo',reviewed:false,questions:[]},
+  {id:'quiz-goalkeeper',trackId:'goalkeeper',status:'draft',reviewed:false,questions:[
+    {id:'q1',prompt:{az:'Əsas duruşda çəki harada olmalıdır?',en:'In the basic stance, where should your weight be?'},
+     options:[{id:'a',text:{az:'Dabanların üstündə',en:'On the heels'}},
+              {id:'b',text:{az:'Pəncələrin üstündə',en:'On the balls of the feet'}},
+              {id:'c',text:{az:'Bir ayağın üstündə',en:'On one foot'}}],
+     correctOptionId:'b',
+     explanation:{az:'Dabanda dayanan qapıçı hər istiqamətə gec başlayır. Pəncədə çəki ilk addımı sürətləndirir.',
+                  en:'Weight on the heels delays the first step in every direction. On the balls of the feet you start faster.'},
+     reviseLessonId:'gk-stance-01'},
+    {id:'q2',prompt:{az:'Yan hərəkət zamanı ayaqlar nə etməlidir?',en:'What should your feet do when moving sideways?'},
+     options:[{id:'a',text:{az:'Bir-birini kəsməli',en:'Cross over each other'}},
+              {id:'b',text:{az:'Kəsişmədən yan addımlarla hərəkət etməli',en:'Side-step without crossing'}},
+              {id:'c',text:{az:'Sıçrayışla hərəkət etməli',en:'Move by jumping'}}],
+     correctOptionId:'b',
+     explanation:{az:'Ayaqlar kəsişəndə tarazlıq bir an itir. Məhz o anda zərbə gəlsə, hərəkətə başlaya bilmirsən.',
+                  en:'Crossing costs you balance for a moment. If the shot comes in that moment, you cannot push off.'},
+     reviseLessonId:'gk-footwork-01'},
+    {id:'q3',prompt:{az:'Yuxarı topu tutarkən baş barmaqlar harada olur?',en:'Catching a high ball, where are your thumbs?'},
+     options:[{id:'a',text:{az:'Bir-birindən uzaq, yanlarda',en:'Far apart, at the sides'}},
+              {id:'b',text:{az:'Topun arxasında, bir-birinə yaxın',en:'Behind the ball, close together'}},
+              {id:'c',text:{az:'Aşağı baxaraq',en:'Pointing down'}}],
+     correctOptionId:'b',
+     explanation:{az:'Baş barmaqlar bir-birinə yaxın olanda əllər W forması yaradır və top əllərin arasından keçə bilmir.',
+                  en:'With the thumbs close, the hands form a W and the ball cannot slip between them.'},
+     reviseLessonId:'gk-catching-01'},
+    {id:'q4',prompt:{az:'Hücumçu təkbətək çıxanda qapıçı nə etməlidir?',en:'In a one-v-one, what should the keeper do?'},
+     options:[{id:'a',text:{az:'Qapı xəttində gözləmək',en:'Wait on the goal line'}},
+              {id:'b',text:{az:'Erkən irəli çıxmaq və böyük görünmək',en:'Come out early and make herself big'}},
+              {id:'c',text:{az:'Dərhal yerə düşmək',en:'Go to ground immediately'}}],
+     correctOptionId:'b',
+     explanation:{az:'Qapı xəttində gözləmək hücumçuya bütün qapını göstərir. Erkən çıxış onun gördüyü sahəni azaldır. Erkən yerə düşmək isə topu asanlıqla yan keçirməyə imkan verir.',
+                  en:'Waiting on the line shows the striker the whole goal. Coming out early cuts down what she can see. Going down early lets her simply roll it past you.'},
+     reviseLessonId:'gk-1v1-01'},
+    {id:'q5',prompt:{az:'Topu tutduqdan sonra ilk iş nədir?',en:'After catching the ball, what comes first?'},
+     options:[{id:'a',text:{az:'Dərhal uzağa təpikləmək',en:'Immediately kick it long'}},
+              {id:'b',text:{az:'Baş qaldırıb komanda yoldaşlarına baxmaq',en:'Lift your head and look for team-mates'}},
+              {id:'c',text:{az:'Topu yerə qoymaq',en:'Put the ball on the ground'}}],
+     correctOptionId:'b',
+     explanation:{az:'Hücum sənin əlindən başlayır. Baxmadan vurulan uzun top çox vaxt birbaşa rəqibə çatır.',
+                  en:'The attack starts in your hands. A long ball hit without looking usually goes straight to the opposition.'},
+     reviseLessonId:'gk-distribution-01'},
+  ]},
+];
+
+/* Empty by policy. No invented clubs, no invented contacts. */
+const CLUBS = [];
+
+const GLOSSARY = [
+  {id:'offside',term:{az:'ofsayt',ru:'офсайд',en:'offside'},alsoKnownAs:['ofsayd'],
+   definition:{az:'TODO — dəqiq tərif IFAB Law 11 mətnindən yazılacaq.',ru:'TODO — точное определение по IFAB Law 11.',en:'TODO — exact definition from IFAB Law 11.'},
+   seeLessonId:'rules-offside-01',reviewed:false},
+  {id:'penalty',term:{az:'penalti',ru:'пенальти',en:'penalty'},
+   definition:{az:'TODO — şərtlər Law 14 mətnindən.',en:'TODO — conditions from Law 14.'},seeLessonId:'rules-penalty-01',reviewed:false},
+  {id:'goalkeeper',term:{az:'qapıçı',ru:'вратарь',en:'goalkeeper'},
+   definition:{az:'Öz cərimə meydançasında topa əl ilə toxuna bilən oyunçu.',ru:'Игрок, которому разрешено играть руками в своей штрафной.',en:'The player allowed to handle the ball inside her own penalty area.'},
+   seeLessonId:'pos-goalkeeper-01',relatedTermIds:['penalty'],reviewed:false},
+  {id:'defender',term:{az:'müdafiəçi',ru:'защитник',en:'defender'},
+   definition:{az:'Öz qapısına yaxın sahəni qoruyan oyunçu.',en:'A player who protects the area near her own goal.'},seeLessonId:'pos-centreback-01',reviewed:false},
+  {id:'midfielder',term:{az:'yarımmüdafiəçi',ru:'полузащитник',en:'midfielder'},
+   definition:{az:'Müdafiə ilə hücum arasında oynayan oyunçu.',en:'A player who works between defence and attack.'},seeLessonId:'pos-midfielder-01',reviewed:false},
+  {id:'forward',term:{az:'hücumçu',ru:'нападающий',en:'forward'},
+   definition:{az:'Rəqib qapısına ən yaxın oynayan oyunçu.',en:'The player operating closest to the opposition goal.'},seeLessonId:'pos-striker-01',reviewed:false},
+  {id:'referee',term:{az:'hakim',ru:'судья',en:'referee'},
+   definition:{az:'Oyunu idarə edən və qaydaları tətbiq edən şəxs.',en:'The official who controls the match and applies the Laws.'},seeLessonId:'rules-referee-01',reviewed:false},
+  {id:'foul',term:{az:'qayda pozuntusu',ru:'фол',en:'foul'},alsoKnownAs:['faul'],
+   definition:{az:'TODO — hansı hərəkətlərin qayda pozuntusu sayıldığı Law 12-dən.',en:'TODO — which actions count as fouls, from Law 12.'},seeLessonId:'rules-fouls-01',reviewed:false},
+  {id:'free-kick',term:{az:'sərbəst zərbə',ru:'штрафной удар',en:'free kick'},
+   definition:{az:'TODO — birbaşa və dolayı fərqi Law 13-dən.',en:'TODO — direct vs indirect, from Law 13.'},seeLessonId:'rules-freekick-01',reviewed:false},
+  {id:'wall',term:{az:'divar',ru:'стенка',en:'wall'},
+   definition:{az:'Sərbəst zərbə zamanı qapı qarşısında sıraya duran oyunçular.',en:'The line of players standing in front of goal at a free kick.'},seeLessonId:'rules-freekick-01',reviewed:false},
+  {id:'throw-in',term:{az:'autdan atma',ru:'вбрасывание',en:'throw-in'},alsoKnownAs:['aut'],
+   definition:{az:'TODO — icra qaydası Law 15-dən.',en:'TODO — how it is taken, from Law 15.'},seeLessonId:'rules-throwin-01',reviewed:false},
+  {id:'corner',term:{az:'künc zərbəsi',ru:'угловой',en:'corner kick'},
+   definition:{az:'TODO — verilmə şərti Law 17-dən.',en:'TODO — when it is awarded, from Law 17.'},seeLessonId:'rules-corner-01',reviewed:false},
+  {id:'yellow-card',term:{az:'sarı vərəqə',ru:'жёлтая карточка',en:'yellow card'},
+   definition:{az:'TODO — hansı hallarda göstərilir, Law 12-dən.',en:'TODO — when it is shown, from Law 12.'},seeLessonId:'rules-fouls-01',reviewed:false},
+  {id:'red-card',term:{az:'qırmızı vərəqə',ru:'красная карточка',en:'red card'},
+   definition:{az:'TODO — hansı hallarda göstərilir, Law 12-dən.',en:'TODO — when it is shown, from Law 12.'},seeLessonId:'rules-fouls-01',reviewed:false},
+  {id:'pitch',term:{az:'meydan',ru:'поле',en:'pitch'},
+   definition:{az:'Oyunun keçirildiyi sahə.',en:'The field of play.'},seeLessonId:'rules-pitch-01',reviewed:false},
+  {id:'goal',term:{az:'qapı',ru:'ворота',en:'goal'},
+   definition:{az:'Qapı dirəkləri və üst dirəkdən ibarət konstruksiya. Həm də qol deməkdir.',en:'The frame of posts and crossbar. Also the word for a scored goal.'},seeLessonId:'rules-pitch-01',reviewed:false},
+  {id:'pass',term:{az:'ötürmə',ru:'пас',en:'pass'},alsoKnownAs:['pas'],
+   definition:{az:'Topun komanda yoldaşına ötürülməsi.',en:'Playing the ball to a team-mate.'},reviewed:false},
+  {id:'dribble',term:{az:'driblinq',ru:'дриблинг',en:'dribble'},
+   definition:{az:'Topu ayaqla idarə edərək irəli aparmaq.',en:'Carrying the ball forward under close control.'},reviewed:false},
+  {id:'w-shape',term:{az:'W forması',ru:'W-хват',en:'W-shape'},
+   definition:{az:'Yuxarı topu tutarkən əllərin aldığı forma: baş barmaqlar bir-birinə yaxın.',en:'The hand shape for catching a high ball: thumbs close together behind the ball.'},
+   seeLessonId:'gk-catching-01',reviewed:false},
+];
+
+/* --------------------------------------------------------------------------
+   Progress — anonymous, local only. Mirrors AsyncStorage in the real app.
+   -------------------------------------------------------------------------- */
+const P_KEY='verve.progress.v1';
+let progress = JSON.parse(localStorage.getItem(P_KEY) || 'null') ||
+  {version:1,locale:'az',lessonsCompleted:{},drillsDone:{},quizResults:{}};
+function saveProgress(){progress.locale=locale;localStorage.setItem(P_KEY,JSON.stringify(progress));}
+
+/* Dev-only: simulate video files being present, to prove layout doesn't shift. */
+let simulateVideos = localStorage.getItem('verve.simVideo')==='1';
+
+/* --------------------------------------------------------------------------
+   Router
+   -------------------------------------------------------------------------- */
+let route = {name:'learn'};
+const main = document.getElementById('main');
+function go(r){route=r;render();main.scrollTop=0;}
+
+/* --------------------------------------------------------------------------
+   <PitchDiagram> — data in, svg out. Same contract as the RN component.
+   -------------------------------------------------------------------------- */
+const LINE='#2A3242', GRASS='#0F141C';
+function pitchBase(view){
+  const f=`fill="none" stroke="${LINE}" stroke-width="1"`;
+  if(view==='full') return `
+    <rect x="3" y="3" width="94" height="59" ${f}/>
+    <line x1="50" y1="3" x2="50" y2="62" stroke="${LINE}" stroke-width="1"/>
+    <circle cx="50" cy="32.5" r="9" ${f}/>
+    <rect x="3" y="17" width="14" height="31" ${f}/><rect x="83" y="17" width="14" height="31" ${f}/>
+    <rect x="3" y="25" width="5" height="15" ${f}/><rect x="92" y="25" width="5" height="15" ${f}/>`;
+  if(view==='half') return `
+    <rect x="3" y="3" width="94" height="59" ${f}/>
+    <rect x="3" y="15" width="18" height="35" ${f}/><rect x="3" y="24" width="7" height="17" ${f}/>
+    <path d="M21 24 A11 11 0 0 1 21 41" ${f}/>`;
+  if(view==='penalty-area') return `
+    <rect x="3" y="3" width="94" height="59" ${f}/>
+    <rect x="18" y="3" width="64" height="34" ${f}/><rect x="35" y="3" width="30" height="15" ${f}/>
+    <circle cx="50" cy="28" r="1.2" fill="${LINE}"/>`;
+  if(view==='goal-area') return `
+    <rect x="30" y="3" width="40" height="4" fill="none" stroke="${LINE}" stroke-width="1.6"/>
+    <line x1="3" y1="7" x2="97" y2="7" stroke="${LINE}" stroke-width="1"/>
+    <rect x="22" y="7" width="56" height="33" ${f}/><rect x="36" y="7" width="28" height="14" ${f}/>`;
+  return '';
+}
+function marker(m){
+  const c={player:'#C2687A',opponent:'none',keeper:'#E9ECF2',cone:'#9AA5B5',target:'none'}[m.kind];
+  if(m.kind==='ball') return `<circle cx="${m.x}" cy="${m.y}" r="1.9" fill="#E9ECF2"/>`;
+  if(m.kind==='cone') return `<polygon points="${m.x},${m.y-3} ${m.x-2.4},${m.y+2} ${m.x+2.4},${m.y+2}" fill="#9AA5B5"/>`;
+  const stroke = m.kind==='opponent' ? '#9AA5B5' : (m.kind==='keeper' ? '#E9ECF2' : '#C2687A');
+  const lbl = m.label ? `<text x="${m.x}" y="${m.y+1.4}" font-size="3.2" text-anchor="middle" fill="${m.kind==='keeper'?'#0B0E14':'#0B0E14'}" font-family="system-ui" font-weight="700">${m.label}</text>` : '';
+  return `<circle cx="${m.x}" cy="${m.y}" r="3.6" fill="${c}" stroke="${stroke}" stroke-width="1"/>${lbl}`;
+}
+function pathEl(p,markers){
+  const res=v=>typeof v==='string' ? (markers.find(m=>m.id===v)||{x:50,y:32}) : v;
+  const a=res(p.from), b=res(p.to);
+  const dash={pass:'2.6 2',run:'none',shot:'none',dribble:'1.4 1.4'}[p.kind]||'none';
+  const col={pass:'#E9ECF2',run:'#C2687A',shot:'#C2687A',dribble:'#E9ECF2'}[p.kind]||'#E9ECF2';
+  const ang=Math.atan2(b.y-a.y,b.x-a.x), L=2.6;
+  const head=`<polygon points="${b.x},${b.y} ${b.x-L*Math.cos(ang-.4)},${b.y-L*Math.sin(ang-.4)} ${b.x-L*Math.cos(ang+.4)},${b.y-L*Math.sin(ang+.4)}" fill="${col}"/>`;
+  return `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${col}" stroke-width="0.9" stroke-dasharray="${dash}"/>${head}`;
+}
+function PitchDiagram(d){
+  if(!d) return '';
+  const ms=d.markers||[];
+  const zones=(d.zones||[]).map(z=>
+    `<rect x="${z.x}" y="${z.y}" width="${z.w}" height="${z.h}" fill="#C2687A" fill-opacity="0.14" stroke="#C2687A" stroke-width="0.7"/>`+
+    (z.label?`<text x="${z.x+z.w/2}" y="${z.y+z.h+4.5}" font-size="3" text-anchor="middle" fill="#9AA5B5" font-family="system-ui">${z.label}</text>`:'')).join('');
+  const lines=(d.lines||[]).map(l=>
+    `<line x1="${l.x}" y1="3" x2="${l.x}" y2="62" stroke="#C2687A" stroke-width="0.9" stroke-dasharray="3 2.4"/>`+
+    `<text x="${l.x+2.5}" y="8" font-size="3.2" fill="#C2687A" font-family="system-ui">${t(l.label)}</text>`).join('');
+  return `<div class="diagram"><svg viewBox="0 0 100 65" width="100%" style="display:block">
+    <rect x="0" y="0" width="100" height="65" rx="2" fill="${GRASS}"/>
+    ${pitchBase(d.view)}${zones}${lines}
+    ${(d.paths||[]).map(p=>pathEl(p,ms)).join('')}
+    ${ms.map(marker).join('')}
+  </svg></div>${d.caption?`<div class="dcap">${t(d.caption)}</div>`:''}`;
+}
+
+/* --------------------------------------------------------------------------
+   <VideoSlot> — fixed 16:9 either way. This is the layout contract.
+   -------------------------------------------------------------------------- */
+function VideoSlot(video){
+  const present = video && simulateVideos;
+  if(!present){
+    return `<div class="vslot">
+      <div class="pbtn"><svg width="17" height="19" viewBox="0 0 17 19">
+        <path d="M1 1.6v15.8L16 9.5z" fill="none" stroke="#9AA5B5" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+      <div class="cap">${ui('videoSoon')}</div></div>`;
+  }
+  const mm=Math.floor(video.durationSec/60), ss=String(video.durationSec%60).padStart(2,'0');
+  return `<div class="vslot">
+    <svg viewBox="0 0 160 90" width="100%" height="100%" style="position:absolute;inset:0">
+      <rect width="160" height="90" fill="#0F141C"/>
+      <rect x="40" y="18" width="80" height="54" fill="none" stroke="#232C3A"/>
+      <circle cx="80" cy="45" r="7" fill="none" stroke="#232C3A"/>
+      <text x="80" y="82" font-size="4.5" fill="#3A4557" text-anchor="middle" font-family="system-ui">${video.file}</text>
+    </svg>
+    <div class="ctrl">
+      <button class="pb" aria-label="play"><svg width="10" height="12" viewBox="0 0 10 12"><path d="M0 0v12l10-6z" fill="#0B0E14"/></svg></button>
+      <div class="bar2"></div><div class="t">0:00 / ${mm}:${ss}</div><div class="t">🔇</div>
+    </div></div>`;
+}
+
+/* --------------------------------------------------------------------------
+   Glossary markup: [[term-id|display]]
+   -------------------------------------------------------------------------- */
+function richText(s){
+  return s.replace(/\[\[([a-z0-9-]+)\|([^\]]+)\]\]/gi,
+    (_,id,label)=>`<span class="term" data-term="${id}">${label}</span>`);
+}
+
+/* --------------------------------------------------------------------------
+   Screens
+   -------------------------------------------------------------------------- */
+function trackLessons(id){return LESSONS.filter(l=>l.trackId===id).sort((a,b)=>a.order-b.order);}
+function trackProgress(id){
+  const ls=trackLessons(id);
+  const done=ls.filter(l=>progress.lessonsCompleted[l.id]).length;
+  return {done,total:ls.length,pct:ls.length?Math.round(done/ls.length*100):0};
+}
+
+function screenLearn(){
+  const cont = LESSONS.find(l=>!progress.lessonsCompleted[l.id] &&
+    Object.keys(progress.lessonsCompleted).length>0);
+  return `
+  <div class="bar"><div class="grow"><h1>Verve</h1><div class="sub">${t({az:'Sıfırdan komandaya',ru:'С нуля до команды',en:'From zero to a team'})}</div></div>
+    <button class="lang" id="langBtn">${locale.toUpperCase()}</button></div>
+  <div class="pad">
+    ${TRACKS.map(tr=>{const p=trackProgress(tr.id);return `
+      <button class="card" data-go='{"name":"track","id":"${tr.id}"}'>
+        <div class="rowb"><h3>${t(tr.title)}</h3><span class="tag">${p.total} ${ui('lessons')}</span></div>
+        <p>${t(tr.summary)}</p>
+        <div class="meter"><i style="width:${p.pct}%"></i></div>
+        <div class="meterlbl">${p.done?`${p.done} / ${p.total} ${ui('ofDone')}`:ui('notStarted')}</div>
+      </button>`}).join('')}
+    ${cont?`<div class="sec">${ui('continue')}</div>
+      <button class="card" data-go='{"name":"lesson","id":"${cont.id}"}'>
+        <div class="rowb"><div><h3 style="margin-bottom:2px">${t(cont.title)}</h3>
+          <p style="font-size:12px">${t(TRACKS.find(x=>x.id===cont.trackId).title)}</p></div>
+          <span class="chev">›</span></div></button>`:''}
+  </div>`;
+}
+
+function screenTrack(id){
+  const tr=TRACKS.find(x=>x.id===id), ls=trackLessons(id), p=trackProgress(id);
+  const quiz=QUIZZES.find(q=>q.trackId===id);
+  const ready=quiz&&quiz.questions.length>0;
+  return `
+  <div class="bar"><span class="back" data-back>‹</span><div class="grow"><h1>${t(tr.title)}</h1>
+    <div class="sub">${p.done} / ${p.total} ${ui('ofDone')}</div></div></div>
+  <div class="pad">
+    ${ls.map((l,i)=>`
+      <button class="card" data-go='{"name":"lesson","id":"${l.id}"}'>
+        <div class="rowb"><div style="flex:1;min-width:0">
+          <h3>${i+1}. ${t(l.title)}</h3>
+          <p>${l.estMinutes} ${ui('min')}${l.status==='todo'?' · TODO':''}</p></div>
+          <span class="chev">${progress.lessonsCompleted[l.id]?'✓':'›'}</span></div>
+      </button>`).join('')}
+    <div class="sec">${ui('results')}</div>
+    ${ready
+      ? `<button class="btn" data-go='{"name":"quiz","id":"${quiz.id}"}'>${ui('startQuiz')}</button>`
+      : `<button class="btn" disabled>${ui('quizLocked')}</button>
+         <div class="todo" style="margin-top:12px"><span class="badge">TODO</span>
+           <p>${t({az:'Bu trekin test sualları qayda mətnindən sonra yazılacaq.',
+                    ru:'Вопросы теста будут написаны после текста правил.',
+                    en:'Quiz questions get written after the rule text exists.'})}</p></div>`}
+  </div>`;
+}
+
+function screenLesson(id){
+  const l=LESSONS.find(x=>x.id===id);
+  const tr=TRACKS.find(x=>x.id===l.trackId);
+  const sibs=trackLessons(l.trackId);
+  const idx=sibs.findIndex(x=>x.id===id);
+  const next=sibs[idx+1];
+  const done=!!progress.lessonsCompleted[id];
+  return `
+  <div class="bar"><span class="back" data-back>‹</span><div class="grow"><h1>${t(l.title)}</h1>
+    <div class="sub">${t(tr.title)} · ${idx+1} / ${sibs.length}</div></div></div>
+  ${VideoSlot(l.video)}
+  <div class="pad">
+    ${l.status==='todo'
+      ? `<div class="todo"><span class="badge">TODO</span>
+           <p>${tl(l.body)[0]}</p>
+           <p style="margin-top:9px"><code>${l.id} · status:"todo" · reviewed:false</code></p></div>`
+      : `<div class="body">${tl(l.body).map(p=>`<p>${richText(p)}</p>`).join('')}</div>`}
+
+    ${l.diagram?`<div class="sec">${ui('howItLooks')}</div>${PitchDiagram(l.diagram)}`:''}
+
+    <div class="sec">${ui('takeaways')}</div>
+    <ul class="take">${tl(l.takeaways).map((x,i)=>`<li><span class="n">${i+1}</span><span>${richText(x)}</span></li>`).join('')}</ul>
+
+    ${l.glossaryTermIds.length?`<div class="sec">${ui('seeAlso')}</div>
+      <div class="chips">${l.glossaryTermIds.map(g=>{const gt=GLOSSARY.find(x=>x.id===g);
+        return gt?`<button class="chip" data-term="${g}">${t(gt.term)}</button>`:''}).join('')}</div>`:''}
+
+    ${l.status==='draft'?`<div class="todo" style="margin-top:20px"><span class="badge draft">DRAFT</span>
+      <p><code>reviewed: false</code> — ${t({az:'məşqçi təsdiqləyənə qədər.',ru:'до проверки тренером.',en:'until a coach signs off.'})}</p></div>`:''}
+
+    <div style="height:18px"></div>
+    <button class="btn ${done?'ghost':''}" data-done="${id}">${done?'✓ '+ui('done'):ui('markDone')}</button>
+    ${next?`<button class="btn ghost" style="margin-top:10px" data-go='{"name":"lesson","id":"${next.id}"}'>${ui('nextLesson')} ›</button>`:''}
+    <div style="height:14px"></div>
+  </div>`;
+}
+
+/* ---- Train ---- */
+let filters={positions:[],equipment:[],space:[],group:[],time:[]};
+const EQ_LABEL={none:{az:'Heç nə',ru:'Ничего',en:'None'},ball:{az:'1 top',ru:'1 мяч',en:'1 ball'},
+  cones:{az:'Konus',ru:'Конусы',en:'Cones'},wall:{az:'Divar',ru:'Стена',en:'Wall'},partner:{az:'Partnyor',ru:'Партнёр',en:'Partner'}};
+const POS_LABEL={goalkeeper:{az:'Qapıçı',ru:'Вратарь',en:'Keeper'},defender:{az:'Müdafiə',ru:'Защита',en:'Defender'},
+  midfielder:{az:'Yarımmüdafiə',ru:'Полузащита',en:'Midfield'},forward:{az:'Hücum',ru:'Нападение',en:'Forward'},any:{az:'Hamı',ru:'Все',en:'Any'}};
+const SP_LABEL={bedroom:{az:'Otaq',ru:'Комната',en:'Bedroom'},yard:{az:'Həyət',ru:'Двор',en:'Yard'},'half-pitch':{az:'Yarım meydan',ru:'Полполя',en:'Half pitch'}};
+const GR_LABEL={solo:{az:'Tək',ru:'Один',en:'Solo'},group:{az:'Qrup',ru:'Группа',en:'Group'}};
+const TM_LABEL={s:{az:'≤ 8 dəq',ru:'≤ 8 мин',en:'≤ 8 min'},m:{az:'9–12 dəq',ru:'9–12 мин',en:'9–12 min'},l:{az:'13+ dəq',ru:'13+ мин',en:'13+ min'}};
+
+function drillMatches(d){
+  const f=filters;
+  if(f.positions.length && !f.positions.some(p=>d.positions.includes(p)||d.positions.includes('any'))) return false;
+  // Equipment is a capability filter: "I have these" — the drill must not need anything else.
+  if(f.equipment.length){
+    const need=d.equipment.filter(e=>e!=='none');
+    if(!need.every(e=>f.equipment.includes(e))) return false;
+  }
+  if(f.space.length && !f.space.includes(d.space)) return false;
+  if(f.group.length && !f.group.includes(d.group)) return false;
+  if(f.time.length){
+    const b=d.minutes<=8?'s':(d.minutes<=12?'m':'l');
+    if(!f.time.includes(b)) return false;
+  }
+  return true;
+}
+function chipRow(key,map){
+  return Object.entries(map).map(([k,lbl])=>
+    `<button class="chip ${filters[key].includes(k)?'on':''}" data-filter="${key}" data-val="${k}">${t(lbl)}</button>`).join('');
+}
+function screenTrain(){
+  const list=DRILLS.filter(drillMatches);
+  const active=Object.values(filters).reduce((n,a)=>n+a.length,0);
+  return `
+  <div class="bar"><div class="grow"><h1>${ui('train')}</h1>
+    <div class="sub">${list.length} ${ui('results_n')}${active?` · ${active} ⌁`:''}</div></div>
+    <button class="lang" id="langBtn">${locale.toUpperCase()}</button></div>
+  <div class="pad">
+    <div class="flabel">${ui('position')}</div><div class="chips">${chipRow('positions',POS_LABEL)}</div>
+    <div class="flabel">${ui('equipment')}</div><div class="chips">${chipRow('equipment',EQ_LABEL)}</div>
+    <div style="font-size:11.5px;color:var(--textSecondary);line-height:1.5;margin-top:7px">${ui('equipmentHint')}</div>
+    <div class="flabel">${ui('space')}</div><div class="chips">${chipRow('space',SP_LABEL)}</div>
+    <div class="flabel">${ui('who')}</div><div class="chips">${chipRow('group',GR_LABEL)}</div>
+    <div class="flabel">${ui('time')}</div><div class="chips">${chipRow('time',TM_LABEL)}</div>
+    ${active?`<button class="btn ghost" style="margin-top:14px" id="clearF">${ui('clear')}</button>`:''}
+
+    <div class="sec">${list.length} ${ui('results_n')}</div>
+    ${list.length? list.map(d=>`
+      <button class="card" data-go='{"name":"drill","id":"${d.id}"}'>
+        <div class="rowb"><div style="flex:1;min-width:0"><h3>${t(d.title)}</h3></div>
+          <span class="chev">${progress.drillsDone[d.id]?'✓':'›'}</span></div>
+        <div class="tags">
+          <span class="tag">${t(SP_LABEL[d.space])}</span>
+          <span class="tag">${d.equipment.map(e=>t(EQ_LABEL[e])).join(' + ')}</span>
+          <span class="tag">${t(GR_LABEL[d.group])}</span>
+          <span class="tag">${d.minutes} ${ui('min')}</span></div>
+      </button>`).join('')
+    : `<div class="empty"><div class="ic">◍</div><h3>${ui('noResults')}</h3><p>${ui('noResultsBody')}</p></div>`}
+  </div>`;
+}
+
+function screenDrill(id){
+  const d=DRILLS.find(x=>x.id===id);
+  const done=!!progress.drillsDone[id];
+  return `
+  <div class="bar"><span class="back" data-back>‹</span><div class="grow"><h1>${t(d.title)}</h1>
+    <div class="sub">${d.positions.map(p=>t(POS_LABEL[p])).join(', ')} · ${d.minutes} ${ui('min')}</div></div></div>
+  ${VideoSlot(d.video)}
+  <div class="pad">
+    <div class="tags" style="margin-top:0">
+      <span class="tag">${t(SP_LABEL[d.space])}</span>
+      <span class="tag">${d.equipment.map(e=>t(EQ_LABEL[e])).join(' + ')}</span>
+      <span class="tag">${t(GR_LABEL[d.group])}</span>
+      <span class="tag">${'●'.repeat(d.difficulty)}${'○'.repeat(3-d.difficulty)}</span></div>
+
+    <div class="sec">${ui('steps')}</div>
+    <ul class="take">${tl(d.steps).map((s,i)=>`<li><span class="n">${i+1}</span><span>${richText(s)}</span></li>`).join('')}</ul>
+
+    ${d.diagram?`<div class="sec">${ui('howItLooks')}</div>${PitchDiagram(d.diagram)}`:''}
+
+    <div class="sec">${ui('whatGood')}</div>
+    <div class="card flat"><p style="color:var(--textPrimary);font-size:14px;line-height:1.6">
+      ${tl(d.whatGoodLooksLike).join('<br>')}</p></div>
+
+    <div class="todo" style="margin-top:14px"><span class="badge draft">DRAFT</span>
+      <p><code>reviewed: false</code></p></div>
+
+    <div style="height:18px"></div>
+    <button class="btn ${done?'ghost':''}" data-drill-done="${id}">${done?'✓ '+ui('done'):ui('markDone')}</button>
+    <div style="height:14px"></div>
+  </div>`;
+}
+
+/* ---- Quiz ---- */
+let quizState=null;
+function screenQuiz(id){
+  const q=QUIZZES.find(x=>x.id===id);
+  if(!quizState||quizState.id!==id) quizState={id,i:0,picked:null,score:0,finished:false};
+  const s=quizState;
+  const tr=TRACKS.find(x=>x.id===q.trackId);
+
+  if(s.finished){
+    const pct=Math.round(s.score/q.questions.length*100);
+    return `
+    <div class="bar"><span class="back" data-back>‹</span><div class="grow"><h1>${ui('results')}</h1>
+      <div class="sub">${t(tr.title)}</div></div></div>
+    <div class="pad">
+      <div class="card flat" style="text-align:center;padding:30px 14px">
+        <div style="font-size:44px;font-weight:700;color:var(--accent);line-height:1">${s.score}/${q.questions.length}</div>
+        <p style="margin-top:10px">${pct}%</p></div>
+      <button class="btn" id="retry">${ui('retry')}</button>
+      <button class="btn ghost" style="margin-top:10px" data-go='{"name":"track","id":"${q.trackId}"}'>${t(tr.title)}</button>
+    </div>`;
+  }
+
+  const qq=q.questions[s.i];
+  const answered=s.picked!==null;
+  const wrong=answered && s.picked!==qq.correctOptionId;
+  const revise=qq.reviseLessonId?LESSONS.find(l=>l.id===qq.reviseLessonId):null;
+  return `
+  <div class="bar"><span class="back" data-back>‹</span><div class="grow"><h1>${t({az:'Test',ru:'Тест',en:'Quiz'})}</h1>
+    <div class="sub">${t(tr.title)} · ${s.i+1} / ${q.questions.length}</div></div></div>
+  <div class="pad">
+    <div class="meter" style="margin-top:0;margin-bottom:20px"><i style="width:${(s.i)/q.questions.length*100}%"></i></div>
+    <p style="font-size:17px;line-height:1.5;margin-bottom:18px">${t(qq.prompt)}</p>
+    ${qq.options.map((o,i)=>{
+      let cls='';
+      if(answered){
+        if(o.id===s.picked && wrong) cls='picked';
+        if(o.id===qq.correctOptionId) cls='right';
+      }
+      return `<button class="opt ${cls}" data-pick="${o.id}" ${answered?'disabled':''}>
+        <span class="k">${'ABCD'[i]}</span><span>${t(o.text)}</span></button>`;
+    }).join('')}
+    ${answered?`<div class="expl">${t(qq.explanation)}</div>
+      ${revise?`<div class="sec">${ui('relatedLesson')}</div>
+        <button class="card" data-go='{"name":"lesson","id":"${revise.id}"}'>
+          <div class="rowb"><h3 style="font-size:14px">${t(revise.title)}</h3><span class="chev">›</span></div></button>`:''}
+      <button class="btn" id="qnext">${s.i+1<q.questions.length?ui('next'):ui('results')}</button>`:''}
+    <div style="height:14px"></div>
+  </div>`;
+}
+
+/* ---- Teams ---- */
+let citySearch='';
+function screenTeams(){
+  const list=CLUBS.filter(c=>!citySearch||c.city.toLowerCase().includes(citySearch.toLowerCase()));
+  return `
+  <div class="bar"><div class="grow"><h1>${t({az:'Komanda tap',ru:'Найти команду',en:'Find a team'})}</h1>
+    <input class="input" style="margin-top:10px" id="citySearch" placeholder="${ui('searchCity')}" value="${citySearch}"></div>
+    <button class="lang" id="langBtn">${locale.toUpperCase()}</button></div>
+  ${list.length?`<div class="pad">${list.map(c=>`
+    <div class="card flat"><h3>${c.name}</h3><p>${c.city} · ${c.ageRange.min}–${c.ageRange.max}</p></div>`).join('')}</div>`
+  :`<div class="empty">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 22 22">
+        <circle cx="11" cy="11" r="9" fill="none" stroke="#9AA5B5" stroke-width="1.5"/>
+        <path d="M11 2v18M2 11h18" stroke="#9AA5B5" stroke-width="1.5"/></svg></div>
+      <h3>${ui('teamsEmptyTitle')}</h3><p>${ui('teamsEmptyBody')}</p></div>
+    <div class="pad"><div class="todo"><span class="badge">${t({az:'QAYDA',ru:'ПРАВИЛО',en:'POLICY'})}</span>
+      <p><code>clubs.json = []</code> — ${t({az:'uydurma klub, uydurma əlaqə, uydurma statistika yoxdur. Hər yazı verifiedOn tarixi ilə gəlir.',
+        ru:'никаких выдуманных клубов, контактов и статистики. У каждой записи есть дата verifiedOn.',
+        en:'no invented clubs, contacts or statistics. Every entry carries a verifiedOn date.'})}</p></div></div>`}`;
+}
+
+/* ---- Glossary ---- */
+let termSearch='';
+function screenGlossary(){
+  const q=termSearch.toLowerCase();
+  const list=GLOSSARY.filter(g=>!q||LOCALES.some(L=>(g.term[L]||'').toLowerCase().includes(q))||
+    (g.alsoKnownAs||[]).some(a=>a.toLowerCase().includes(q)));
+  return `
+  <div class="bar"><div class="grow"><h1>${ui('glossary')}</h1>
+    <input class="input" style="margin-top:10px" id="termSearch" placeholder="${ui('searchTerm')}" value="${termSearch}"></div>
+    <button class="lang" id="langBtn">${locale.toUpperCase()}</button></div>
+  <div class="pad">
+    ${list.length?list.map(g=>`
+      <div class="gitem" data-term="${g.id}">
+        <div class="az">${g.term.az}</div>
+        <div class="rest">${g.term.ru} · ${g.term.en}</div>
+        <div class="def">${t(g.definition)}</div></div>`).join('')
+    :`<div class="empty"><h3>${ui('noResults')}</h3></div>`}
+  </div>`;
+}
+
+function openTerm(id){
+  const g=GLOSSARY.find(x=>x.id===id); if(!g) return;
+  const les=g.seeLessonId?LESSONS.find(l=>l.id===g.seeLessonId):null;
+  document.getElementById('sheetBody').innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+      <div><div style="font-size:20px;font-weight:700">${g.term.az}</div>
+        <div style="font-size:14px;color:var(--textSecondary);margin-top:4px">${g.term.ru} · ${g.term.en}</div>
+        ${g.alsoKnownAs?`<div style="font-size:12px;color:var(--textSecondary);margin-top:4px">${t({az:'həmçinin',ru:'также',en:'also'})}: ${g.alsoKnownAs.join(', ')}</div>`:''}</div>
+      <button class="chip" id="sheetClose">✕</button></div>
+    <p style="font-size:15px;line-height:1.6;margin-top:16px">${t(g.definition)}</p>
+    ${les?`<button class="btn ghost" style="margin-top:18px" data-go='{"name":"lesson","id":"${les.id}"}'>${t(les.title)} ›</button>`:''}
+    <div class="todo" style="margin-top:16px"><span class="badge draft">reviewed: false</span>
+      <p>${t({az:'Terminologiya ana dili daşıyıcısı tərəfindən yoxlanmalıdır.',
+              ru:'Терминология требует проверки носителем языка.',
+              en:'Terminology needs a native-speaker check.'})}</p></div>`;
+  document.getElementById('sheet').classList.add('open');
+}
+
+/* --------------------------------------------------------------------------
+   Render
+   -------------------------------------------------------------------------- */
+const TABS=[{k:'learn',ic:'◆'},{k:'train',ic:'▲'},{k:'teams',ic:'●'},{k:'glossary',ic:'■'}];
+function render(){
+  const r=route;
+  let html='';
+  if(r.name==='learn') html=screenLearn();
+  else if(r.name==='track') html=screenTrack(r.id);
+  else if(r.name==='lesson') html=screenLesson(r.id);
+  else if(r.name==='train') html=screenTrain();
+  else if(r.name==='drill') html=screenDrill(r.id);
+  else if(r.name==='quiz') html=screenQuiz(r.id);
+  else if(r.name==='teams') html=screenTeams();
+  else if(r.name==='glossary') html=screenGlossary();
+  main.innerHTML=html;
+
+  const tabOf={learn:'learn',track:'learn',lesson:'learn',quiz:'learn',
+    train:'train',drill:'train',teams:'teams',glossary:'glossary'}[r.name];
+  document.getElementById('tabs').innerHTML=TABS.map(tb=>
+    `<button class="${tb.k===tabOf?'on':''}" data-tab="${tb.k}">
+      <span class="ic">${tb.ic}</span>${ui(tb.k)}</button>`).join('');
+}
+
+/* --------------------------------------------------------------------------
+   Events — one delegated listener
+   -------------------------------------------------------------------------- */
+let history_=[];
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-go],[data-tab],[data-back],[data-term],[data-filter],[data-pick],[data-done],[data-drill-done],#langBtn,#clearF,#qnext,#retry,#sheetClose,#devbtn,[data-dev]');
+  if(!el) return;
+
+  if(el.id==='sheetClose'){document.getElementById('sheet').classList.remove('open');return;}
+  if(el.id==='devbtn'){toggleDev();return;}
+  if(el.dataset.dev!==undefined){handleDev(el);return;}
+
+  if(el.dataset.term){openTerm(el.dataset.term);return;}
+
+  if(el.dataset.go){history_.push(route);go(JSON.parse(el.dataset.go));
+    document.getElementById('sheet').classList.remove('open');return;}
+  if(el.dataset.tab){history_=[];go({name:el.dataset.tab});return;}
+  if(el.dataset.back!==undefined){const p=history_.pop();go(p||{name:'learn'});return;}
+
+  if(el.id==='langBtn'){locale=LOCALES[(LOCALES.indexOf(locale)+1)%3];
+    localStorage.setItem('verve.locale',locale);saveProgress();render();return;}
+
+  if(el.dataset.filter){
+    const k=el.dataset.filter,v=el.dataset.val;
+    const a=filters[k]; const i=a.indexOf(v);
+    i>=0?a.splice(i,1):a.push(v);
+    render();return;}
+  if(el.id==='clearF'){filters={positions:[],equipment:[],space:[],group:[],time:[]};render();return;}
+
+  if(el.dataset.done){const id=el.dataset.done;
+    progress.lessonsCompleted[id]?delete progress.lessonsCompleted[id]:progress.lessonsCompleted[id]=Date.now();
+    saveProgress();render();return;}
+  if(el.dataset.drillDone){const id=el.dataset.drillDone;
+    progress.drillsDone[id]?delete progress.drillsDone[id]:progress.drillsDone[id]=Date.now();
+    saveProgress();render();return;}
+
+  if(el.dataset.pick){
+    const q=QUIZZES.find(x=>x.id===quizState.id);
+    const qq=q.questions[quizState.i];
+    quizState.picked=el.dataset.pick;
+    if(el.dataset.pick===qq.correctOptionId) quizState.score++;
+    render();return;}
+  if(el.id==='qnext'){
+    const q=QUIZZES.find(x=>x.id===quizState.id);
+    if(quizState.i+1<q.questions.length){quizState.i++;quizState.picked=null;}
+    else{quizState.finished=true;
+      progress.quizResults[q.id]={bestScore:Math.max(quizState.score,(progress.quizResults[q.id]||{}).bestScore||0),
+        total:q.questions.length,passedAt:Date.now()};saveProgress();}
+    render();return;}
+  if(el.id==='retry'){const id=quizState.id;quizState=null;go({name:'quiz',id});return;}
+});
+document.addEventListener('input',e=>{
+  if(e.target.id==='termSearch'){termSearch=e.target.value;const p=e.target.selectionStart;
+    render();const n=document.getElementById('termSearch');if(n){n.focus();n.setSelectionRange(p,p);}}
+  if(e.target.id==='citySearch'){citySearch=e.target.value;const p=e.target.selectionStart;
+    render();const n=document.getElementById('citySearch');if(n){n.focus();n.setSelectionRange(p,p);}}
+});
+document.getElementById('sheet').addEventListener('click',e=>{
+  if(e.target.id==='sheet') e.target.classList.remove('open');});
+
+/* --------------------------------------------------------------------------
+   Dev panel — not part of the app; here so you can test the claims
+   -------------------------------------------------------------------------- */
+function contentStats(){
+  const all=[...LESSONS,...DRILLS,...QUIZZES];
+  const c=k=>all.filter(x=>x.status===k).length;
+  const withVideo=[...LESSONS,...DRILLS].filter(x=>x.video).length;
+  return {todo:c('todo'),draft:c('draft'),reviewed:all.filter(x=>x.reviewed).length,
+    lessons:LESSONS.length,drills:DRILLS.length,terms:GLOSSARY.length,clubs:CLUBS.length,
+    withVideo,total:LESSONS.length+DRILLS.length};
+}
+function toggleDev(){
+  const d=document.getElementById('dev');
+  if(d.classList.contains('open')){d.classList.remove('open');return;}
+  const s=contentStats();
+  d.innerHTML=`
+    <h4>Developer panel — not part of the app</h4>
+    <div class="drow"><div style="flex:1">Simulate video files present<br>
+      <span style="font-size:11px;color:var(--textSecondary)">Proves the 16:9 box does not shift</span></div>
+      <div class="sw ${simulateVideos?'on':''}" data-dev="video"><i></i></div></div>
+    <div class="drow"><div style="flex:1">Reset all progress</div>
+      <button class="chip" data-dev="reset">Reset</button></div>
+    <div class="drow" style="display:block">
+      <div class="stat" style="margin-top:6px">
+        <b>${s.lessons}</b> lessons · <b>${s.drills}</b> drills · <b>${s.terms}</b> glossary terms · <b>${s.clubs}</b> clubs<br>
+        status: <b>${s.todo}</b> todo · <b>${s.draft}</b> draft · <b>${s.reviewed}</b> reviewed<br>
+        video slots filled in content: <b>${s.withVideo}</b> / ${s.total}<br>
+        locale: <b>${locale}</b> · lessons done: <b>${Object.keys(progress.lessonsCompleted).length}</b>
+      </div></div>
+    <button class="btn ghost" style="margin-top:14px" data-dev="close">Close</button>`;
+  d.classList.add('open');
+}
+function handleDev(el){
+  const a=el.dataset.dev;
+  if(a==='video'){simulateVideos=!simulateVideos;localStorage.setItem('verve.simVideo',simulateVideos?'1':'0');
+    toggleDev();toggleDev();render();return;}
+  if(a==='reset'){progress={version:1,locale,lessonsCompleted:{},drillsDone:{},quizResults:{}};
+    saveProgress();toggleDev();toggleDev();render();return;}
+  if(a==='close'){document.getElementById('dev').classList.remove('open');return;}
+}
+
+render();
+</script>
+</body>
+</html>
