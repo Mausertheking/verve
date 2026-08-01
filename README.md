@@ -1,4 +1,4 @@
-# futbol-az
+# Verve
 
 A mobile app that teaches girls and women in Azerbaijan how to play football —
 from zero knowledge to joining a real team.
@@ -50,6 +50,16 @@ Rules content ships as structured `TODO` stubs — the Laws of the Game are fill
 in from the official IFAB text and reviewed by a licensed coach, never
 paraphrased from memory. Drafted drill and glossary content carries
 `"reviewed": false` until a human signs off.
+
+## Brand
+
+A tapered pink V with a fine diagonal hatch, on the cold near-black. Generated
+from geometry — no design-tool source, no raster master. See
+[assets/brand/README.md](assets/brand/README.md).
+
+```bash
+npm i -D @resvg/resvg-js && node scripts/build-brand.mjs
+```
 
 ## Privacy
 

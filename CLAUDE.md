@@ -1,11 +1,11 @@
-# CLAUDE.md — futbol-az
+# CLAUDE.md — Verve
 
 Constraints for every session on this repo. These override defaults and habits.
 If a request conflicts with something here, stop and say so instead of drifting.
 
 ## What this is
 
-A mobile app that teaches girls and women in Azerbaijan how to play football,
+**Verve** — a mobile app that teaches girls and women in Azerbaijan how to play football,
 from zero knowledge to joining a real team. Solo developer. Target: working v1
 in ~3 weekends, then iterate with real users.
 
@@ -107,6 +107,17 @@ Videos will be filmed and added later by the developer. Build the space now.
 
 Depth comes from borders and flat surface steps only. **No shadows, no glow,
 no gradients.**
+
+### Brand
+
+The mark is a tapered **V** filled with a fine diagonal hatch, accent on
+background. Stacked lockup (mark above, `VERVE` below) for the splash screen.
+
+Generated from geometry by `scripts/build-brand.mjs` — there is no design-tool
+source file. See [`assets/brand/README.md`](assets/brand/README.md) for the
+tuned values and the rules. The short version: never recolour, invert, rotate,
+or put the mark on a light background; never add a gradient, glow or shadow to
+it; 32 px is the minimum size before the hatch stops resolving.
 
 ### Resolved decisions
 
