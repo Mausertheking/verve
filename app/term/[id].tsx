@@ -6,7 +6,7 @@ import { Button } from '@/components/controls';
 import { Screen, StatusNote } from '@/components/ui';
 import { lessonById, termById } from '@/content';
 import { pick } from '@/i18n';
-import { colors, space, type } from '@/theme';
+import { colors, serif, space, type } from '@/theme';
 import type { Locale } from '@/types/content';
 
 /**
@@ -54,9 +54,18 @@ export default function TermScreen() {
 }
 
 const styles = StyleSheet.create({
-  term: { fontSize: 22, fontWeight: '700', color: colors.textPrimary },
-  other: { ...type.label, color: colors.textSecondary, marginTop: space.xs },
+  term: { fontFamily: serif, fontSize: 32, lineHeight: 40, color: colors.textPrimary },
+  other: { ...type.label, color: colors.accent, marginTop: space.xs },
   aka: { ...type.caption, color: colors.textSecondary, marginTop: space.xs },
-  definition: { ...type.body, color: colors.textPrimary, marginTop: space.lg },
+  definition: {
+    ...type.body,
+    fontSize: 17,
+    lineHeight: 28,
+    color: colors.textPrimary,
+    marginTop: space.xl,
+    paddingTop: space.lg,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
+  },
   note: { marginTop: space.lg },
 });

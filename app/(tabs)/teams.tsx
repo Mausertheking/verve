@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { EmptyState, Screen, StatusNote } from '@/components/ui';
+import { EmptyState, Hero, Screen, StatusNote } from '@/components/ui';
 import { clubs } from '@/content';
 
 /**
@@ -13,12 +13,13 @@ export default function TeamsScreen() {
 
   if (clubs.length === 0) {
     return (
-      <Screen>
+      <Screen topInset>
+        <Hero kicker={t('teamsKicker')} title={t('teamsTitle')} />
         <EmptyState title={t('teamsEmptyTitle')} body={t('teamsEmptyBody')} />
         <StatusNote kind="todo">{t('teamsPolicy')}</StatusNote>
       </Screen>
     );
   }
 
-  return <Screen />;
+  return <Screen topInset />;
 }

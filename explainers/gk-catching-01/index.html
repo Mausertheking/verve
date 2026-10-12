@@ -1,0 +1,354 @@
+<!doctype html>
+<html
+  lang="az"
+  data-composition-variables='[
+    {"id":"kicker","type":"string","label":"Kicker","default":"QAPIÇI · DƏRS 3 / 6"},
+    {"id":"title","type":"string","label":"Title","default":"Top tutma"},
+    {"id":"caption","type":"string","label":"Caption","default":"W forması və sinəyə tutma"},
+    {"id":"b1","type":"string","label":"Body 1","default":"Yuxarı toplarda əllər W forması yaradır: baş barmaqlar bir-birinə yaxın, barmaqlar açıq."},
+    {"id":"b2","type":"string","label":"Body 2","default":"Aşağı toplarda əllər aşağı baxır və top bədənə tərəf yığılır."},
+    {"id":"b3","type":"string","label":"Body 3","default":"Top əlin içinə dəyəndə dirsəklər zərbəni udur — əllər sərt qalmır."},
+    {"id":"t1","type":"string","label":"Takeaway 1","default":"Baş barmaqlar arxada, bir-birinə yaxın."},
+    {"id":"t2","type":"string","label":"Takeaway 2","default":"Topu bədəninlə örtmək üçün irəli çıx."},
+    {"id":"t3","type":"string","label":"Takeaway 3","default":"Səs yumşaq olmalıdır — sərt səs sərt əl deməkdir."}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Georgia";
+        src: local("Georgia");
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0e14;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0b0e14;
+        color: #e9ecf2;
+        font-family: "Helvetica Neue", sans-serif;
+      }
+
+      /* ---- persistent frame ------------------------------------------------ */
+      .layer { position: absolute; inset: 0; }
+      section.clip { position: absolute; inset: 0; }
+      /* Decorative pitch arcs bleeding off the bottom-right corner. */
+      #ghost {
+        position: absolute;
+        right: -260px;
+        bottom: -300px;
+        width: 980px;
+        height: 980px;
+      }
+      #ghost svg { width: 100%; height: 100%; display: block; }
+      #topbar {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 72px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid #232c3a;
+        padding-bottom: 20px;
+      }
+      .brand { display: flex; align-items: center; gap: 22px; }
+      .brand svg { width: 52px; height: 52px; display: block; }
+      .kicker {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: #c2687a;
+      }
+      .wordmark {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        color: #9aa5b5;
+      }
+      #progress-track {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        bottom: 80px;
+        height: 4px;
+        background: #1b2432;
+      }
+      #progress {
+        width: 100%;
+        height: 100%;
+        background: #c2687a;
+        transform-origin: left center;
+      }
+
+
+      /* ---- scene 1: title -------------------------------------------------- */
+      #s1 { display: flex; align-items: center; padding: 0 140px; }
+      #s1 .inner { width: 1400px; }
+      #s1 h1 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 170px;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+      }
+      #s1 .rule { width: 140px; height: 6px; background: #c2687a; margin: 44px 0 40px; transform-origin: left center; }
+      #s1 p { font-size: 46px; line-height: 1.35; color: #9aa5b5; max-width: 1200px; }
+
+
+      /* ---- split scenes: art left, words right ------------------------------ */
+      .split { padding: 190px 140px 140px; display: flex; gap: 90px; align-items: center; }
+      .art { width: 760px; height: 700px; flex: none; }
+      .art svg { width: 760px; height: 700px; display: block; overflow: visible; }
+      .words { flex: 1; display: flex; flex-direction: column; gap: 40px; }
+      .lead { font-family: Georgia, serif; font-size: 54px; line-height: 1.28; color: #e9ecf2; }
+      .point {
+        display: flex;
+        gap: 30px;
+        align-items: baseline;
+        padding-top: 28px;
+        border-top: 2px solid #232c3a;
+      }
+      .point .n { font-family: Georgia, serif; font-size: 72px; line-height: 0.9; color: #c2687a; width: 60px; flex: none; }
+      .point .t { font-size: 42px; line-height: 1.32; color: #e9ecf2; }
+      .label {
+        position: absolute;
+        left: 140px;
+        top: 168px;
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 34px;
+        color: #9aa5b5;
+      }
+      /* ---- scene 3: closing ------------------------------------------------ */
+      #s3 { display: flex; align-items: center; padding: 0 140px; }
+      #s3 blockquote {
+        font-family: Georgia, serif;
+        font-size: 84px;
+        line-height: 1.22;
+        letter-spacing: -0.015em;
+        max-width: 1500px;
+        padding-left: 56px;
+        border-left: 6px solid #c2687a;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="23"
+      data-width="1920"
+      data-height="1080"
+      data-fps="30"
+    >
+      <!-- persistent frame: ghost numeral, top bar, progress rule -->
+      <div id="frame" class="layer">
+        <div id="ghost" data-layout-ignore aria-hidden="true">
+          <svg viewBox="0 0 980 980">
+            <circle cx="490" cy="490" r="300" fill="none" stroke="#1b2432" stroke-width="6" />
+            <circle cx="490" cy="490" r="470" fill="none" stroke="#131a24" stroke-width="6" />
+            <circle cx="490" cy="490" r="10" fill="#1b2432" />
+            <line x1="0" y1="490" x2="980" y2="490" stroke="#131a24" stroke-width="6" />
+          </svg>
+        </div>
+        <div id="topbar">
+          <div class="brand">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <clipPath id="vclip"><polygon points="18,18 37,18 50,56 63,18 82,18 50,82" /></clipPath>
+              </defs>
+              <polygon points="18,18 37,18 50,56 63,18 82,18 50,82" fill="#c2687a" />
+              <g clip-path="url(#vclip)" stroke="#5d3742" stroke-width="1.4">
+                <line x1="-20" y1="20" x2="40" y2="-40" /><line x1="-20" y1="36" x2="56" y2="-40" />
+                <line x1="-20" y1="52" x2="72" y2="-40" /><line x1="-20" y1="68" x2="88" y2="-40" />
+                <line x1="-20" y1="84" x2="104" y2="-40" /><line x1="-20" y1="100" x2="120" y2="-40" />
+                <line x1="-4" y1="100" x2="120" y2="-24" /><line x1="12" y1="100" x2="120" y2="-8" />
+                <line x1="28" y1="100" x2="120" y2="8" /><line x1="44" y1="100" x2="120" y2="24" />
+                <line x1="60" y1="100" x2="120" y2="40" />
+              </g>
+            </svg>
+            <span class="kicker" data-var-text="kicker">QAPIÇI · DƏRS 3 / 6</span>
+          </div>
+          <span class="wordmark">VERVE</span>
+        </div>
+        <div id="progress-track"><div id="progress"></div></div>
+      </div>
+
+
+      <!-- scene 1: title -->
+      <section id="s1" class="clip" data-start="0" data-duration="4.6" data-track-index="1">
+        <div class="inner" id="s1-inner">
+          <h1 id="s1-title" data-var-text="title">Top tutma</h1>
+          <div class="rule" id="s1-rule"></div>
+          <p id="s1-caption" data-var-text="caption">W forması və sinəyə tutma</p>
+        </div>
+      </section>
+
+      <!-- scene 2: the W — two hands close behind the ball -->
+      <section id="s2" class="clip split" data-start="4.2" data-duration="8.4" data-track-index="2">
+        <div class="label" id="s2-label" data-var-text="title">Top tutma</div>
+        <div class="art" id="s2-art">
+          <svg viewBox="0 0 760 700">
+            <g id="handL" stroke="#e9ecf2" stroke-linecap="round" fill="none">
+              <rect x="185" y="330" width="140" height="170" rx="50" fill="#e9ecf2" stroke="none" />
+              <line x1="296" y1="352" x2="308" y2="168" stroke-width="34" />
+              <line x1="262" y1="346" x2="262" y2="140" stroke-width="34" />
+              <line x1="230" y1="350" x2="216" y2="158" stroke-width="32" />
+              <line x1="202" y1="364" x2="176" y2="200" stroke-width="28" />
+              <line x1="318" y1="420" x2="362" y2="352" stroke-width="34" />
+            </g>
+            <g id="handR" stroke="#e9ecf2" stroke-linecap="round" fill="none">
+              <rect x="435" y="330" width="140" height="170" rx="50" fill="#e9ecf2" stroke="none" />
+              <line x1="464" y1="352" x2="452" y2="168" stroke-width="34" />
+              <line x1="498" y1="346" x2="498" y2="140" stroke-width="34" />
+              <line x1="530" y1="350" x2="544" y2="158" stroke-width="32" />
+              <line x1="558" y1="364" x2="584" y2="200" stroke-width="28" />
+              <line x1="442" y1="420" x2="398" y2="352" stroke-width="34" />
+            </g>
+            <!-- the ball, drawn as an outline so the hand shape stays readable -->
+            <g id="ball2">
+              <circle cx="380" cy="250" r="168" fill="none" stroke="#9aa5b5" stroke-width="6" stroke-dasharray="18 14" />
+            </g>
+            <!-- the W itself: index tips, thumb webs, thumbs together -->
+            <polyline id="wline" points="308,168 318,400 380,352 442,400 452,168"
+              fill="none" stroke="#c2687a" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" />
+            <g id="wtag"><circle cx="380" cy="560" r="40" fill="#c2687a" /><text x="380" y="576" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#0b0e14">W</text></g>
+          </svg>
+        </div>
+        <div class="words">
+          <p class="lead" id="s2-lead" data-var-text="b1">Yuxarı toplarda əllər W forması yaradır: baş barmaqlar bir-birinə yaxın, barmaqlar açıq.</p>
+          <div class="point" id="s2-p1"><span class="n">1</span><span class="t" data-var-text="t1">Baş barmaqlar arxada, bir-birinə yaxın.</span></div>
+        </div>
+      </section>
+
+      <!-- scene 3: chest catch — step in, gather the ball to the body -->
+      <section id="s3b" class="clip split" data-start="12.2" data-duration="6.8" data-track-index="3">
+        <div class="art" id="s3-art">
+          <svg viewBox="0 0 640 700">
+            <defs><clipPath id="gclip"><rect x="20" y="664" width="600" height="34" /></clipPath></defs>
+            <g clip-path="url(#gclip)" stroke="#232c3a" stroke-width="3" id="hatch"></g>
+            <line x1="20" y1="664" x2="620" y2="664" stroke="#232c3a" stroke-width="4" />
+            <g stroke="#9aa5b5" stroke-width="24" stroke-linecap="round" fill="none">
+              <line id="thighB" /><line id="shinB" /><line id="footB" /><line id="uarmB" /><line id="farmB" />
+            </g>
+            <g stroke="#e9ecf2" stroke-width="28" stroke-linecap="round" fill="none">
+              <line id="torso" /><line id="thighF" /><line id="shinF" /><line id="footF" /><line id="uarmF" /><line id="farmF" />
+            </g>
+            <circle id="head" r="44" fill="#e9ecf2" />
+            <g id="ball3"><circle id="ball3c" cx="640" cy="440" r="34" fill="#e9ecf2" /></g>
+            <path id="travel" d="M 640 440 L 470 442" fill="none" stroke="#c2687a" stroke-width="5" stroke-dasharray="14 12" />
+          </svg>
+        </div>
+        <div class="words">
+          <p class="lead" id="s3-lead" data-var-text="b2">Aşağı toplarda əllər aşağı baxır və top bədənə tərəf yığılır.</p>
+          <div class="point" id="s3-p2"><span class="n">2</span><span class="t" data-var-text="t2">Topu bədəninlə örtmək üçün irəli çıx.</span></div>
+          <div class="point" id="s3-p3"><span class="n">3</span><span class="t" data-var-text="b3">Top əlin içinə dəyəndə dirsəklər zərbəni udur — əllər sərt qalmır.</span></div>
+        </div>
+      </section>
+
+      <!-- scene 4: closing line -->
+      <section id="s3" class="clip" data-start="18.8" data-duration="4.2" data-track-index="4">
+        <blockquote id="s3-quote" data-var-text="t3">Səs yumşaq olmalıdır — sərt səs sərt əl deməkdir.</blockquote>
+      </section>
+    </div>
+
+    <script>
+      // ---- chest-catch figure (side view, facing right) ----------------------
+      const SET = {
+        hip: [250, 400], shoulder: [300, 214], head: [330, 140],
+        kneeF: [330, 524], ankleF: [300, 648], heelF: [282, 650], toeF: [358, 662],
+        kneeB: [300, 530], ankleB: [232, 648], heelB: [214, 650], toeB: [290, 662],
+        elbowF: [352, 340], handF: [432, 436], elbowB: [338, 346], handB: [416, 446],
+      };
+      // Stepped in, ball taken and gathered: elbows bend, hands draw to the chest.
+      const GATHER = {
+        hip: [290, 404], shoulder: [326, 220], head: [352, 148],
+        kneeF: [384, 520], ankleF: [376, 648], heelF: [358, 650], toeF: [434, 662],
+        kneeB: [318, 532], ankleB: [262, 648], heelB: [244, 650], toeB: [320, 662],
+        elbowF: [356, 330], handF: [382, 292], elbowB: [342, 336], handB: [370, 300],
+      };
+      const SEGS = [
+        ['torso', 'hip', 'shoulder'],
+        ['thighF', 'hip', 'kneeF'], ['shinF', 'kneeF', 'ankleF'], ['footF', 'heelF', 'toeF'],
+        ['thighB', 'hip', 'kneeB'], ['shinB', 'kneeB', 'ankleB'], ['footB', 'heelB', 'toeB'],
+        ['uarmF', 'shoulder', 'elbowF'], ['farmF', 'elbowF', 'handF'],
+        ['uarmB', 'shoulder', 'elbowB'], ['farmB', 'elbowB', 'handB'],
+      ];
+      const lineAttr = (P, a, b) => ({ x1: P[a][0], y1: P[a][1], x2: P[b][0], y2: P[b][1] });
+      for (const [id, a, b] of SEGS) {
+        const el = document.getElementById(id);
+        for (const [k, v] of Object.entries(lineAttr(SET, a, b))) el.setAttribute(k, v);
+      }
+      const head = document.getElementById('head');
+      head.setAttribute('cx', SET.head[0]);
+      head.setAttribute('cy', SET.head[1]);
+      const hatch = document.getElementById('hatch');
+      for (let x = 0; x < 660; x += 22) {
+        const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        l.setAttribute('x1', x); l.setAttribute('y1', 700);
+        l.setAttribute('x2', x + 36); l.setAttribute('y2', 664);
+        hatch.appendChild(l);
+      }
+
+      const D = 23;
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo('#topbar', { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.1);
+      tl.fromTo('#progress', { scaleX: 0 }, { scaleX: 1, duration: D - 0.2, ease: 'none' }, 0);
+      tl.fromTo('#ghost', { opacity: 0, rotation: -8 }, { opacity: 1, rotation: 6, duration: D, ease: 'none' }, 0);
+
+      // Scene 1
+      tl.fromTo('#s1-title', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 0.3);
+      tl.fromTo('#s1-rule', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.inOut' }, 0.75);
+      tl.fromTo('#s1-caption', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }, 1.0);
+      tl.to('#s1-inner', { opacity: 0, y: -30, duration: 0.45, ease: 'power2.in' }, 4.05);
+
+      // Scene 2 — hands arrive spread, close in, the W traces
+      tl.fromTo('#s2-label', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 4.3);
+      tl.fromTo('#handL', { x: -150, opacity: 0 }, { x: 0, opacity: 1, duration: 1.1, ease: 'power3.out' }, 4.4);
+      tl.fromTo('#handR', { x: 150, opacity: 0 }, { x: 0, opacity: 1, duration: 1.1, ease: 'power3.out' }, 4.4);
+      tl.fromTo('#ball2', { opacity: 0, scale: 0.3, transformOrigin: '50% 50%' },
+        { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' }, 5.6);
+      tl.fromTo('#wline', { strokeDasharray: 900, strokeDashoffset: 900 },
+        { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, 6.6);
+      tl.fromTo('#wtag', { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' },
+        { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, 7.8);
+      tl.fromTo('#s2-lead', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 4.9);
+      tl.fromTo('#s2-p1', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 8.4);
+      tl.to(['#s2-art', '#s2-lead', '#s2-p1', '#s2-label'], { opacity: 0, duration: 0.45, ease: 'power2.in' }, 12.0);
+
+      // Scene 3 — ball arrives, keeper steps in and gathers it to the chest
+      tl.fromTo('#s3-art', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 12.3);
+      tl.fromTo('#s3-lead', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 12.5);
+      tl.fromTo('#travel', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 13.0);
+      tl.fromTo('#ball3', { x: 120 }, { x: -190, duration: 0.85, ease: 'power1.in' }, 13.05);
+      for (const [id, a, b] of SEGS) {
+        tl.to('#' + id, { attr: lineAttr(GATHER, a, b), duration: 0.9, ease: 'power2.out' }, 13.9);
+      }
+      tl.to('#head', { attr: { cx: GATHER.head[0], cy: GATHER.head[1] }, duration: 0.9, ease: 'power2.out' }, 13.9);
+      tl.to('#ball3', { x: -250, y: -140, duration: 0.9, ease: 'power2.out' }, 13.9);
+      tl.to('#travel', { opacity: 0, duration: 0.4 }, 14.3);
+      tl.fromTo('#s3-p2', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 14.4);
+      tl.fromTo('#s3-p3', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 16.0);
+      tl.to(['#s3-art', '#s3-lead', '#s3-p2', '#s3-p3'], { opacity: 0, duration: 0.45, ease: 'power2.in' }, 18.5);
+
+      // Scene 4
+      tl.fromTo('#s3-quote', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 19.0);
+
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

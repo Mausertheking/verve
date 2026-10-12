@@ -1,0 +1,341 @@
+<!doctype html>
+<html
+  lang="az"
+  data-composition-variables='[
+    {"id":"kicker","type":"string","label":"Kicker","default":"MÖVQELƏR · DƏRS 1 / 6"},
+    {"id":"title","type":"string","label":"Title","default":"Qapıçı"},
+    {"id":"caption","type":"string","label":"Caption","default":"Qapıçının bir oyundakı işi"},
+    {"id":"b1","type":"string","label":"Body 1","default":"Komandada qapıçı cərimə meydançası daxilində topa əl ilə toxuna bilən yeganə oyunçudur."},
+    {"id":"b2","type":"string","label":"Body 2","default":"İş yalnız zərbələri dayandırmaq deyil: qapıçı müdafiəni idarə edir, hücumu paylama ilə başladır və arxa boşluğu oxuyur."},
+    {"id":"b3","type":"string","label":"Body 3","default":"Yaxşı qapıçı çox vaxt heç bir möhtəşəm xilasetmə etmir — sadəcə həmişə düzgün yerdə dayanır."},
+    {"id":"t1","type":"string","label":"Takeaway 1","default":"Əl ilə oynamaq yalnız öz cərimə meydançasında."},
+    {"id":"t2","type":"string","label":"Takeaway 2","default":"Səs qapıçının əsas alətidir — müdafiəni sən idarə edirsən."},
+    {"id":"t3","type":"string","label":"Takeaway 3","default":"Mövqe seçimi refleksdən vacibdir."}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Georgia";
+        src: local("Georgia");
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0e14;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0b0e14;
+        color: #e9ecf2;
+        font-family: "Helvetica Neue", sans-serif;
+      }
+
+      /* ---- persistent frame ------------------------------------------------ */
+      .layer { position: absolute; inset: 0; }
+      section.clip { position: absolute; inset: 0; }
+      /* Decorative pitch arcs bleeding off the bottom-right corner. */
+      #ghost {
+        position: absolute;
+        right: -260px;
+        bottom: -300px;
+        width: 980px;
+        height: 980px;
+      }
+      #ghost svg { width: 100%; height: 100%; display: block; }
+      #topbar {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 72px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid #232c3a;
+        padding-bottom: 20px;
+      }
+      .brand { display: flex; align-items: center; gap: 22px; }
+      .brand svg { width: 52px; height: 52px; display: block; }
+      .kicker {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: #c2687a;
+      }
+      .wordmark {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        color: #9aa5b5;
+      }
+      #progress-track {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        bottom: 80px;
+        height: 4px;
+        background: #1b2432;
+      }
+      #progress {
+        width: 100%;
+        height: 100%;
+        background: #c2687a;
+        transform-origin: left center;
+      }
+
+
+      /* ---- scene 1: title -------------------------------------------------- */
+      #s1 { display: flex; align-items: center; padding: 0 140px; }
+      #s1 .inner { width: 1400px; }
+      #s1 h1 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 170px;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+      }
+      #s1 .rule { width: 140px; height: 6px; background: #c2687a; margin: 44px 0 40px; transform-origin: left center; }
+      #s1 p { font-size: 46px; line-height: 1.35; color: #9aa5b5; max-width: 1200px; }
+
+
+      .split { padding: 190px 140px 140px; display: flex; gap: 80px; align-items: center; }
+      .art { width: 900px; height: 585px; flex: none; }
+      .art svg { width: 900px; height: 585px; display: block; overflow: visible; }
+      .words { flex: 1; display: flex; flex-direction: column; gap: 34px; }
+      .lead { font-family: Georgia, serif; font-size: 46px; line-height: 1.3; color: #e9ecf2; }
+      .point {
+        display: flex;
+        gap: 28px;
+        align-items: baseline;
+        padding-top: 26px;
+        border-top: 2px solid #232c3a;
+      }
+      .point .n { font-family: Georgia, serif; font-size: 64px; line-height: 0.9; color: #c2687a; width: 54px; flex: none; }
+      .point .t { font-size: 38px; line-height: 1.32; color: #e9ecf2; }
+      .label {
+        position: absolute;
+        left: 140px;
+        top: 168px;
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 34px;
+        color: #9aa5b5;
+      }
+      /* ---- scene 3: closing ------------------------------------------------ */
+      #s3 { display: flex; align-items: center; padding: 0 140px; }
+      #s3 blockquote {
+        font-family: Georgia, serif;
+        font-size: 84px;
+        line-height: 1.22;
+        letter-spacing: -0.015em;
+        max-width: 1500px;
+        padding-left: 56px;
+        border-left: 6px solid #c2687a;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="27"
+      data-width="1920"
+      data-height="1080"
+      data-fps="30"
+    >
+      <!-- persistent frame: ghost numeral, top bar, progress rule -->
+      <div id="frame" class="layer">
+        <div id="ghost" data-layout-ignore aria-hidden="true">
+          <svg viewBox="0 0 980 980">
+            <circle cx="490" cy="490" r="300" fill="none" stroke="#1b2432" stroke-width="6" />
+            <circle cx="490" cy="490" r="470" fill="none" stroke="#131a24" stroke-width="6" />
+            <circle cx="490" cy="490" r="10" fill="#1b2432" />
+            <line x1="0" y1="490" x2="980" y2="490" stroke="#131a24" stroke-width="6" />
+          </svg>
+        </div>
+        <div id="topbar">
+          <div class="brand">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <clipPath id="vclip"><polygon points="18,18 37,18 50,56 63,18 82,18 50,82" /></clipPath>
+              </defs>
+              <polygon points="18,18 37,18 50,56 63,18 82,18 50,82" fill="#c2687a" />
+              <g clip-path="url(#vclip)" stroke="#5d3742" stroke-width="1.4">
+                <line x1="-20" y1="20" x2="40" y2="-40" /><line x1="-20" y1="36" x2="56" y2="-40" />
+                <line x1="-20" y1="52" x2="72" y2="-40" /><line x1="-20" y1="68" x2="88" y2="-40" />
+                <line x1="-20" y1="84" x2="104" y2="-40" /><line x1="-20" y1="100" x2="120" y2="-40" />
+                <line x1="-4" y1="100" x2="120" y2="-24" /><line x1="12" y1="100" x2="120" y2="-8" />
+                <line x1="28" y1="100" x2="120" y2="8" /><line x1="44" y1="100" x2="120" y2="24" />
+                <line x1="60" y1="100" x2="120" y2="40" />
+              </g>
+            </svg>
+            <span class="kicker" data-var-text="kicker">MÖVQELƏR · DƏRS 1 / 6</span>
+          </div>
+          <span class="wordmark">VERVE</span>
+        </div>
+        <div id="progress-track"><div id="progress"></div></div>
+      </div>
+
+
+      <section id="s1" class="clip" data-start="0" data-duration="4.6" data-track-index="1">
+        <div class="inner" id="s1-inner">
+          <h1 id="s1-title" data-var-text="title">Qapıçı</h1>
+          <div class="rule" id="s1-rule"></div>
+          <p id="s1-caption" data-var-text="caption">Qapıçının bir oyundakı işi</p>
+        </div>
+      </section>
+
+      <!-- scene 2: the only player who may handle — inside the penalty area -->
+      <section id="s2" class="clip split" data-start="4.2" data-duration="8.2" data-track-index="2">
+        <div class="label" id="s2-label" data-var-text="title">Qapıçı</div>
+        <div class="art" id="s2-art">
+          <svg viewBox="0 0 1000 650">
+            <rect x="0" y="0" width="1000" height="650" rx="10" fill="#0f141c" />
+            <rect id="box2" x="30" y="145" width="180" height="360" fill="#c2687a" fill-opacity="0.18" />
+            <g id="pitch2" fill="none" stroke="#3a4558" stroke-width="5">
+              <rect x="30" y="30" width="940" height="590" />
+              <rect x="30" y="145" width="180" height="360" />
+              <rect x="30" y="235" width="60" height="180" />
+              <path d="M 210 252 A 120 120 0 0 1 210 398" />
+              <path d="M 970 205 A 120 120 0 0 0 970 445" />
+            </g>
+            <rect x="12" y="290" width="18" height="70" fill="#9aa5b5" />
+            <rect id="edge2" x="30" y="145" width="180" height="360" fill="none" stroke="#c2687a" stroke-width="8" />
+            <g id="gk2">
+              <circle cx="0" cy="0" r="30" fill="#e9ecf2" />
+              <text x="0" y="11" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#0b0e14">GK</text>
+            </g>
+          </svg>
+        </div>
+        <div class="words">
+          <p class="lead" id="s2-lead" data-var-text="b1">Komandada qapıçı cərimə meydançası daxilində topa əl ilə toxuna bilən yeganə oyunçudur.</p>
+          <div class="point" id="s2-p1"><span class="n">1</span><span class="t" data-var-text="t1">Əl ilə oynamaq yalnız öz cərimə meydançasında.</span></div>
+        </div>
+      </section>
+
+      <!-- scene 3: organise, distribute, read the space behind -->
+      <section id="s3b" class="clip split" data-start="12.2" data-duration="10.6" data-track-index="3">
+        <div class="art" id="s3-art">
+          <svg viewBox="0 0 1000 650">
+            <rect x="0" y="0" width="1000" height="650" rx="10" fill="#0f141c" />
+            <g fill="none" stroke="#3a4558" stroke-width="5">
+              <rect x="30" y="30" width="940" height="590" />
+              <rect x="30" y="145" width="180" height="360" />
+              <rect x="30" y="235" width="60" height="180" />
+              <path d="M 210 252 A 120 120 0 0 1 210 398" />
+              <path d="M 970 205 A 120 120 0 0 0 970 445" />
+            </g>
+            <rect x="12" y="290" width="18" height="70" fill="#9aa5b5" />
+            <!-- voice: three hairline arcs, once -->
+            <g id="voice" fill="none" stroke="#c2687a" stroke-width="4">
+              <path id="v1" d="M 120 255 A 75 75 0 0 1 120 395" />
+              <path id="v2" d="M 150 225 A 110 110 0 0 1 150 425" />
+              <path id="v3" d="M 180 195 A 145 145 0 0 1 180 455" />
+            </g>
+            <line id="pass" x1="80" y1="330" x2="372" y2="505" stroke="#e9ecf2" stroke-width="5" stroke-dasharray="16 12" />
+            <line id="thru" x1="700" y1="360" x2="236" y2="318" stroke="#e9ecf2" stroke-width="5" stroke-dasharray="16 12" />
+            <line id="run" x1="560" y1="330" x2="272" y2="322" stroke="#9aa5b5" stroke-width="5" />
+            <g id="defs">
+              <circle class="d" cx="330" cy="140" r="26" fill="#c2687a" />
+              <circle class="d" cx="330" cy="265" r="26" fill="#c2687a" />
+              <circle class="d" cx="330" cy="390" r="26" fill="#c2687a" />
+              <circle class="d" cx="330" cy="510" r="26" fill="#c2687a" />
+            </g>
+            <g id="opp"><circle cx="560" cy="330" r="24" fill="#0f141c" stroke="#9aa5b5" stroke-width="5" /></g>
+            <g id="gk3">
+              <circle cx="80" cy="325" r="30" fill="#e9ecf2" />
+              <text x="80" y="336" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#0b0e14">GK</text>
+            </g>
+            <g id="ball"><circle cx="104" cy="338" r="13" fill="#e9ecf2" stroke="#0f141c" stroke-width="3" /></g>
+          </svg>
+        </div>
+        <div class="words">
+          <p class="lead" id="s3-lead" data-var-text="b2">İş yalnız zərbələri dayandırmaq deyil: qapıçı müdafiəni idarə edir, hücumu paylama ilə başladır və arxa boşluğu oxuyur.</p>
+          <div class="point" id="s3-p2"><span class="n">2</span><span class="t" data-var-text="t2">Səs qapıçının əsas alətidir — müdafiəni sən idarə edirsən.</span></div>
+          <div class="point" id="s3-p3"><span class="n">3</span><span class="t" data-var-text="t3">Mövqe seçimi refleksdən vacibdir.</span></div>
+        </div>
+      </section>
+
+      <section id="s3" class="clip" data-start="22.6" data-duration="4.4" data-track-index="4">
+        <blockquote id="s3-quote" data-var-text="b3">Yaxşı qapıçı çox vaxt heç bir möhtəşəm xilasetmə etmir — sadəcə həmişə düzgün yerdə dayanır.</blockquote>
+      </section>
+    </div>
+
+    <script>
+      const D = 27;
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo('#topbar', { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.1);
+      tl.fromTo('#progress', { scaleX: 0 }, { scaleX: 1, duration: D - 0.2, ease: 'none' }, 0);
+      tl.fromTo('#ghost', { opacity: 0, rotation: -8 }, { opacity: 1, rotation: 6, duration: D, ease: 'none' }, 0);
+
+      // Scene 1
+      tl.fromTo('#s1-title', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 0.3);
+      tl.fromTo('#s1-rule', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.inOut' }, 0.75);
+      tl.fromTo('#s1-caption', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }, 1.0);
+      tl.to('#s1-inner', { opacity: 0, y: -30, duration: 0.45, ease: 'power2.in' }, 4.05);
+
+      // Scene 2 — pitch, the box lights up, the keeper moves inside it
+      tl.fromTo('#s2-label', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 4.3);
+      tl.fromTo('#s2-art', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 4.3);
+      tl.fromTo('#box2', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 5.4);
+      tl.fromTo('#edge2', { strokeDasharray: 1080, strokeDashoffset: 1080 },
+        { strokeDashoffset: 0, duration: 1.3, ease: 'power2.inOut' }, 5.4);
+      tl.fromTo('#gk2', { x: 70, y: 325, opacity: 0, scale: 0.4 },
+        { x: 70, y: 325, opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, 6.0);
+      tl.to('#gk2', { x: 170, y: 200, duration: 1.3, ease: 'power2.inOut' }, 7.2);
+      tl.to('#gk2', { x: 160, y: 450, duration: 1.5, ease: 'power2.inOut' }, 8.9);
+      tl.to('#gk2', { x: 70, y: 325, duration: 1.2, ease: 'power2.inOut' }, 10.6);
+      tl.fromTo('#s2-lead', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 4.9);
+      tl.fromTo('#s2-p1', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 7.6);
+      tl.to(['#s2-art', '#s2-lead', '#s2-p1', '#s2-label'], { opacity: 0, duration: 0.45, ease: 'power2.in' }, 11.9);
+
+      // Scene 3
+      tl.set(['#voice path', '#pass', '#thru', '#run', '#opp'], { opacity: 0 }, 0);
+      tl.fromTo('#s3-art', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 12.3);
+      tl.fromTo('#s3-lead', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 12.5);
+
+      // a) voice — arcs go out once, the back four step up together
+      ['#v1', '#v2', '#v3'].forEach((id, i) => {
+        tl.fromTo(id, { opacity: 0 }, { opacity: 1, duration: 0.25 }, 13.6 + i * 0.18);
+        tl.to(id, { opacity: 0, duration: 0.5 }, 14.6 + i * 0.18);
+      });
+      tl.to('#defs .d', { attr: { cx: 390 }, duration: 1.0, ease: 'power2.inOut', stagger: 0.06 }, 14.1);
+      tl.fromTo('#s3-p2', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 14.0);
+
+      // b) distribution — out to the right-back
+      tl.fromTo('#pass', { opacity: 0, attr: { x2: 80, y2: 330 } },
+        { opacity: 1, attr: { x2: 362, y2: 500 }, duration: 0.8, ease: 'power2.out' }, 15.8);
+      tl.to('#ball', { x: 262, y: 160, duration: 0.8, ease: 'power2.out' }, 15.8);
+      tl.to('#pass', { opacity: 0, duration: 0.4 }, 17.2);
+
+      // c) reading the space behind — a ball over the top, the keeper is already there
+      tl.fromTo('#opp', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 17.4);
+      tl.set('#ball', { x: 596, y: 22 }, 17.6);
+      tl.fromTo('#run', { opacity: 0, attr: { x2: 560, y2: 330 } },
+        { opacity: 1, attr: { x2: 272, y2: 322 }, duration: 1.2, ease: 'power2.inOut' }, 18.0);
+      tl.to('#opp', { x: -288, y: -8, duration: 1.2, ease: 'power2.inOut' }, 18.0);
+      tl.fromTo('#thru', { opacity: 0, attr: { x2: 700, y2: 360 } },
+        { opacity: 1, attr: { x2: 236, y2: 318 }, duration: 1.0, ease: 'power2.out' }, 18.1);
+      tl.to('#ball', { x: 132, y: -20, duration: 1.0, ease: 'power2.out' }, 18.1);
+      tl.to('#gk3', { x: 128, y: -7, duration: 0.8, ease: 'power3.out' }, 18.3);
+      tl.fromTo('#s3-p3', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 19.0);
+      tl.to(['#s3-art', '#s3-lead', '#s3-p2', '#s3-p3'], { opacity: 0, duration: 0.45, ease: 'power2.in' }, 22.3);
+
+      // Scene 4
+      tl.fromTo('#s3-quote', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 22.8);
+
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

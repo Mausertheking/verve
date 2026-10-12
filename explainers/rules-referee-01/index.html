@@ -1,0 +1,303 @@
+<!doctype html>
+<html
+  lang="az"
+  data-composition-variables='[
+    {"id":"kicker","type":"string","label":"Kicker","default":"OYUNUN QAYDALARI · DƏRS 8 / 8"},
+    {"id":"title","type":"string","label":"Title","default":"Hakimin işarələri"},
+    {"id":"caption","type":"string","label":"Caption","default":"Hakimin qolları nə deyir"},
+    {"id":"advantage","type":"string","label":"Advantage","default":"Üstünlük — oyun davam edir"},
+    {"id":"direct","type":"string","label":"Direct","default":"Birbaşa cərimə zərbəsi"},
+    {"id":"indirect","type":"string","label":"Indirect","default":"Dolayı cərimə zərbəsi"},
+    {"id":"penalty","type":"string","label":"Penalty","default":"Penalti"},
+    {"id":"corner","type":"string","label":"Corner","default":"Künc zərbəsi"},
+    {"id":"goalkick","type":"string","label":"Goal kick","default":"Qapı zərbəsi"},
+    {"id":"yellow","type":"string","label":"Yellow","default":"Sarı vərəqə — xəbərdarlıq"},
+    {"id":"red","type":"string","label":"Red","default":"Qırmızı vərəqə — meydandan kənar"},
+    {"id":"source","type":"string","label":"Source","default":"Mənbə: IFAB Laws of the Game 2026/27 — Law 5; Law 6"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Georgia";
+        src: local("Georgia");
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0e14;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0b0e14;
+        color: #e9ecf2;
+        font-family: "Helvetica Neue", sans-serif;
+      }
+
+      /* ---- persistent frame ------------------------------------------------ */
+      .layer { position: absolute; inset: 0; }
+      section.clip { position: absolute; inset: 0; }
+      /* Decorative pitch arcs bleeding off the bottom-right corner. */
+      #ghost {
+        position: absolute;
+        right: -260px;
+        bottom: -300px;
+        width: 980px;
+        height: 980px;
+      }
+      #ghost svg { width: 100%; height: 100%; display: block; }
+      #topbar {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 72px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid #232c3a;
+        padding-bottom: 20px;
+      }
+      .brand { display: flex; align-items: center; gap: 22px; }
+      .brand svg { width: 52px; height: 52px; display: block; }
+      .kicker {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: #c2687a;
+      }
+      .wordmark {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        color: #9aa5b5;
+      }
+      #progress-track {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        bottom: 80px;
+        height: 4px;
+        background: #1b2432;
+      }
+      #progress {
+        width: 100%;
+        height: 100%;
+        background: #c2687a;
+        transform-origin: left center;
+      }
+
+
+      /* ---- scene 1: title -------------------------------------------------- */
+      #s1 { display: flex; align-items: center; padding: 0 140px; }
+      #s1 .inner { width: 1400px; }
+      #s1 h1 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 170px;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+      }
+      #s1 .rule { width: 140px; height: 6px; background: #c2687a; margin: 44px 0 40px; transform-origin: left center; }
+      #s1 p { font-size: 46px; line-height: 1.35; color: #9aa5b5; max-width: 1200px; }
+
+
+      #s2 { padding: 170px 140px 120px; display: flex; gap: 90px; align-items: center; }
+      #fig-wrap { width: 700px; height: 780px; flex: none; }
+      #fig-wrap svg { width: 700px; height: 780px; display: block; overflow: visible; }
+      #labels { flex: 1; position: relative; height: 400px; }
+      .sig { position: absolute; left: 0; right: 0; top: 0; opacity: 0; }
+      .sig .n { font-family: Georgia, serif; font-style: italic; font-size: 40px; color: #c2687a; }
+      .sig .t { font-family: Georgia, serif; font-size: 84px; line-height: 1.12; letter-spacing: -0.02em; color: #e9ecf2; margin-top: 18px; }
+      /* ---- scene 3: closing ------------------------------------------------ */
+      #s3 { display: flex; align-items: center; padding: 0 140px; }
+      #s3 blockquote {
+        font-family: Georgia, serif;
+        font-size: 84px;
+        line-height: 1.22;
+        letter-spacing: -0.015em;
+        max-width: 1500px;
+        padding-left: 56px;
+        border-left: 6px solid #c2687a;
+      }
+
+      .src { margin-top: 44px; font-size: 32px; font-style: italic; color: #9aa5b5; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38" data-width="1920" data-height="1080" data-fps="30">
+      <!-- persistent frame: ghost numeral, top bar, progress rule -->
+      <div id="frame" class="layer">
+        <div id="ghost" data-layout-ignore aria-hidden="true">
+          <svg viewBox="0 0 980 980">
+            <circle cx="490" cy="490" r="300" fill="none" stroke="#1b2432" stroke-width="6" />
+            <circle cx="490" cy="490" r="470" fill="none" stroke="#131a24" stroke-width="6" />
+            <circle cx="490" cy="490" r="10" fill="#1b2432" />
+            <line x1="0" y1="490" x2="980" y2="490" stroke="#131a24" stroke-width="6" />
+          </svg>
+        </div>
+        <div id="topbar">
+          <div class="brand">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <clipPath id="vclip"><polygon points="18,18 37,18 50,56 63,18 82,18 50,82" /></clipPath>
+              </defs>
+              <polygon points="18,18 37,18 50,56 63,18 82,18 50,82" fill="#c2687a" />
+              <g clip-path="url(#vclip)" stroke="#5d3742" stroke-width="1.4">
+                <line x1="-20" y1="20" x2="40" y2="-40" /><line x1="-20" y1="36" x2="56" y2="-40" />
+                <line x1="-20" y1="52" x2="72" y2="-40" /><line x1="-20" y1="68" x2="88" y2="-40" />
+                <line x1="-20" y1="84" x2="104" y2="-40" /><line x1="-20" y1="100" x2="120" y2="-40" />
+                <line x1="-4" y1="100" x2="120" y2="-24" /><line x1="12" y1="100" x2="120" y2="-8" />
+                <line x1="28" y1="100" x2="120" y2="8" /><line x1="44" y1="100" x2="120" y2="24" />
+                <line x1="60" y1="100" x2="120" y2="40" />
+              </g>
+            </svg>
+            <span class="kicker" data-var-text="kicker">OYUNUN QAYDALARI · DƏRS 8 / 8</span>
+          </div>
+          <span class="wordmark">VERVE</span>
+        </div>
+        <div id="progress-track"><div id="progress"></div></div>
+      </div>
+
+
+      <section id="s1" class="clip" data-start="0" data-duration="4.4" data-track-index="1">
+        <div class="inner" id="s1-inner">
+          <h1 id="s1-title" data-var-text="title">Hakimin işarələri</h1>
+          <div class="rule" id="s1-rule"></div>
+          <p id="s1-caption" data-var-text="caption">Hakimin qolları nə deyir</p>
+        </div>
+      </section>
+
+      <section id="s2" class="clip" data-start="4.2" data-duration="29.6" data-track-index="2">
+        <div id="fig-wrap">
+          <svg viewBox="0 0 640 760">
+            <defs><clipPath id="gclip"><rect x="20" y="704" width="600" height="34" /></clipPath></defs>
+            <g clip-path="url(#gclip)" stroke="#232c3a" stroke-width="3" id="hatch"></g>
+            <line x1="20" y1="704" x2="620" y2="704" stroke="#232c3a" stroke-width="4" />
+            <!-- targets the arm points at -->
+            <g id="tg-spot"><circle cx="560" cy="690" r="12" fill="#e9ecf2" /></g>
+            <g id="tg-flag"><line x1="560" y1="40" x2="560" y2="150" stroke="#9aa5b5" stroke-width="6" /><polygon points="560,40 610,58 560,76" fill="#c2687a" /></g>
+            <g id="tg-area"><rect x="470" y="664" width="140" height="36" fill="none" stroke="#9aa5b5" stroke-width="5" /></g>
+            <g id="tg-arrow"><line x1="520" y1="200" x2="610" y2="200" stroke="#c2687a" stroke-width="8" stroke-linecap="round" /><polygon points="625,200 600,186 600,214" fill="#c2687a" /></g>
+            <!-- whistle cord detail kept out: figure only -->
+            <g stroke="#9aa5b5" stroke-width="24" stroke-linecap="round" fill="none">
+              <line id="thighB" x1="300" y1="380" x2="286" y2="540" /><line id="shinB" x1="286" y1="540" x2="281" y2="688" /><line id="footB" x1="266" y1="700" x2="336" y2="700" />
+              <line id="uarmB" /><line id="farmB" />
+            </g>
+            <g stroke="#e9ecf2" stroke-width="28" stroke-linecap="round" fill="none">
+              <line id="torso" x1="300" y1="380" x2="300" y2="190" />
+              <line id="thighF" x1="300" y1="380" x2="305" y2="540" /><line id="shinF" x1="305" y1="540" x2="305" y2="688" /><line id="footF" x1="290" y1="700" x2="362" y2="700" />
+              <line id="uarmF" /><line id="farmF" />
+            </g>
+            <circle id="head" cx="302" cy="112" r="46" fill="#e9ecf2" />
+            <rect id="card" x="0" y="0" width="56" height="78" rx="6" fill="#d8b84a" />
+          </svg>
+        </div>
+        <div id="labels">
+          <div class="sig" id="g0"><div class="n">1 / 8</div><div class="t" data-var-text="advantage">Üstünlük — oyun davam edir</div></div>
+          <div class="sig" id="g1"><div class="n">2 / 8</div><div class="t" data-var-text="direct">Birbaşa cərimə zərbəsi</div></div>
+          <div class="sig" id="g2"><div class="n">3 / 8</div><div class="t" data-var-text="indirect">Dolayı cərimə zərbəsi</div></div>
+          <div class="sig" id="g3"><div class="n">4 / 8</div><div class="t" data-var-text="penalty">Penalti</div></div>
+          <div class="sig" id="g4"><div class="n">5 / 8</div><div class="t" data-var-text="corner">Künc zərbəsi</div></div>
+          <div class="sig" id="g5"><div class="n">6 / 8</div><div class="t" data-var-text="goalkick">Qapı zərbəsi</div></div>
+          <div class="sig" id="g6"><div class="n">7 / 8</div><div class="t" data-var-text="yellow">Sarı vərəqə — xəbərdarlıq</div></div>
+          <div class="sig" id="g7"><div class="n">8 / 8</div><div class="t" data-var-text="red">Qırmızı vərəqə — meydandan kənar</div></div>
+        </div>
+      </section>
+
+      <section id="s3" class="clip" data-start="33.6" data-duration="4.4" data-track-index="3">
+        <div>
+          <blockquote id="s3-quote" data-var-text="title">Hakimin işarələri</blockquote>
+          <div class="src" id="src" data-var-text="source">Mənbə: IFAB Laws of the Game 2026/27 — Law 5; Law 6</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Arm poses, side view facing right. [elbow, hand] for the near (F) and far (B) arm.
+      const SH = [300, 195];
+      const DOWN_F = [[302, 300], [306, 402]], DOWN_B = [[292, 300], [290, 402]];
+      const POSES = [
+        { F: [[388, 188], [474, 168]], B: [[378, 200], [462, 186]], tg: null },        // advantage: both arms forward
+        { F: [[392, 198], [486, 198]], B: DOWN_B, tg: 'arrow' },                        // direct: point the way
+        { F: [[350, 108], [372, 20]], B: DOWN_B, tg: null },                            // indirect: straight up
+        { F: [[370, 262], [436, 330]], B: DOWN_B, tg: 'spot' },                         // penalty: point to the mark
+        { F: [[372, 132], [440, 72]], B: DOWN_B, tg: 'flag' },                          // corner: point to the corner
+        { F: [[384, 240], [462, 290]], B: DOWN_B, tg: 'area' },                         // goal kick: point to the goal area
+        { F: [[350, 108], [372, 20]], B: DOWN_B, tg: null, card: '#d8b84a' },           // yellow card
+        { F: [[350, 108], [372, 20]], B: DOWN_B, tg: null, card: '#c2403a' },           // red card
+      ];
+      const setArm = (id1, id2, pose) => {
+        const [e, h] = pose;
+        const a = document.getElementById(id1), b = document.getElementById(id2);
+        a.setAttribute('x1', SH[0]); a.setAttribute('y1', SH[1]); a.setAttribute('x2', e[0]); a.setAttribute('y2', e[1]);
+        b.setAttribute('x1', e[0]); b.setAttribute('y1', e[1]); b.setAttribute('x2', h[0]); b.setAttribute('y2', h[1]);
+      };
+      setArm('uarmF', 'farmF', DOWN_F);
+      setArm('uarmB', 'farmB', DOWN_B);
+      const hatch = document.getElementById('hatch');
+      for (let x = 0; x < 660; x += 22) {
+        const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        l.setAttribute('x1', x); l.setAttribute('y1', 740); l.setAttribute('x2', x + 36); l.setAttribute('y2', 704);
+        hatch.appendChild(l);
+      }
+
+      const D = 38;
+      const tl = gsap.timeline({ paused: true });
+      const seen = new Set();
+      const ft = (sel, from, to, at) => {
+        const first = !seen.has(sel); seen.add(sel);
+        tl.fromTo(sel, from, Object.assign({ immediateRender: first }, to), at);
+      };
+      ft('#topbar', { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.1);
+      ft('#progress', { scaleX: 0 }, { scaleX: 1, duration: D - 0.2, ease: 'none' }, 0);
+      ft('#ghost', { opacity: 0, rotation: -8 }, { opacity: 1, rotation: 6, duration: D, ease: 'none' }, 0);
+      ft('#s1-title', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 0.3);
+      ft('#s1-rule', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.inOut' }, 0.75);
+      ft('#s1-caption', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }, 1.0);
+      ft('#s1-inner', { opacity: 1 }, { opacity: 0, duration: 0.4, ease: 'power2.in' }, 4.0);
+      ft('#fig-wrap', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 4.3);
+
+      for (const t of ['spot', 'flag', 'area', 'arrow']) ft('#tg-' + t, { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      ft('#card', { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+
+      const STEP = 3.6;
+      let prev = { F: DOWN_F, B: DOWN_B };
+      POSES.forEach((pose, i) => {
+        const at = 5.2 + i * STEP;
+        const arm = (ids, from, to) => {
+          tl.fromTo('#' + ids[0], { attr: { x2: from[0][0], y2: from[0][1] } }, { attr: { x2: to[0][0], y2: to[0][1] }, duration: 0.7, ease: 'power3.out', immediateRender: false }, at);
+          tl.fromTo('#' + ids[1], { attr: { x1: from[0][0], y1: from[0][1], x2: from[1][0], y2: from[1][1] } },
+            { attr: { x1: to[0][0], y1: to[0][1], x2: to[1][0], y2: to[1][1] }, duration: 0.7, ease: 'power3.out', immediateRender: false }, at);
+        };
+        arm(['uarmF', 'farmF'], prev.F, pose.F);
+        arm(['uarmB', 'farmB'], prev.B, pose.B);
+        tl.fromTo('#g' + i, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', immediateRender: false }, at + 0.15);
+        tl.fromTo('#g' + i, { opacity: 1 }, { opacity: 0, duration: 0.3, immediateRender: false }, at + STEP - 0.35);
+        if (pose.tg) {
+          tl.fromTo('#tg-' + pose.tg, { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, at + 0.5);
+          tl.fromTo('#tg-' + pose.tg, { opacity: 1 }, { opacity: 0, duration: 0.3, immediateRender: false }, at + STEP - 0.35);
+        }
+        if (pose.card) {
+          const [hx, hy] = pose.F[1];
+          tl.fromTo('#card', { opacity: 0, attr: { x: hx - 28, y: hy - 70, fill: pose.card } },
+            { opacity: 1, attr: { x: hx - 28, y: hy - 70, fill: pose.card }, duration: 0.3, immediateRender: false }, at + 0.55);
+          tl.fromTo('#card', { opacity: 1 }, { opacity: 0, duration: 0.25, immediateRender: false }, at + STEP - 0.35);
+        }
+        prev = pose;
+      });
+      ft('#fig-wrap', { opacity: 1 }, { opacity: 0, duration: 0.4 }, 33.3);
+      ft('#s3-quote', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 33.9);
+      ft('#src', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 34.5);
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

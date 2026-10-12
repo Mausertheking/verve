@@ -68,10 +68,12 @@ for (const l of lessons) {
   for (const g of l.glossaryTermIds ?? []) {
     if (!termIds.has(g)) err(`lesson ${l.id}: unknown glossary term '${g}'`);
   }
-  // The Laws of the Game are never paraphrased from memory.
-  if (l.trackId === 'rules' && l.status !== 'todo') {
-    err(`lesson ${l.id}: rules content must stay 'todo' until filled from IFAB and coach-reviewed`);
+  // Rules text is written from the official IFAB Laws, never from memory —
+  // every rules lesson names the Law it was checked against.
+  if (l.trackId === 'rules' && l.status !== 'todo' && !/^IFAB Laws of the Game \d{4}\/\d{2} — Law \d+/.test(l.source ?? '')) {
+    err(`lesson ${l.id}: rules lessons must cite their source ("IFAB Laws of the Game YYYY/YY — Law N")`);
   }
+  if (l.status === 'reviewed' && l.reviewed !== true) err(`lesson ${l.id}: status reviewed but reviewed=false`);
 }
 
 // --- drills ---------------------------------------------------------------
@@ -132,6 +134,50 @@ for (const g of glossary) {
 // --- clubs: never fabricated ----------------------------------------------
 for (const c of clubs) {
   if (!c.verifiedOn) err(`club ${c.id}: verifiedOn is required — unverified entries do not ship`);
+}
+
+// --- diagrams: data the explainer can actually play ------------------------
+const VIEWS = ['full', 'half', 'penalty-area', 'goal-area', 'blank'];
+const MARKERS = ['player', 'opponent', 'keeper', 'ball', 'cone', 'target'];
+const PATHS = ['run', 'pass', 'shot', 'dribble'];
+const ZONES = ['highlight', 'space', 'danger', 'wall'];
+const inField = (pt) => pt.x >= 0 && pt.x <= 100 && pt.y >= 0 && pt.y <= 65;
+
+for (const it of [...lessons, ...drills]) {
+  const d = it.diagram;
+  if (!d) continue;
+  const where = `${it.id}.diagram`;
+  if (!VIEWS.includes(d.view)) err(`${where}: unknown view '${d.view}'`);
+  const ids = new Set();
+  for (const m of d.markers ?? []) {
+    if (ids.has(m.id)) err(`${where}: duplicate marker id '${m.id}'`);
+    ids.add(m.id);
+    if (!MARKERS.includes(m.kind)) err(`${where}: marker '${m.id}' has unknown kind '${m.kind}'`);
+    if (!inField(m)) err(`${where}: marker '${m.id}' is off the pitch`);
+  }
+  for (const z of d.zones ?? []) {
+    if (!ZONES.includes(z.kind)) err(`${where}: unknown zone kind '${z.kind}'`);
+  }
+  const steps = new Set();
+  (d.paths ?? []).forEach((path, i) => {
+    if (!PATHS.includes(path.kind)) err(`${where}.paths[${i}]: unknown kind '${path.kind}'`);
+    for (const end of [path.from, path.to]) {
+      if (typeof end === 'string' ? !ids.has(end) : !inField(end)) {
+        err(`${where}.paths[${i}]: endpoint ${JSON.stringify(end)} is not a marker or is off the pitch`);
+      }
+    }
+    if (typeof path.actor === 'string' && !ids.has(path.actor)) {
+      err(`${where}.paths[${i}]: actor '${path.actor}' is not a marker`);
+    }
+    steps.add(path.at ?? i);
+  });
+  if (d.beats) {
+    if (d.beats.length !== steps.size) {
+      err(`${where}: ${d.beats.length} beats for ${steps.size} steps — one caption per step`);
+    }
+    d.beats.forEach((b, i) => checkText(b, `${where}.beats[${i}]`));
+  }
+  if (d.caption) checkText(d.caption, `${where}.caption`);
 }
 
 // --- report ---------------------------------------------------------------

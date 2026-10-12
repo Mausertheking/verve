@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button, Chip } from '@/components/controls';
-import { Card, EmptyState, Screen, SectionLabel, Tag } from '@/components/ui';
+import { Card, EmptyState, Hero, Screen, SectionLabel, Tag } from '@/components/ui';
+import { hasVideo } from '@/components/VideoSlot';
 import { activeFilterCount, emptyFilters, filterDrills, type DrillFilters } from '@/content';
 import { pick } from '@/i18n';
 import { useProgress } from '@/storage/progress';
@@ -50,8 +51,11 @@ export default function TrainScreen() {
   const active = activeFilterCount(filters);
 
   return (
-    <Screen>
-      <Text style={styles.label}>{t('position')}</Text>
+    <Screen topInset>
+      <Hero kicker={t('trainKicker')} title={t('trainTitle')} lead={t('trainLead')} />
+
+      <SectionLabel n={1}>{t('filters')}</SectionLabel>
+      <Text style={[styles.label, styles.firstLabel]}>{t('position')}</Text>
       <View style={styles.chips}>
         {POSITIONS.map(([value, key]) => (
           <Chip
@@ -113,16 +117,17 @@ export default function TrainScreen() {
         <Button label={t('clear')} variant="ghost" onPress={() => setFilters(emptyFilters())} />
       ) : null}
 
-      <SectionLabel>{`${results.length} ${t('results_n')}`}</SectionLabel>
+      <SectionLabel n={2}>{`${results.length} ${t('results_n')}`}</SectionLabel>
 
       {results.length === 0 ? (
         <EmptyState title={t('noResults')} body={t('noResultsBody')} />
       ) : (
-        results.map((drill) => {
+        results.map((drill, i) => {
           const title = pick(drill.title, locale);
           return (
             <Card
               key={drill.id}
+              index={i}
               accessibilityLabel={`${title}, ${drill.minutes} ${t('min')}`}
               onPress={() => router.push(`/drill/${drill.id}`)}
             >
@@ -135,6 +140,7 @@ export default function TrainScreen() {
                 <Tag>{drill.equipment.map((e) => t(EQUIP_KEY[e])).join(' + ')}</Tag>
                 <Tag>{t(drill.group === 'solo' ? 'grpSolo' : 'grpGroup')}</Tag>
                 <Tag>{`${drill.minutes} ${t('min')}`}</Tag>
+                {hasVideo(`drill:${drill.id}`, locale) ? <Tag>{`▶ ${t('videoLabel')}`}</Tag> : drill.diagram ? <Tag>{t('explainerShort')}</Tag> : null}
               </View>
             </Card>
           );
@@ -151,10 +157,11 @@ const styles = StyleSheet.create({
     marginTop: space.md + 3,
     marginBottom: space.sm - 1,
   },
+  firstLabel: { marginTop: 0 },
   hint: { ...type.caption, color: colors.textSecondary, marginTop: space.sm - 1 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm - 1 },
   row: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: space.md },
-  title: { ...type.h2, color: colors.textPrimary, flexShrink: 1 },
+  title: { ...type.headline, fontSize: 18, lineHeight: 24, color: colors.textPrimary, flexShrink: 1 },
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm - 2, marginTop: space.sm + 1 },
   chevron: { color: colors.accent, fontSize: 20, lineHeight: 24 },
 });

@@ -2,16 +2,428 @@
   {
     "id": "quiz-rules",
     "trackId": "rules",
-    "status": "todo",
+    "status": "draft",
     "reviewed": false,
-    "questions": []
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": {
+          "az": "Sən ofsayd mövqeyindəsən, amma oyuna qoşulmursan. Hakim nə edir?",
+          "ru": "Ты в положении «вне игры», но не участвуешь в игре. Что делает судья?",
+          "en": "You are in an offside position but not involved in play. What does the referee do?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Fit çalır — ofsayd",
+              "ru": "Свистит — офсайд",
+              "en": "Blows for offside"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Oyun davam edir",
+              "ru": "Игра продолжается",
+              "en": "Lets play continue"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Sənə sarı vərəqə göstərir",
+              "ru": "Показывает тебе жёлтую",
+              "en": "Shows you a yellow card"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Ofsayd mövqeyində olmaq özü pozuntu deyil. Hakim yalnız oyuna qoşulanda — topu oynayanda və ya rəqibə mane olanda — fit çalır.",
+          "ru": "Само положение «вне игры» не нарушение. Судья свистит, только если ты включаешься в игру — играешь мячом или мешаешь сопернику.",
+          "en": "Being in an offside position isn’t an offence on its own. The referee only blows when you get involved — playing the ball or interfering with an opponent."
+        },
+        "reviseLessonId": "rules-offside-01"
+      },
+      {
+        "id": "q2",
+        "prompt": {
+          "az": "Autdan birbaşa qapıya atılan top qapıya girir. Nə olur?",
+          "ru": "Мяч после вбрасывания из аута сразу влетел в ворота соперника. Что дальше?",
+          "en": "A throw-in goes straight into the opponents’ goal. What happens?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Qol sayılır",
+              "ru": "Гол засчитан",
+              "en": "It’s a goal"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Rəqib qapı zərbəsi vurur",
+              "ru": "Соперник бьёт от ворот",
+              "en": "Goal kick to the other team"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Aut təkrarlanır",
+              "ru": "Аут перебрасывают",
+              "en": "The throw is retaken"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Autdan birbaşa qol vurmaq olmaz. Top rəqib qapısına birbaşa girərsə, rəqib qapı zərbəsi vurur.",
+          "ru": "С аута нельзя забить напрямую. Если мяч сразу влетел в ворота соперника, назначается удар от ворот.",
+          "en": "You can’t score straight from a throw-in. If it goes straight into the opponents’ goal, it’s a goal kick."
+        },
+        "reviseLessonId": "rules-throwin-01"
+      },
+      {
+        "id": "q3",
+        "prompt": {
+          "az": "Hakim qolunu başının üstünə qaldırıb saxlayır. Bu nə deməkdir?",
+          "ru": "Судья поднял руку над головой и держит её. Что это значит?",
+          "en": "The referee raises one arm above her head and keeps it there. What does it mean?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Dolayı cərimə zərbəsi",
+              "ru": "Свободный удар",
+              "en": "Indirect free kick"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Penalti",
+              "ru": "Пенальти",
+              "en": "Penalty"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Oyunun sonu",
+              "ru": "Конец матча",
+              "en": "End of the match"
+            }
+          }
+        ],
+        "correctOptionId": "a",
+        "explanation": {
+          "az": "Qaldırılmış qol dolayı cərimə zərbəsidir: top qapıya girməzdən əvvəl başqa oyunçuya toxunmalıdır.",
+          "ru": "Поднятая рука — свободный удар: мяч должен коснуться другого игрока, прежде чем влететь в ворота.",
+          "en": "An arm held up means an indirect free kick: the ball must touch another player before it goes in."
+        },
+        "reviseLessonId": "rules-referee-01"
+      },
+      {
+        "id": "q4",
+        "prompt": {
+          "az": "Cərimə zərbəsində rəqiblər topdan ən azı nə qədər uzaqda durmalıdır?",
+          "ru": "На каком минимальном расстоянии от мяча стоят соперники при штрафном?",
+          "en": "At a free kick, how far from the ball must opponents stand?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "2 m",
+              "ru": "2 м",
+              "en": "2 m"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "5,5 m",
+              "ru": "5,5 м",
+              "en": "5.5 m"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "9,15 m",
+              "ru": "9,15 м",
+              "en": "9.15 m"
+            }
+          }
+        ],
+        "correctOptionId": "c",
+        "explanation": {
+          "az": "Rəqiblər top oyuna girənə qədər 9,15 m (10 yard) uzaqda durur. 2 m — autdakı məsafədir.",
+          "ru": "Соперники стоят не ближе 9,15 м, пока мяч не в игре. 2 м — это расстояние при ауте.",
+          "en": "Opponents stay 9.15 m (10 yards) away until the ball is in play. 2 m is the throw-in distance."
+        },
+        "reviseLessonId": "rules-freekick-01"
+      },
+      {
+        "id": "q5",
+        "prompt": {
+          "az": "Müdafiəçi öz cərimə meydançasında hücumçuya ayaq çəlir. Hakim nə verir?",
+          "ru": "Защитник в своей штрафной делает подножку нападающей. Что назначит судья?",
+          "en": "A defender trips an attacker inside her own penalty area. What does the referee give?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Künc zərbəsi",
+              "ru": "Угловой",
+              "en": "A corner"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Penalti",
+              "ru": "Пенальти",
+              "en": "A penalty"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Dolayı cərimə zərbəsi",
+              "ru": "Свободный удар",
+              "en": "An indirect free kick"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Ayaq çəlmək birbaşa cərimə zərbəsi tələb edən pozuntudur. Öz cərimə meydançasında edilərsə — penalti.",
+          "ru": "Подножка — нарушение с прямым штрафным. Если оно в своей штрафной — пенальти.",
+          "en": "Tripping is a direct-free-kick foul. Inside your own penalty area it becomes a penalty."
+        },
+        "reviseLessonId": "rules-penalty-01"
+      }
+    ]
   },
   {
     "id": "quiz-positions",
     "trackId": "positions",
-    "status": "todo",
+    "status": "draft",
     "reviewed": false,
-    "questions": []
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": {
+          "az": "Qapıçı topa əl ilə harada toxuna bilər?",
+          "ru": "Где вратарь может играть руками?",
+          "en": "Where may the goalkeeper handle the ball?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Meydanın istənilən yerində",
+              "ru": "В любой точке поля",
+              "en": "Anywhere on the pitch"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Yalnız öz cərimə meydançasında",
+              "ru": "Только в своей штрафной",
+              "en": "Only inside her own penalty area"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Yalnız qapı meydançasında",
+              "ru": "Только во вратарской",
+              "en": "Only inside the goal area"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Qapıçı yalnız öz cərimə meydançasında əlləri ilə oynaya bilər. Kənarda o, adi oyunçudur.",
+          "ru": "Вратарь играет руками только в своей штрафной. За её пределами он обычный игрок.",
+          "en": "The keeper may handle only in her own penalty area. Outside it she’s an ordinary player."
+        },
+        "reviseLessonId": "pos-goalkeeper-01"
+      },
+      {
+        "id": "q2",
+        "prompt": {
+          "az": "Mərkəz müdafiəçi topla gələn hücumçuya çıxanda tərəf-müqabili nə edir?",
+          "ru": "Центральная защитница выходит на нападающую с мячом. Что делает её партнёр?",
+          "en": "One centre-back steps out to the attacker with the ball. What does her partner do?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "O da hücumçuya çıxır",
+              "ru": "Тоже выходит на нападающую",
+              "en": "Also steps out to the attacker"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Bir az arxada durub sığortalayır",
+              "ru": "Стоит чуть сзади и страхует",
+              "en": "Stays a little behind and covers"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Hücuma qaçır",
+              "ru": "Бежит в атаку",
+              "en": "Runs forward to attack"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Biri çıxır, biri sığortalayır. Hücumçu birincini keçsə, ikinci artıq hazırdır.",
+          "ru": "Одна выходит, другая страхует. Если нападающая обыграла первую, вторая уже готова.",
+          "en": "One steps out, one covers. If the striker beats the first, the second is ready."
+        },
+        "reviseLessonId": "pos-centreback-01"
+      },
+      {
+        "id": "q3",
+        "prompt": {
+          "az": "Cinah müdafiəçi rəqib cinah hücumçusunu hara sıxışdırmalıdır?",
+          "ru": "Куда крайняя защитница должна прижимать вингера соперника?",
+          "en": "Where should a full-back push the opposing winger?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "İçəriyə, qapıya tərəf",
+              "ru": "Внутрь, к воротам",
+              "en": "Inside, towards goal"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Kənara, yan xəttə tərəf",
+              "ru": "Наружу, к боковой",
+              "en": "Outside, towards the touchline"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Fərqi yoxdur",
+              "ru": "Неважно",
+              "en": "It doesn’t matter"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Yan xəttdən qol vurmaq çətindir. Hücumçunu kənara yönəltmək onu qapıdan uzaqlaşdırır.",
+          "ru": "С фланга забить трудно. Уводя вингера наружу, ты уводишь её от ворот.",
+          "en": "It’s hard to score from out wide. Showing the winger outside keeps her away from goal."
+        },
+        "reviseLessonId": "pos-fullback-01"
+      },
+      {
+        "id": "q4",
+        "prompt": {
+          "az": "Yarımmüdafiəçi topu almazdan əvvəl nə etməlidir?",
+          "ru": "Что полузащитница должна сделать до приёма мяча?",
+          "en": "What should a midfielder do before the ball arrives?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Yalnız topa baxmalı",
+              "ru": "Смотреть только на мяч",
+              "en": "Look only at the ball"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Çiyin üstündən ətrafa baxmalı",
+              "ru": "Оглядеться через плечо",
+              "en": "Check over her shoulder"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Dayanıb gözləməli",
+              "ru": "Стоять и ждать",
+              "en": "Stand still and wait"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Ətrafa baxmaq nə edəcəyini əvvəlcədən bilməyə imkan verir. Topu alanda artıq qərar hazırdır.",
+          "ru": "Оглядевшись, ты заранее знаешь, что делать. Получая мяч, ты уже приняла решение.",
+          "en": "Looking around lets you decide in advance. When the ball arrives, you already know what to do."
+        },
+        "reviseLessonId": "pos-midfielder-01"
+      },
+      {
+        "id": "q5",
+        "prompt": {
+          "az": "Mərkəz hücumçu harada dayanmalıdır ki, müdafiəçi onu görməsin?",
+          "ru": "Где нападающей стоять, чтобы защитник её не видел?",
+          "en": "Where should a striker stand so the defender can’t see her?"
+        },
+        "options": [
+          {
+            "id": "a",
+            "text": {
+              "az": "Müdafiəçinin qarşısında",
+              "ru": "Перед защитником",
+              "en": "In front of the defender"
+            }
+          },
+          {
+            "id": "b",
+            "text": {
+              "az": "Müdafiəçinin çiyninin arxasında",
+              "ru": "За плечом защитника",
+              "en": "Behind the defender’s shoulder"
+            }
+          },
+          {
+            "id": "c",
+            "text": {
+              "az": "Öz yarısında",
+              "ru": "На своей половине",
+              "en": "In her own half"
+            }
+          }
+        ],
+        "correctOptionId": "b",
+        "explanation": {
+          "az": "Müdafiəçinin kor nöqtəsində o eyni anda həm topu, həm səni görə bilmir.",
+          "ru": "В слепой зоне защитник не может одновременно видеть мяч и тебя.",
+          "en": "In the defender’s blind spot she can’t watch the ball and you at the same time."
+        },
+        "reviseLessonId": "pos-striker-01"
+      }
+    ]
   },
   {
     "id": "quiz-goalkeeper",
@@ -23,7 +435,7 @@
         "id": "q1",
         "prompt": {
           "az": "Əsas duruşda çəki harada olmalıdır?",
-          "ru": "",
+          "ru": "В основной стойке — где должен быть вес?",
           "en": "In the basic stance, where should your weight be?"
         },
         "options": [
@@ -31,7 +443,7 @@
             "id": "a",
             "text": {
               "az": "Dabanların üstündə",
-              "ru": "",
+              "ru": "На пятках",
               "en": "On the heels"
             }
           },
@@ -39,7 +451,7 @@
             "id": "b",
             "text": {
               "az": "Pəncələrin üstündə",
-              "ru": "",
+              "ru": "На передней части стопы",
               "en": "On the balls of the feet"
             }
           },
@@ -47,7 +459,7 @@
             "id": "c",
             "text": {
               "az": "Bir ayağın üstündə",
-              "ru": "",
+              "ru": "На одной ноге",
               "en": "On one foot"
             }
           }
@@ -55,7 +467,7 @@
         "correctOptionId": "b",
         "explanation": {
           "az": "Dabanda dayanan qapıçı hər istiqamətə gec başlayır. Pəncədə çəki ilk addımı sürətləndirir.",
-          "ru": "",
+          "ru": "Вратарь на пятках поздно стартует в любую сторону. Вес на передней части стопы ускоряет первый шаг.",
           "en": "Weight on the heels delays the first step in every direction. On the balls of the feet you start faster."
         },
         "reviseLessonId": "gk-stance-01"
@@ -64,7 +476,7 @@
         "id": "q2",
         "prompt": {
           "az": "Yan hərəkət zamanı ayaqlar nə etməlidir?",
-          "ru": "",
+          "ru": "Что делают ноги при движении в сторону?",
           "en": "What should your feet do when moving sideways?"
         },
         "options": [
@@ -72,7 +484,7 @@
             "id": "a",
             "text": {
               "az": "Bir-birini kəsməli",
-              "ru": "",
+              "ru": "Скрещиваются",
               "en": "Cross over each other"
             }
           },
@@ -80,7 +492,7 @@
             "id": "b",
             "text": {
               "az": "Kəsişmədən yan addımlarla hərəkət etməli",
-              "ru": "",
+              "ru": "Двигаются приставным шагом, не скрещиваясь",
               "en": "Side-step without crossing"
             }
           },
@@ -88,7 +500,7 @@
             "id": "c",
             "text": {
               "az": "Sıçrayışla hərəkət etməli",
-              "ru": "",
+              "ru": "Двигаются прыжками",
               "en": "Move by jumping"
             }
           }
@@ -96,7 +508,7 @@
         "correctOptionId": "b",
         "explanation": {
           "az": "Ayaqlar kəsişəndə tarazlıq bir an itir. Məhz o anda zərbə gəlsə, hərəkətə başlaya bilmirsən.",
-          "ru": "",
+          "ru": "Когда ноги скрещиваются, равновесие на миг теряется. Если удар придётся на этот миг, ты не оттолкнёшься.",
           "en": "Crossing costs you balance for a moment. If the shot comes in that moment, you cannot push off."
         },
         "reviseLessonId": "gk-footwork-01"
@@ -105,7 +517,7 @@
         "id": "q3",
         "prompt": {
           "az": "Yuxarı topu tutarkən baş barmaqlar harada olur?",
-          "ru": "",
+          "ru": "Где большие пальцы при ловле верхового мяча?",
           "en": "Catching a high ball, where are your thumbs?"
         },
         "options": [
@@ -113,7 +525,7 @@
             "id": "a",
             "text": {
               "az": "Bir-birindən uzaq, yanlarda",
-              "ru": "",
+              "ru": "Далеко друг от друга, по бокам",
               "en": "Far apart, at the sides"
             }
           },
@@ -121,7 +533,7 @@
             "id": "b",
             "text": {
               "az": "Topun arxasında, bir-birinə yaxın",
-              "ru": "",
+              "ru": "За мячом, рядом друг с другом",
               "en": "Behind the ball, close together"
             }
           },
@@ -129,7 +541,7 @@
             "id": "c",
             "text": {
               "az": "Aşağı baxaraq",
-              "ru": "",
+              "ru": "Смотрят вниз",
               "en": "Pointing down"
             }
           }
@@ -137,7 +549,7 @@
         "correctOptionId": "b",
         "explanation": {
           "az": "Baş barmaqlar bir-birinə yaxın olanda əllər W forması yaradır və top əllərin arasından keçə bilmir.",
-          "ru": "",
+          "ru": "Когда большие пальцы рядом, руки образуют W, и мяч не проскочит между ними.",
           "en": "With the thumbs close, the hands form a W and the ball cannot slip between them."
         },
         "reviseLessonId": "gk-catching-01"
@@ -146,7 +558,7 @@
         "id": "q4",
         "prompt": {
           "az": "Hücumçu təkbətək çıxanda qapıçı nə etməlidir?",
-          "ru": "",
+          "ru": "Что делать вратарю в ситуации один на один?",
           "en": "In a one-v-one, what should the keeper do?"
         },
         "options": [
@@ -154,7 +566,7 @@
             "id": "a",
             "text": {
               "az": "Qapı xəttində gözləmək",
-              "ru": "",
+              "ru": "Ждать на линии ворот",
               "en": "Wait on the goal line"
             }
           },
@@ -162,7 +574,7 @@
             "id": "b",
             "text": {
               "az": "Erkən irəli çıxmaq və böyük görünmək",
-              "ru": "",
+              "ru": "Рано выйти и стать «большой»",
               "en": "Come out early and make herself big"
             }
           },
@@ -170,7 +582,7 @@
             "id": "c",
             "text": {
               "az": "Dərhal yerə düşmək",
-              "ru": "",
+              "ru": "Сразу упасть",
               "en": "Go to ground immediately"
             }
           }
@@ -178,7 +590,7 @@
         "correctOptionId": "b",
         "explanation": {
           "az": "Qapı xəttində gözləmək hücumçuya bütün qapını göstərir. Erkən çıxış onun gördüyü sahəni azaldır. Erkən yerə düşmək isə topu asanlıqla yan keçirməyə imkan verir.",
-          "ru": "",
+          "ru": "Ожидание на линии показывает нападающей все ворота. Ранний выход сокращает то, что она видит. А раннее падение позволяет просто прокатить мяч мимо.",
           "en": "Waiting on the line shows the striker the whole goal. Coming out early cuts down what she can see. Going down early lets her simply roll it past you."
         },
         "reviseLessonId": "gk-1v1-01"
@@ -187,7 +599,7 @@
         "id": "q5",
         "prompt": {
           "az": "Topu tutduqdan sonra ilk iş nədir?",
-          "ru": "",
+          "ru": "Что первым делом после ловли мяча?",
           "en": "After catching the ball, what comes first?"
         },
         "options": [
@@ -195,7 +607,7 @@
             "id": "a",
             "text": {
               "az": "Dərhal uzağa təpikləmək",
-              "ru": "",
+              "ru": "Сразу выбить далеко",
               "en": "Immediately kick it long"
             }
           },
@@ -203,7 +615,7 @@
             "id": "b",
             "text": {
               "az": "Baş qaldırıb komanda yoldaşlarına baxmaq",
-              "ru": "",
+              "ru": "Поднять голову и найти партнёров",
               "en": "Lift your head and look for team-mates"
             }
           },
@@ -211,7 +623,7 @@
             "id": "c",
             "text": {
               "az": "Topu yerə qoymaq",
-              "ru": "",
+              "ru": "Положить мяч на землю",
               "en": "Put the ball on the ground"
             }
           }
@@ -219,7 +631,7 @@
         "correctOptionId": "b",
         "explanation": {
           "az": "Hücum sənin əlindən başlayır. Baxmadan vurulan uzun top çox vaxt birbaşa rəqibə çatır.",
-          "ru": "",
+          "ru": "Атака начинается с твоих рук. Длинный мяч без взгляда обычно попадает прямо к сопернику.",
           "en": "The attack starts in your hands. A long ball hit without looking usually goes straight to the opposition."
         },
         "reviseLessonId": "gk-distribution-01"

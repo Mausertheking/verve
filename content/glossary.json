@@ -2,18 +2,19 @@
   {
     "id": "offside",
     "term": {
-      "az": "ofsayt",
+      "az": "ofsayd",
       "ru": "офсайд",
       "en": "offside"
     },
-    "alsoKnownAs": [
-      "ofsayd"
-    ],
     "definition": {
-      "az": "TODO — dəqiq tərif IFAB Law 11 mətnindən yazılacaq.",
-      "ru": "TODO — точное определение по IFAB Law 11.",
-      "en": "TODO — exact definition from IFAB Law 11."
+      "az": "Ötürmə anında rəqib qapısına topdan və sondan ikinci rəqibdən daha yaxın olub oyuna qoşulmaq. Cəza — dolayı cərimə zərbəsi.",
+      "ru": "Игрок ближе к воротам соперника, чем мяч и предпоследний соперник, в момент паса и включается в игру. Наказание — свободный удар.",
+      "en": "Being nearer the opponents’ goal than both the ball and the second-last opponent when the pass is played, then getting involved. Punished with an indirect free kick."
     },
+    "alsoKnownAs": [
+      "ofsayt",
+      "вне игры"
+    ],
     "seeLessonId": "rules-offside-01",
     "reviewed": false
   },
@@ -22,13 +23,17 @@
     "term": {
       "az": "penalti",
       "ru": "пенальти",
-      "en": "penalty"
+      "en": "penalty kick"
     },
     "definition": {
-      "az": "TODO — şərtlər Law 14 mətnindən.",
-      "ru": "",
-      "en": "TODO — conditions from Law 14."
+      "az": "Müdafiəçi öz cərimə meydançasında birbaşa pozuntu edəndə 11 m-dən vurulan zərbə.",
+      "ru": "Удар с 11 м за нарушение защитника в своей штрафной.",
+      "en": "A kick from 11 m, given when a defender commits a direct-free-kick foul in her own penalty area."
     },
+    "alsoKnownAs": [
+      "11 metrlik",
+      "одиннадцатиметровый"
+    ],
     "seeLessonId": "rules-penalty-01",
     "reviewed": false
   },
@@ -44,10 +49,11 @@
       "ru": "Игрок, которому разрешено играть руками в своей штрафной.",
       "en": "The player allowed to handle the ball inside her own penalty area."
     },
-    "seeLessonId": "pos-goalkeeper-01",
-    "relatedTermIds": [
-      "penalty"
+    "alsoKnownAs": [
+      "keeper",
+      "голкипер"
     ],
+    "seeLessonId": "pos-goalkeeper-01",
     "reviewed": false
   },
   {
@@ -59,7 +65,7 @@
     },
     "definition": {
       "az": "Öz qapısına yaxın sahəni qoruyan oyunçu.",
-      "ru": "",
+      "ru": "Игрок, который защищает зону у своих ворот.",
       "en": "A player who protects the area near her own goal."
     },
     "seeLessonId": "pos-centreback-01",
@@ -74,9 +80,12 @@
     },
     "definition": {
       "az": "Müdafiə ilə hücum arasında oynayan oyunçu.",
-      "ru": "",
+      "ru": "Игрок, который связывает защиту и атаку.",
       "en": "A player who works between defence and attack."
     },
+    "alsoKnownAs": [
+      "hafbek"
+    ],
     "seeLessonId": "pos-midfielder-01",
     "reviewed": false
   },
@@ -89,9 +98,13 @@
     },
     "definition": {
       "az": "Rəqib qapısına ən yaxın oynayan oyunçu.",
-      "ru": "",
+      "ru": "Игрок, который действует ближе всех к воротам соперника.",
       "en": "The player operating closest to the opposition goal."
     },
+    "alsoKnownAs": [
+      "forvard",
+      "striker"
+    ],
     "seeLessonId": "pos-striker-01",
     "reviewed": false
   },
@@ -104,9 +117,12 @@
     },
     "definition": {
       "az": "Oyunu idarə edən və qaydaları tətbiq edən şəxs.",
-      "ru": "",
+      "ru": "Человек, который ведёт матч и применяет правила.",
       "en": "The official who controls the match and applies the Laws."
     },
+    "alsoKnownAs": [
+      "арбитр"
+    ],
     "seeLessonId": "rules-referee-01",
     "reviewed": false
   },
@@ -114,32 +130,37 @@
     "id": "foul",
     "term": {
       "az": "qayda pozuntusu",
-      "ru": "фол",
+      "ru": "нарушение",
       "en": "foul"
     },
-    "alsoKnownAs": [
-      "faul"
-    ],
     "definition": {
-      "az": "TODO — hansı hərəkətlərin qayda pozuntusu sayıldığı Law 12-dən.",
-      "ru": "",
-      "en": "TODO — which actions count as fouls, from Law 12."
+      "az": "Rəqibə qarşı ədalətsiz hərəkət: təpik, ayaq çəlmə, itələmə, tutma və s. Cəza — cərimə zərbəsi və ya penalti.",
+      "ru": "Нечестное действие против соперника: удар ногой, подножка, толчок, захват и т. п. Наказание — штрафной или пенальти.",
+      "en": "An unfair act against an opponent: kicking, tripping, pushing, holding and so on. Punished with a free kick or penalty."
     },
+    "alsoKnownAs": [
+      "faul",
+      "фол"
+    ],
     "seeLessonId": "rules-fouls-01",
     "reviewed": false
   },
   {
     "id": "free-kick",
     "term": {
-      "az": "sərbəst zərbə",
+      "az": "cərimə zərbəsi",
       "ru": "штрафной удар",
       "en": "free kick"
     },
     "definition": {
-      "az": "TODO — birbaşa və dolayı fərqi Law 13-dən.",
-      "ru": "",
-      "en": "TODO — direct vs indirect, from Law 13."
+      "az": "Pozuntudan sonra oyunu yenidən başladan zərbə. Birbaşadan qol vurmaq olar, dolayıdan — yox.",
+      "ru": "Удар, которым возобновляют игру после нарушения. С прямого можно забить сразу, со свободного — нет.",
+      "en": "The kick that restarts play after a foul. You can score straight from a direct one, not from an indirect one."
     },
+    "alsoKnownAs": [
+      "sərbəst zərbə",
+      "свободный удар"
+    ],
     "seeLessonId": "rules-freekick-01",
     "reviewed": false
   },
@@ -151,9 +172,9 @@
       "en": "wall"
     },
     "definition": {
-      "az": "Sərbəst zərbə zamanı qapı qarşısında sıraya duran oyunçular.",
-      "ru": "",
-      "en": "The line of players standing in front of goal at a free kick."
+      "az": "Cərimə zərbəsi zamanı topdan 9,15 m uzaqda sıraya duran müdafiəçilər.",
+      "ru": "Защитники, которые встают в линию в 9,15 м от мяча при штрафном.",
+      "en": "Defenders lined up 9.15 m from the ball at a free kick."
     },
     "seeLessonId": "rules-freekick-01",
     "reviewed": false
@@ -161,18 +182,19 @@
   {
     "id": "throw-in",
     "term": {
-      "az": "autdan atma",
-      "ru": "вбрасывание",
+      "az": "aut",
+      "ru": "аут",
       "en": "throw-in"
     },
-    "alsoKnownAs": [
-      "aut"
-    ],
     "definition": {
-      "az": "TODO — icra qaydası Law 15-dən.",
-      "ru": "",
-      "en": "TODO — how it is taken, from Law 15."
+      "az": "Top yan xətti keçəndə iki əllə başın üstündən atılır.",
+      "ru": "Когда мяч уходит за боковую, его вбрасывают двумя руками из-за головы.",
+      "en": "When the ball crosses the touchline it is thrown back in with both hands over the head."
     },
+    "alsoKnownAs": [
+      "autdan atma",
+      "вбрасывание"
+    ],
     "seeLessonId": "rules-throwin-01",
     "reviewed": false
   },
@@ -184,9 +206,27 @@
       "en": "corner kick"
     },
     "definition": {
-      "az": "TODO — verilmə şərti Law 17-dən.",
-      "ru": "",
-      "en": "TODO — when it is awarded, from Law 17."
+      "az": "Top müdafiəçidən sonra qapı xəttini keçəndə künc qövsündən vurulan zərbə.",
+      "ru": "Удар из угловой дуги, когда мяч после защитника ушёл за лицевую.",
+      "en": "The kick from the corner arc after a defender sends the ball over her own goal line."
+    },
+    "alsoKnownAs": [
+      "korner"
+    ],
+    "seeLessonId": "rules-corner-01",
+    "reviewed": false
+  },
+  {
+    "id": "goal-kick",
+    "term": {
+      "az": "qapı zərbəsi",
+      "ru": "удар от ворот",
+      "en": "goal kick"
+    },
+    "definition": {
+      "az": "Top hücumçudan sonra qapı xəttini keçəndə qapı meydançasından vurulan zərbə.",
+      "ru": "Удар из вратарской, когда мяч после нападающего ушёл за лицевую.",
+      "en": "The kick from the goal area after an attacker sends the ball over the goal line."
     },
     "seeLessonId": "rules-corner-01",
     "reviewed": false
@@ -199,9 +239,9 @@
       "en": "yellow card"
     },
     "definition": {
-      "az": "TODO — hansı hallarda göstərilir, Law 12-dən.",
-      "ru": "",
-      "en": "TODO — when it is shown, from Law 12."
+      "az": "Xəbərdarlıq: kobud oyun, mübahisə, vaxt itkisi kimi hallarda. İkinci sarı — qırmızı.",
+      "ru": "Предупреждение: за грубую игру, споры, затягивание времени. Вторая жёлтая — красная.",
+      "en": "A caution: for reckless play, dissent, time-wasting and similar. A second yellow means red."
     },
     "seeLessonId": "rules-fouls-01",
     "reviewed": false
@@ -214,9 +254,9 @@
       "en": "red card"
     },
     "definition": {
-      "az": "TODO — hansı hallarda göstərilir, Law 12-dən.",
-      "ru": "",
-      "en": "TODO — when it is shown, from Law 12."
+      "az": "Oyundan kənarlaşdırma: həddindən artıq güc, zorakılıq, qol şansını qaydasız pozmaq.",
+      "ru": "Удаление: за чрезмерную силу, насилие, срыв явной голевой возможности.",
+      "en": "A sending-off: for excessive force, violent conduct, denying an obvious goal-scoring chance."
     },
     "seeLessonId": "rules-fouls-01",
     "reviewed": false
@@ -229,10 +269,13 @@
       "en": "pitch"
     },
     "definition": {
-      "az": "Oyunun keçirildiyi sahə.",
-      "ru": "",
-      "en": "The field of play."
+      "az": "Oyunun keçirildiyi düzbucaqlı sahə.",
+      "ru": "Прямоугольная площадка, на которой идёт игра.",
+      "en": "The rectangular field of play."
     },
+    "alsoKnownAs": [
+      "sahə"
+    ],
     "seeLessonId": "rules-pitch-01",
     "reviewed": false
   },
@@ -244,10 +287,14 @@
       "en": "goal"
     },
     "definition": {
-      "az": "Qapı dirəkləri və üst dirəkdən ibarət konstruksiya. Həm də qol deməkdir.",
-      "ru": "",
-      "en": "The frame of posts and crossbar. Also the word for a scored goal."
+      "az": "7,32 m enində və 2,44 m hündürlüyündə qapı. Həm də vurulan qol.",
+      "ru": "Ворота шириной 7,32 м и высотой 2,44 м. Также — забитый мяч.",
+      "en": "The 7.32 m by 2.44 m goal. Also the word for a scored goal."
     },
+    "alsoKnownAs": [
+      "qol",
+      "гол"
+    ],
     "seeLessonId": "rules-pitch-01",
     "reviewed": false
   },
@@ -258,14 +305,15 @@
       "ru": "пас",
       "en": "pass"
     },
-    "alsoKnownAs": [
-      "pas"
-    ],
     "definition": {
       "az": "Topun komanda yoldaşına ötürülməsi.",
-      "ru": "",
+      "ru": "Передача мяча партнёру.",
       "en": "Playing the ball to a team-mate."
     },
+    "alsoKnownAs": [
+      "pas",
+      "передача"
+    ],
     "reviewed": false
   },
   {
@@ -277,9 +325,12 @@
     },
     "definition": {
       "az": "Topu ayaqla idarə edərək irəli aparmaq.",
-      "ru": "",
+      "ru": "Ведение мяча вперёд под контролем.",
       "en": "Carrying the ball forward under close control."
     },
+    "alsoKnownAs": [
+      "ведение"
+    ],
     "reviewed": false
   },
   {
@@ -290,11 +341,95 @@
       "en": "W-shape"
     },
     "definition": {
-      "az": "Yuxarı topu tutarkən əllərin aldığı forma: baş barmaqlar bir-birinə yaxın.",
-      "ru": "",
+      "az": "Yuxarı topu tutarkən əllərin aldığı forma: baş barmaqlar bir-birinə yaxın, topun arxasında.",
+      "ru": "Положение рук при ловле верхового мяча: большие пальцы рядом, за мячом.",
       "en": "The hand shape for catching a high ball: thumbs close together behind the ball."
     },
     "seeLessonId": "gk-catching-01",
+    "reviewed": false
+  },
+  {
+    "id": "touchline",
+    "term": {
+      "az": "yan xətt",
+      "ru": "боковая линия",
+      "en": "touchline"
+    },
+    "definition": {
+      "az": "Meydanın uzun kənarı. Top onu keçəndə aut verilir.",
+      "ru": "Длинная сторона поля. Если мяч ушёл за неё — аут.",
+      "en": "The long side of the pitch. When the ball crosses it, it’s a throw-in."
+    },
+    "seeLessonId": "rules-pitch-01",
+    "reviewed": false
+  },
+  {
+    "id": "goal-line",
+    "term": {
+      "az": "qapı xətti",
+      "ru": "линия ворот",
+      "en": "goal line"
+    },
+    "definition": {
+      "az": "Meydanın qısa kənarı; qapı onun ortasındadır.",
+      "ru": "Короткая сторона поля; ворота в её центре.",
+      "en": "The short side of the pitch, with the goal in the middle."
+    },
+    "alsoKnownAs": [
+      "лицевая линия"
+    ],
+    "seeLessonId": "rules-pitch-01",
+    "reviewed": false
+  },
+  {
+    "id": "penalty-area",
+    "term": {
+      "az": "cərimə meydançası",
+      "ru": "штрафная площадь",
+      "en": "penalty area"
+    },
+    "definition": {
+      "az": "Qapı qarşısındakı 16,5 m-lik sahə; qapıçı burada əlləri ilə oynaya bilər.",
+      "ru": "Зона 16,5 м перед воротами; здесь вратарь может играть руками.",
+      "en": "The 16.5 m box in front of goal; the keeper may use her hands here."
+    },
+    "alsoKnownAs": [
+      "штрафная"
+    ],
+    "seeLessonId": "rules-pitch-01",
+    "reviewed": false
+  },
+  {
+    "id": "handball",
+    "term": {
+      "az": "əllə oynama",
+      "ru": "игра рукой",
+      "en": "handball"
+    },
+    "definition": {
+      "az": "Topa qəsdən əl və ya qolla toxunmaq və ya qolla bədəni qeyri-təbii böyütmək.",
+      "ru": "Намеренное касание мяча рукой или неестественное расширение силуэта рукой.",
+      "en": "Touching the ball deliberately with a hand or arm, or making the body unnaturally bigger with an arm."
+    },
+    "alsoKnownAs": [
+      "əl"
+    ],
+    "seeLessonId": "rules-fouls-01",
+    "reviewed": false
+  },
+  {
+    "id": "advantage",
+    "term": {
+      "az": "üstünlük",
+      "ru": "преимущество",
+      "en": "advantage"
+    },
+    "definition": {
+      "az": "Pozuntu olsa da hakim oyunu davam etdirir, çünki bu, zərərçəkən komandaya sərfəlidir.",
+      "ru": "Судья не останавливает игру после нарушения, потому что это выгодно пострадавшей команде.",
+      "en": "The referee lets play go on after a foul because stopping would hurt the team that was fouled."
+    },
+    "seeLessonId": "rules-referee-01",
     "reviewed": false
   }
 ]

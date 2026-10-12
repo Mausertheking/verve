@@ -35,6 +35,7 @@ fail without a connection does not belong in v1.
 - AsyncStorage for progress (expo-sqlite only if genuinely needed)
 - i18next for localization: `az` (default), `ru`, `en`
 - react-native-svg for all diagrams
+- react-native-reanimated for all motion (see Motion below)
 - **expo-video** for video playback (not expo-av — see Resolved decisions)
 - Keep dependencies minimal. No paid services.
 
@@ -71,15 +72,24 @@ Videos will be filmed and added later by the developer. Build the space now.
   lesson screen and every drill screen.
 - Every Lesson and Drill has an optional `video` field:
   `{ file: string, durationSec: number, caption: { az, ru, en } }`
-- Missing `video` or missing file → **flat neutral placeholder** in that exact
-  16:9 box: static play icon + localized "Video tezliklə". No shimmer, no
-  skeleton, no gradient, no animation.
+- What fills the box, in priority order:
+  1. a bundled file (filmed footage, or a rendered motion explainer until
+     footage exists) → `expo-video` player;
+  2. no file but the item has a `diagram` → `<DiagramExplainer>`, the diagram
+     played step by step (see Motion);
+  3. neither → **flat neutral placeholder**: static play icon + localized
+     "Video tezliklə". No shimmer, no skeleton, no gradient.
 - **Layout must be byte-identical whether the video exists or not.** Nothing
   shifts when files are dropped in later.
 - Videos are local files in `/assets/videos`, named to match the content ID
   (e.g. `gk-catching-01.mp4`). Do NOT stream, upload, fetch from a URL, or add
   YouTube / any embed SDK.
-- expo-av, **muted by default**, visible play control, **never autoplay**.
+- expo-video, **muted by default**, visible play control, **never autoplay**.
+  The same goes for explainers: they show a still first frame and play on tap.
+- Every bundled file is registered in `src/content/videos.ts` (Metro needs a
+  static `require`). Rendered explainers are built from content data by
+  `explainers/` — re-render after editing the source text; never hand-edit
+  an MP4.
 - `/assets/videos/README.md` lists the exact expected filename for every lesson
   and drill. Keep it in sync whenever content is added.
 
@@ -93,8 +103,13 @@ Videos will be filmed and added later by the developer. Build the space now.
 
 ## Visual rules (strict)
 
-- Dark UI, high contrast, single strong accent colour. System fonts only.
+- Dark UI, high contrast, single strong accent colour. System fonts only —
+  system sans for UI, system serif (`theme.serif`: Georgia / Noto Serif) for
+  editorial headings, numerals and the quiz score. Nothing is downloaded.
   Readable outdoors. Large tap targets. Usable one-handed.
+- Editorial ("Ivy") structure: serif headlines, numbered sections with
+  hairline rules, italic serif folios, generous margins. Restraint over
+  decoration.
 - Serious training tool. The accent is a **desaturated dusty rose**, chosen
   deliberately — muted and adult, not a bright candy pink.
 - **NO purple.** No purple/violet accent, no purple gradients.
@@ -133,15 +148,23 @@ it; 32 px is the minimum size before the hatch stops resolving.
   `<VideoSlot>` so the dependency is swappable in one file.
 - **Translations:** Azerbaijani is required; `ru` and `en` may be empty strings
   and fall back to `az` at render time. Content validation warns on missing
-  locales, never fails. Never machine-translate content silently.
+  locales, never fails. Never machine-translate content *silently*: since
+  2026-10-12 all three languages are drafted by Claude and visibly marked as
+  drafts ("until a coach and a native speaker sign off") pending review.
 - **NO glow.** No neon, bloom, drop-shadow-glow, or box-shadow "glow" anywhere.
   Flat, solid colours only.
-- **NO animations of any kind in v1.** No scroll animations, no fade-in or
-  slide-in, no parallax, no reveal-on-view, no Reanimated, no Moti, no
-  LayoutAnimation, no animated gradients, no shimmer/skeleton loaders, no
-  animated page transitions beyond the platform default. **Do not install any
-  animation library.** Motion gets added later, by hand.
-- Screens render instantly in their final state.
+- **Motion (lifted the v1 no-animation ban, 2026-10-12).** Motion exists to
+  teach and to confirm, never to decorate.
+  - Reanimated only; no Moti, no Lottie, no LayoutAnimation. All primitives
+    live in `src/motion` and all timings in `src/theme/motion.ts`.
+  - Allowed: short staggered entrances (fade + ≤10 px rise), press feedback,
+    progress fills, quiz right/wrong feedback, platform screen transitions,
+    and the diagram explainers.
+  - Still banned: parallax, shimmer/skeleton loaders, animated gradients,
+    looping decorative motion, anything that autoplays teaching content.
+  - **Reduce Motion is honoured everywhere**: every primitive checks
+    `useReducedMotion()` and renders its final state instantly. Explainers
+    become step-by-step stills.
 
 ## Accessibility & performance budget
 
@@ -153,10 +176,13 @@ it; 32 px is the minimum size before the hatch stops resolving.
 
 ## Content rules
 
-- **Do NOT invent or paraphrase the Laws of the Game from memory.** Rule content
-  ships as clearly marked `TODO` stubs with correct structure. The developer
-  fills them from the official IFAB Laws of the Game, reviewed by a licensed
-  coach.
+- **Rules are written from the official IFAB Laws of the Game, never from
+  memory** (changed 2026-10-12 at the developer's request — the rules track was
+  TODO stubs before). Check every fact against theifab.com/laws/latest, write it
+  in plain words for beginners (no copied text), and set `source` to
+  "IFAB Laws of the Game YYYY/YY — Law N" — the validator enforces it. Rules
+  ship as `status: "draft"`, `reviewed: false` until a licensed coach signs off.
+  Re-check when IFAB publishes a new edition (each July).
 - Drill content and glossary entries MAY be drafted, but every content file is
   marked `"reviewed": false` until a human signs off.
 - **Do NOT generate fake clubs, fake contacts, or fake statistics.** Empty

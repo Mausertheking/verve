@@ -23,8 +23,18 @@
         "10 saniyə fasilə. 6 dəst.",
         "Hər dəstdən sonra güzgüdə əllərin yerini yoxla."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Прими основную стойку: ноги на ширине плеч, вес на передней части стопы.",
+        "Стой 30 секунд не двигаясь.",
+        "Отдых 10 секунд. 6 подходов.",
+        "После каждого подхода проверь в зеркале положение рук."
+      ],
+      "en": [
+        "Get into the basic stance: feet shoulder-width, weight on the balls of the feet.",
+        "Hold it still for 30 seconds.",
+        "Rest 10 seconds. 6 sets.",
+        "After each set, check your hands in a mirror."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -32,14 +42,27 @@
         "Çiyinlər qalxmır, nəfəs sakitdir.",
         "Əllər aşağı düşmür."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Пятки не давят в пол.",
+        "Плечи не подняты, дыхание спокойное.",
+        "Руки не опускаются."
+      ],
+      "en": [
+        "Heels are not pressing into the floor.",
+        "Shoulders stay down, breathing is calm.",
+        "Hands don’t drop."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "why": {
+      "az": "Duruş hər xilasetmənin başlanğıcıdır. Bu məşq bədənə duruşu \"yadda saxlatdırır\" ki, oyunda düşünmədən ona qayıdasan.",
+      "ru": "Стойка — начало каждого сейва. Это упражнение «запоминает» стойку телом, чтобы в игре ты возвращалась в неё не думая.",
+      "en": "The stance is where every save begins. This drill teaches your body the stance so you return to it in a match without thinking."
+    }
   },
   {
     "id": "gk-catching-01",
@@ -53,7 +76,7 @@
       "durationSec": 47,
       "caption": {
         "az": "W forması ilə tutma",
-        "ru": "",
+        "ru": "Ловля с W-хватом",
         "en": "Catching with the W-shape"
       }
     },
@@ -75,8 +98,18 @@
         "Əllər [[w-shape|W forması]]nda olsun.",
         "30 təkrar, 1 dəqiqə fasilə, 3 dəst."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Встань в 3 шагах от стены.",
+        "Брось мяч в стену и поймай отскок на уровне груди.",
+        "Руки — в [[w-shape|W-хвате]].",
+        "30 повторов, 1 минута отдыха, 3 подхода."
+      ],
+      "en": [
+        "Stand three steps from a wall.",
+        "Throw the ball at the wall and catch the rebound at chest height.",
+        "Hands in the [[w-shape|W-shape]].",
+        "30 reps, 1 minute rest, 3 sets."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -84,15 +117,96 @@
         "Top sinəyə çırpılmır, barmaqlar arxaya əyilmir.",
         "Hər tutmadan sonra top bədənə yığılır."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Звук при касании рук мягкий.",
+        "Мяч не бьётся о грудь, пальцы не выгибаются назад.",
+        "После каждой ловли мяч прижат к телу."
+      ],
+      "en": [
+        "The catch sounds soft.",
+        "The ball doesn’t slam into your chest, fingers don’t bend back.",
+        "After each catch the ball is gathered into the body."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper",
       "w-shape"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "zones": [
+        {
+          "x": 18,
+          "y": 5,
+          "w": 64,
+          "h": 4,
+          "kind": "wall"
+        }
+      ],
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 50,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 46,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 50,
+            "y": 46
+          },
+          "to": {
+            "x": 50,
+            "y": 10
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 10
+          },
+          "to": {
+            "x": 50,
+            "y": 46
+          },
+          "kind": "pass"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Topu divara at.",
+          "ru": "Брось мяч в стену.",
+          "en": "Throw the ball at the wall."
+        },
+        {
+          "az": "Qayıdan topu sinə hündürlüyündə, W forması ilə tut.",
+          "ru": "Поймай отскок на уровне груди, руки в W-хвате.",
+          "en": "Catch the rebound at chest height, hands in a W."
+        }
+      ],
+      "caption": {
+        "az": "Divardan 3 addım aralı: at, tut, təkrarla.",
+        "ru": "В 3 шагах от стены: бросок, ловля, повтор.",
+        "en": "Three steps from the wall: throw, catch, repeat."
+      }
+    },
+    "why": {
+      "az": "Divar sənə istənilən qədər top qaytarır — partnyor lazım deyil. Hər təkrar əllərə W formasını və yumşaq tutmanı öyrədir.",
+      "ru": "Стена возвращает мяч сколько угодно раз — партнёр не нужен. Каждый повтор учит руки W-хвату и мягкой ловле.",
+      "en": "A wall gives the ball back as often as you like — no partner needed. Every rep trains the W-shape and soft hands."
+    }
   },
   {
     "id": "gk-footwork-01",
@@ -117,8 +231,16 @@
         "Sağa 3 addım, sola 3 addım — ayaqlar kəsişmədən.",
         "15 saniyə fasilə. 8 dəst."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Быстрые мелкие шаги на месте — 15 секунд.",
+        "3 шага вправо, 3 шага влево — не скрещивая ноги.",
+        "Отдых 15 секунд. 8 подходов."
+      ],
+      "en": [
+        "Quick small steps on the spot — 15 seconds.",
+        "Three steps right, three left — without crossing your feet.",
+        "Rest 15 seconds. 8 sets."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -126,14 +248,96 @@
         "Çiyinlər qapıya paralel qalır.",
         "Addım səsi bərabər ritmdədir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Ноги никогда не скрещиваются.",
+        "Плечи остаются параллельны воротам.",
+        "Шаги звучат в ровном ритме."
+      ],
+      "en": [
+        "Feet never cross.",
+        "Shoulders stay square to the goal.",
+        "The steps sound in an even rhythm."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "zones": [
+        {
+          "x": 26,
+          "y": 22,
+          "w": 48,
+          "h": 22,
+          "kind": "space"
+        }
+      ],
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 33,
+          "kind": "keeper",
+          "label": "GK"
+        }
+      ],
+      "paths": [
+        {
+          "from": "gk",
+          "to": {
+            "x": 66,
+            "y": 33
+          },
+          "kind": "run"
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 34,
+            "y": 33
+          },
+          "kind": "run"
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 50,
+            "y": 33
+          },
+          "kind": "run"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Sağa 3 kiçik addım — ayaqlar kəsişmir.",
+          "ru": "Три маленьких шага вправо — ноги не скрещиваются.",
+          "en": "Three small steps right — feet never cross."
+        },
+        {
+          "az": "Sola 3 addım, eyni ritmlə.",
+          "ru": "Три шага влево в том же ритме.",
+          "en": "Three steps left, same rhythm."
+        },
+        {
+          "az": "Mərkəzə qayıt. 15 saniyə fasilə.",
+          "ru": "Обратно в центр. Отдых 15 секунд.",
+          "en": "Back to the centre. Rest 15 seconds."
+        }
+      ],
+      "caption": {
+        "az": "Kiçik, tez addımlar. 8 dəst.",
+        "ru": "Маленькие быстрые шаги. 8 подходов.",
+        "en": "Small, quick steps. Eight sets."
+      }
+    },
+    "why": {
+      "az": "Qapıçı topa çatmaq üçün tullanmazdan əvvəl düzgün yerdə olmalıdır. Kiçik addımlar səni tarazlığı itirmədən oraya aparır.",
+      "ru": "Прежде чем прыгать, вратарь должен оказаться в правильном месте. Маленькие шаги приводят туда, не теряя равновесия.",
+      "en": "Before she dives, a keeper needs to be in the right place. Small steps get her there without losing balance."
+    }
   },
   {
     "id": "gk-reaction-01",
@@ -160,8 +364,18 @@
         "Topu tuta bilməsən — yolunu kəs.",
         "20 təkrar, 3 dəst."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Встань в 2 шагах от стены.",
+        "Сильно брось мяч и среагируй на отскок.",
+        "Не можешь поймать — перекрой мячу путь.",
+        "20 повторов, 3 подхода."
+      ],
+      "en": [
+        "Stand two steps from a wall.",
+        "Throw the ball hard and react to the rebound.",
+        "If you can’t catch it — block its path.",
+        "20 reps, 3 sets."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -169,14 +383,105 @@
         "Gözlər topdan ayrılmır.",
         "Hər təkrardan sonra duruş bərpa olunur."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Руки двигаются раньше тела.",
+        "Глаза не отрываются от мяча.",
+        "После каждого повтора стойка восстанавливается."
+      ],
+      "en": [
+        "Hands move before the body.",
+        "Eyes never leave the ball.",
+        "The stance is back after every rep."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "zones": [
+        {
+          "x": 18,
+          "y": 5,
+          "w": 64,
+          "h": 4,
+          "kind": "wall"
+        }
+      ],
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 34,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 30,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 50,
+            "y": 30
+          },
+          "to": {
+            "x": 56,
+            "y": 10
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 56,
+            "y": 10
+          },
+          "to": {
+            "x": 66,
+            "y": 31
+          },
+          "kind": "pass",
+          "at": 1
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 63,
+            "y": 34
+          },
+          "kind": "run",
+          "at": 1
+        }
+      ],
+      "beats": [
+        {
+          "az": "Divara 2 addım yaxın dur, topu güclü at.",
+          "ru": "В 2 шагах от стены, бросай сильно.",
+          "en": "Two steps from the wall, throw it hard."
+        },
+        {
+          "az": "Qayıdan topa reaksiya ver — tuta bilmirsənsə, yolunu kəs.",
+          "ru": "Реагируй на отскок — не можешь поймать, перекрой.",
+          "en": "React to the rebound — if you can’t catch it, block it."
+        }
+      ],
+      "caption": {
+        "az": "20 təkrar, 3 dəst.",
+        "ru": "20 повторов, 3 подхода.",
+        "en": "20 reps, 3 sets."
+      }
+    },
+    "why": {
+      "az": "Yaxın məsafədən zərbələr çox sürətli olur. Bu məşq gözlə əl arasındakı reaksiyanı sürətləndirir.",
+      "ru": "Удары с близкого расстояния очень быстрые. Это упражнение ускоряет связь «глаз — рука».",
+      "en": "Close-range shots are very fast. This drill speeds up the link between your eyes and hands."
+    }
   },
   {
     "id": "gk-diving-01",
@@ -201,8 +506,16 @@
         "Yana aşağı düş — əvvəl bud, sonra çiyin.",
         "Hər iki tərəfə 10 təkrar, 3 dəst."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Встань на колени рядом с кроватью или мягким матом.",
+        "Падай вбок вниз — сначала бедро, потом плечо.",
+        "По 10 повторов в каждую сторону, 3 подхода."
+      ],
+      "en": [
+        "Kneel next to a bed or a soft mat.",
+        "Fall sideways and down — hip first, then shoulder.",
+        "10 reps each side, 3 sets."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -210,14 +523,83 @@
         "Baş yerə toxunmur.",
         "Yerə düşmə səsi bir dəfə eşidilir, iki yox."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Локоть не касается пола первым.",
+        "Голова не ударяется.",
+        "Звук падения один, а не два."
+      ],
+      "en": [
+        "The elbow doesn’t hit the ground first.",
+        "The head doesn’t touch down.",
+        "You hear one landing, not two."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "zones": [
+        {
+          "x": 58,
+          "y": 18,
+          "w": 30,
+          "h": 30,
+          "kind": "space"
+        }
+      ],
+      "markers": [
+        {
+          "id": "gk",
+          "x": 46,
+          "y": 33,
+          "kind": "keeper",
+          "label": "GK"
+        }
+      ],
+      "paths": [
+        {
+          "from": "gk",
+          "to": {
+            "x": 70,
+            "y": 33
+          },
+          "kind": "run"
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 46,
+            "y": 33
+          },
+          "kind": "run"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Yumşaq səthə yana düş: əvvəl bud, sonra çiyin.",
+          "ru": "Падай вбок на мягкое: сначала бедро, потом плечо.",
+          "en": "Fall sideways onto the soft surface: hip first, then shoulder."
+        },
+        {
+          "az": "Diz üstə qayıt. Hər tərəfə 10 təkrar.",
+          "ru": "Вернись на колени. По 10 в каждую сторону.",
+          "en": "Back to your knees. Ten each side."
+        }
+      ],
+      "caption": {
+        "az": "Yalnız yumşaq səthdə — yataq və ya döşək.",
+        "ru": "Только на мягкое — кровать или мат.",
+        "en": "Only onto something soft — a bed or a mattress."
+      }
+    },
+    "why": {
+      "az": "Düzgün yerə düşmək həm xilasetməni, həm də bədənini qoruyur. Yumşaq səthdə başlamaq zədəsiz öyrənmək deməkdir.",
+      "ru": "Правильное падение спасает и ворота, и твоё тело. Мягкая поверхность позволяет учиться без травм.",
+      "en": "Landing correctly protects both the goal and your body. Starting on a soft surface means learning without getting hurt."
+    }
   },
   {
     "id": "gk-distribution-01",
@@ -244,8 +626,18 @@
         "Sonra çiyin üstündən at.",
         "Hər növdən 15 təkrar."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Партнёр стоит в 15 шагах.",
+        "Откати мяч по земле ей в ноги.",
+        "Потом выброси рукой из-за плеча.",
+        "По 15 повторов каждого способа."
+      ],
+      "en": [
+        "Your partner stands 15 steps away.",
+        "Roll the ball along the ground to her feet.",
+        "Then throw it overarm.",
+        "15 reps of each."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -253,15 +645,109 @@
         "Baş atmadan əvvəl qalxır.",
         "Ötürmə istiqaməti dəyişməz qalır."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Мяч приходит партнёру в ноги спокойно, без подскоков.",
+        "Голова поднимается до броска.",
+        "Направление передачи не меняется."
+      ],
+      "en": [
+        "The ball reaches her feet smoothly, without bouncing.",
+        "Head comes up before you throw.",
+        "The direction stays the same every time."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper",
       "pass"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 8,
+          "y": 32,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "p",
+          "x": 44,
+          "y": 32,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 11,
+          "y": 32,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 11,
+            "y": 32
+          },
+          "to": {
+            "x": 41,
+            "y": 33
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 41,
+            "y": 33
+          },
+          "to": {
+            "x": 11,
+            "y": 31
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 11,
+            "y": 31
+          },
+          "to": {
+            "x": 41,
+            "y": 31
+          },
+          "kind": "pass"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Topu yerlə yuvarlayaraq partnyorun ayağına çatdır.",
+          "ru": "Откати мяч по земле партнёру в ноги.",
+          "en": "Roll it along the ground to your partner’s feet."
+        },
+        {
+          "az": "Partnyor topu geri qaytarır.",
+          "ru": "Партнёр возвращает мяч.",
+          "en": "Your partner sends it back."
+        },
+        {
+          "az": "İndi çiyin üstündən at.",
+          "ru": "Теперь брось рукой из-за плеча.",
+          "en": "Now throw it overarm."
+        }
+      ],
+      "caption": {
+        "az": "Partnyor 15 addım aralıda. Hər növdən 15 təkrar.",
+        "ru": "Партнёр в 15 шагах. По 15 раз каждым способом.",
+        "en": "Partner 15 steps away. Fifteen of each."
+      }
+    },
+    "why": {
+      "az": "Topu tutduqdan sonra hücum sənin əlindən başlayır. Dəqiq paylama komandanın topu saxlamasına kömək edir.",
+      "ru": "После ловли атака начинается с твоих рук. Точный ввод помогает команде сохранить мяч.",
+      "en": "Once you have the ball, the attack starts with you. Accurate distribution helps your team keep the ball."
+    }
   },
   {
     "id": "gk-angles-01",
@@ -289,8 +775,18 @@
         "Hər zərbədən əvvəl mövqeyini düzəlt.",
         "2 dövrə."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Расставь 5 конусов полукругом перед воротами.",
+        "Партнёр бьёт с каждого конуса.",
+        "Перед каждым ударом поправь позицию.",
+        "2 круга."
+      ],
+      "en": [
+        "Set five cones in a half-circle in front of goal.",
+        "Your partner shoots from each cone.",
+        "Adjust your position before every shot.",
+        "2 rounds."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -298,15 +794,172 @@
         "İrəli çıxış tarazlığı pozmur.",
         "Zərbə anında hərəkət dayanıb."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Каждый раз ты стоишь на линии «мяч — ворота».",
+        "Выход вперёд не нарушает равновесие.",
+        "В момент удара ты стоишь."
+      ],
+      "en": [
+        "Every time you are on the ball–goal line.",
+        "Stepping out doesn’t cost your balance.",
+        "You are set when the shot comes."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper",
       "goal"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "goal-area",
+      "markers": [
+        {
+          "id": "c1",
+          "x": 24,
+          "y": 24,
+          "kind": "cone"
+        },
+        {
+          "id": "c2",
+          "x": 34,
+          "y": 34,
+          "kind": "cone"
+        },
+        {
+          "id": "c3",
+          "x": 50,
+          "y": 38,
+          "kind": "cone"
+        },
+        {
+          "id": "c4",
+          "x": 66,
+          "y": 34,
+          "kind": "cone"
+        },
+        {
+          "id": "c5",
+          "x": 76,
+          "y": 24,
+          "kind": "cone"
+        },
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 12,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "s",
+          "x": 26,
+          "y": 28,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 28.5,
+          "y": 26.5,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": "gk",
+          "to": {
+            "x": 43,
+            "y": 12
+          },
+          "kind": "run"
+        },
+        {
+          "from": {
+            "x": 28.5,
+            "y": 26.5
+          },
+          "to": {
+            "x": 44,
+            "y": 13
+          },
+          "kind": "shot"
+        },
+        {
+          "from": {
+            "x": 44,
+            "y": 13
+          },
+          "to": {
+            "x": 50,
+            "y": 39
+          },
+          "kind": "pass",
+          "at": 2
+        },
+        {
+          "from": "s",
+          "to": {
+            "x": 50,
+            "y": 42
+          },
+          "kind": "run",
+          "at": 2
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 50,
+            "y": 14
+          },
+          "kind": "run",
+          "at": 2
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 39
+          },
+          "to": {
+            "x": 50,
+            "y": 15
+          },
+          "kind": "shot",
+          "at": 3
+        }
+      ],
+      "beats": [
+        {
+          "az": "Zərbədən əvvəl mövqeyini top ilə qapının ortası arasında qur.",
+          "ru": "До удара встань между мячом и центром ворот.",
+          "en": "Before the shot, set yourself between the ball and the middle of the goal."
+        },
+        {
+          "az": "Partnyor vurur — sən artıq yerindəsən.",
+          "ru": "Партнёр бьёт — ты уже на месте.",
+          "en": "Your partner shoots — you’re already set."
+        },
+        {
+          "az": "Növbəti konus: hər zərbədən əvvəl yenidən düzəl.",
+          "ru": "Следующий конус: поправляй позицию перед каждым ударом.",
+          "en": "Next cone: re-set before every shot."
+        },
+        {
+          "az": "Mərkəzdən zərbə — mərkəzdə qal.",
+          "ru": "Удар по центру — стой по центру.",
+          "en": "Shot from the centre — stay central."
+        }
+      ],
+      "caption": {
+        "az": "5 konus yarımdairədə. 2 dövrə.",
+        "ru": "5 конусов полукругом. 2 круга.",
+        "en": "Five cones in a half-circle. Two rounds."
+      }
+    },
+    "why": {
+      "az": "Yaxşı mövqe çətin xilasetməni asan edir. Bu məşq hər zərbədən əvvəl top–qapı xəttini tapmağı öyrədir.",
+      "ru": "Хорошая позиция превращает трудный сейв в лёгкий. Упражнение учит перед каждым ударом находить линию «мяч — ворота».",
+      "en": "Good positioning turns a hard save into an easy one. This drill teaches you to find the ball–goal line before every shot."
+    }
   },
   {
     "id": "field-passing-01",
@@ -335,8 +988,18 @@
         "Sağ və sol ayaqla növbələş.",
         "40 təkrar."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Встань в 5 шагах от стены.",
+        "Пасуй внутренней стороной стопы, останови отскок одним касанием.",
+        "Чередуй правую и левую ногу.",
+        "40 повторов."
+      ],
+      "en": [
+        "Stand five steps from a wall.",
+        "Pass with the inside of your foot; stop the return with one touch.",
+        "Alternate right and left foot.",
+        "40 reps."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -344,14 +1007,126 @@
         "Birinci toxunuş topu bədənə yaxın saxlayır.",
         "Zərbə ayağın içi ilə, burnu ilə yox."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Мяч возвращается прямо, а не в сторону.",
+        "Первое касание держит мяч рядом с телом.",
+        "Удар внутренней стороной стопы, а не носком."
+      ],
+      "en": [
+        "The ball comes back straight, not to the side.",
+        "The first touch keeps the ball close to you.",
+        "You strike with the inside of the foot, not the toe."
+      ]
     },
     "glossaryTermIds": [
       "pass"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "zones": [
+        {
+          "x": 18,
+          "y": 5,
+          "w": 64,
+          "h": 4,
+          "kind": "wall"
+        }
+      ],
+      "markers": [
+        {
+          "id": "p",
+          "x": 50,
+          "y": 52,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 48,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 50,
+            "y": 48
+          },
+          "to": {
+            "x": 44,
+            "y": 10
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 44,
+            "y": 10
+          },
+          "to": {
+            "x": 50,
+            "y": 48
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 48
+          },
+          "to": {
+            "x": 56,
+            "y": 10
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 56,
+            "y": 10
+          },
+          "to": {
+            "x": 50,
+            "y": 48
+          },
+          "kind": "pass"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Ayağın içi ilə divara ötür.",
+          "ru": "Пас в стену внутренней стороной стопы.",
+          "en": "Pass at the wall with the inside of your foot."
+        },
+        {
+          "az": "Qayıdan topu bir toxunuşla dayandır.",
+          "ru": "Останови отскок одним касанием.",
+          "en": "Stop the return with one touch."
+        },
+        {
+          "az": "İndi o biri ayaqla.",
+          "ru": "Теперь другой ногой.",
+          "en": "Now with the other foot."
+        },
+        {
+          "az": "Yenə bir toxunuş. 40 təkrar.",
+          "ru": "Снова одно касание. 40 повторов.",
+          "en": "One touch again. Forty reps."
+        }
+      ],
+      "caption": {
+        "az": "Divardan 5 addım aralı.",
+        "ru": "В 5 шагах от стены.",
+        "en": "Five steps from the wall."
+      }
+    },
+    "why": {
+      "az": "Ötürmə futbolun dilidir. Divarla minlərlə təkrar edə və hər iki ayağını gücləndirə bilərsən.",
+      "ru": "Пас — язык футбола. Со стеной можно сделать тысячи повторов и развить обе ноги.",
+      "en": "Passing is the language of football. With a wall you can do thousands of reps and build up both feet."
+    }
   },
   {
     "id": "field-control-01",
@@ -379,8 +1154,18 @@
         "Ayaq, bud və sinə ilə növbələş.",
         "Hər səthdən 15 təkrar."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Подбрось мяч вверх.",
+        "Погаси падающий мяч одним касанием.",
+        "Чередуй стопу, бедро и грудь.",
+        "По 15 повторов каждой частью тела."
+      ],
+      "en": [
+        "Toss the ball up.",
+        "Kill the falling ball with one touch.",
+        "Alternate foot, thigh and chest.",
+        "15 reps with each."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -388,14 +1173,27 @@
         "Bədən topu qarşılamağa doğru hərəkət edir.",
         "Baş topa baxır, ayağa yox."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "После первого касания мяч в шаге от тебя.",
+        "Тело движется навстречу мячу.",
+        "Смотришь на мяч, а не на ногу."
+      ],
+      "en": [
+        "After the first touch the ball is one step away.",
+        "Your body moves to meet the ball.",
+        "You watch the ball, not your foot."
+      ]
     },
     "glossaryTermIds": [
       "dribble"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "why": {
+      "az": "Yaxşı birinci toxunuş sənə vaxt qazandırır. Top ayağının yanında qalanda növbəti hərəkəti seçə bilirsən.",
+      "ru": "Хорошее первое касание даёт время. Когда мяч остаётся у ноги, ты успеваешь выбрать следующее действие.",
+      "en": "A good first touch buys you time. When the ball stays at your feet, you can choose what to do next."
+    }
   },
   {
     "id": "fitness-agility-01",
@@ -421,8 +1219,18 @@
         "Hər dövrədən sonra 30 saniyə fasilə.",
         "6 dövrə."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Расставь 5 конусов в 2 шагах друг от друга.",
+        "Пройди приставными шагами вперёд и назад.",
+        "После каждого круга 30 секунд отдыха.",
+        "6 кругов."
+      ],
+      "en": [
+        "Set five cones two steps apart.",
+        "Side-step along them and back.",
+        "Rest 30 seconds after each round.",
+        "6 rounds."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -430,12 +1238,101 @@
         "Ayaqlar kəsişmir.",
         "Son dövrə birinci dövrə qədər təmizdir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "На поворотах центр тяжести низко.",
+        "Ноги не скрещиваются.",
+        "Последний круг такой же чистый, как первый."
+      ],
+      "en": [
+        "Your weight stays low on the turns.",
+        "Feet don’t cross.",
+        "The last round is as clean as the first."
+      ]
     },
     "glossaryTermIds": [],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "markers": [
+        {
+          "id": "c1",
+          "x": 30,
+          "y": 30,
+          "kind": "cone"
+        },
+        {
+          "id": "c2",
+          "x": 40,
+          "y": 30,
+          "kind": "cone"
+        },
+        {
+          "id": "c3",
+          "x": 50,
+          "y": 30,
+          "kind": "cone"
+        },
+        {
+          "id": "c4",
+          "x": 60,
+          "y": 30,
+          "kind": "cone"
+        },
+        {
+          "id": "c5",
+          "x": 70,
+          "y": 30,
+          "kind": "cone"
+        },
+        {
+          "id": "p",
+          "x": 24,
+          "y": 40,
+          "kind": "player"
+        }
+      ],
+      "paths": [
+        {
+          "from": "p",
+          "to": {
+            "x": 76,
+            "y": 40
+          },
+          "kind": "run"
+        },
+        {
+          "from": "p",
+          "to": {
+            "x": 24,
+            "y": 40
+          },
+          "kind": "run"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Konuslar boyunca yan addımlarla keç.",
+          "ru": "Приставными шагами вдоль конусов.",
+          "en": "Side-step along the cones."
+        },
+        {
+          "az": "Və geri. Hər dövrədən sonra 30 saniyə fasilə.",
+          "ru": "И обратно. После круга 30 секунд отдыха.",
+          "en": "And back. Rest 30 seconds after each round."
+        }
+      ],
+      "caption": {
+        "az": "5 konus, 2 addım aralı. 6 dövrə.",
+        "ru": "5 конусов в 2 шагах. 6 кругов.",
+        "en": "Five cones, two steps apart. Six rounds."
+      }
+    },
+    "why": {
+      "az": "Futbol düz qaçış deyil — daim dayanıb istiqamət dəyişirsən. Bu məşq ayaqları sürətli və yığcam edir.",
+      "ru": "Футбол — это не бег по прямой: ты постоянно тормозишь и меняешь направление. Упражнение делает ноги быстрыми и собранными.",
+      "en": "Football isn’t running in a straight line — you keep stopping and changing direction. This drill makes your feet quick and neat."
+    }
   },
   {
     "id": "field-wallvolley-01",
@@ -463,8 +1360,18 @@
         "Qayıdan topu tut və təkrarla.",
         "Hər ayaqla 15 təkrar."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Подбрось мяч себе.",
+        "Ударь в стену, пока мяч не коснулся земли.",
+        "Поймай отскок и повтори.",
+        "По 15 повторов каждой ногой."
+      ],
+      "en": [
+        "Toss the ball to yourself.",
+        "Strike it at the wall before it bounces.",
+        "Catch the return and repeat.",
+        "15 reps with each foot."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -472,12 +1379,108 @@
         "Top divara düz gedir.",
         "Ayaq biləyi bərkdir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "В момент удара корпус над мячом.",
+        "Мяч летит в стену прямо.",
+        "Голеностоп жёсткий."
+      ],
+      "en": [
+        "Your body is over the ball as you strike.",
+        "The ball goes straight at the wall.",
+        "The ankle is locked."
+      ]
     },
     "glossaryTermIds": [],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "zones": [
+        {
+          "x": 18,
+          "y": 5,
+          "w": 64,
+          "h": 4,
+          "kind": "wall"
+        }
+      ],
+      "markers": [
+        {
+          "id": "p",
+          "x": 50,
+          "y": 52,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 48,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 50,
+            "y": 48
+          },
+          "to": {
+            "x": 50,
+            "y": 40
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 40
+          },
+          "to": {
+            "x": 50,
+            "y": 10
+          },
+          "kind": "shot"
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 10
+          },
+          "to": {
+            "x": 50,
+            "y": 48
+          },
+          "kind": "pass"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Topu özünə at.",
+          "ru": "Подбрось мяч себе.",
+          "en": "Toss the ball to yourself."
+        },
+        {
+          "az": "Yerə dəymədən divara vur.",
+          "ru": "Ударь с лёта в стену, пока мяч не упал.",
+          "en": "Volley it at the wall before it bounces."
+        },
+        {
+          "az": "Qayıdan topu tut və təkrarla.",
+          "ru": "Поймай отскок и повтори.",
+          "en": "Catch the return and go again."
+        }
+      ],
+      "caption": {
+        "az": "Hər ayaqla 15 təkrar.",
+        "ru": "По 15 каждой ногой.",
+        "en": "Fifteen with each foot."
+      }
+    },
+    "why": {
+      "az": "Hava zərbəsi zamanlama tələb edir. Bu məşq gözü, ayağı və bədən vəziyyətini birlikdə işlədir.",
+      "ru": "Удар с лёта требует точного тайминга. Упражнение тренирует глаз, ногу и положение тела вместе.",
+      "en": "A volley is all about timing. This drill works your eyes, your foot and your body position together."
+    }
   },
   {
     "id": "group-rondo-01",
@@ -505,8 +1508,18 @@
         "Topu itirən içəri keçir.",
         "10 dəqiqə fasiləsiz."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Поставь квадрат из 4 конусов.",
+        "Трое снаружи, одна внутри.",
+        "Кто потерял мяч — идёт в центр.",
+        "10 минут без остановки."
+      ],
+      "en": [
+        "Set up a square with four cones.",
+        "Three outside, one in the middle.",
+        "Whoever loses the ball goes in the middle.",
+        "10 minutes non-stop."
+      ]
     },
     "whatGoodLooksLike": {
       "az": [
@@ -514,13 +1527,172 @@
         "Top yerlə gedir.",
         "Ötürmədən sonra oyunçu yerini dəyişir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Голова поднимается до паса.",
+        "Мяч идёт по земле.",
+        "После паса игрок смещается."
+      ],
+      "en": [
+        "Head comes up before the pass.",
+        "The ball stays on the ground.",
+        "After passing, players move."
+      ]
     },
     "glossaryTermIds": [
       "pass"
     ],
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "blank",
+      "markers": [
+        {
+          "id": "k1",
+          "x": 32,
+          "y": 14,
+          "kind": "cone"
+        },
+        {
+          "id": "k2",
+          "x": 68,
+          "y": 14,
+          "kind": "cone"
+        },
+        {
+          "id": "k3",
+          "x": 68,
+          "y": 50,
+          "kind": "cone"
+        },
+        {
+          "id": "k4",
+          "x": 32,
+          "y": 50,
+          "kind": "cone"
+        },
+        {
+          "id": "a",
+          "x": 50,
+          "y": 12,
+          "kind": "player"
+        },
+        {
+          "id": "r",
+          "x": 71,
+          "y": 32,
+          "kind": "player"
+        },
+        {
+          "id": "l",
+          "x": 29,
+          "y": 32,
+          "kind": "player"
+        },
+        {
+          "id": "d",
+          "x": 50,
+          "y": 32,
+          "kind": "opponent"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 16,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 50,
+            "y": 16
+          },
+          "to": {
+            "x": 67,
+            "y": 31
+          },
+          "kind": "pass",
+          "at": 0
+        },
+        {
+          "from": "d",
+          "to": {
+            "x": 60,
+            "y": 37
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": {
+            "x": 67,
+            "y": 31
+          },
+          "to": {
+            "x": 50,
+            "y": 16
+          },
+          "kind": "pass",
+          "at": 1
+        },
+        {
+          "from": "d",
+          "to": {
+            "x": 56,
+            "y": 31
+          },
+          "kind": "run",
+          "at": 1
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 16
+          },
+          "to": {
+            "x": 33,
+            "y": 31
+          },
+          "kind": "pass",
+          "at": 2
+        },
+        {
+          "from": "d",
+          "to": {
+            "x": 43,
+            "y": 37
+          },
+          "kind": "run",
+          "at": 2
+        }
+      ],
+      "beats": [
+        {
+          "az": "Ortadakından uzaq tərəfə ötür.",
+          "ru": "Пасуй подальше от игрока в центре.",
+          "en": "Pass away from the player in the middle."
+        },
+        {
+          "az": "O yaxınlaşır — topu geri ver.",
+          "ru": "Она прессингует — отдай назад.",
+          "en": "She closes in — play it back."
+        },
+        {
+          "az": "Boş tərəfə keçir. Topu itirən içəri keçir.",
+          "ru": "Переведи на свободную сторону. Потеряла — идёшь в центр.",
+          "en": "Switch to the open side. Lose it and you go in the middle."
+        }
+      ],
+      "caption": {
+        "az": "4 konusla kvadrat. Üç kənarda, bir içəridə.",
+        "ru": "Квадрат из 4 конусов. Трое снаружи, одна внутри.",
+        "en": "A square of four cones. Three outside, one inside."
+      }
+    },
+    "why": {
+      "az": "Rondo futbolun kiçik modelidir: ötürmə, boş yer axtarmaq və təzyiq altında sakit qalmaq — hamısı bir oyunda.",
+      "ru": "Ронда — маленькая модель футбола: пас, поиск свободного места и спокойствие под давлением — всё в одной игре.",
+      "en": "A rondo is football in miniature: passing, finding space and staying calm under pressure — all in one game."
+    }
   }
 ]

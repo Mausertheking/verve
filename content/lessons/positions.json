@@ -19,14 +19,33 @@
     },
     "body": {
       "az": [
-        "Komandada [[goalkeeper|qapıçı]] cərimə meydançası daxilində topa əl ilə toxuna bilən yeganə oyunçudur.",
-        "İş yalnız zərbələri dayandırmaq deyil: qapıçı müdafiəni idarə edir, hücumu paylama ilə başladır və arxa boşluğu oxuyur.",
+        "Komandada [[goalkeeper|qapıçı]] öz [[penalty-area|cərimə meydançası]] daxilində topa əl ilə toxuna bilən yeganə oyunçudur. O, başqa rəngli forma geyinir ki, hakim onu dərhal tanısın.",
+        "## Qapıçının dörd işi",
+        "Zərbələri dayandırmaq — ən görünən işdir. Amma qapıçı həm də müdafiəni idarə edir: arxadan hər şeyi görür və səsi ilə müdafiəçilərə harada durmağı deyir.",
+        "Paylama — topu tutandan sonra hücum qapıçının əlindən başlayır: yaxın müdafiəçiyə yuvarlatmaq, atmaq və ya uzağa vurmaq.",
+        "Arxa boşluğu oxumaq — rəqib müdafiənin arxasına top atanda qapıçı tez çıxıb topu hücumçudan əvvəl götürür.",
+        "## Qaydalar",
+        "Cərimə meydançasından kənarda qapıçı adi oyunçudur — əllə toxunarsa, pozuntudur. Topu əlində 8 saniyədən çox saxlasa, rəqib künc zərbəsi alır. Komanda yoldaşı topu qəsdən ayaqla ona ötürərsə, onu əllə götürə bilməz.",
         "Yaxşı qapıçı çox vaxt heç bir möhtəşəm xilasetmə etmir — sadəcə həmişə düzgün yerdə dayanır."
       ],
-      "ru": [],
+      "ru": [
+        "[[goalkeeper|Вратарь]] — единственный игрок команды, которому можно трогать мяч руками внутри своей [[penalty-area|штрафной площади]]. Он играет в форме другого цвета, чтобы судья сразу его отличал.",
+        "## Четыре задачи вратаря",
+        "Отражать удары — самая заметная работа. Но вратарь ещё и руководит обороной: он видит всё поле сзади и голосом подсказывает защитникам, где стоять.",
+        "Ввод мяча — после ловли атака начинается с рук вратаря: откатить ближнему защитнику, выбросить рукой или выбить далеко.",
+        "Читать пространство за спиной защиты — когда соперник забрасывает мяч за линию обороны, вратарь выходит и забирает его раньше нападающего.",
+        "## Правила",
+        "За пределами штрафной вратарь — обычный игрок: игра рукой там нарушение. Если он держит мяч в руках дольше 8 секунд, соперник получает угловой. Если партнёр намеренно отдал ему мяч ногой, брать его руками нельзя.",
+        "Хороший вратарь часто не делает ни одного эффектного сейва — он просто всегда стоит в правильном месте."
+      ],
       "en": [
-        "The [[goalkeeper|goalkeeper]] is the only player allowed to handle the ball inside the penalty area.",
-        "The job is not only stopping shots: the keeper organises the defence, starts attacks with distribution, and reads the space behind.",
+        "The [[goalkeeper|goalkeeper]] is the only player allowed to handle the ball inside her own [[penalty-area|penalty area]]. She wears a different colour so the referee can spot her instantly.",
+        "## The keeper’s four jobs",
+        "Stopping shots — the most visible part. But the keeper also organises the defence: she sees the whole pitch from behind and uses her voice to tell defenders where to stand.",
+        "Distribution — once she has the ball, the attack starts in her hands: roll it to a nearby defender, throw it, or kick it long.",
+        "Reading the space behind — when opponents play the ball over the defence, the keeper comes out and claims it before the striker gets there.",
+        "## The rules",
+        "Outside the penalty area the keeper is an ordinary player — handling there is an offence. Holding the ball for more than 8 seconds gives the other team a corner. If a team-mate deliberately kicks the ball back to her, she may not pick it up.",
         "A good keeper often makes no spectacular save at all — she is simply always standing in the right place."
       ]
     },
@@ -36,7 +55,11 @@
         "Səs qapıçının əsas alətidir — müdafiəni sən idarə edirsən.",
         "Mövqe seçimi refleksdən vacibdir."
       ],
-      "ru": [],
+      "ru": [
+        "Руками — только в своей штрафной.",
+        "Голос — главный инструмент вратаря: ты руководишь обороной.",
+        "Выбор позиции важнее реакции."
+      ],
       "en": [
         "Handling is allowed only inside your own penalty area.",
         "Your voice is the main tool — you organise the defence.",
@@ -47,7 +70,7 @@
       "goalkeeper",
       "penalty"
     ],
-    "estMinutes": 4,
+    "estMinutes": 6,
     "status": "draft",
     "reviewed": false,
     "diagram": {
@@ -73,7 +96,7 @@
       ],
       "caption": {
         "az": "Əl ilə oynamağa icazə verilən sahə.",
-        "ru": "",
+        "ru": "Зона, где можно играть руками.",
         "en": "The area where handling is allowed."
       }
     }
@@ -89,24 +112,49 @@
     },
     "body": {
       "az": [
-        "Mərkəz [[defender|müdafiəçi]] qapıya ən yaxın sahəni qoruyur. Əsas iş — hücumçunu topdan ayırmaq və topu təhlükəsiz sahəyə çıxarmaq.",
-        "Cütlükdə oynayır: biri hücumçuya çıxır, digəri arxada örtür."
+        "Mərkəz [[defender|müdafiəçi]] qapıya ən yaxın sahəni qoruyur. Əsas işi hücumçunu topdan ayırmaq və topu təhlükəsiz yerə uzaqlaşdırmaqdır. Adətən iki mərkəz müdafiəçi yan-yana oynayır.",
+        "## Cüt işləmək",
+        "Biri topla gələn hücumçuya çıxır, o biri bir az arxada durub onu sığortalayır. Hücumçu birincini keçsə, ikinci artıq hazırdır.",
+        "Mərkəz müdafiəçilər hücuma keçəndə xətti birlikdə irəli çəkir, geri çəkiləndə birlikdə çəkilir. Biri geridə qalsa, hücumçular ofsayddan qurtarır.",
+        "## Necə müdafiə etmək",
+        "Topa deyil, hücumçunun bədəninə — omba və çiyinlərinə bax: top aldada bilər, bədən yox. Yan dayan ki, istənilən istiqamətə dönə biləsən.",
+        "Şübhə edəndə topu kənara və uzağa vur. Öz qapın qarşısında riskli ötürmə etmə.",
+        "Başla oynamaq, sürüşmə ilə müdaxilə və hava topları bu mövqedə tez-tez lazım olur — onları məşqdə ayrıca işlə."
       ],
-      "ru": [],
+      "ru": [
+        "Центральный [[defender|защитник]] охраняет зону ближе всего к воротам. Его главная задача — отделить нападающего от мяча и выбить мяч в безопасное место. Обычно два центральных защитника играют рядом.",
+        "## Работа в паре",
+        "Один выходит на нападающего с мячом, второй стоит чуть сзади и страхует. Если нападающий обыграл первого, второй уже готов.",
+        "Центральные защитники вместе поднимают линию вперёд и вместе отходят назад. Если один отстал, нападающие уходят из офсайда.",
+        "## Как защищаться",
+        "Смотри не на мяч, а на корпус нападающего — бёдра и плечи: мяч может обмануть, тело нет. Стой вполоборота, чтобы развернуться в любую сторону.",
+        "Сомневаешься — выбей мяч в сторону и подальше. Не делай рискованных передач перед своими воротами.",
+        "Игра головой, подкаты и верховые мячи нужны на этой позиции постоянно — отрабатывай их отдельно."
+      ],
       "en": [
-        "The centre-[[defender|back]] protects the space closest to goal. The core job is separating the striker from the ball and clearing it to a safe area.",
-        "They work in pairs: one steps out to the attacker, the other covers behind."
+        "The centre-[[defender|back]] protects the space closest to goal. The core job is separating the striker from the ball and clearing it to a safe area. Usually two centre-backs play side by side.",
+        "## Working as a pair",
+        "One steps out to the attacker with the ball; the other stays a little behind and covers. If the striker beats the first, the second is already waiting.",
+        "Centre-backs push the line up together and drop back together. If one is left behind, attackers escape the offside trap.",
+        "## How to defend",
+        "Watch the attacker’s body — hips and shoulders — not the ball: the ball can fool you, the body can’t. Stand side-on so you can turn either way.",
+        "When in doubt, clear it wide and far. No risky passes in front of your own goal.",
+        "Heading, tackling and high balls come up all the time in this position — practise them on their own."
       ]
     },
     "takeaways": {
       "az": [
-        "Topa yox, hücumçunun bədəninə bax.",
-        "Cütlüyünlə eyni xətdə qal.",
-        "Şübhə varsa — topu uzağa və yana çıxar."
+        "Topa deyil, hücumçunun bədəninə bax.",
+        "Tərəf-müqabilinlə bir xətdə qal.",
+        "Şübhə edəndə — kənara və uzağa vur."
       ],
-      "ru": [],
+      "ru": [
+        "Смотри на корпус нападающего, а не на мяч.",
+        "Держи одну линию с партнёром.",
+        "Сомневаешься — выбей в сторону и далеко."
+      ],
       "en": [
-        "Watch the attacker's body, not the ball.",
+        "Watch the attacker’s body, not the ball.",
         "Stay level with your partner.",
         "When in doubt, clear it wide and far."
       ]
@@ -115,9 +163,72 @@
       "defender",
       "foul"
     ],
-    "estMinutes": 4,
+    "estMinutes": 6,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "cb1",
+          "x": 18,
+          "y": 26,
+          "kind": "player",
+          "label": "CB"
+        },
+        {
+          "id": "cb2",
+          "x": 18,
+          "y": 40,
+          "kind": "player",
+          "label": "CB"
+        },
+        {
+          "id": "s",
+          "x": 36,
+          "y": 28,
+          "kind": "opponent"
+        },
+        {
+          "id": "b",
+          "x": 39,
+          "y": 28,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": "cb1",
+          "to": {
+            "x": 30,
+            "y": 28
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": "cb2",
+          "to": {
+            "x": 14,
+            "y": 31
+          },
+          "kind": "run",
+          "at": 0
+        }
+      ],
+      "beats": [
+        {
+          "az": "Biri hücumçuya çıxır, o biri arxanı örtür.",
+          "ru": "Одна выходит на нападающую, вторая страхует сзади.",
+          "en": "One steps out to the attacker; the other covers behind."
+        }
+      ],
+      "caption": {
+        "az": "Mərkəz müdafiəçiləri cüt işləyir.",
+        "ru": "Центральные защитники работают в паре.",
+        "en": "Centre-backs work in pairs."
+      }
+    }
   },
   {
     "id": "pos-fullback-01",
@@ -130,27 +241,107 @@
     },
     "body": {
       "az": [
-        "Cinah müdafiəçi yan xətt boyunca həm müdafiə, həm hücum edir. Ən çox qaçan mövqelərdən biridir."
+        "Cinah müdafiəçi yan xətt boyunca oynayır — sağda və ya solda. O, həm müdafiə edir, həm də hücuma qoşulur. Ən çox qaçan mövqelərdən biridir.",
+        "## Müdafiədə",
+        "Əsas rəqibin — cinah hücumçusudur. Onu içəriyə, qapıya tərəf yox, kənara, yan xəttə tərəf sıxışdır: kənardan qol vurmaq çətindir.",
+        "Top o biri cinahdadırsa, içəriyə yaxınlaş və mərkəz müdafiəçiləri sığortala.",
+        "## Hücumda",
+        "Komanda topa sahib olanda yan xətt boyunca irəli qaç və eni istifadə et. Öz cinah hücumçunun arxasından keçmək rəqibi iki seçim arasında qoyur.",
+        "Hücuma qalxmazdan əvvəl arxanı kimin örtdüyünü bil — topu itirəndə tez geri qayıtmalısan.",
+        "Bu mövqedə kondisiya texnika qədər vacibdir: oyun boyu dəfələrlə sürətlə qaçıb-qayıdacaqsan."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Крайний защитник играет у боковой линии — справа или слева. Он и защищается, и подключается к атаке. Это одна из самых «беговых» позиций.",
+        "## В обороне",
+        "Твой главный соперник — вингер. Прижимай его не внутрь, к воротам, а наружу, к боковой: оттуда забить трудно.",
+        "Если мяч на другом фланге, смещайся ближе к центру и страхуй центральных защитников.",
+        "## В атаке",
+        "Когда мяч у твоей команды, беги вперёд вдоль боковой и используй ширину поля. Обгон своего вингера ставит соперника перед двумя вариантами.",
+        "Прежде чем идти вперёд, знай, кто страхует тебя сзади: потеряли мяч — нужно быстро вернуться.",
+        "На этой позиции выносливость важна не меньше техники: за матч ты много раз пробежишь вперёд и назад."
+      ],
+      "en": [
+        "A full-back plays along the touchline — on the right or the left. She defends and joins the attack. It is one of the positions that runs the most.",
+        "## Defending",
+        "Your main opponent is the winger. Push her outside, towards the touchline, not inside towards goal: it is hard to score from wide.",
+        "When the ball is on the other side, tuck in towards the middle and cover the centre-backs.",
+        "## Attacking",
+        "When your team has the ball, run forward along the touchline and use the width. Overlapping your own winger gives the opponent two problems at once.",
+        "Before you go forward, know who is covering behind you — if the ball is lost you must get back quickly.",
+        "Fitness matters as much as technique here: you will sprint up and back many times in a match."
+      ]
     },
     "takeaways": {
       "az": [
-        "Hücuma qalxanda arxanı kimin örtdüyünü bil.",
         "Cinah hücumçusunu içəri yox, kənara sıxışdır.",
-        "Kondisiya bu mövqedə texnikadan az əhəmiyyətli deyil."
+        "Hücuma qalxanda arxanı kimin örtdüyünü bil.",
+        "Kondisiya texnika qədər vacibdir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Прижимай вингера наружу, а не внутрь.",
+        "Идёшь в атаку — знай, кто страхует сзади.",
+        "Выносливость важна не меньше техники."
+      ],
+      "en": [
+        "Push the winger outside, not inside.",
+        "Know who covers behind you before you attack.",
+        "Fitness matters as much as technique."
+      ]
     },
     "glossaryTermIds": [
       "defender",
       "pitch"
     ],
-    "estMinutes": 3,
+    "estMinutes": 5,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "full",
+      "markers": [
+        {
+          "id": "fb",
+          "x": 20,
+          "y": 9,
+          "kind": "player",
+          "label": "FB"
+        }
+      ],
+      "paths": [
+        {
+          "from": "fb",
+          "to": {
+            "x": 66,
+            "y": 8
+          },
+          "kind": "run"
+        },
+        {
+          "from": "fb",
+          "to": {
+            "x": 20,
+            "y": 9
+          },
+          "kind": "run"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Yan xətt boyunca hücuma qalx.",
+          "ru": "Вперёд вдоль бровки в атаку.",
+          "en": "Up the touchline to attack."
+        },
+        {
+          "az": "Və geri — müdafiəyə.",
+          "ru": "И назад — в оборону.",
+          "en": "And back to defend."
+        }
+      ],
+      "caption": {
+        "az": "Ən çox qaçan mövqelərdən biri.",
+        "ru": "Одна из самых беговых позиций.",
+        "en": "One of the positions that runs the most."
+      }
+    }
   },
   {
     "id": "pos-midfielder-01",
@@ -163,11 +354,35 @@
     },
     "body": {
       "az": [
-        "[[midfielder|Yarımmüdafiəçi]] oyunun mərkəzidir — top demək olar ki, həmişə onun yaxınlığından keçir.",
-        "Topu almazdan əvvəl çiyin üstündən baxmaq bu mövqedə ən vacib vərdişdir."
+        "[[midfielder|Yarımmüdafiəçi]] oyunun mərkəzidir — müdafiəni hücumla birləşdirir. Top demək olar ki, həmişə onun yaxınlığından keçir.",
+        "## Baxmaq — ən vacib vərdiş",
+        "Topu almazdan əvvəl çiyin üstündən ətrafa bax: rəqib haradadır, yoldaşın haradadır, boş sahə haradadır? Topu alanda artıq nə edəcəyini bilməlisən.",
+        "## Topsuz hərəkət",
+        "Top yoldaşındadırsa, ona ötürmə üçün yol aç: rəqibin arxasından çıx, boş sahəyə keç. Dayanıb gözləyən yarımmüdafiəçiyə ötürmə vermək çətindir.",
+        "## Topla",
+        "Sadə ötürmə çox vaxt ən yaxşı ötürmədir. Topu itirməmək çətin ötürmədən vacibdir. Bədənini topla rəqib arasında saxla.",
+        "Topu itirəndə dərhal müdafiəyə keç — yarımmüdafiəçi ilk müdafiə xəttidir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "[[midfielder|Полузащитник]] — центр игры: он связывает оборону и атаку. Мяч почти всегда проходит рядом с ним.",
+        "## Смотреть — главная привычка",
+        "Перед приёмом мяча оглядись через плечо: где соперник, где партнёры, где свободное место? Получив мяч, ты уже должна знать, что с ним делать.",
+        "## Движение без мяча",
+        "Если мяч у партнёра, открой ему линию для паса: выйди из-за спины соперника, сместись в свободную зону. Стоящему на месте полузащитнику отдать пас трудно.",
+        "## С мячом",
+        "Простой пас — часто лучший пас. Сохранить мяч важнее, чем сделать сложную передачу. Держи корпус между мячом и соперником.",
+        "Потеряла мяч — сразу переходи в оборону: полузащитник — первая линия защиты."
+      ],
+      "en": [
+        "The [[midfielder|midfielder]] is the centre of the game — she links defence and attack. The ball nearly always passes close to her.",
+        "## Looking — the key habit",
+        "Before the ball arrives, check over your shoulder: where are the opponents, your team-mates, the free space? When it arrives you should already know what to do with it.",
+        "## Moving without the ball",
+        "When a team-mate has it, open a passing line: step out from behind an opponent, move into free space. A midfielder who stands still is hard to pass to.",
+        "## On the ball",
+        "The simple pass is often the best pass. Keeping the ball matters more than a difficult pass. Keep your body between the ball and the opponent.",
+        "Lose it — defend straight away: the midfield is the first line of defence."
+      ]
     },
     "takeaways": {
       "az": [
@@ -175,16 +390,114 @@
         "Sadə ötürmə çox vaxt ən yaxşı ötürmədir.",
         "Topsuz hərəkət topla hərəkət qədər vacibdir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Оглядись до приёма мяча.",
+        "Простой пас — часто лучший.",
+        "Движение без мяча важно не меньше, чем с мячом."
+      ],
+      "en": [
+        "Look around before the ball arrives.",
+        "The simple pass is often the best.",
+        "Moving without the ball matters as much as with it."
+      ]
     },
     "glossaryTermIds": [
       "midfielder",
       "pass"
     ],
-    "estMinutes": 4,
+    "estMinutes": 6,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "full",
+      "markers": [
+        {
+          "id": "cb",
+          "x": 24,
+          "y": 34,
+          "kind": "player"
+        },
+        {
+          "id": "cm",
+          "x": 50,
+          "y": 36,
+          "kind": "player",
+          "label": "CM"
+        },
+        {
+          "id": "o",
+          "x": 56,
+          "y": 40,
+          "kind": "opponent"
+        },
+        {
+          "id": "f",
+          "x": 78,
+          "y": 20,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 27,
+          "y": 34,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": "cm",
+          "to": {
+            "x": 48,
+            "y": 25
+          },
+          "kind": "run"
+        },
+        {
+          "from": {
+            "x": 27,
+            "y": 34
+          },
+          "to": {
+            "x": 46,
+            "y": 26
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 46,
+            "y": 26
+          },
+          "to": {
+            "x": 75,
+            "y": 21
+          },
+          "kind": "pass"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Topu almazdan əvvəl boş sahəyə keç.",
+          "ru": "Откройся в свободную зону до паса.",
+          "en": "Move into space before the ball comes."
+        },
+        {
+          "az": "Topu boş yerdə al.",
+          "ru": "Прими мяч в свободной зоне.",
+          "en": "Receive it in space."
+        },
+        {
+          "az": "Sadə ötürmə — çox vaxt ən yaxşısı.",
+          "ru": "Простой пас — обычно лучший.",
+          "en": "The simple pass — usually the best one."
+        }
+      ],
+      "caption": {
+        "az": "Topsuz hərəkət topla hərəkət qədər vacibdir.",
+        "ru": "Движение без мяча важно не меньше, чем с мячом.",
+        "en": "Moving without the ball matters as much as with it."
+      }
+    }
   },
   {
     "id": "pos-winger-01",
@@ -197,27 +510,139 @@
     },
     "body": {
       "az": [
-        "Cinah hücumçusu meydanın enini istifadə edir: yan xəttə yaxın qalır, sonra sürətlə içəri və ya dibə keçir."
+        "Cinah hücumçusu meydanın enindən istifadə edir: yan xəttə yaxın qalır, sonra sürətlə içəriyə və ya qapı xəttinə doğru keçir.",
+        "## Enə yayıl",
+        "Yan xəttə yaxın durmaq rəqib müdafiəni dartır və mərkəzdə yoldaşların üçün yer açır.",
+        "## Təkbətək",
+        "Müdafiəçiyə doğru sürətlə get, sonra istiqaməti dəyiş. İlk toxunuşu müdafiəçidən uzağa vur ki, top ona çatmasın.",
+        "## Seçim",
+        "Baş qaldır: qapı xəttinə qədər gedib ötürmə vermək həmişə ən yaxşı seçim deyil. Bəzən içəriyə keçib vurmaq və ya geri ötürmək daha yaxşıdır.",
+        "Topu itirəndə öz cinah müdafiəçinə kömək etmək üçün geri qayıt."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Вингер использует ширину поля: держится у боковой линии, а потом резко уходит внутрь или к лицевой.",
+        "## Растягивай",
+        "Когда ты стоишь у боковой, оборона соперника растягивается, и в центре появляется место для партнёров.",
+        "## Один в один",
+        "Иди на защитника на скорости, потом резко меняй направление. Первое касание делай в сторону от защитника, чтобы он не дотянулся.",
+        "## Выбор",
+        "Подними голову: прорыв до лицевой и навес — не всегда лучший вариант. Иногда лучше сместиться в центр и ударить или отдать назад.",
+        "Потеряла мяч — возвращайся помогать своему крайнему защитнику."
+      ],
+      "en": [
+        "A winger uses the width of the pitch: she stays near the touchline, then bursts inside or towards the goal line.",
+        "## Stay wide",
+        "Standing near the touchline stretches the opposing defence and opens space in the middle for your team-mates.",
+        "## One-v-one",
+        "Run at the defender with pace, then change direction. Take your first touch away from her so she can’t reach the ball.",
+        "## Choose",
+        "Head up: going all the way to the goal line and crossing isn’t always best. Sometimes cutting inside to shoot, or passing back, is better.",
+        "Lose it — get back and help your full-back."
+      ]
     },
     "takeaways": {
       "az": [
-        "Enə yayıl — müdafiəni dartmaq üçün.",
-        "Birinci toxunuş müdafiəçidən uzağa olsun.",
+        "Enə yayıl — müdafiəni dart.",
+        "İlk toxunuş müdafiəçidən uzağa olsun.",
         "Baş qaldır: dibə keçmək həmişə ən yaxşı seçim deyil."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Растягивай — держи ширину.",
+        "Первое касание — от защитника.",
+        "Подними голову: прорыв к лицевой не всегда лучший выбор."
+      ],
+      "en": [
+        "Stay wide — stretch the defence.",
+        "First touch away from the defender.",
+        "Head up: the byline isn’t always the best option."
+      ]
     },
     "glossaryTermIds": [
       "dribble",
       "pass"
     ],
-    "estMinutes": 3,
+    "estMinutes": 5,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "w",
+          "x": 62,
+          "y": 8,
+          "kind": "player",
+          "label": "W"
+        },
+        {
+          "id": "b",
+          "x": 59,
+          "y": 8,
+          "kind": "ball"
+        },
+        {
+          "id": "d",
+          "x": 40,
+          "y": 16,
+          "kind": "opponent"
+        },
+        {
+          "id": "s",
+          "x": 30,
+          "y": 36,
+          "kind": "player"
+        }
+      ],
+      "paths": [
+        {
+          "from": "w",
+          "to": {
+            "x": 30,
+            "y": 8
+          },
+          "kind": "dribble",
+          "at": 0
+        },
+        {
+          "from": "s",
+          "to": {
+            "x": 18,
+            "y": 30
+          },
+          "kind": "run",
+          "at": 1
+        },
+        {
+          "from": {
+            "x": 27,
+            "y": 8
+          },
+          "to": {
+            "x": 19,
+            "y": 29
+          },
+          "kind": "pass",
+          "at": 1
+        }
+      ],
+      "beats": [
+        {
+          "az": "Enə yayıl — müdafiəni dart.",
+          "ru": "Держи ширину — растягивай оборону.",
+          "en": "Stay wide — stretch the defence."
+        },
+        {
+          "az": "Baş qaldır və ən yaxşı seçimi tap.",
+          "ru": "Подними голову — найди лучший вариант.",
+          "en": "Head up — find the best option."
+        }
+      ],
+      "caption": {
+        "az": "Cinah hücumçusu meydanın enini istifadə edir.",
+        "ru": "Вингер использует ширину поля.",
+        "en": "The winger uses the width of the pitch."
+      }
+    }
   },
   {
     "id": "pos-striker-01",
@@ -230,26 +655,150 @@
     },
     "body": {
       "az": [
-        "Mərkəz [[forward|hücumçu]] qol vurmaq üçün deyil, qol vurma vəziyyəti yaratmaq üçün hərəkət edir."
+        "Mərkəz [[forward|hücumçu]] komandanın ən irəlidə oynayan oyunçusudur. Onun işi yalnız qol vurmaq deyil — qol vəziyyəti yaratmaq üçün düzgün vaxtda düzgün yerdə olmaqdır.",
+        "## Hərəkət",
+        "Müdafiəçinin kor nöqtəsində — çiyninin arxasında dur: o, eyni anda həm topu, həm səni görə bilmir. Ötürmə vurulanda qaç, amma [[offside|ofsayda]] düşmə.",
+        "## Zərbə",
+        "Vurmazdan əvvəl qapıçının yerinə bax. Dəqiqlik güclə müqayisədə daha vacibdir: aşağı künclər çox vaxt ən çətin qorunan yerdir.",
+        "## Komanda üçün",
+        "Topu saxlamaq və yoldaşlar gələnə qədər qorumaq da hücumçunun işidir. Topu itirəndə ilk müdafiə edən sənsən — rəqib müdafiəçiyə təzyiq et.",
+        "Uğursuz cəhddən sonra dərhal növbəti hərəkətə hazır ol — qaçırılan şans keçmişdə qalır."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Центральный [[forward|нападающий]] играет впереди всех. Его работа — не только забивать, но и оказываться в нужном месте в нужный момент, чтобы создать голевой момент.",
+        "## Движение",
+        "Стой в «слепой зоне» защитника — за его плечом: он не может одновременно видеть и мяч, и тебя. Стартуй в момент паса, но не попадай в [[offside|офсайд]].",
+        "## Удар",
+        "Перед ударом посмотри, где вратарь. Точность важнее силы: нижние углы обычно защитить труднее всего.",
+        "## Для команды",
+        "Удержать мяч и прикрыть его, пока подбегут партнёры, — тоже работа нападающего. Потеряла мяч — ты первая защищаешься: дави на защитника соперника.",
+        "После неудачной попытки сразу готовься к следующему действию — упущенный момент остался в прошлом."
+      ],
+      "en": [
+        "The [[forward|striker]] plays furthest forward. Her job isn’t only scoring — it’s being in the right place at the right time to create the chance.",
+        "## Movement",
+        "Stand in the defender’s blind spot — behind her shoulder: she can’t watch the ball and you at the same time. Go as the pass is played, but don’t get caught [[offside|offside]].",
+        "## Shooting",
+        "Before you shoot, check where the keeper is. Accuracy beats power: the bottom corners are usually the hardest to cover.",
+        "## For the team",
+        "Holding the ball up and shielding it until team-mates arrive is part of the job too. Lose it and you are the first defender — press their defender.",
+        "After a miss, be ready for the next action straight away — the missed chance is already in the past."
+      ]
     },
     "takeaways": {
       "az": [
-        "Müdafiəçinin kor nöqtəsində dayan.",
+        "Müdafiəçinin kor nöqtəsində dur.",
         "Zərbədən əvvəl qapıçının yerinə bax.",
         "Uğursuz cəhddən sonra dərhal növbəti hərəkətə hazır ol."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Стой в слепой зоне защитника.",
+        "Перед ударом посмотри на вратаря.",
+        "После промаха сразу готовься к следующему действию."
+      ],
+      "en": [
+        "Stand in the defender’s blind spot.",
+        "Check where the keeper is before you shoot.",
+        "After a miss, be ready for the next action."
+      ]
     },
     "glossaryTermIds": [
       "forward",
       "goal"
     ],
-    "estMinutes": 3,
+    "estMinutes": 5,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 6,
+          "y": 32,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "d",
+          "x": 20,
+          "y": 30,
+          "kind": "opponent"
+        },
+        {
+          "id": "st",
+          "x": 26,
+          "y": 40,
+          "kind": "player",
+          "label": "ST"
+        },
+        {
+          "id": "m",
+          "x": 52,
+          "y": 26,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 49,
+          "y": 26,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": "st",
+          "to": {
+            "x": 15,
+            "y": 37
+          },
+          "kind": "run"
+        },
+        {
+          "from": {
+            "x": 49,
+            "y": 26
+          },
+          "to": {
+            "x": 17,
+            "y": 36
+          },
+          "kind": "pass"
+        },
+        {
+          "from": {
+            "x": 15,
+            "y": 35
+          },
+          "to": {
+            "x": 3,
+            "y": 27
+          },
+          "kind": "shot"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Müdafiəçinin kor nöqtəsinə — çiyninin arxasına keç.",
+          "ru": "Уйди в слепую зону защитника, за её плечо.",
+          "en": "Drift into the defender’s blind spot, behind her shoulder."
+        },
+        {
+          "az": "Top onun görmədiyi yerə gəlir.",
+          "ru": "Мяч приходит туда, где она тебя не видит.",
+          "en": "The ball arrives where she can’t see you."
+        },
+        {
+          "az": "Qapıçının yerinə bax — sonra vur.",
+          "ru": "Посмотри, где вратарь, — и бей.",
+          "en": "Check where the keeper is — then shoot."
+        }
+      ],
+      "caption": {
+        "az": "Hücumçu qol vəziyyəti yaratmaq üçün hərəkət edir.",
+        "ru": "Нападающая двигается, чтобы создать момент.",
+        "en": "A striker moves to create the chance."
+      }
+    }
   }
 ]

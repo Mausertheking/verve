@@ -19,13 +19,31 @@
     },
     "body": {
       "az": [
-        "Ayaqlar çiyin genişliyində, çəki pəncələrin üstündə, dizlər bir az bükülü. Əllər bel səviyyəsində, qarşıda.",
-        "Duruş rahat olmalıdır — sən bu vəziyyətdə saniyələrlə deyil, dəqiqələrlə dayanacaqsan."
+        "Hər xilasetmə düzgün duruşdan başlayır. Duruş elə vəziyyətdir ki, ondan istənilən istiqamətə — sola, sağa, yuxarı, aşağı — ən tez hərəkət edə biləsən.",
+        "## Duruşu addım-addım al",
+        "Ayaqlar çiyin genişliyində. Çəki pəncələrin üstündə, dabanlar yerə yüngülcə toxunur və ya bir az qalxır. Dizlər bir az bükülü — sanki oturmağa hazırlaşırsan.",
+        "Bədən bir az irəli əyilir. Əllər bel səviyyəsində, bədənin qarşısında, ovuclar topa tərəf. Gözlər topun səviyyəsində.",
+        "## Niyə belə",
+        "Çəki dabandadırsa, ilk addım gecikir. Əllər yanlardadırsa, topa çatmaq üçün əlavə yarım saniyə lazımdır — qapıda bu, qol deməkdir.",
+        "Duruş rahat olmalıdır — sən bu vəziyyətdə saniyələrlə deyil, dəqiqələrlə dayanacaqsan. Gərgin çiyinlər tez yorulur."
       ],
-      "ru": [],
+      "ru": [
+        "Каждый сейв начинается с правильной стойки. Стойка — это положение, из которого ты быстрее всего двигаешься в любую сторону: влево, вправо, вверх, вниз.",
+        "## Принимаем стойку по шагам",
+        "Ноги на ширине плеч. Вес на передней части стопы, пятки слегка касаются пола или чуть приподняты. Колени немного согнуты — как будто собираешься сесть.",
+        "Корпус слегка наклонён вперёд. Руки на уровне пояса, перед телом, ладонями к мячу. Глаза на уровне мяча.",
+        "## Почему так",
+        "Если вес на пятках, первый шаг запаздывает. Если руки по бокам, чтобы достать мяч, нужно лишние полсекунды — а в воротах это гол.",
+        "Стойка должна быть удобной — ты будешь стоять в ней не секунды, а минуты. Напряжённые плечи быстро устают."
+      ],
       "en": [
-        "Feet shoulder-width, weight on the balls of the feet, knees slightly bent. Hands in front, around waist height.",
-        "The stance has to be comfortable — you will hold it for minutes, not seconds."
+        "Every save starts with a good stance. The stance is the position from which you can move fastest in any direction — left, right, up or down.",
+        "## Get into the stance, step by step",
+        "Feet shoulder-width apart. Weight on the balls of the feet, heels light on the ground or just lifted. Knees slightly bent — as if you were about to sit down.",
+        "Lean the body slightly forward. Hands at waist height in front of you, palms towards the ball. Eyes level with the ball.",
+        "## Why",
+        "Weight on the heels makes the first step late. Hands by your sides cost an extra half-second to reach the ball — in goal, that is a goal.",
+        "The stance has to be comfortable — you will hold it for minutes, not seconds. Tense shoulders tire quickly."
       ]
     },
     "takeaways": {
@@ -34,7 +52,11 @@
         "Əllər bədənin qarşısında, yanlarda yox.",
         "Gözlər topun səviyyəsində."
       ],
-      "ru": [],
+      "ru": [
+        "Вес на передней части стопы, а не на пятках.",
+        "Руки перед телом, а не по бокам.",
+        "Глаза на уровне мяча."
+      ],
       "en": [
         "Weight on the balls of the feet, not the heels.",
         "Hands in front of the body, not by your sides.",
@@ -44,7 +66,7 @@
     "glossaryTermIds": [
       "goalkeeper"
     ],
-    "estMinutes": 4,
+    "estMinutes": 5,
     "status": "draft",
     "reviewed": false,
     "diagram": {
@@ -66,7 +88,7 @@
       ],
       "caption": {
         "az": "Qapı xətti ilə top arasında, mərkəzdə.",
-        "ru": "",
+        "ru": "По центру, между линией ворот и мячом.",
         "en": "Central, between the goal line and the ball."
       }
     }
@@ -82,11 +104,32 @@
     },
     "body": {
       "az": [
-        "Qapıçının hərəkəti kiçik və tez addımlardan ibarətdir. Böyük addım = tarazlığın itməsi.",
-        "Yan hərəkətdə ayaqlar heç vaxt bir-birini kəsmir."
+        "Qapıçı topun hər hərəkəti ilə yerini düzəldir. Bunu böyük addımlarla yox, kiçik və tez addımlarla edir.",
+        "## Yan hərəkət",
+        "Yana gedəndə ayaqları bir-birinin yanına gətir, amma heç vaxt kəsişdirmə. Kəsişən ayaqlar bir anlıq kilidlənir — həmin anda zərbə gəlsə, tullana bilməzsən.",
+        "Hər addımdan sonra yenidən duruşa qayıt: dizlər bükülü, çəki pəncədə.",
+        "## Vaxt",
+        "Hərəkət topun hərəkətindən əvvəl başlayır: rəqib topu ötürəndə sən artıq yeni yerə doğru gedirsən. Zərbə anında isə dayanmış və hazır olmalısan.",
+        "Böyük addım = tarazlığın itməsi. Kiçik addım, tez tezlik."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Вратарь подстраивает позицию под каждое движение мяча. Делает он это не большими шагами, а маленькими и частыми.",
+        "## Приставной шаг",
+        "Двигаясь в сторону, приставляй ноги друг к другу, но никогда не скрещивай. Скрещённые ноги на мгновение «запираются» — если в этот момент последует удар, ты не сможешь прыгнуть.",
+        "После каждого шага возвращайся в стойку: колени согнуты, вес на передней части стопы.",
+        "## Время",
+        "Движение начинается раньше движения мяча: когда соперник делает пас, ты уже смещаешься. А в момент удара ты должна стоять и быть готовой.",
+        "Большой шаг — потеря равновесия. Маленький шаг, высокая частота."
+      ],
+      "en": [
+        "A keeper adjusts her position with every movement of the ball. She does it with small, quick steps, not big ones.",
+        "## Moving sideways",
+        "When you shuffle sideways, bring your feet together but never cross them. Crossed feet lock for a moment — if the shot comes then, you can’t dive.",
+        "After every step, come back into the stance: knees bent, weight on the balls of the feet.",
+        "## Timing",
+        "Movement starts before the ball moves: as the opponent passes, you are already shifting. At the moment of the shot you must be set and ready.",
+        "Big step = lost balance. Small steps, quick rhythm."
+      ]
     },
     "takeaways": {
       "az": [
@@ -94,15 +137,70 @@
         "Ayaqlar kəsişmir.",
         "Hərəkət topun hərəkətindən əvvəl başlayır."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Маленький шаг, высокая частота.",
+        "Ноги не скрещиваются.",
+        "Движение начинается раньше движения мяча."
+      ],
+      "en": [
+        "Small steps, quick rhythm.",
+        "Feet never cross.",
+        "Movement starts before the ball moves."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper"
     ],
-    "estMinutes": 4,
+    "estMinutes": 5,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "goal-area",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 14,
+          "kind": "keeper",
+          "label": "GK"
+        }
+      ],
+      "paths": [
+        {
+          "from": "gk",
+          "to": {
+            "x": 60,
+            "y": 14
+          },
+          "kind": "run"
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 42,
+            "y": 14
+          },
+          "kind": "run"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Kiçik, tez addımlar — ayaqlar kəsişmir.",
+          "ru": "Маленькие быстрые шаги — ноги не скрещиваются.",
+          "en": "Small, quick steps — feet never cross."
+        },
+        {
+          "az": "Böyük addım tarazlığı aparır.",
+          "ru": "Большой шаг — потеря равновесия.",
+          "en": "A big step costs you your balance."
+        }
+      ],
+      "caption": {
+        "az": "Yan hərəkət qapı xətti boyunca.",
+        "ru": "Движение вдоль линии ворот.",
+        "en": "Moving sideways along the goal line."
+      }
+    }
   },
   {
     "id": "gk-catching-01",
@@ -124,12 +222,35 @@
     },
     "body": {
       "az": [
-        "Yuxarı toplarda əllər [[w-shape|W forması]] yaradır: baş barmaqlar bir-birinə yaxın, barmaqlar açıq.",
-        "Aşağı toplarda əllər aşağı baxır və top bədənə tərəf yığılır.",
-        "Top əlin içinə dəyəndə dirsəklər zərbəni udur — əllər sərt qalmır."
+        "Tutulan top — qol deyil, həm də rəqibin ikinci şansı yoxdur. Ona görə qapıçı mümkün olanda topu yumruqla vurmur, tutur.",
+        "## Yuxarı toplar: W forması",
+        "Sinədən yuxarı gələn topda əllər [[w-shape|W forması]] yaradır: baş barmaqlar topun arxasında bir-birinə yaxın, barmaqlar açıq. Topu qarşıda, gözünün görə biləcəyi yerdə tut.",
+        "## Aşağı toplar",
+        "Bel səviyyəsindən aşağı gələn topda əllər aşağı baxır, kiçik barmaqlar bir-birinə yaxın olur. Top əllərə dəyən kimi onu sinəyə doğru yığ.",
+        "## Yumşaq əllər",
+        "Top əlin içinə dəyəndə dirsəklər bir az bükülür və zərbəni udur — əllər sərt qalmır. Sərt əldən top sıçrayır.",
+        "Mümkün olanda bədənini topun arxasına gətir: əllər səhv etsə, bədən topu dayandırar."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Пойманный мяч — это не только не гол: у соперника нет второго шанса. Поэтому вратарь, когда может, мяч не отбивает, а ловит.",
+        "## Верховые мячи: W-хват",
+        "Если мяч летит выше груди, руки образуют [[w-shape|W-хват]]: большие пальцы рядом за мячом, остальные пальцы раскрыты. Лови мяч перед собой, там, где его видят глаза.",
+        "## Низовые мячи",
+        "Если мяч ниже пояса, ладони смотрят вниз, мизинцы рядом. Как только мяч коснулся рук, прижимай его к груди.",
+        "## Мягкие руки",
+        "Когда мяч попадает в руки, локти чуть сгибаются и гасят удар — руки не остаются жёсткими. От жёстких рук мяч отскакивает.",
+        "По возможности выводи корпус за мяч: если руки ошибутся, мяч остановит тело."
+      ],
+      "en": [
+        "A caught ball isn’t just a goal saved — the opponent gets no second chance. So whenever she can, a keeper catches instead of punching.",
+        "## High balls: the W",
+        "For a ball above the chest, the hands make a [[w-shape|W-shape]]: thumbs close together behind the ball, fingers spread. Catch it in front of you, where your eyes can see it.",
+        "## Low balls",
+        "For a ball below the waist, the palms face down and the little fingers come together. As soon as it touches your hands, gather it into your chest.",
+        "## Soft hands",
+        "As the ball hits your hands, the elbows bend a little and absorb it — the hands don’t stay stiff. A ball bounces off stiff hands.",
+        "When you can, get your body behind the ball: if the hands make a mistake, the body stops it."
+      ]
     },
     "takeaways": {
       "az": [
@@ -137,8 +258,16 @@
         "Topu bədəninlə örtmək üçün irəli çıx.",
         "Səs yumşaq olmalıdır — sərt səs sərt əl deməkdir."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Большие пальцы за мячом, рядом друг с другом.",
+        "Выходи вперёд, чтобы закрыть мяч корпусом.",
+        "Звук должен быть мягким — громкий звук значит жёсткие руки."
+      ],
+      "en": [
+        "Thumbs behind the ball, close together.",
+        "Step forward to get your body behind it.",
+        "The sound should be soft — a hard sound means hard hands."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper",
@@ -159,20 +288,46 @@
     },
     "body": {
       "az": [
-        "Qapıdan bir addım irəli çıxmaq hücumçunun gördüyü qapı sahəsini kəskin azaldır.",
-        "İrəli çıxmaq riskdir: gec çıxsan — gec qalırsan, çox çıxsan — üstündən aşırırlar."
+        "Qapıdan bir addım irəli çıxmaq hücumçunun gördüyü qapı sahəsini kəskin azaldır. Buna \"bucağı bağlamaq\" deyilir.",
+        "## Xətti tap",
+        "Topdan qapının ortasına xəyali xətt çək. Ən yaxşı yerin həmin xəttin üstündədir. Top yan tərəfə keçəndə sən də xətt boyunca yerini dəyiş.",
+        "## Nə qədər irəli",
+        "Top yaxınlaşdıqca və hücumçu qapıya yaxın gəldikcə bir az irəli çıx. Amma çox irəli çıxsan, top başının üstündən qapıya düşə bilər.",
+        "İrəli çıxmaq riskdir: gec çıxsan — gec qalırsan, çox çıxsan — üstündən aşırırlar. Zərbə anında isə dayanmış və duruşda olmalısan."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Шаг вперёд от линии ворот резко уменьшает площадь ворот, которую видит нападающий. Это называется «сократить угол».",
+        "## Найди линию",
+        "Мысленно проведи линию от мяча к центру ворот. Лучшее место — на этой линии. Мяч уходит в сторону — смещайся вдоль линии.",
+        "## Насколько выходить",
+        "Чем ближе мяч и нападающий к воротам, тем немного дальше выходи. Но если выйти слишком далеко, мяч могут перебросить через голову.",
+        "Выход — это риск: вышла поздно — опоздала, вышла слишком далеко — перекинут. В момент удара нужно стоять в стойке."
+      ],
+      "en": [
+        "One step forward off the line sharply shrinks how much of the goal the striker can see. This is called \"closing the angle\".",
+        "## Find the line",
+        "Imagine a line from the ball to the middle of the goal. Your best spot is on that line. When the ball moves wide, slide along the new line.",
+        "## How far out",
+        "As the ball and the striker get closer to goal, come out a little more. Too far, though, and the ball can be lifted over your head.",
+        "Coming out is a risk: too late and you’re late, too far and you get chipped. At the moment of the shot you must be set in your stance."
+      ]
     },
     "takeaways": {
       "az": [
-        "Top və qapının mərkəzini birləşdirən xətt üzərində dayan.",
-        "İrəli çıxarkən tarazlığı saxla.",
-        "Qərar zərbədən əvvəl verilir, zərbə anında yox."
+        "Top ilə qapının ortası arasındakı xəttdə dur.",
+        "Top yaxınlaşdıqca bir az irəli çıx.",
+        "Zərbə anında dayan və hazır ol."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Стой на линии между мячом и центром ворот.",
+        "Мяч ближе — выходи чуть дальше.",
+        "В момент удара — стой и будь готова."
+      ],
+      "en": [
+        "Stand on the line between the ball and the middle of the goal.",
+        "As the ball comes closer, step out a little.",
+        "Be set and ready when the shot comes."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper",
@@ -214,7 +369,9 @@
             "x": 26,
             "y": 8
           },
-          "kind": "shot"
+          "kind": "shot",
+          "at": 0,
+          "actor": null
         },
         {
           "from": {
@@ -225,12 +382,14 @@
             "x": 74,
             "y": 8
           },
-          "kind": "shot"
+          "kind": "shot",
+          "at": 0,
+          "actor": null
         }
       ],
       "caption": {
         "az": "İrəli çıxdıqca hücumçunun gördüyü sahə daralır.",
-        "ru": "",
+        "ru": "Шаг вперёд сокращает то, что видит нападающая.",
         "en": "Stepping forward narrows what the striker can see."
       }
     }
@@ -246,19 +405,49 @@
     },
     "body": {
       "az": [
-        "Topu tutduqdan sonra oyun bitmir — komandanın hücumu sənin əlindən başlayır."
+        "Topu tutduqdan sonra oyun bitmir — komandanın hücumu sənin əlindən başlayır.",
+        "## Üç yol",
+        "Yuvarlatmaq — yaxın müdafiəçiyə, yerlə: ən dəqiq və təhlükəsiz yoldur. Atmaq — çiyin üstündən, orta məsafəyə. Ayaqla vurmaq — uzağa, amma topu itirmək ehtimalı daha çoxdur.",
+        "## Seçim",
+        "Topu tutan kimi baş qaldır və boş yoldaş axtar. Yaxın və təhlükəsiz seçim uzaq və riskli seçimdən yaxşıdır.",
+        "Yan tərəfə paylama mərkəzdən təhlükəsizdir: top itsə belə, rəqib qapına mərkəzdən gəlmir.",
+        "Unutma: topu əlində 8 saniyədən çox saxlaya bilməzsən — əks halda rəqib künc zərbəsi alır."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Поймала мяч — игра не закончилась: атака команды начинается с твоих рук.",
+        "## Три способа",
+        "Откатить — ближнему защитнику по земле: самый точный и безопасный способ. Выбросить — рукой из-за плеча, на среднюю дистанцию. Выбить ногой — далеко, но риск потерять мяч выше.",
+        "## Выбор",
+        "Поймав мяч, сразу подними голову и найди свободного партнёра. Близкий и безопасный вариант лучше дальнего и рискованного.",
+        "Ввод мяча на фланг безопаснее, чем в центр: даже если мяч потеряют, соперник не пойдёт на твои ворота через центр.",
+        "Помни: держать мяч в руках дольше 8 секунд нельзя — иначе соперник получит угловой."
+      ],
+      "en": [
+        "Catching the ball doesn’t end the play — your team’s attack starts in your hands.",
+        "## Three ways",
+        "Roll it — along the ground to a nearby defender: the most accurate and safest. Throw it — overarm, to medium distance. Kick it — long, but more likely to lose the ball.",
+        "## Choosing",
+        "As soon as you have the ball, lift your head and look for a free team-mate. A short, safe option beats a long, risky one.",
+        "Distributing to the side is safer than through the middle: even if it’s lost, the opponent doesn’t come at your goal straight through the centre.",
+        "Remember: you can’t hold the ball for more than 8 seconds — otherwise the other team gets a corner."
+      ]
     },
     "takeaways": {
       "az": [
         "Topu tutan kimi baş qaldır.",
-        "Yaxın və təhlükəsiz seçim, uzaq və riskli seçimdən yaxşıdır.",
-        "Yan tərəfə paylama mərkəzdən təhlükəsizdir."
+        "Yaxın və təhlükəsiz seçim uzaq və riskli seçimdən yaxşıdır.",
+        "Topu əlində 8 saniyədən çox saxlama."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Поймала — сразу подними голову.",
+        "Близкий безопасный вариант лучше дальнего рискованного.",
+        "Не держи мяч в руках дольше 8 секунд."
+      ],
+      "en": [
+        "Head up as soon as you have the ball.",
+        "A short, safe option beats a long, risky one.",
+        "Don’t hold the ball longer than 8 seconds."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper",
@@ -266,7 +455,85 @@
     ],
     "estMinutes": 5,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 8,
+          "y": 32,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "fb",
+          "x": 24,
+          "y": 10,
+          "kind": "player"
+        },
+        {
+          "id": "f",
+          "x": 70,
+          "y": 32,
+          "kind": "player"
+        },
+        {
+          "id": "o",
+          "x": 50,
+          "y": 30,
+          "kind": "opponent"
+        },
+        {
+          "id": "b",
+          "x": 11,
+          "y": 32,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 11,
+            "y": 32
+          },
+          "to": {
+            "x": 67,
+            "y": 32
+          },
+          "kind": "pass",
+          "actor": null
+        },
+        {
+          "from": {
+            "x": 11,
+            "y": 32
+          },
+          "to": {
+            "x": 22,
+            "y": 12
+          },
+          "kind": "pass"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Uzaq və mərkəzdən: riskli.",
+          "ru": "Далеко и через центр — рискованно.",
+          "en": "Long and through the middle: risky."
+        },
+        {
+          "az": "Yaxın və yan tərəfə: təhlükəsiz.",
+          "ru": "Близко и на фланг — безопасно.",
+          "en": "Short and wide: safe."
+        }
+      ],
+      "caption": {
+        "az": "Topu tutan kimi baş qaldır.",
+        "ru": "Поймала — сразу подними голову.",
+        "en": "Head up as soon as you have the ball."
+      }
+    }
   },
   {
     "id": "gk-1v1-01",
@@ -279,10 +546,29 @@
     },
     "body": {
       "az": [
-        "Təkbətək vəziyyətdə qapıçının işi topu tutmaq deyil — hücumçunu səhv qərara məcbur etməkdir."
+        "Təkbətək vəziyyətdə hücumçu topla tək sənə doğru gəlir. Qapıçının işi topu tutmaq deyil — hücumçunu səhv qərara məcbur etməkdir.",
+        "## Erkən çıx",
+        "Hücumçu topu özündən uzaqlaşdıranda — top onun ayağında deyilkən — irəli çıx və məsafəni qısalt. Nə qədər yaxın olsan, ona bir o qədər az qapı görünür.",
+        "## Böyük ol, gec yerə düş",
+        "Yaxınlaşanda dayan, duruşa gəl, qolları və ayaqları açıq saxla. Hücumçu vurmamış yerə düşmə: tez düşsən, topu üstündən keçirəcək.",
+        "Hücumçunun ayağına yox, topa reaksiya ver. Səbirli ol — qərarı o versin."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Один на один — нападающий с мячом бежит прямо на тебя. Задача вратаря — не столько поймать мяч, сколько заставить нападающего ошибиться.",
+        "## Выходи рано",
+        "Когда нападающий отпускает мяч от себя — мяч не у неё в ногах, — выходи и сокращай расстояние. Чем ты ближе, тем меньше ворот она видит.",
+        "## Будь большой, падай поздно",
+        "Приблизившись, остановись, прими стойку, держи руки и ноги широко. Не падай, пока она не ударила: упадёшь рано — перекинет.",
+        "Реагируй на мяч, а не на ноги нападающей. Будь терпеливой — пусть решение примет она."
+      ],
+      "en": [
+        "In a one-v-one, a striker with the ball is running straight at you alone. The keeper’s job isn’t so much to catch the ball as to force the striker into a mistake.",
+        "## Come out early",
+        "When the striker pushes the ball away from her — when it isn’t at her feet — step out and close the distance. The closer you are, the less goal she sees.",
+        "## Stay big, go down late",
+        "As you get close, stop, get into your stance, keep arms and legs wide. Don’t go down before she shoots: go down early and she lifts it over you.",
+        "React to the ball, not to her feet. Be patient — make her decide."
+      ]
     },
     "takeaways": {
       "az": [
@@ -290,14 +576,95 @@
         "Böyük ol: qollar və ayaqlar açıq.",
         "Hücumçunun ayağına yox, topa reaksiya ver."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Выходи рано, падай поздно.",
+        "Будь большой: руки и ноги широко.",
+        "Реагируй на мяч, а не на ноги нападающей."
+      ],
+      "en": [
+        "Come out early, go down late.",
+        "Stay big: arms and legs wide.",
+        "React to the ball, not the striker’s feet."
+      ]
     },
     "glossaryTermIds": [
       "goalkeeper"
     ],
-    "estMinutes": 6,
+    "estMinutes": 5,
     "status": "draft",
-    "reviewed": false
+    "reviewed": false,
+    "diagram": {
+      "view": "goal-area",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 10,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "s",
+          "x": 50,
+          "y": 54,
+          "kind": "opponent"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 50,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": "s",
+          "to": {
+            "x": 50,
+            "y": 38
+          },
+          "kind": "dribble",
+          "at": 0
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 50,
+            "y": 24
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 35
+          },
+          "to": {
+            "x": 50,
+            "y": 26
+          },
+          "kind": "shot",
+          "at": 1
+        }
+      ],
+      "beats": [
+        {
+          "az": "Erkən çıx — məsafəni qısalt.",
+          "ru": "Выходи рано — сокращай дистанцию.",
+          "en": "Come out early — close the distance."
+        },
+        {
+          "az": "Böyük ol, gec yerə düş. Qərarı hücumçu versin.",
+          "ru": "Будь большой, падай поздно. Пусть решает нападающая.",
+          "en": "Stay big, go down late. Make the striker decide."
+        }
+      ],
+      "caption": {
+        "az": "Təkbətək: işin hücumçunu səhvə məcbur etməkdir.",
+        "ru": "Один на один: твоя задача — вынудить ошибку.",
+        "en": "One-v-one: your job is to force the mistake."
+      }
+    }
   }
 ]

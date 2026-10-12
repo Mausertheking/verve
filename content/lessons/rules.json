@@ -8,41 +8,155 @@
       "ru": "Поле",
       "en": "The pitch"
     },
+    "video": {
+      "file": "rules-pitch-01.mp4",
+      "durationSec": 40,
+      "caption": {
+        "az": "Meydanın xətləri və sahələri",
+        "ru": "Линии и зоны поля",
+        "en": "The lines and areas of the pitch"
+      }
+    },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "Futbol düzbucaqlı meydanda oynanılır. Uzun kənarlar [[touchline|yan xətlər]], qısa kənarlar [[goal-line|qapı xətləri]] adlanır. Xətlər meydanın hissəsidir: top xəttin üstündədirsə, hələ oyundadır.",
+        "## Ölçülər",
+        "Yan xəttin uzunluğu 90–120 m, qapı xəttinin uzunluğu 45–90 m ola bilər. Beynəlxalq oyunlarda bu 100–110 m və 64–75 m-dir. Məktəb və həvəskar meydanları çox vaxt daha kiçikdir.",
+        "Orta xətt meydanı iki yarıya bölür. Mərkəzdə radiusu 9,15 m olan mərkəz dairəsi var — oyun və hər qoldan sonra oyun buradan başlayır.",
+        "## Qapının qarşısındakı sahələr",
+        "Qapının qarşısında iki düzbucaqlı var. Kiçiyi qapı meydançasıdır (5,5 m). Böyüyü [[penalty-area|cərimə meydançasıdır]] (16,5 m) — [[goalkeeper|qapıçı]] topa yalnız burada əllə toxuna bilər.",
+        "Cərimə meydançasının içində, qapıdan 11 m məsafədə [[penalty|penalti]] nöqtəsi var. Meydançanın kənarındakı qövs penalti zamanı oyunçuların 9,15 m uzaqda durmasını göstərir.",
+        "Qapının eni 7,32 m, hündürlüyü 2,44 m-dir. Dörd küncdə bayraq və radiusu 1 m olan künc qövsü var — künc zərbəsi oradan vurulur."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "В футбол играют на прямоугольном поле. Длинные стороны — [[touchline|боковые линии]], короткие — [[goal-line|линии ворот]]. Линии — часть поля: если мяч на линии, он всё ещё в игре.",
+        "## Размеры",
+        "Боковая линия — от 90 до 120 м, линия ворот — от 45 до 90 м. В международных матчах — 100–110 м и 64–75 м. Школьные и любительские поля часто меньше.",
+        "Средняя линия делит поле пополам. В центре — центральный круг радиусом 9,15 м: отсюда начинается игра и каждый розыгрыш после гола.",
+        "## Зоны перед воротами",
+        "Перед воротами два прямоугольника. Меньший — вратарская площадь (5,5 м). Больший — [[penalty-area|штрафная площадь]] (16,5 м): только здесь [[goalkeeper|вратарь]] может играть руками.",
+        "Внутри штрафной, в 11 м от ворот, — отметка [[penalty|пенальти]]. Дуга у края штрафной показывает, где игроки стоят на 9,15 м при пенальти.",
+        "Ворота шириной 7,32 м и высотой 2,44 м. В четырёх углах — флажки и угловая дуга радиусом 1 м: отсюда подают угловой."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "Football is played on a rectangle. The long sides are the [[touchline|touchlines]], the short sides the [[goal-line|goal lines]]. The lines belong to the pitch: a ball on the line is still in play.",
+        "## Sizes",
+        "A touchline is 90–120 m long and a goal line 45–90 m. In international matches it is 100–110 m by 64–75 m. School and amateur pitches are often smaller.",
+        "The halfway line splits the pitch into two halves. In the middle is the centre circle, 9.15 m in radius — the game starts here, and restarts here after every goal.",
+        "## The areas in front of goal",
+        "In front of each goal are two boxes. The small one is the goal area (5.5 m). The big one is the [[penalty-area|penalty area]] (16.5 m) — the only place the [[goalkeeper|goalkeeper]] may use her hands.",
+        "Inside the penalty area, 11 m from goal, is the [[penalty|penalty]] mark. The arc on the edge of the area marks the 9.15 m everyone else must keep during a penalty.",
+        "The goal is 7.32 m wide and 2.44 m high. In each corner is a flag and a 1 m corner arc — corner kicks are taken from there."
       ]
+    },
+    "diagram": {
+      "view": "full",
+      "zones": [
+        {
+          "x": 83,
+          "y": 17,
+          "w": 14,
+          "h": 31,
+          "kind": "highlight"
+        }
+      ],
+      "markers": [
+        {
+          "id": "p",
+          "x": 50,
+          "y": 32.5,
+          "kind": "player"
+        }
+      ],
+      "paths": [
+        {
+          "from": "p",
+          "to": {
+            "x": 50,
+            "y": 4
+          },
+          "kind": "run"
+        },
+        {
+          "from": "p",
+          "to": {
+            "x": 96,
+            "y": 4
+          },
+          "kind": "run"
+        },
+        {
+          "from": "p",
+          "to": {
+            "x": 96,
+            "y": 25
+          },
+          "kind": "run"
+        },
+        {
+          "from": "p",
+          "to": {
+            "x": 88,
+            "y": 32.5
+          },
+          "kind": "run"
+        }
+      ],
+      "beats": [
+        {
+          "az": "Orta xətt meydanı iki yarıya bölür.",
+          "ru": "Средняя линия делит поле пополам.",
+          "en": "The halfway line splits the pitch in two."
+        },
+        {
+          "az": "Uzun kənar — yan xətt.",
+          "ru": "Длинная сторона — боковая линия.",
+          "en": "The long side is the touchline."
+        },
+        {
+          "az": "Qısa kənar — qapı xətti; qapı onun ortasındadır.",
+          "ru": "Короткая сторона — линия ворот, ворота в её центре.",
+          "en": "The short side is the goal line, with the goal in the middle."
+        },
+        {
+          "az": "Cərimə meydançası və 11 m-lik penalti nöqtəsi.",
+          "ru": "Штрафная площадь и 11-метровая отметка.",
+          "en": "The penalty area and the 11 m penalty mark."
+        }
+      ],
+      "caption": {
+        "az": "Meydanın əsas xətləri və sahələri.",
+        "ru": "Главные линии и зоны поля.",
+        "en": "The main lines and areas of the pitch."
+      }
     },
     "takeaways": {
       "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
+        "Xətlər meydanın hissəsidir — top xəttin üstündədirsə, oyundadır.",
+        "Cərimə meydançası 16,5 m, penalti nöqtəsi 11 m-dir.",
+        "Qapıçı əllərini yalnız öz cərimə meydançasında işlədə bilər."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Линии — часть поля: мяч на линии ещё в игре.",
+        "Штрафная — 16,5 м, отметка пенальти — 11 м.",
+        "Вратарь играет руками только в своей штрафной."
+      ],
+      "en": [
+        "The lines are part of the pitch — a ball on the line is in play.",
+        "Penalty area 16.5 m, penalty mark 11 m.",
+        "The keeper may handle only inside her own penalty area."
+      ]
     },
     "glossaryTermIds": [
       "pitch",
-      "goal"
+      "touchline",
+      "goal-line",
+      "penalty-area"
     ],
-    "estMinutes": 4,
-    "status": "todo",
-    "reviewed": false,
-    "diagram": {
-      "view": "full",
-      "caption": {
-        "az": "Meydanın hissələri — adlar TODO.",
-        "ru": "Части поля — названия TODO.",
-        "en": "Parts of the pitch — labels TODO."
-      }
-    }
+    "estMinutes": 6,
+    "source": "IFAB Laws of the Game 2026/27 — Law 1",
+    "status": "draft",
+    "reviewed": false
   },
   {
     "id": "rules-offside-01",
@@ -53,134 +167,359 @@
       "ru": "Офсайд",
       "en": "Offside"
     },
+    "video": {
+      "file": "rules-offside-01.mp4",
+      "durationSec": 45,
+      "caption": {
+        "az": "Ofsayd addım-addım",
+        "ru": "Офсайд шаг за шагом",
+        "en": "Offside step by step"
+      }
+    },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "[[offside|Ofsayd]] hücumçunun rəqib müdafiəsinin arxasında gözləyib asan qol vurmasının qarşısını alır. Qayda qorxulu görünür, amma əsası bir sualdır: komanda yoldaşın topu oynadığı an harada idin?",
+        "## Ofsayd mövqeyi",
+        "Aşağıdakıların hamısı doğrudursa, sən ofsayd mövqeyindəsən: rəqibin yarısındasan, və başının, bədəninin və ya ayaqlarının bir hissəsi rəqib qapısına həm topdan, həm də sondan ikinci rəqibdən (çox vaxt son müdafiəçi; qapıçı adətən sonuncudur) daha yaxındır.",
+        "Əllər və qollar hesablanmır. Sondan ikinci rəqiblə bir xətdə olmaq ofsayd deyil. Öz yarında olanda heç vaxt ofsaydda deyilsən.",
+        "## Nə vaxt cəzalandırılır",
+        "Ofsayd mövqeyində olmaq özü qayda pozuntusu deyil. Hakim yalnız sən oyuna qoşulanda fit çalır: topu oynayanda, rəqibə mane olanda (məsələn, qapıçının görüşünü bağlayanda) və ya ştanqdan, qapıçıdan qayıdan topdan istifadə edəndə.",
+        "Aut, qapı zərbəsi və künc zərbəsindən birbaşa gələn topda ofsayd yoxdur.",
+        "Cəza: rəqib komanda pozuntunun olduğu yerdən dolayı cərimə zərbəsi vurur.",
+        "## Necə qaçmaq lazımdır",
+        "Ən sadə vərdiş: ötürmə vurulana qədər son müdafiəçi ilə bir xətdə və ya onun arxasında gözlə, top ayaqdan çıxanda qaç. Səni ötürmə anına görə qiymətləndirirlər, topu aldığın anına görə yox."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "[[offside|Офсайд]] не даёт нападающему поджидать мяч за спинами защитников и забивать без борьбы. Правило кажется страшным, но в его основе один вопрос: где ты была в момент, когда партнёр сыграл в мяч?",
+        "## Положение «вне игры»",
+        "Ты в положении «вне игры», если всё это верно: ты на половине соперника, и какая-то часть головы, тела или ног ближе к линии ворот соперника, чем мяч и предпоследний соперник (обычно последний защитник — последним чаще всего стоит вратарь).",
+        "Руки не считаются. На одной линии с предпоследним соперником — это не офсайд. На своей половине поля офсайда не бывает.",
+        "## Когда наказывают",
+        "Само положение «вне игры» не нарушение. Судья свистит, только если ты включаешься в игру: играешь мячом, мешаешь сопернику (например, закрываешь обзор вратарю) или получаешь выгоду — например, добиваешь мяч от штанги или после сейва.",
+        "Офсайда нет, если мяч пришёл напрямую с аута, удара от ворот или углового.",
+        "Наказание: соперник получает свободный (непрямой) удар с места нарушения.",
+        "## Как правильно бежать",
+        "Простая привычка: жди на одной линии с последним защитником или за ней, пока не сделан пас, и стартуй, когда мяч ушёл с ноги партнёра. Положение оценивают в момент паса, а не в момент приёма."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "[[offside|Offside]] stops an attacker from simply waiting behind the defence for an easy goal. It sounds scary, but it comes down to one question: where were you at the moment a team-mate played the ball?",
+        "## Offside position",
+        "You are in an offside position if all of this is true: you are in the opponents’ half, and some part of your head, body or feet is nearer to their goal line than both the ball and the second-last opponent (usually the last defender — the goalkeeper is normally the last one).",
+        "Hands and arms do not count. Level with the second-last opponent is not offside. In your own half you can never be offside.",
+        "## When it is penalised",
+        "Being in an offside position is not an offence by itself. The referee only blows when you get involved: you play the ball, you interfere with an opponent (for example by blocking the goalkeeper’s view), or you gain an advantage — say, from a rebound off the post or a save.",
+        "There is no offside if you receive the ball straight from a throw-in, a goal kick or a corner kick.",
+        "Sanction: the other team gets an indirect free kick where the offence happened.",
+        "## How to time your run",
+        "The simple habit: wait level with, or behind, the last defender until the pass is played, then go as the ball leaves your team-mate’s foot. You are judged at the moment of the pass, not when you receive it."
       ]
     },
-    "takeaways": {
-      "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
-      ],
-      "ru": [],
-      "en": []
-    },
-    "glossaryTermIds": [
-      "offside",
-      "defender"
-    ],
-    "estMinutes": 6,
-    "status": "todo",
-    "reviewed": false,
     "diagram": {
       "view": "half",
-      "caption": {
-        "az": "Diaqram nümunəsi — qayda mətni hələ yoxdur.",
-        "ru": "Пример диаграммы — текста правила пока нет.",
-        "en": "Diagram sample — the rule text is not written yet."
-      },
-      "zones": [],
       "markers": [
         {
+          "id": "gk",
+          "x": 6,
+          "y": 32,
+          "kind": "opponent"
+        },
+        {
           "id": "d1",
-          "x": 50,
-          "y": 16,
+          "x": 30,
+          "y": 18,
           "kind": "opponent"
         },
         {
           "id": "d2",
-          "x": 50,
-          "y": 48,
+          "x": 30,
+          "y": 44,
           "kind": "opponent"
         },
         {
           "id": "a1",
-          "x": 62,
-          "y": 24,
+          "x": 36,
+          "y": 30,
           "kind": "player"
         },
         {
           "id": "a2",
-          "x": 82,
-          "y": 42,
+          "x": 62,
+          "y": 44,
           "kind": "player"
         },
         {
           "id": "b",
-          "x": 86,
-          "y": 42,
+          "x": 59,
+          "y": 43,
           "kind": "ball"
-        }
-      ],
-      "paths": [
-        {
-          "from": {
-            "x": 84,
-            "y": 40
-          },
-          "to": {
-            "x": 64,
-            "y": 26
-          },
-          "kind": "pass"
         }
       ],
       "lines": [
         {
-          "x": 50,
+          "x": 30,
           "label": {
             "az": "ofsayd xətti",
             "ru": "линия офсайда",
             "en": "offside line"
           }
         }
+      ],
+      "paths": [
+        {
+          "from": "a1",
+          "to": {
+            "x": 31,
+            "y": 28
+          },
+          "kind": "run"
+        },
+        {
+          "from": {
+            "x": 59,
+            "y": 43
+          },
+          "to": {
+            "x": 18,
+            "y": 30
+          },
+          "kind": "pass",
+          "at": 1
+        },
+        {
+          "from": "a1",
+          "to": {
+            "x": 19,
+            "y": 30
+          },
+          "kind": "run",
+          "at": 1
+        },
+        {
+          "from": {
+            "x": 17,
+            "y": 30
+          },
+          "to": {
+            "x": 3,
+            "y": 27
+          },
+          "kind": "shot",
+          "at": 2
+        }
+      ],
+      "beats": [
+        {
+          "az": "Ötürmədən əvvəl son müdafiəçi ilə bir xətdə gözlə.",
+          "ru": "До паса жди на одной линии с последним защитником.",
+          "en": "Before the pass, wait level with the last defender."
+        },
+        {
+          "az": "Ötürmə anında qaç — mövqeyin bu anda qiymətləndirilir.",
+          "ru": "Беги в момент паса — положение оценивают именно тогда.",
+          "en": "Run as the pass is played — that is the moment you are judged."
+        },
+        {
+          "az": "Oyunda idin — qol sayılır.",
+          "ru": "Ты была в игре — гол засчитан.",
+          "en": "You were onside — the goal counts."
+        }
+      ],
+      "caption": {
+        "az": "Sondan ikinci rəqib ofsayd xəttini müəyyən edir.",
+        "ru": "Предпоследний соперник задаёт линию офсайда.",
+        "en": "The second-last opponent sets the offside line."
+      }
+    },
+    "takeaways": {
+      "az": [
+        "Ötürmə anında harada olduğun önəmlidir.",
+        "Son müdafiəçi ilə bir xətdə olmaq ofsayd deyil.",
+        "Aut, qapı və künc zərbəsindən ofsayd olmur."
+      ],
+      "ru": [
+        "Важно, где ты в момент паса.",
+        "На одной линии с последним защитником — не офсайд.",
+        "С аута, удара от ворот и углового офсайда нет."
+      ],
+      "en": [
+        "What matters is where you are when the pass is played.",
+        "Level with the last defender is onside.",
+        "No offside from a throw-in, goal kick or corner."
       ]
-    }
+    },
+    "glossaryTermIds": [
+      "offside",
+      "defender"
+    ],
+    "estMinutes": 8,
+    "source": "IFAB Laws of the Game 2026/27 — Law 11",
+    "status": "draft",
+    "reviewed": false
   },
   {
     "id": "rules-fouls-01",
     "trackId": "rules",
     "order": 3,
     "title": {
-      "az": "Qayda pozuntuları",
-      "ru": "Нарушения",
-      "en": "Fouls"
+      "az": "Qayda pozuntuları və vərəqələr",
+      "ru": "Нарушения и карточки",
+      "en": "Fouls and cards"
+    },
+    "video": {
+      "file": "rules-fouls-01.mp4",
+      "durationSec": 45,
+      "caption": {
+        "az": "Nə foldur, nə vərəqədir",
+        "ru": "Что нарушение, а что карточка",
+        "en": "What is a foul, what is a card"
+      }
     },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "Futbol təmas oyunudur, amma hər təmas icazəli deyil. [[foul|Qayda pozuntusu]] — rəqibə qarşı ədalətsiz hərəkətdir. Hakim fit çalır və rəqib komandaya [[free-kick|cərimə zərbəsi]] verir.",
+        "## Ən çox rast gəlinən pozuntular",
+        "Rəqibi təpikləmək və ya buna cəhd, ayaq çəlməsi, itələmək, vurmaq, üstünə tullanmaq, təhlükəli şəkildə toqquşmaq, topa yox, oyunçuya gedən müdaxilə, formadan və ya bədəndən tutmaq. Bunlar birbaşa cərimə zərbəsi ilə cəzalandırılır.",
+        "Əllə oynamaq: topa qəsdən əl və ya qolla toxunmaq, yaxud qolu qeyri-təbii şəkildə açıb bədəni \"böyütmək\" pozuntudur. Qolun sərhədi qoltuğun aşağısıdır. Hər təsadüfi toxunuş pozuntu deyil.",
+        "## Üç səviyyə",
+        "Diqqətsiz — sadəcə ehtiyatsızlıq: vərəqə yoxdur. Kobud — rəqib üçün təhlükəni nəzərə almamaq: [[yellow-card|sarı vərəqə]]. Həddindən artıq güc — rəqibin sağlamlığını təhlükəyə atmaq: [[red-card|qırmızı vərəqə]], oyunçu meydanı tərk edir.",
+        "Eyni oyunda ikinci sarı vərəqə də qırmızı deməkdir. Hakimlə mübahisə, oyunu ləngitmək və tez-tez qayda pozmaq da sarı vərəqə ilə cəzalandırıla bilər.",
+        "## Öz cərimə meydançanda",
+        "Müdafiə edən komanda birbaşa cərimə zərbəsi tələb edən pozuntunu öz cərimə meydançasında edərsə, rəqib [[penalty|penalti]] alır.",
+        "## Təhlükəsiz müdaxilə",
+        "Topa get, oyunçuya yox. Arxadan və iki ayaqla sürüşmə ilə müdaxilə etmə. Müdaxilədən sonra ayağını aşağıda saxla."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "Футбол — контактная игра, но не любой контакт разрешён. [[foul|Нарушение]] — нечестное действие против соперника. Судья свистит и даёт сопернику [[free-kick|штрафной удар]].",
+        "## Самые частые нарушения",
+        "Удар или попытка ударить соперника ногой, подножка, толчок, удар рукой, прыжок на соперника, опасное столкновение, отбор, при котором играешь в игрока, а не в мяч, захват за форму или тело. За это назначают прямой штрафной удар.",
+        "Игра рукой: намеренное касание мяча рукой или неестественное расширение силуэта рукой — нарушение. Граница руки — нижний край подмышки. Не каждое случайное касание — нарушение.",
+        "## Три уровня",
+        "Неосторожно — просто невнимательность: без карточки. Безрассудно — игнорируя опасность для соперника: [[yellow-card|жёлтая карточка]]. С чрезмерной силой — угрожая здоровью соперника: [[red-card|красная карточка]], игрок покидает поле.",
+        "Вторая жёлтая в одном матче — тоже красная. Спор с судьёй, затягивание времени и систематические нарушения тоже могут наказываться жёлтой.",
+        "## В своей штрафной",
+        "Если защищающаяся команда совершает нарушение, за которое положен прямой штрафной, внутри своей штрафной, соперник получает [[penalty|пенальти]].",
+        "## Безопасный отбор",
+        "Играй в мяч, а не в игрока. Не отбирай сзади и в подкате двумя ногами. После отбора держи ногу низко."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "Football is a contact game, but not all contact is allowed. A [[foul|foul]] is an unfair act against an opponent. The referee blows the whistle and gives the other team a [[free-kick|free kick]].",
+        "## The most common fouls",
+        "Kicking or trying to kick an opponent, tripping, pushing, striking, jumping at someone, dangerous charging, a tackle that hits the player instead of the ball, holding a shirt or body. These are punished with a direct free kick.",
+        "Handball: deliberately touching the ball with your hand or arm, or making your body unnaturally bigger with your arm, is an offence. The arm starts at the bottom of the armpit. Not every accidental touch is handball.",
+        "## Three levels",
+        "Careless — just not paying attention: no card. Reckless — ignoring the danger to the opponent: [[yellow-card|yellow card]]. Excessive force — endangering the opponent’s safety: [[red-card|red card]], and the player leaves the pitch.",
+        "A second yellow in the same match is also a red. Arguing with the referee, wasting time and fouling again and again can also earn a yellow.",
+        "## Inside your own penalty area",
+        "If the defending team commits a direct-free-kick foul inside its own penalty area, the other team gets a [[penalty|penalty]].",
+        "## Tackling safely",
+        "Go for the ball, not the player. Don’t tackle from behind or slide in with both feet. Keep your foot low after the tackle."
       ]
+    },
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "a",
+          "x": 62,
+          "y": 30,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 59,
+          "y": 30,
+          "kind": "ball"
+        },
+        {
+          "id": "d",
+          "x": 54,
+          "y": 42,
+          "kind": "opponent"
+        },
+        {
+          "id": "t",
+          "x": 40,
+          "y": 18,
+          "kind": "player"
+        }
+      ],
+      "paths": [
+        {
+          "from": "a",
+          "to": {
+            "x": 46,
+            "y": 30
+          },
+          "kind": "dribble",
+          "at": 0
+        },
+        {
+          "from": "d",
+          "to": {
+            "x": 47,
+            "y": 33
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": {
+            "x": 43,
+            "y": 30
+          },
+          "to": {
+            "x": 40,
+            "y": 20
+          },
+          "kind": "pass",
+          "at": 1
+        }
+      ],
+      "beats": [
+        {
+          "az": "Müdafiəçi topa yox, ayağa gedir — bu, foldur.",
+          "ru": "Защитник идёт в ногу, а не в мяч — это фол.",
+          "en": "The defender goes for the leg, not the ball — that is a foul."
+        },
+        {
+          "az": "Rəqib komanda pozuntunun yerindən cərimə zərbəsi vurur.",
+          "ru": "Соперник пробивает штрафной с места нарушения.",
+          "en": "The other team takes a free kick from where it happened."
+        }
+      ],
+      "caption": {
+        "az": "Pozuntu = rəqibə cərimə zərbəsi.",
+        "ru": "Нарушение = штрафной сопернику.",
+        "en": "Foul = free kick to the other team."
+      }
     },
     "takeaways": {
       "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
+        "Topa get, oyunçuya yox.",
+        "Diqqətsiz — vərəqəsiz, kobud — sarı, həddindən artıq güc — qırmızı.",
+        "Öz cərimə meydançanda pozuntu = penalti."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Играй в мяч, а не в игрока.",
+        "Неосторожно — без карточки, безрассудно — жёлтая, чрезмерная сила — красная.",
+        "Нарушение в своей штрафной = пенальти."
+      ],
+      "en": [
+        "Go for the ball, not the player.",
+        "Careless — no card; reckless — yellow; excessive force — red.",
+        "A foul in your own penalty area = penalty."
+      ]
     },
     "glossaryTermIds": [
       "foul",
+      "free-kick",
       "yellow-card",
-      "red-card"
+      "red-card",
+      "handball"
     ],
-    "estMinutes": 5,
-    "status": "todo",
+    "estMinutes": 8,
+    "source": "IFAB Laws of the Game 2026/27 — Law 12",
+    "status": "draft",
     "reviewed": false
   },
   {
@@ -188,36 +527,179 @@
     "trackId": "rules",
     "order": 4,
     "title": {
-      "az": "Sərbəst zərbələr",
+      "az": "Cərimə zərbələri",
       "ru": "Штрафные удары",
       "en": "Free kicks"
     },
+    "video": {
+      "file": "rules-freekick-01.mp4",
+      "durationSec": 40,
+      "caption": {
+        "az": "Birbaşa və dolayı cərimə zərbəsi",
+        "ru": "Прямой и свободный удар",
+        "en": "Direct and indirect free kicks"
+      }
+    },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "Pozuntudan sonra oyun [[free-kick|cərimə zərbəsi]] ilə yenidən başlayır. İki növü var və fərqi bir şeydədir: qapıya birbaşa vurmaq olarmı?",
+        "## Birbaşa və dolayı",
+        "Birbaşa cərimə zərbəsindən birbaşa qol vurmaq olar. Dolayı cərimə zərbəsində top qapıya girməzdən əvvəl başqa bir oyunçuya toxunmalıdır — əks halda qol sayılmır və rəqib qapı zərbəsi vurur.",
+        "Dolayı zərbəni hakim qolunu başının üstünə qaldırmaqla göstərir və top başqa oyunçuya toxunana qədər qolunu aşağı salmır.",
+        "## Necə vurulur",
+        "Top pozuntunun olduğu yerdə qoyulur və hərəkətsiz olmalıdır. Top vurulub aydın şəkildə hərəkət edəndə oyundadır. Zərbəni vuran oyunçu topa başqa oyunçu toxunmadan yenidən toxuna bilməz.",
+        "## Məsafə və [[wall|divar]]",
+        "Rəqiblər top oyuna girənə qədər ondan ən azı 9,15 m (10 yard) uzaqda durmalıdır. Müdafiəçilər üç və ya daha çox oyunçudan divar qurursa, hücum edən komandanın oyunçuları divardan ən azı 1 m uzaqda durmalıdır.",
+        "Rəqib çox yaxın dayanıb zərbəyə mane olarsa, zərbə təkrarlanır və həmin oyunçu sarı vərəqə ala bilər."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "После нарушения игра возобновляется [[free-kick|штрафным ударом]]. Их два вида, и разница в одном: можно ли бить сразу по воротам?",
+        "## Прямой и свободный",
+        "С прямого штрафного можно забить сразу. При свободном (непрямом) ударе мяч должен коснуться другого игрока, прежде чем влететь в ворота, — иначе гол не засчитывают и назначают удар от ворот.",
+        "Свободный удар судья показывает поднятой над головой рукой и держит её, пока мяч не коснётся другого игрока.",
+        "## Как исполняется",
+        "Мяч ставят на место нарушения, он должен лежать неподвижно. Мяч в игре, когда по нему ударили и он заметно сдвинулся. Исполнитель не может коснуться мяча второй раз, пока его не тронет другой игрок.",
+        "## Дистанция и [[wall|стенка]]",
+        "Соперники должны стоять не ближе 9,15 м от мяча, пока он не введён в игру. Если защитники ставят стенку из трёх и более игроков, атакующие должны стоять от неё не ближе 1 м.",
+        "Если соперник встал слишком близко и помешал, удар перебивают, а игрок может получить жёлтую карточку."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "After a foul, play restarts with a [[free-kick|free kick]]. There are two kinds, and the difference is one thing: can you shoot straight at goal?",
+        "## Direct and indirect",
+        "From a direct free kick you can score straight away. From an indirect free kick the ball must touch another player before it goes in — otherwise the goal doesn’t count and the other team gets a goal kick.",
+        "The referee shows an indirect free kick by raising an arm above the head, and keeps it there until the ball touches another player.",
+        "## How it is taken",
+        "The ball is placed where the foul happened and must be still. It is in play once it is kicked and clearly moves. The kicker may not touch it again until another player has.",
+        "## Distance and the [[wall|wall]]",
+        "Opponents must stay at least 9.15 m (10 yards) from the ball until it is in play. If defenders form a wall of three or more, attackers must stay at least 1 m from it.",
+        "If an opponent stands too close and gets in the way, the kick is retaken and that player can be shown a yellow card."
       ]
+    },
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 5,
+          "y": 32,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "w1",
+          "x": 24,
+          "y": 29,
+          "kind": "opponent"
+        },
+        {
+          "id": "w2",
+          "x": 24,
+          "y": 33,
+          "kind": "opponent"
+        },
+        {
+          "id": "w3",
+          "x": 24,
+          "y": 37,
+          "kind": "opponent"
+        },
+        {
+          "id": "k",
+          "x": 37,
+          "y": 35,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 33,
+          "y": 33,
+          "kind": "ball"
+        }
+      ],
+      "paths": [
+        {
+          "from": "w1",
+          "to": {
+            "x": 22,
+            "y": 29
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": "w2",
+          "to": {
+            "x": 22,
+            "y": 33
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": "w3",
+          "to": {
+            "x": 22,
+            "y": 37
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": {
+            "x": 33,
+            "y": 33
+          },
+          "to": {
+            "x": 3,
+            "y": 26
+          },
+          "kind": "shot",
+          "at": 1
+        }
+      ],
+      "beats": [
+        {
+          "az": "Divar topdan 9,15 m geri çəkilir.",
+          "ru": "Стенка отходит на 9,15 м от мяча.",
+          "en": "The wall moves back to 9.15 m from the ball."
+        },
+        {
+          "az": "Birbaşa cərimə zərbəsi — qapıya birbaşa vurmaq olar.",
+          "ru": "Прямой штрафной — можно бить сразу в ворота.",
+          "en": "Direct free kick — you may shoot straight at goal."
+        }
+      ],
+      "caption": {
+        "az": "Divar 9,15 m uzaqda, hücumçular divardan 1 m uzaqda.",
+        "ru": "Стенка — в 9,15 м, атакующие — в 1 м от стенки.",
+        "en": "Wall 9.15 m away; attackers 1 m from the wall."
+      }
     },
     "takeaways": {
       "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
+        "Birbaşa — qapıya birbaşa vurmaq olar; dolayı — olmaz.",
+        "Rəqiblər 9,15 m uzaqda durur.",
+        "Hakimin qaldırılmış qolu = dolayı zərbə."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Прямой — можно бить сразу; свободный — нельзя.",
+        "Соперники стоят в 9,15 м.",
+        "Поднятая рука судьи = свободный удар."
+      ],
+      "en": [
+        "Direct — you can shoot straight in; indirect — you can’t.",
+        "Opponents stand 9.15 m away.",
+        "Referee’s raised arm = indirect free kick."
+      ]
     },
     "glossaryTermIds": [
       "free-kick",
-      "wall"
+      "wall",
+      "referee"
     ],
-    "estMinutes": 5,
-    "status": "todo",
+    "estMinutes": 7,
+    "source": "IFAB Laws of the Game 2026/27 — Law 13",
+    "status": "draft",
     "reviewed": false
   },
   {
@@ -225,35 +707,142 @@
     "trackId": "rules",
     "order": 5,
     "title": {
-      "az": "Autdan atma",
-      "ru": "Вбрасывание",
+      "az": "Aut",
+      "ru": "Аут",
       "en": "Throw-in"
+    },
+    "video": {
+      "file": "rules-throwin-01.mp4",
+      "durationSec": 35,
+      "caption": {
+        "az": "Autu düzgün atmaq",
+        "ru": "Как правильно вбросить аут",
+        "en": "Taking a throw-in correctly"
+      }
     },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "Topun hamısı yan xətti keçəndə — yerlə və ya havadan — oyun [[throw-in|autla]] davam edir. Topa son toxunan oyunçunun rəqibləri autu atır.",
+        "## Düzgün atış",
+        "Üzün meydana tərəf olsun. Hər iki ayağın bir hissəsi yan xəttin üstündə və ya arxasında yerdə olmalıdır. Topu iki əllə, başının arxasından və üstündən, topun çıxdığı yerdən at.",
+        "Aut səhv atılarsa, aut rəqibə keçir. Top meydana daxil olmazsa, eyni komanda yenidən atır.",
+        "## Bilməli olduqların",
+        "Autdan birbaşa qol vurmaq olmaz. Autdan ofsayd olmur. Atan oyunçu topa başqa oyunçu toxunmadan yenidən toxuna bilməz.",
+        "Rəqiblər atış nöqtəsindən ən azı 2 m uzaqda durmalıdır.",
+        "Yeni qayda (2026/27): komanda autu qəsdən gecikdirərsə, hakim əli ilə 5 saniyə geri sayır. Vaxtında atılmazsa, aut rəqibə verilir."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "Когда мяч целиком пересекает боковую линию — по земле или по воздуху, — игра продолжается [[throw-in|аутом]]. Вбрасывают соперники игрока, который последним коснулся мяча.",
+        "## Правильный вброс",
+        "Стой лицом к полю. Часть каждой ступни — на боковой линии или за ней, на земле. Бросай двумя руками, из-за головы и над головой, с того места, где мяч ушёл.",
+        "Если вброс неправильный, аут переходит сопернику. Если мяч не попал на поле, та же команда вбрасывает снова.",
+        "## Что нужно знать",
+        "Забить с аута напрямую нельзя. Офсайда с аута нет. Вбрасывающий не может коснуться мяча снова, пока его не тронет другой игрок.",
+        "Соперники стоят не ближе 2 м от места вброса.",
+        "Новое правило (2026/27): если команда нарочно затягивает аут, судья поднятой рукой отсчитывает 5 секунд. Не успели — аут получает соперник."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "When the whole ball crosses the touchline — on the ground or in the air — play restarts with a [[throw-in|throw-in]]. It goes to the opponents of the player who touched the ball last.",
+        "## A correct throw",
+        "Face the pitch. Part of each foot must be on the touchline or on the ground behind it. Throw with both hands, from behind and over your head, from where the ball went out.",
+        "A wrong throw gives the throw-in to the other team. If the ball never enters the pitch, the same team throws again.",
+        "## Good to know",
+        "You can’t score directly from a throw-in. There is no offside from a throw-in. The thrower may not touch the ball again until another player has.",
+        "Opponents must stand at least 2 m from where the throw is taken.",
+        "New for 2026/27: if a team deliberately delays a throw-in, the referee counts down five seconds with a raised hand. Too slow, and the throw goes to the other team."
       ]
+    },
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "th",
+          "x": 40,
+          "y": 3,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 40,
+          "y": 5,
+          "kind": "ball"
+        },
+        {
+          "id": "m",
+          "x": 33,
+          "y": 15,
+          "kind": "player"
+        },
+        {
+          "id": "o",
+          "x": 44,
+          "y": 11,
+          "kind": "opponent"
+        }
+      ],
+      "paths": [
+        {
+          "from": {
+            "x": 40,
+            "y": 5
+          },
+          "to": {
+            "x": 34,
+            "y": 14
+          },
+          "kind": "pass"
+        },
+        {
+          "from": "m",
+          "to": {
+            "x": 22,
+            "y": 22
+          },
+          "kind": "dribble"
+        }
+      ],
+      "beats": [
+        {
+          "az": "İki əllə, başın üstündən; ayaqlar xəttin üstündə və ya arxasında.",
+          "ru": "Двумя руками из-за головы; ноги на линии или за ней.",
+          "en": "Two hands over the head; feet on or behind the line."
+        },
+        {
+          "az": "Top oyundadır — autdan ofsayd olmur.",
+          "ru": "Мяч в игре — офсайда с аута нет.",
+          "en": "The ball is in play — no offside from a throw-in."
+        }
+      ],
+      "caption": {
+        "az": "Rəqiblər 2 m uzaqda durur.",
+        "ru": "Соперники стоят в 2 м.",
+        "en": "Opponents stand 2 m away."
+      }
     },
     "takeaways": {
       "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
+        "İki əl, başın arxasından və üstündən.",
+        "Hər iki ayaq yerdə, xəttin üstündə və ya arxasında.",
+        "Autdan birbaşa qol və ofsayd olmur."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Двумя руками, из-за головы.",
+        "Обе ноги на земле — на линии или за ней.",
+        "С аута нельзя забить напрямую, и офсайда нет."
+      ],
+      "en": [
+        "Both hands, from behind and over the head.",
+        "Both feet on the ground, on or behind the line.",
+        "No direct goal and no offside from a throw-in."
+      ]
     },
     "glossaryTermIds": [
-      "throw-in"
+      "throw-in",
+      "touchline"
     ],
-    "estMinutes": 3,
-    "status": "todo",
+    "estMinutes": 5,
+    "source": "IFAB Laws of the Game 2026/27 — Law 15",
+    "status": "draft",
     "reviewed": false
   },
   {
@@ -263,34 +852,182 @@
     "title": {
       "az": "Penalti",
       "ru": "Пенальти",
-      "en": "Penalty"
+      "en": "Penalty kick"
+    },
+    "video": {
+      "file": "rules-penalty-01.mp4",
+      "durationSec": 40,
+      "caption": {
+        "az": "Penalti necə vurulur",
+        "ru": "Как пробивается пенальти",
+        "en": "How a penalty is taken"
+      }
     },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "Müdafiəçi öz [[penalty-area|cərimə meydançasında]] birbaşa cərimə zərbəsi tələb edən pozuntu edərsə, rəqib [[penalty|penalti]] vurur — qapıdan 11 m məsafədən, qarşısında yalnız qapıçı.",
+        "## Hamı harada durur",
+        "Top penalti nöqtəsinə qoyulur. Zərbəni vuracaq oyunçu aydın göstərilir.",
+        "Qapıçı zərbəyə qədər qapı xəttinin üstündə, ştanqlar arasında, üzü zərbəçiyə tərəf durur. Zərbə anında ən azı bir ayağının bir hissəsi qapı xəttinə toxunmalı, onunla bir xətdə və ya onun arxasında olmalıdır.",
+        "Qalan oyunçular meydanın içində, cərimə meydançasından kənarda, penalti nöqtəsinin arxasında və ondan 9,15 m uzaqda gözləyir.",
+        "## Zərbə",
+        "Top irəli vurulmalıdır. Vurulub aydın hərəkət edəndə oyundadır. Zərbəçi topa başqa oyunçu toxunmadan ikinci dəfə toxuna bilməz — top ştanqdan qayıtsa belə.",
+        "Top vurulandan sonra hamı meydançaya qaça bilər — qapıçı topu qaytararsa, ikinci şans üçün hazır ol."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "Если защитник совершает нарушение, за которое положен прямой штрафной, внутри своей [[penalty-area|штрафной площади]], соперник бьёт [[penalty|пенальти]] — с 11 метров, один на один с вратарём.",
+        "## Кто где стоит",
+        "Мяч ставят на отметку пенальти. Бьющий должен быть чётко обозначен.",
+        "Вратарь до удара стоит на линии ворот между стойками, лицом к бьющему. В момент удара хотя бы часть одной ноги должна касаться линии ворот, быть на одном уровне с ней или за ней.",
+        "Остальные игроки ждут на поле, за пределами штрафной, позади отметки и не ближе 9,15 м от неё.",
+        "## Удар",
+        "Мяч нужно бить вперёд. Он в игре, когда по нему ударили и он заметно сдвинулся. Бьющий не может коснуться мяча второй раз, пока его не тронет другой игрок, — даже если мяч отскочил от штанги.",
+        "После удара все могут забегать в штрафную — если вратарь отобьёт, будь готова добить."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "If a defender commits a direct-free-kick foul inside her own [[penalty-area|penalty area]], the other team takes a [[penalty|penalty]] — from 11 m, with only the goalkeeper to beat.",
+        "## Where everyone stands",
+        "The ball goes on the penalty mark. The kicker must be clearly identified.",
+        "Until the kick, the goalkeeper stays on the goal line between the posts, facing the kicker. When the ball is kicked, at least part of one foot must be touching, level with, or behind the goal line.",
+        "Everyone else waits on the pitch, outside the penalty area, behind the penalty mark and at least 9.15 m from it.",
+        "## The kick",
+        "The ball must be kicked forward. It is in play once it is kicked and clearly moves. The kicker may not touch it a second time until another player has — even if it bounces back off the post.",
+        "Once it is kicked, everyone may run into the area — if the keeper saves it, be ready for the rebound."
       ]
+    },
+    "diagram": {
+      "view": "penalty-area",
+      "markers": [
+        {
+          "id": "gk",
+          "x": 50,
+          "y": 5,
+          "kind": "keeper",
+          "label": "GK"
+        },
+        {
+          "id": "k",
+          "x": 50,
+          "y": 33,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 50,
+          "y": 28,
+          "kind": "ball"
+        },
+        {
+          "id": "p1",
+          "x": 36,
+          "y": 44,
+          "kind": "player"
+        },
+        {
+          "id": "o1",
+          "x": 60,
+          "y": 44,
+          "kind": "opponent"
+        }
+      ],
+      "paths": [
+        {
+          "from": "k",
+          "to": {
+            "x": 50,
+            "y": 30
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": {
+            "x": 50,
+            "y": 28
+          },
+          "to": {
+            "x": 40,
+            "y": 4
+          },
+          "kind": "shot",
+          "at": 1
+        },
+        {
+          "from": "gk",
+          "to": {
+            "x": 57,
+            "y": 5
+          },
+          "kind": "run",
+          "at": 1
+        },
+        {
+          "from": "p1",
+          "to": {
+            "x": 42,
+            "y": 22
+          },
+          "kind": "run",
+          "at": 2
+        },
+        {
+          "from": "o1",
+          "to": {
+            "x": 56,
+            "y": 22
+          },
+          "kind": "run",
+          "at": 2
+        }
+      ],
+      "beats": [
+        {
+          "az": "Qapıçı xəttdə, digərləri cərimə meydançasından kənarda.",
+          "ru": "Вратарь на линии, остальные за штрафной.",
+          "en": "Keeper on the line, everyone else outside the area."
+        },
+        {
+          "az": "Zərbə: top irəli vurulur.",
+          "ru": "Удар: мяч бьют вперёд.",
+          "en": "The kick: the ball must go forward."
+        },
+        {
+          "az": "Top vurulandan sonra hamı içəri qaça bilər.",
+          "ru": "После удара все могут забегать в штрафную.",
+          "en": "Once kicked, everyone may run in."
+        }
+      ],
+      "caption": {
+        "az": "Penalti — 11 m, qarşında yalnız qapıçı.",
+        "ru": "Пенальти — 11 м, только вратарь.",
+        "en": "Penalty — 11 m, just the keeper to beat."
+      }
     },
     "takeaways": {
       "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
+        "Öz cərimə meydançanda birbaşa pozuntu = penalti.",
+        "Qapıçı zərbəyə qədər qapı xəttində qalır.",
+        "Zərbəçi ikinci dəfə toxuna bilməz — ştanqdan qayıtsa belə."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Нарушение в своей штрафной = пенальти.",
+        "Вратарь до удара на линии ворот.",
+        "Бьющий не может коснуться мяча второй раз — даже после штанги."
+      ],
+      "en": [
+        "A direct-free-kick foul in your own area = penalty.",
+        "The keeper stays on the goal line until the kick.",
+        "The kicker can’t touch it twice — even off the post."
+      ]
     },
     "glossaryTermIds": [
       "penalty",
+      "penalty-area",
       "goalkeeper"
     ],
-    "estMinutes": 4,
-    "status": "todo",
+    "estMinutes": 6,
+    "source": "IFAB Laws of the Game 2026/27 — Law 14",
+    "status": "draft",
     "reviewed": false
   },
   {
@@ -298,35 +1035,170 @@
     "trackId": "rules",
     "order": 7,
     "title": {
-      "az": "Künc zərbəsi",
-      "ru": "Угловой",
-      "en": "Corner kick"
+      "az": "Künc zərbəsi və qapı zərbəsi",
+      "ru": "Угловой и удар от ворот",
+      "en": "Corner kick and goal kick"
+    },
+    "video": {
+      "file": "rules-corner-01.mp4",
+      "durationSec": 35,
+      "caption": {
+        "az": "Top qapı xəttindən çıxanda",
+        "ru": "Когда мяч уходит за лицевую",
+        "en": "When the ball crosses the goal line"
+      }
     },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "Topun hamısı qapı xəttini keçəndə və qol olmayanda, oyunu kimin yenidən başlatdığı topa son kimin toxunduğundan asılıdır.",
+        "## Künc zərbəsi",
+        "Topa son müdafiə edən komanda toxunubsa, hücum edən komanda [[corner|künc zərbəsi]] vurur. Top, çıxdığı yerə ən yaxın künc qövsünün içinə qoyulur. Bayraq yerindən tərpədilmir.",
+        "Rəqiblər top oyuna girənə qədər künc qövsündən ən azı 9,15 m uzaqda durur. Künc zərbəsindən birbaşa qol vurmaq olar və ofsayd yoxdur.",
+        "Künc zərbəsi həm də qapıçı topu əlində 8 saniyədən çox saxlayanda verilir — hakim son 5 saniyəni əli ilə sayır.",
+        "## Qapı zərbəsi",
+        "Topa son hücum edən komanda toxunubsa, müdafiə edən komanda qapı zərbəsi vurur: top qapı meydançasının istənilən yerindən vurulur. Qapı zərbəsindən də ofsayd olmur.",
+        "Yeni qayda (2026/27): qapı zərbəsini qəsdən gecikdirmək üçün də 5 saniyəlik geri sayım var. Vaxtında vurulmazsa, rəqib künc zərbəsi alır."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "Когда мяч целиком пересекает линию ворот и гола нет, то, кто возобновляет игру, зависит от того, кто коснулся мяча последним.",
+        "## Угловой",
+        "Если последним коснулся игрок обороняющейся команды, атакующие подают [[corner|угловой]]. Мяч ставят в угловую дугу, ближайшую к месту, где он ушёл. Флажок двигать нельзя.",
+        "Соперники стоят не ближе 9,15 м от угловой дуги, пока мяч не в игре. С углового можно забить напрямую, и офсайда нет.",
+        "Угловой назначают и тогда, когда вратарь держит мяч в руках дольше 8 секунд — последние 5 секунд судья отсчитывает рукой.",
+        "## Удар от ворот",
+        "Если последним коснулся игрок атакующей команды, обороняющиеся бьют от ворот: мяч ставят в любом месте вратарской площади. С удара от ворот офсайда тоже нет.",
+        "Новое правило (2026/27): для удара от ворот тоже есть 5-секундный отсчёт при затягивании. Не успели — соперник получает угловой."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "When the whole ball crosses the goal line and no goal is scored, who restarts depends on who touched it last.",
+        "## Corner kick",
+        "If a defender touched it last, the attacking team takes a [[corner|corner kick]]. The ball goes in the corner arc nearest to where it went out. The flag must not be moved.",
+        "Opponents stay at least 9.15 m from the corner arc until the ball is in play. You can score directly from a corner, and there is no offside.",
+        "A corner is also given when the goalkeeper holds the ball in her hands for more than 8 seconds — the referee counts the last five down with a raised hand.",
+        "## Goal kick",
+        "If an attacker touched it last, the defending team takes a goal kick, from anywhere in the goal area. There is no offside from a goal kick either.",
+        "New for 2026/27: a five-second countdown also applies to a deliberately delayed goal kick. Too slow, and the other team gets a corner."
       ]
+    },
+    "diagram": {
+      "view": "half",
+      "markers": [
+        {
+          "id": "c",
+          "x": 5,
+          "y": 2.5,
+          "kind": "player"
+        },
+        {
+          "id": "b",
+          "x": 4,
+          "y": 4,
+          "kind": "ball"
+        },
+        {
+          "id": "a1",
+          "x": 24,
+          "y": 26,
+          "kind": "player"
+        },
+        {
+          "id": "a2",
+          "x": 22,
+          "y": 40,
+          "kind": "player"
+        },
+        {
+          "id": "d1",
+          "x": 12,
+          "y": 28,
+          "kind": "opponent"
+        },
+        {
+          "id": "gk",
+          "x": 5,
+          "y": 32,
+          "kind": "keeper",
+          "label": "GK"
+        }
+      ],
+      "paths": [
+        {
+          "from": "a1",
+          "to": {
+            "x": 12,
+            "y": 33
+          },
+          "kind": "run",
+          "at": 0
+        },
+        {
+          "from": {
+            "x": 4,
+            "y": 4
+          },
+          "to": {
+            "x": 12,
+            "y": 32
+          },
+          "kind": "pass",
+          "at": 0
+        },
+        {
+          "from": {
+            "x": 12,
+            "y": 32
+          },
+          "to": {
+            "x": 3,
+            "y": 36
+          },
+          "kind": "shot",
+          "at": 1
+        }
+      ],
+      "beats": [
+        {
+          "az": "Künc qövsündən ötürmə; hücumçu yaxın ştanqa qaçır.",
+          "ru": "Подача из угловой дуги; нападающая бежит на ближнюю штангу.",
+          "en": "Cross from the corner arc; the attacker runs to the near post."
+        },
+        {
+          "az": "Zərbə — künc zərbəsindən sonra ofsayd yoxdur.",
+          "ru": "Удар — после углового офсайда нет.",
+          "en": "Shot — there is no offside from a corner."
+        }
+      ],
+      "caption": {
+        "az": "Rəqiblər künc qövsündən 9,15 m uzaqda.",
+        "ru": "Соперники в 9,15 м от угловой дуги.",
+        "en": "Opponents 9.15 m from the corner arc."
+      }
     },
     "takeaways": {
       "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
+        "Müdafiəçi son toxunub — künc zərbəsi; hücumçu — qapı zərbəsi.",
+        "Künc zərbəsindən birbaşa qol olar, ofsayd olmaz.",
+        "Qapıçı topu 8 saniyədən çox saxlasa — rəqibə künc zərbəsi."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Последним коснулся защитник — угловой; нападающий — удар от ворот.",
+        "С углового можно забить напрямую, офсайда нет.",
+        "Вратарь держит мяч дольше 8 секунд — угловой сопернику."
+      ],
+      "en": [
+        "Defender touched it last — corner; attacker — goal kick.",
+        "You can score straight from a corner; no offside.",
+        "Keeper holds the ball over 8 seconds — corner to the other team."
+      ]
     },
     "glossaryTermIds": [
-      "corner"
+      "corner",
+      "goal-kick",
+      "goal-line"
     ],
-    "estMinutes": 3,
-    "status": "todo",
+    "estMinutes": 5,
+    "source": "IFAB Laws of the Game 2026/27 — Law 17",
+    "status": "draft",
     "reviewed": false
   },
   {
@@ -336,33 +1208,81 @@
     "title": {
       "az": "Hakimin işarələri",
       "ru": "Жесты судьи",
-      "en": "Referee's signals"
+      "en": "Referee’s signals"
+    },
+    "video": {
+      "file": "rules-referee-01.mp4",
+      "durationSec": 45,
+      "caption": {
+        "az": "Hakimin qolları nə deyir",
+        "ru": "Что показывают руки судьи",
+        "en": "What the referee’s arms mean"
+      }
     },
     "body": {
       "az": [
-        "TODO — bu bölmə IFAB Laws of the Game rəsmi mətnindən doldurulacaq və lisenziyalı məşqçi tərəfindən yoxlanılacaq. Struktur hazırdır, mətn yox."
+        "[[referee|Hakim]] oyunu fit və qol işarələri ilə idarə edir. İşarələri tanıyırsansa, hakim nə qərar verdiyini və topun kimə keçdiyini dərhal başa düşürsən.",
+        "## Əsas işarələr",
+        "Üstünlük: hər iki qol irəli uzanır — pozuntu oldu, amma oyun davam edir, çünki zərərçəkən komandaya sərfəlidir.",
+        "Birbaşa cərimə zərbəsi: qol zərbəni vuracaq komandanın hücum istiqamətini göstərir.",
+        "Dolayı cərimə zərbəsi: qol başın üstünə qaldırılır və top başqa oyunçuya toxunana qədər yuxarıda qalır.",
+        "Penalti: hakim penalti nöqtəsini göstərir. Künc zərbəsi: künc qövsünü göstərir. Qapı zərbəsi: qapı meydançasını göstərir.",
+        "## Vərəqələr",
+        "Sarı vərəqə — xəbərdarlıq. Qırmızı vərəqə — oyunçu meydanı tərk edir və komanda azlıqda qalır.",
+        "## Köməkçi hakimlər",
+        "Köməkçi hakimlər yan xətt boyunca bayraqla işləyir: bayrağı qaldırıb sonra irəli tutmaq — ofsayd; autun hansı komandaya verildiyini bayraqla göstərmək; bayrağı başın üstündə iki əllə tutmaq — əvəzetmə."
       ],
       "ru": [
-        "TODO — раздел будет заполнен по официальному тексту IFAB Laws of the Game и проверен лицензированным тренером."
+        "[[referee|Судья]] управляет игрой свистком и жестами. Если ты знаешь жесты, сразу понимаешь, какое решение принято и чей теперь мяч.",
+        "## Главные жесты",
+        "Преимущество: обе руки вытянуты вперёд — нарушение было, но игра продолжается, потому что так выгоднее пострадавшей команде.",
+        "Прямой штрафной: рука указывает направление атаки команды, которая будет бить.",
+        "Свободный удар: рука поднята над головой и остаётся поднятой, пока мяч не коснётся другого игрока.",
+        "Пенальти: судья указывает на отметку. Угловой: указывает на угловую дугу. Удар от ворот: указывает на вратарскую площадь.",
+        "## Карточки",
+        "Жёлтая — предупреждение. Красная — игрок покидает поле, и команда остаётся в меньшинстве.",
+        "## Помощники судьи",
+        "Помощники работают с флажком вдоль боковой линии: флажок поднят, затем направлен вперёд — офсайд; флажком показывают, какой команде аут; флажок двумя руками над головой — замена."
       ],
       "en": [
-        "TODO — filled from the official IFAB Laws of the Game and reviewed by a licensed coach. Structure is ready, text is not."
+        "The [[referee|referee]] runs the game with a whistle and arm signals. Know the signals and you instantly understand the decision and whose ball it is.",
+        "## The main signals",
+        "Advantage: both arms stretched forward — there was a foul, but play goes on because that helps the team that was fouled.",
+        "Direct free kick: one arm points the way the team taking the kick is attacking.",
+        "Indirect free kick: one arm raised straight up, kept there until the ball touches another player.",
+        "Penalty: the referee points to the penalty mark. Corner: points to the corner arc. Goal kick: points to the goal area.",
+        "## Cards",
+        "Yellow — a caution. Red — the player leaves the pitch and the team plays a player short.",
+        "## Assistant referees",
+        "The assistants work the touchlines with a flag: flag raised, then pointed forward — offside; the flag points which team gets a throw-in; flag held above the head with both hands — substitution."
       ]
     },
     "takeaways": {
       "az": [
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra.",
-        "TODO — məşqçi yoxlamasından sonra."
+        "İki qol irəli — üstünlük, oyun davam edir.",
+        "Qaldırılmış qol — dolayı zərbə.",
+        "Sarı — xəbərdarlıq, qırmızı — meydanı tərk etmək."
       ],
-      "ru": [],
-      "en": []
+      "ru": [
+        "Обе руки вперёд — преимущество, игра продолжается.",
+        "Поднятая рука — свободный удар.",
+        "Жёлтая — предупреждение, красная — удаление."
+      ],
+      "en": [
+        "Both arms forward — advantage, play on.",
+        "Arm raised — indirect free kick.",
+        "Yellow — caution; red — sent off."
+      ]
     },
     "glossaryTermIds": [
-      "referee"
+      "referee",
+      "advantage",
+      "yellow-card",
+      "red-card"
     ],
-    "estMinutes": 5,
-    "status": "todo",
+    "estMinutes": 6,
+    "source": "IFAB Laws of the Game 2026/27 — Law 5; Law 6",
+    "status": "draft",
     "reviewed": false
   }
 ]

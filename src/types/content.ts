@@ -37,7 +37,8 @@ export interface Point {
 export type PitchView = 'full' | 'half' | 'penalty-area' | 'goal-area' | 'blank';
 export type MarkerKind = 'player' | 'opponent' | 'keeper' | 'ball' | 'cone' | 'target';
 export type PathKind = 'run' | 'pass' | 'shot' | 'dribble';
-export type ZoneKind = 'highlight' | 'space' | 'danger';
+/** `wall` is a solid rebound surface for solo drills — drawn as a hatched bar. */
+export type ZoneKind = 'highlight' | 'space' | 'danger' | 'wall';
 
 export interface DiagramMarker extends Point {
   id: string;
@@ -51,6 +52,18 @@ export interface DiagramPath {
   to: Point | string;
   kind: PathKind;
   curve?: number;
+  /**
+   * Explainer step this movement plays in. Paths sharing a step move together
+   * (a pass while a teammate runs). Omitted → each path gets its own step, in
+   * array order.
+   */
+  at?: number;
+  /**
+   * Marker id that travels along this path. Omitted → inferred: the ball for
+   * passes and shots, the nearest player to `from` for runs, both for dribbles.
+   * `null` → nothing travels; the line is drawn only (e.g. two possible shots).
+   */
+  actor?: string | null;
 }
 
 export interface DiagramZone extends Point {
@@ -73,6 +86,11 @@ export interface PitchDiagramData {
   zones?: DiagramZone[];
   lines?: DiagramLine[];
   caption?: LocalizedText;
+  /**
+   * One caption per explainer step, shown while that step plays. Optional —
+   * without it each step is labelled by its movement ("Pass", "Run").
+   */
+  beats?: LocalizedText[];
 }
 
 // ---------------------------------------------------------------------------
@@ -82,9 +100,7 @@ export interface PitchDiagramData {
 export type TrackId = 'rules' | 'positions' | 'goalkeeper';
 
 /**
- * 'todo'     — structure only. Used for the Laws of the Game, which are never
- *              paraphrased from memory; the text comes from the official IFAB
- *              source and a licensed coach reviews it.
+ * 'todo'     — structure only; nothing written yet.
  * 'draft'    — written, not yet signed off.
  * 'reviewed' — a human has approved it. Nothing ships as this by default.
  */
@@ -104,12 +120,20 @@ export interface Lesson {
   order: number;
   title: LocalizedText;
   video?: VideoRef;
-  /** Paragraphs. Glossary terms are marked inline as `[[term-id|shown text]]`. */
+  /**
+   * Paragraphs. Glossary terms are marked inline as `[[term-id|shown text]]`.
+   * A paragraph starting with `## ` is a sub-heading.
+   */
   body: LocalizedList;
   diagram?: PitchDiagramData;
   takeaways: LocalizedList;
   glossaryTermIds: string[];
   estMinutes: number;
+  /**
+   * Where the facts come from — required for the rules track, e.g.
+   * "IFAB Laws of the Game 2026/27 — Law 11". Shown under the lesson.
+   */
+  source?: string;
   status: ContentStatus;
   reviewed: boolean;
 }
@@ -129,6 +153,8 @@ export interface Drill {
   group: GroupSize;
   minutes: number;
   difficulty: 1 | 2 | 3;
+  /** One paragraph: what this drill trains and why it matters. */
+  why?: LocalizedText;
   steps: LocalizedList;
   diagram?: PitchDiagramData;
   whatGoodLooksLike: LocalizedList;

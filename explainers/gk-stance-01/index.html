@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="az" data-composition-variables="[
+    {&quot;id&quot;:&quot;kicker&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Kicker&quot;,&quot;default&quot;:&quot;QAPIÇI · DƏRS 1&quot;},
+    {&quot;id&quot;:&quot;title&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Title&quot;,&quot;default&quot;:&quot;Əsas duruş&quot;},
+    {&quot;id&quot;:&quot;caption&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Caption&quot;,&quot;default&quot;:&quot;Əsas duruş — yandan və qarşıdan&quot;},
+    {&quot;id&quot;:&quot;t1&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Takeaway 1&quot;,&quot;default&quot;:&quot;Çəki dabanda deyil, pəncədə.&quot;},
+    {&quot;id&quot;:&quot;t2&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Takeaway 2&quot;,&quot;default&quot;:&quot;Əllər bədənin qarşısında, yanlarda yox.&quot;},
+    {&quot;id&quot;:&quot;t3&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Takeaway 3&quot;,&quot;default&quot;:&quot;Gözlər topun səviyyəsində.&quot;},
+    {&quot;id&quot;:&quot;quote&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Closing line&quot;,&quot;default&quot;:&quot;Duruş rahat olmalıdır — sən bu vəziyyətdə saniyələrlə deyil, dəqiqələrlə dayanacaqsan.&quot;}
+  ]">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Georgia";
+        src: local("Georgia");
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0e14;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0b0e14;
+        color: #e9ecf2;
+        font-family: "Helvetica Neue", sans-serif;
+      }
+
+      /* ---- persistent frame ------------------------------------------------ */
+      .layer { position: absolute; inset: 0; }
+      section.clip { position: absolute; inset: 0; }
+      /* Decorative pitch arcs bleeding off the bottom-right corner. */
+      #ghost {
+        position: absolute;
+        right: -260px;
+        bottom: -300px;
+        width: 980px;
+        height: 980px;
+      }
+      #ghost svg { width: 100%; height: 100%; display: block; }
+      #topbar {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 72px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid #232c3a;
+        padding-bottom: 20px;
+      }
+      .brand { display: flex; align-items: center; gap: 22px; }
+      .brand svg { width: 52px; height: 52px; display: block; }
+      .kicker {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: #c2687a;
+      }
+      .wordmark {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        color: #9aa5b5;
+      }
+      #progress-track {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        bottom: 80px;
+        height: 4px;
+        background: #1b2432;
+      }
+      #progress {
+        width: 100%;
+        height: 100%;
+        background: #c2687a;
+        transform-origin: left center;
+      }
+
+      /* ---- scene 1: title -------------------------------------------------- */
+      #s1 { display: flex; align-items: center; padding: 0 140px; }
+      #s1 .inner { width: 1400px; }
+      #s1 h1 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 170px;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+      }
+      #s1 .rule { width: 140px; height: 6px; background: #c2687a; margin: 44px 0 40px; transform-origin: left center; }
+      #s1 p { font-size: 46px; line-height: 1.35; color: #9aa5b5; max-width: 1200px; }
+
+      /* ---- scene 2: figure + takeaways ------------------------------------ */
+      #s2 { padding: 190px 140px 140px; display: flex; gap: 80px; align-items: center; }
+      #figure-wrap { width: 760px; height: 760px; flex: none; }
+      #figure-wrap svg { width: 760px; height: 760px; display: block; overflow: visible; }
+      #points { flex: 1; display: flex; flex-direction: column; gap: 46px; }
+      .point {
+        display: flex;
+        gap: 34px;
+        align-items: baseline;
+        padding-top: 30px;
+        border-top: 2px solid #232c3a;
+      }
+      .point .n {
+        font-family: Georgia, serif;
+        font-size: 84px;
+        line-height: 0.9;
+        color: #c2687a;
+        width: 70px;
+        flex: none;
+      }
+      .point .t { font-size: 46px; line-height: 1.3; color: #e9ecf2; }
+      #s2-label {
+        position: absolute;
+        left: 140px;
+        top: 168px;
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 34px;
+        color: #9aa5b5;
+      }
+
+      /* ---- scene 3: closing ------------------------------------------------ */
+      #s3 { display: flex; align-items: center; padding: 0 140px; }
+      #s3 blockquote {
+        font-family: Georgia, serif;
+        font-size: 84px;
+        line-height: 1.22;
+        letter-spacing: -0.015em;
+        max-width: 1500px;
+        padding-left: 56px;
+        border-left: 6px solid #c2687a;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-onjd" id="root" data-composition-id="main" data-start="0" data-duration="21" data-width="1920" data-height="1080" data-fps="30">
+      <!-- persistent frame: ghost numeral, top bar, progress rule -->
+      <div data-hf-id="hf-d7jc" id="frame" class="layer">
+        <div data-hf-id="hf-f2cg" id="ghost" data-layout-ignore="" aria-hidden="true">
+          <svg data-hf-id="hf-lgxl" viewBox="0 0 980 980">
+            <circle data-hf-id="hf-dkob" cx="490" cy="490" r="300" fill="none" stroke="#1b2432" stroke-width="6" />
+            <circle data-hf-id="hf-4921" cx="490" cy="490" r="470" fill="none" stroke="#131a24" stroke-width="6" />
+            <circle data-hf-id="hf-4680" cx="490" cy="490" r="10" fill="#1b2432" />
+            <line data-hf-id="hf-dpmx" x1="0" y1="490" x2="980" y2="490" stroke="#131a24" stroke-width="6" />
+          </svg>
+        </div>
+        <div data-hf-id="hf-ysdh" id="topbar">
+          <div data-hf-id="hf-oojr" class="brand">
+            <svg data-hf-id="hf-ithg" viewBox="0 0 100 100" aria-hidden="true">
+              <defs data-hf-id="hf-mh0t">
+                <clippath data-hf-id="hf-5ht7" id="vclip"><polygon data-hf-id="hf-m8s5" points="18,18 37,18 50,56 63,18 82,18 50,82" /></clippath>
+              </defs>
+              <polygon data-hf-id="hf-1kz9" points="18,18 37,18 50,56 63,18 82,18 50,82" fill="#c2687a" />
+              <g data-hf-id="hf-a537" clip-path="url(#vclip)" stroke="#5d3742" stroke-width="1.4">
+                <line data-hf-id="hf-6rso" x1="-20" y1="20" x2="40" y2="-40" /><line data-hf-id="hf-wko0" x1="-20" y1="36" x2="56" y2="-40" />
+                <line data-hf-id="hf-v8ko" x1="-20" y1="52" x2="72" y2="-40" /><line data-hf-id="hf-8saw" x1="-20" y1="68" x2="88" y2="-40" />
+                <line data-hf-id="hf-m4cp" x1="-20" y1="84" x2="104" y2="-40" /><line data-hf-id="hf-74io" x1="-20" y1="100" x2="120" y2="-40" />
+                <line data-hf-id="hf-jmci" x1="-4" y1="100" x2="120" y2="-24" /><line data-hf-id="hf-ce72" x1="12" y1="100" x2="120" y2="-8" />
+                <line data-hf-id="hf-vl4y" x1="28" y1="100" x2="120" y2="8" /><line data-hf-id="hf-oc7u" x1="44" y1="100" x2="120" y2="24" />
+                <line data-hf-id="hf-5roe" x1="60" y1="100" x2="120" y2="40" />
+              </g>
+            </svg>
+            <span data-hf-id="hf-pryd" class="kicker" data-var-text="kicker">QAPIÇI · DƏRS 1</span>
+          </div>
+          <span data-hf-id="hf-997y" class="wordmark">VERVE</span>
+        </div>
+        <div data-hf-id="hf-o48q" id="progress-track"><div data-hf-id="hf-o6ww" id="progress"></div></div>
+      </div>
+
+      <!-- scene 1: title -->
+      <section data-hf-id="hf-8ml5" id="s1" class="clip" data-start="0" data-duration="4.6" data-track-index="1">
+        <div data-hf-id="hf-efo9" class="inner" id="s1-inner">
+          <h1 data-hf-id="hf-du1a" id="s1-title" data-var-text="title">Əsas duruş</h1>
+          <div data-hf-id="hf-dgpv" class="rule" id="s1-rule"></div>
+          <p data-hf-id="hf-mx50" id="s1-caption" data-var-text="caption">Əsas duruş — yandan və qarşıdan</p>
+        </div>
+      </section>
+
+      <!-- scene 2: the figure settles into the stance; markers match the list -->
+      <section data-hf-id="hf-kmpg" id="s2" class="clip" data-start="4.2" data-duration="12.6" data-track-index="2">
+        <div data-hf-id="hf-ui2r" id="s2-label" data-var-text="title">Əsas duruş</div>
+        <div data-hf-id="hf-tzba" id="figure-wrap">
+          <svg data-hf-id="hf-u8pa" id="fig" viewBox="0 0 640 760">
+            <!-- ground: hairline over a hatched strip, in the brand hatch -->
+            <defs data-hf-id="hf-vl9d">
+              <clippath data-hf-id="hf-03zq" id="groundclip"><rect data-hf-id="hf-aq9m" x="40" y="704" width="600" height="34" /></clippath>
+            </defs>
+            <g data-hf-id="hf-hsfr" clip-path="url(#groundclip)" stroke="#232c3a" stroke-width="3" id="hatch" />
+            <line data-hf-id="hf-7m88" x1="40" y1="704" x2="640" y2="704" stroke="#232c3a" stroke-width="4" />
+
+            <!-- sight line + ball (takeaway 3) -->
+            <line data-hf-id="hf-81dj" id="sight" x1="385" y1="170" x2="556" y2="170" stroke="#c2687a" stroke-width="4" stroke-dasharray="14 12" />
+            <g data-hf-id="hf-j93w" id="ball">
+              <circle data-hf-id="hf-zv0q" cx="590" cy="170" r="32" fill="#e9ecf2" />
+              <polygon data-hf-id="hf-eb3u" points="590,156 603,165 598,180 582,180 577,165" fill="#0b0e14" />
+            </g>
+
+            <!-- back limbs (secondary) -->
+            <g data-hf-id="hf-7n1i" stroke="#9aa5b5" stroke-width="24" stroke-linecap="round" fill="none">
+              <line data-hf-id="hf-eqmy" id="thighB" /><line data-hf-id="hf-fvui" id="shinB" /><line data-hf-id="hf-b92m" id="footB" />
+              <line data-hf-id="hf-ykyd" id="uarmB" /><line data-hf-id="hf-9j0e" id="farmB" />
+            </g>
+            <!-- torso + front limbs (primary) -->
+            <g data-hf-id="hf-5e09" stroke="#e9ecf2" stroke-width="28" stroke-linecap="round" fill="none">
+              <line data-hf-id="hf-sdjl" id="torso" />
+              <line data-hf-id="hf-zx1a" id="thighF" /><line data-hf-id="hf-128u" id="shinF" /><line data-hf-id="hf-nv2i" id="footF" />
+              <line data-hf-id="hf-dek1" id="uarmF" /><line data-hf-id="hf-ocm2" id="farmF" />
+            </g>
+            <circle data-hf-id="hf-xfmk" id="head" r="46" fill="#e9ecf2" />
+
+            <!-- numbered markers -->
+            <g data-hf-id="hf-zztc" id="m1" class="marker"><circle data-hf-id="hf-zs5a" cx="440" cy="650" r="30" fill="#c2687a" /><text data-hf-id="hf-zzf7" x="440" y="661" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#0b0e14">1</text></g>
+            <g data-hf-id="hf-avaz" id="m2" class="marker"><circle data-hf-id="hf-khw9" cx="520" cy="300" r="30" fill="#c2687a" /><text data-hf-id="hf-dgbj" x="520" y="311" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#0b0e14">2</text></g>
+            <g data-hf-id="hf-4pl6" id="m3" class="marker"><circle data-hf-id="hf-4l58" cx="470" cy="112" r="30" fill="#c2687a" /><text data-hf-id="hf-4ird" x="470" y="123" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#0b0e14">3</text></g>
+          </svg>
+        </div>
+        <div data-hf-id="hf-en3w" id="points">
+          <div data-hf-id="hf-tttt" class="point" id="p1"><span data-hf-id="hf-e3y0" class="n">1</span><span data-hf-id="hf-0737" class="t" data-var-text="t1">Çəki dabanda deyil, pəncədə.</span></div>
+          <div data-hf-id="hf-xrxu" class="point" id="p2"><span data-hf-id="hf-cx0x" class="n">2</span><span data-hf-id="hf-rj2a" class="t" data-var-text="t2">Əllər bədənin qarşısında, yanlarda yox.</span></div>
+          <div data-hf-id="hf-1q1v" class="point" id="p3"><span data-hf-id="hf-dbby" class="n">3</span><span data-hf-id="hf-d6w8" class="t" data-var-text="t3">Gözlər topun səviyyəsində.</span></div>
+        </div>
+      </section>
+
+      <!-- scene 3: closing line -->
+      <section data-hf-id="hf-3k6w" id="s3" class="clip" data-start="16.6" data-duration="4.4" data-track-index="3">
+        <blockquote data-hf-id="hf-uuja" id="s3-quote" data-var-text="quote">Duruş rahat olmalıdır — sən bu vəziyyətdə saniyələrlə deyil, dəqiqələrlə dayanacaqsan.</blockquote>
+      </section>
+    </div>
+
+    <script>
+      // ---- figure geometry (side view, facing right) --------------------------
+      // Two poses: standing upright, and the basic stance — feet under the body,
+      // knees bent, weight forward on the balls of the feet, torso leaning a
+      // little forward, hands in front at waist height, eyes level with the ball.
+      const UP = {
+        hip: [300, 380], shoulder: [300, 190], head: [302, 112],
+        kneeF: [305, 540], ankleF: [305, 688], heelF: [290, 700], toeF: [362, 700],
+        kneeB: [286, 540], ankleB: [281, 688], heelB: [266, 700], toeB: [336, 700],
+        elbowF: [306, 300], handF: [312, 402], elbowB: [292, 300], handB: [290, 402],
+      };
+      const STANCE = {
+        hip: [270, 440], shoulder: [326, 252], head: [360, 178],
+        kneeF: [352, 560], ankleF: [322, 686], heelF: [304, 690], toeF: [380, 702],
+        kneeB: [322, 566], ankleB: [252, 686], heelB: [234, 690], toeB: [310, 702],
+        elbowF: [398, 334], handF: [472, 350], elbowB: [382, 346], handB: [452, 366],
+      };
+      const SEGS = [
+        ['torso', 'hip', 'shoulder'],
+        ['thighF', 'hip', 'kneeF'], ['shinF', 'kneeF', 'ankleF'], ['footF', 'heelF', 'toeF'],
+        ['thighB', 'hip', 'kneeB'], ['shinB', 'kneeB', 'ankleB'], ['footB', 'heelB', 'toeB'],
+        ['uarmF', 'shoulder', 'elbowF'], ['farmF', 'elbowF', 'handF'],
+        ['uarmB', 'shoulder', 'elbowB'], ['farmB', 'elbowB', 'handB'],
+      ];
+      const lineAttr = (P, a, b) => ({ x1: P[a][0], y1: P[a][1], x2: P[b][0], y2: P[b][1] });
+
+      // Static start state, written once at setup (not a tween).
+      for (const [id, a, b] of SEGS) {
+        const el = document.getElementById(id);
+        for (const [k, v] of Object.entries(lineAttr(UP, a, b))) el.setAttribute(k, v);
+      }
+      const head = document.getElementById('head');
+      head.setAttribute('cx', UP.head[0]);
+      head.setAttribute('cy', UP.head[1]);
+
+      // Brand hatch under the ground line.
+      const hatch = document.getElementById('hatch');
+      for (let x = 20; x < 680; x += 22) {
+        const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        l.setAttribute('x1', x); l.setAttribute('y1', 740);
+        l.setAttribute('x2', x + 36); l.setAttribute('y2', 704);
+        hatch.appendChild(l);
+      }
+
+      // ---- timeline ----------------------------------------------------------
+      const D = 21;
+      const tl = gsap.timeline({ paused: true });
+
+      // Frame
+      tl.fromTo('#topbar', { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.1);
+      tl.fromTo('#progress', { scaleX: 0 }, { scaleX: 1, duration: D - 0.2, ease: 'none' }, 0);
+      tl.fromTo('#ghost', { opacity: 0, rotation: -8 }, { opacity: 1, rotation: 6, duration: D, ease: 'none' }, 0);
+
+      // Scene 1 — title
+      tl.fromTo('#s1-title', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 0.3);
+      tl.fromTo('#s1-rule', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.inOut' }, 0.75);
+      tl.fromTo('#s1-caption', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }, 1.0);
+      tl.to('#s1-inner', { opacity: 0, y: -30, duration: 0.45, ease: 'power2.in' }, 4.05);
+
+      // Scene 2 — figure
+      tl.fromTo('#s2-label', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 4.3);
+      tl.fromTo('#figure-wrap', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 4.3);
+      tl.set(['#m1', '#m2', '#m3', '#ball', '#sight'], { opacity: 0 }, 0);
+      tl.set(['#p1', '#p2', '#p3'], { opacity: 0 }, 0);
+
+      // Upright → stance.
+      const SETTLE = 5.2;
+      for (const [id, a, b] of SEGS) {
+        tl.to('#' + id, { attr: lineAttr(STANCE, a, b), duration: 1.5, ease: 'power2.inOut' }, SETTLE);
+      }
+      tl.to('#head', { attr: { cx: STANCE.head[0], cy: STANCE.head[1] }, duration: 1.5, ease: 'power2.inOut' }, SETTLE);
+
+      // Takeaways, each with its marker on the body.
+      const beat = (i, at) => {
+        tl.fromTo('#p' + i, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, at);
+        tl.fromTo('#m' + i, { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' },
+          { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, at + 0.1);
+      };
+      beat(1, 7.0);
+      beat(2, 9.7);
+      tl.fromTo('#ball', { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 12.2);
+      tl.fromTo('#sight', { opacity: 0, attr: { x2: 385 } }, { opacity: 1, attr: { x2: 556 }, duration: 0.8, ease: 'power2.out' }, 12.6);
+      beat(3, 12.5);
+      tl.to(['#figure-wrap', '#points', '#s2-label'], { opacity: 0, duration: 0.45, ease: 'power2.in' }, 16.3);
+
+      // Scene 3 — closing line
+      tl.fromTo('#s3-quote', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 16.8);
+
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

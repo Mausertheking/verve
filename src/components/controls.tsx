@@ -1,5 +1,6 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
+import { PressableScale } from '@/motion';
 import { colors, radius, space, type, MIN_TAP } from '@/theme';
 
 /**
@@ -15,7 +16,7 @@ export function Button({
   disabled?: boolean;
 }) {
   return (
-    <Pressable
+    <PressableScale
       onPress={onPress}
       disabled={disabled}
       accessibilityRole="button"
@@ -37,7 +38,7 @@ export function Button({
       >
         {label}
       </Text>
-    </Pressable>
+    </PressableScale>
   );
 }
 
@@ -50,7 +51,7 @@ export function Chip({
   onPress: () => void;
 }) {
   return (
-    <Pressable
+    <PressableScale
       onPress={onPress}
       accessibilityRole="checkbox"
       accessibilityLabel={label}
@@ -62,7 +63,7 @@ export function Chip({
       ]}
     >
       <Text style={[styles.chipLabel, selected && styles.chipLabelOn]}>{label}</Text>
-    </Pressable>
+    </PressableScale>
   );
 }
 
@@ -88,13 +89,14 @@ export function SearchInput({
   );
 }
 
-/** Numbered list used for takeaways and drill steps. */
+/**
+ * Numbered list used for takeaways and drill steps. Serif numerals in the
+ * accent, set in their own column — the way a well-made textbook does it.
+ */
 export function NumberedItem({ n, children }: { n: number; children: React.ReactNode }) {
   return (
     <View style={styles.numbered}>
-      <View style={styles.numberBadge}>
-        <Text style={styles.numberText}>{n}</Text>
-      </View>
+      <Text style={styles.numberText}>{n}</Text>
       <View style={styles.numberedBody}>{children}</View>
     </View>
   );
@@ -150,16 +152,20 @@ const styles = StyleSheet.create({
     minHeight: MIN_TAP,
   },
 
-  numbered: { flexDirection: 'row', gap: space.sm + 2, marginBottom: space.md - 1 },
-  numberBadge: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 3,
+  numbered: {
+    flexDirection: 'row',
+    gap: space.md,
+    paddingVertical: space.sm + 2,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
   },
-  numberText: { fontSize: 11, fontWeight: '700', color: colors.onAccent },
+  numberText: {
+    ...type.headline,
+    fontSize: 22,
+    lineHeight: 24,
+    color: colors.accent,
+    width: 22,
+    textAlign: 'center',
+  },
   numberedBody: { flex: 1 },
 });

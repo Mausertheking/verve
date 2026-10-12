@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Svg, { Circle, G, Line, Polygon, Rect, Text as SvgText } from 'react-native-svg';
+import Svg, { Circle, ClipPath, Defs, G, Line, Polygon, Rect, Text as SvgText } from 'react-native-svg';
 
 import { colors, radius, space, type } from '@/theme';
 import { pick } from '@/i18n';
 import type {
-  DiagramMarker, DiagramPath, PitchDiagramData, PitchView, Point, Locale,
+  DiagramLine, DiagramMarker, DiagramPath, DiagramZone, PitchDiagramData, PitchView, Point, Locale,
 } from '@/types/content';
 
 /**
@@ -15,12 +15,12 @@ import type {
  * Coordinate space is x 0–100, y 0–65, matching a real pitch's proportions.
  */
 
-const VB_W = 100;
-const VB_H = 65;
-const LINE = '#2A3242';
-const GRASS = '#0F141C';
+export const VB_W = 100;
+export const VB_H = 65;
+export const LINE = '#2A3242';
+export const GRASS = '#0F141C';
 
-function PitchLines({ view }: { view: PitchView }) {
+export function PitchLines({ view }: { view: PitchView }) {
   const common = { fill: 'none', stroke: LINE, strokeWidth: 1 } as const;
   switch (view) {
     case 'full':
@@ -66,10 +66,67 @@ function PitchLines({ view }: { view: PitchView }) {
   }
 }
 
-function Marker({ marker }: { marker: DiagramMarker }) {
-  const { x, y, kind, label } = marker;
+/**
+ * Zones and walls. A wall is a solid rebound surface for solo drills — a
+ * hatched bar in the secondary text colour, so it reads as "hard surface"
+ * rather than "area of the pitch".
+ */
+export function Zone({ zone, id }: { zone: DiagramZone; id: string }) {
+  if (zone.kind === 'wall') {
+    const lines = [];
+    for (let x = zone.x - zone.h; x < zone.x + zone.w; x += 1.6) {
+      lines.push(
+        <Line
+          key={x} x1={x} y1={zone.y + zone.h} x2={x + zone.h} y2={zone.y}
+          stroke={colors.textSecondary} strokeWidth={0.35}
+        />,
+      );
+    }
+    return (
+      <G>
+        <Defs>
+          <ClipPath id={id}>
+            <Rect x={zone.x} y={zone.y} width={zone.w} height={zone.h} />
+          </ClipPath>
+        </Defs>
+        <G clipPath={`url(#${id})`}>{lines}</G>
+        <Rect
+          x={zone.x} y={zone.y} width={zone.w} height={zone.h}
+          fill="none" stroke={colors.textSecondary} strokeWidth={0.6}
+        />
+      </G>
+    );
+  }
+  return (
+    <Rect
+      x={zone.x} y={zone.y} width={zone.w} height={zone.h}
+      fill={colors.accent} fillOpacity={zone.kind === 'danger' ? 0.22 : 0.14}
+      stroke={colors.accent} strokeWidth={0.7}
+      strokeDasharray={zone.kind === 'space' ? '2 1.6' : undefined}
+    />
+  );
+}
 
-  if (kind === 'ball') return <Circle cx={x} cy={y} r={1.9} fill={colors.textPrimary} />;
+/** A vertical reference line, e.g. the offside line. */
+export function RefLine({ line, locale }: { line: DiagramLine; locale: Locale }) {
+  return (
+    <G>
+      <Line
+        x1={line.x} y1={3} x2={line.x} y2={62}
+        stroke={colors.accent} strokeWidth={0.9} strokeDasharray="3 2.4"
+      />
+      {line.label ? (
+        <SvgText x={line.x + 2.5} y={8} fontSize={3.2} fill={colors.accent}>
+          {pick(line.label, locale)}
+        </SvgText>
+      ) : null}
+    </G>
+  );
+}
+
+/** Things that never move: cones and targets. */
+export function Fixture({ marker }: { marker: DiagramMarker }) {
+  const { x, y, kind } = marker;
   if (kind === 'cone') {
     return (
       <Polygon
@@ -78,6 +135,20 @@ function Marker({ marker }: { marker: DiagramMarker }) {
       />
     );
   }
+  // target
+  return (
+    <G>
+      <Circle cx={x} cy={y} r={3.4} fill="none" stroke={colors.accent} strokeWidth={0.8} />
+      <Circle cx={x} cy={y} r={1.1} fill={colors.accent} />
+    </G>
+  );
+}
+
+function Marker({ marker }: { marker: DiagramMarker }) {
+  const { x, y, kind, label } = marker;
+
+  if (kind === 'ball') return <Circle cx={x} cy={y} r={1.9} fill={colors.textPrimary} />;
+  if (kind === 'cone' || kind === 'target') return <Fixture marker={marker} />;
 
   const fill =
     kind === 'keeper' ? colors.textPrimary : kind === 'opponent' ? 'none' : colors.accent;
@@ -92,7 +163,7 @@ function Marker({ marker }: { marker: DiagramMarker }) {
       {label ? (
         <SvgText
           x={x} y={y + 1.4} fontSize={3.2} textAnchor="middle"
-          fill={colors.onAccent} fontWeight="700"
+          fill={kind === 'keeper' ? colors.bg : colors.onAccent} fontWeight="700"
         >
           {label}
         </SvgText>
@@ -146,27 +217,11 @@ function PitchDiagramBase({ data, locale }: Props) {
           <PitchLines view={data.view} />
 
           {data.zones?.map((z, i) => (
-            <G key={`zone-${i}`}>
-              <Rect
-                x={z.x} y={z.y} width={z.w} height={z.h}
-                fill={colors.accent} fillOpacity={0.14}
-                stroke={colors.accent} strokeWidth={0.7}
-              />
-            </G>
+            <Zone key={`zone-${i}`} zone={z} id={`static-wall-${i}`} />
           ))}
 
           {data.lines?.map((l, i) => (
-            <G key={`line-${i}`}>
-              <Line
-                x1={l.x} y1={3} x2={l.x} y2={62}
-                stroke={colors.accent} strokeWidth={0.9} strokeDasharray="3 2.4"
-              />
-              {l.label ? (
-                <SvgText x={l.x + 2.5} y={8} fontSize={3.2} fill={colors.accent}>
-                  {pick(l.label, locale)}
-                </SvgText>
-              ) : null}
-            </G>
+            <RefLine key={`line-${i}`} line={l} locale={locale} />
           ))}
 
           {data.paths?.map((p, i) => (

@@ -1,4 +1,4 @@
-import { Text, StyleSheet, type TextStyle } from 'react-native';
+import { Text, StyleSheet, type StyleProp, type TextStyle } from 'react-native';
 
 import { colors, type } from '@/theme';
 import { termById } from '@/content';
@@ -19,7 +19,7 @@ const MARKUP = /\[\[([a-z0-9-]+)\|([^\]]+)\]\]/gi;
 interface Props {
   children: string;
   onPressTerm: (termId: string) => void;
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
 }
 
 export function RichText({ children, onPressTerm, style }: Props) {

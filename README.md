@@ -26,13 +26,14 @@ Two things worth knowing before you judge it:
 
 | Section | Azerbaijani | State |
 | --- | --- | --- |
-| Learn | Öyrən | Three tracks → lesson, with video slot, diagram, takeaways |
-| Train | Məşq | 12 drills, all five filters working, drill detail |
+| Learn | Öyrən | Three tracks → lesson, with explainer, diagram, takeaways |
+| Train | Məşq | 12 drills, all five filters working, drill detail with explainer |
 | Quiz | Test | Goalkeeper quiz scores and explains wrong answers |
 | Find a team | Komanda tap | Empty by policy, with a visible empty state |
 | Glossary | Lüğət | 19 terms, searchable in all three languages |
 
-Progress is saved on the device. Tapping a **highlighted term** inside a lesson
+Language switches between AZ · RU · EN from the Learn screen and is remembered
+on the device. Progress is saved on the device. Tapping a **highlighted term** inside a lesson
 opens its glossary entry without losing your place.
 
 The rules and positions quizzes are deliberately locked — their questions get
@@ -91,15 +92,36 @@ a three-language mapping and splitting it across locale files would mean editing
 three files to fix one sentence. `ru` and `en` may be empty and fall back to
 Azerbaijani.
 
+## Explainers and motion
+
+Every lesson and drill with a diagram has an **animated explainer** in its 16:9
+slot: the diagram plays step by step — players run their lines, the ball
+travels, each step is captioned. Tap a segment to replay one step, or switch to
+half speed. Nothing autoplays.
+
+Three body-technique lessons (stance, catching, the goalkeeper's role) also
+have **rendered motion-graphic videos**, built from the lesson text by
+[`explainers/`](explainers/) with HyperFrames:
+
+```bash
+node explainers/build.mjs
+```
+
+A language is rendered only where the lesson has that text; otherwise the app
+falls back to the Azerbaijani video. Never machine-translated.
+
+In-app motion uses Reanimated, lives in `src/motion`, and follows the system
+**Reduce Motion** setting everywhere — explainers become step-by-step stills.
+
 ## Videos
 
 Videos are filmed separately and dropped into `/assets/videos` as local files
 named after their content id (`gk-catching-01.mp4`). Nothing is streamed,
 uploaded, or fetched from a URL.
 
-The 16:9 slot is reserved **now**, and is byte-identical whether or not a file
-exists — measured, not assumed — so nothing on screen shifts when footage
-lands. `VideoSlot.tsx` has a single flag marking the one line to change.
+The 16:9 slot is the same box whatever fills it — footage, a rendered
+explainer, the animated diagram, or a flat placeholder — so nothing on screen
+shifts when footage lands. Register a file in `src/content/videos.ts`.
 
 ## Content status
 
@@ -127,5 +149,5 @@ minors and the app is built accordingly. See [SECURITY.md](SECURITY.md).
 ## Contributing
 
 Project constraints live in [CLAUDE.md](CLAUDE.md) — read it before changing
-anything. The short version: no backend, no network, no animations, no purple,
-no glow, no secrets, no invented football facts.
+anything. The short version: no backend, no network, motion only where it
+teaches, no purple, no glow, no secrets, no invented football facts.

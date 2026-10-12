@@ -3,7 +3,9 @@ import type { ColorValue } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Svg, { Circle, Polygon, Rect } from 'react-native-svg';
 
-import { colors } from '@/theme';
+import { useReducedMotion } from 'react-native-reanimated';
+
+import { colors, serif } from '@/theme';
 
 /**
  * Simple geometric tab icons — no icon font, nothing downloaded.
@@ -22,15 +24,18 @@ function TabIcon({ shape, color }: { shape: 'learn' | 'train' | 'teams' | 'gloss
 
 export default function TabsLayout() {
   const { t } = useTranslation();
+  const reduced = useReducedMotion();
 
   return (
     <Tabs
       screenOptions={{
-        animation: 'none',
+        animation: reduced ? 'none' : 'fade',
+        // Each tab opens with its own editorial hero, so the bar title would repeat it.
+        headerShown: false,
         sceneStyle: { backgroundColor: colors.bg },
         headerStyle: { backgroundColor: colors.bg },
         headerTintColor: colors.textPrimary,
-        headerTitleStyle: { color: colors.textPrimary, fontSize: 17, fontWeight: '600' },
+        headerTitleStyle: { color: colors.textPrimary, fontSize: 17, fontFamily: serif },
         headerShadowVisible: false,
         tabBarStyle: {
           backgroundColor: colors.bg,
@@ -39,7 +44,7 @@ export default function TabsLayout() {
         },
         tabBarActiveTintColor: colors.accent,
         tabBarInactiveTintColor: colors.textSecondary,
-        tabBarLabelStyle: { fontSize: 11 },
+        tabBarLabelStyle: { fontSize: 11, letterSpacing: 0.4 },
       }}
     >
       <Tabs.Screen

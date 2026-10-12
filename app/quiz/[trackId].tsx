@@ -1,17 +1,74 @@
 import { router, Stack, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/controls';
 import { Card, Meter, Screen, SectionLabel } from '@/components/ui';
 import { lessonById, quizForTrack, trackById } from '@/content';
 import { pick } from '@/i18n';
+import { CountUp, Reveal, usePop, useShake } from '@/motion';
 import { useProgress } from '@/storage/progress';
-import { colors, radius, space, type } from '@/theme';
+import { colors, radius, serif, space, type } from '@/theme';
 import type { Locale, TrackId } from '@/types/content';
 
 const KEYS = ['A', 'B', 'C', 'D'];
+
+/**
+ * One answer. Feedback is motion as well as colour: the wrong pick gives a
+ * short shake, the right answer settles with a small pop — so the result reads
+ * even for someone who can't tell the two border colours apart.
+ */
+function Option({
+  letter, label, answered, isCorrect, isPicked, onPress,
+}: {
+  letter: string;
+  label: string;
+  answered: boolean;
+  isCorrect: boolean;
+  isPicked: boolean;
+  onPress: () => void;
+}) {
+  const { style: shakeStyle, shake } = useShake();
+  const { style: popStyle, pop } = usePop();
+
+  useEffect(() => {
+    if (!answered) return;
+    if (isPicked && !isCorrect) shake();
+    if (isCorrect) pop();
+    // Only on the moment of answering.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered]);
+
+  const wrong = answered && isPicked && !isCorrect;
+  const right = answered && isCorrect;
+
+  return (
+    <Animated.View style={[shakeStyle, popStyle]}>
+      <Pressable
+        disabled={answered}
+        accessibilityRole="button"
+        accessibilityLabel={label}
+        onPress={onPress}
+        style={({ pressed }) => [
+          styles.option,
+          pressed && styles.optionPressed,
+          wrong && styles.optionWrong,
+          right && styles.optionRight,
+          answered && !wrong && !right && styles.optionDim,
+        ]}
+      >
+        <View style={[styles.key, wrong && styles.keyWrong, right && styles.keyRight]}>
+          <Text style={[styles.keyText, (wrong || right) && styles.keyTextOn]}>
+            {right ? '✓' : wrong ? '✕' : letter}
+          </Text>
+        </View>
+        <Text style={styles.optionText}>{label}</Text>
+      </Pressable>
+    </Animated.View>
+  );
+}
 
 export default function QuizScreen() {
   const { trackId } = useLocalSearchParams<{ trackId: string }>();
@@ -56,12 +113,21 @@ export default function QuizScreen() {
       <>
         <Stack.Screen options={{ title: t('results') }} />
         <Screen>
-          <Card accessibilityLabel={`${t('score')} ${score} / ${total}`}>
-            <View style={styles.resultBox}>
-              <Text style={styles.resultScore}>{`${score}/${total}`}</Text>
-              <Text style={styles.resultPct}>{`${Math.round((score / total) * 100)}%`}</Text>
+          <Reveal>
+            <View style={styles.resultBox} accessible accessibilityLabel={`${t('score')} ${score} / ${total}`}>
+              <Text style={styles.resultKicker}>{t('resultTitle').toUpperCase()}</Text>
+              <View style={styles.resultRow}>
+                <CountUp to={score} style={styles.resultScore} duration={700} />
+                <Text style={styles.resultTotal}>{`/${total}`}</Text>
+              </View>
+              <Meter percent={(score / total) * 100} />
+              <CountUp
+                to={Math.round((score / total) * 100)}
+                style={styles.resultPct}
+                format={(n) => `${n}%`}
+              />
             </View>
-          </Card>
+          </Reveal>
           <Button label={t('retry')} onPress={restart} />
           <Button
             label={track ? pick(track.title, locale) : t('learn')}
@@ -82,53 +148,35 @@ export default function QuizScreen() {
       />
       <Screen>
         <Meter percent={(index / total) * 100} />
-        <Text style={styles.prompt}>{pick(question.prompt, locale)}</Text>
+        <Reveal key={question.id}>
+          <Text style={styles.qNo}>{`${String(index + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`}</Text>
+          <Text style={styles.prompt}>{pick(question.prompt, locale)}</Text>
+        </Reveal>
 
-        {question.options.map((option, i) => {
-          const isCorrect = option.id === question.correctOptionId;
-          const isPicked = option.id === picked;
-          return (
-            <Pressable
-              key={option.id}
-              disabled={answered}
-              accessibilityRole="button"
-              accessibilityLabel={pick(option.text, locale)}
+        {question.options.map((option, i) => (
+          <Reveal key={`${question.id}-${option.id}`} index={i + 1}>
+            <Option
+              letter={KEYS[i] ?? ''}
+              label={pick(option.text, locale)}
+              answered={answered}
+              isCorrect={option.id === question.correctOptionId}
+              isPicked={option.id === picked}
               onPress={() => {
                 setPicked(option.id);
-                if (isCorrect) setScore(score + 1);
+                if (option.id === question.correctOptionId) setScore(score + 1);
               }}
-              style={[
-                styles.option,
-                answered && isPicked && !isCorrect && styles.optionWrong,
-                answered && isCorrect && styles.optionRight,
-              ]}
-            >
-              <View
-                style={[
-                  styles.key,
-                  answered && isPicked && !isCorrect && styles.keyWrong,
-                  answered && isCorrect && styles.keyRight,
-                ]}
-              >
-                <Text
-                  style={[
-                    styles.keyText,
-                    answered && (isCorrect || isPicked) && styles.keyTextOn,
-                  ]}
-                >
-                  {KEYS[i]}
-                </Text>
-              </View>
-              <Text style={styles.optionText}>{pick(option.text, locale)}</Text>
-            </Pressable>
-          );
-        })}
+            />
+          </Reveal>
+        ))}
 
         {/* The explanation always shows once answered — a question is never
             passed over without saying why the answer is what it is. */}
         {answered ? (
-          <>
+          <Reveal>
             <View style={styles.explanation}>
+              <Text style={styles.verdict}>
+                {picked === question.correctOptionId ? t('correct') : t('notQuite')}
+              </Text>
               <Text style={styles.explanationText}>{pick(question.explanation, locale)}</Text>
             </View>
 
@@ -145,7 +193,7 @@ export default function QuizScreen() {
             ) : null}
 
             <Button label={index + 1 < total ? t('next') : t('results')} onPress={advance} />
-          </>
+          </Reveal>
         ) : null}
       </Screen>
     </>
@@ -153,12 +201,12 @@ export default function QuizScreen() {
 }
 
 const styles = StyleSheet.create({
+  qNo: { fontFamily: serif, fontStyle: 'italic', fontSize: 14, color: colors.accent, marginTop: space.xl },
   prompt: {
-    ...type.body,
-    fontSize: 17,
+    ...type.headline,
     color: colors.textPrimary,
-    marginTop: space.lg,
-    marginBottom: space.lg,
+    marginTop: space.sm,
+    marginBottom: space.xl,
   },
   option: {
     flexDirection: 'row',
@@ -171,8 +219,10 @@ const styles = StyleSheet.create({
     padding: 13,
     marginBottom: space.sm + 1,
   },
+  optionPressed: { backgroundColor: colors.surfaceRaised },
   optionWrong: { borderColor: colors.accent },
-  optionRight: { borderColor: colors.textPrimary },
+  optionRight: { borderColor: colors.textPrimary, backgroundColor: colors.surfaceRaised },
+  optionDim: { opacity: 0.55 },
   key: {
     width: 22,
     height: 22,
@@ -195,10 +245,14 @@ const styles = StyleSheet.create({
     paddingVertical: space.sm + 2,
     marginBottom: space.md,
   },
+  verdict: { fontFamily: serif, fontSize: 18, color: colors.textPrimary, marginBottom: space.xs },
   explanationText: { ...type.small, color: colors.textSecondary },
   reviseTitle: { ...type.h2, fontSize: 14, color: colors.textPrimary },
 
-  resultBox: { alignItems: 'center', paddingVertical: space.xl },
-  resultScore: { fontSize: 44, fontWeight: '700', color: colors.accent },
-  resultPct: { ...type.label, color: colors.textSecondary, marginTop: space.sm },
+  resultBox: { paddingVertical: space.xl },
+  resultKicker: { ...type.overline, color: colors.accent },
+  resultRow: { flexDirection: 'row', alignItems: 'baseline', marginTop: space.md },
+  resultScore: { fontFamily: serif, fontSize: 88, lineHeight: 96, color: colors.textPrimary },
+  resultTotal: { fontFamily: serif, fontSize: 32, color: colors.textSecondary, marginLeft: 4 },
+  resultPct: { fontFamily: serif, fontStyle: 'italic', fontSize: 18, color: colors.accent, marginTop: space.md },
 });

@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 /**
  * The locked palette. Every pair here was contrast-checked before it went in —
  * see CLAUDE.md for the measured ratios. Do not add a colour without checking
@@ -38,6 +40,16 @@ export const radius = {
 } as const;
 
 /**
+ * System serif for editorial headings. Still a system font — nothing is
+ * downloaded: Georgia ships on iOS, Noto Serif is Android's `serif`.
+ */
+export const serif = Platform.select({
+  ios: 'Georgia',
+  android: 'serif',
+  default: 'Georgia, "Iowan Old Style", "Times New Roman", serif',
+});
+
+/**
  * System fonts only — nothing is downloaded at runtime.
  *
  * Sizes are deliberately generous: this is read outdoors, on a mid-range
@@ -45,15 +57,23 @@ export const radius = {
  * Russian run roughly 30% longer than English and must wrap, never clip.
  */
 export const type = {
+  /** Editorial display — screen heroes, quiz score. Serif, tight. */
+  display: { fontFamily: serif, fontSize: 30, fontWeight: '400', lineHeight: 37 },
+  /** Serif heading for cards and section openers. */
+  headline: { fontFamily: serif, fontSize: 21, fontWeight: '400', lineHeight: 28 },
   title: { fontSize: 17, fontWeight: '600', lineHeight: 22 },
   h2: { fontSize: 15, fontWeight: '600', lineHeight: 20 },
   body: { fontSize: 15, fontWeight: '400', lineHeight: 25 },
   label: { fontSize: 14, fontWeight: '400', lineHeight: 21 },
   small: { fontSize: 13, fontWeight: '400', lineHeight: 20 },
   caption: { fontSize: 12, fontWeight: '400', lineHeight: 17 },
-  overline: { fontSize: 11, fontWeight: '600', lineHeight: 15, letterSpacing: 0.7 },
+  overline: { fontSize: 11, fontWeight: '600', lineHeight: 15, letterSpacing: 1.6 },
+  /** Small numerals beside section labels: "01", "02". */
+  folio: { fontFamily: serif, fontSize: 13, fontWeight: '400', lineHeight: 17, fontStyle: 'italic' },
 } as const;
 
 /** Minimum tap target. The app is used one-handed, sometimes with cold hands. */
 export const HIT_SLOP = { top: 8, bottom: 8, left: 8, right: 8 } as const;
 export const MIN_TAP = 44;
+
+export { motion } from './motion';
