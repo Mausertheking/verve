@@ -51,8 +51,7 @@
       "expo-video"
     ],
     "experiments": {
-      "typedRoutes": true,
-      "baseUrl": "/verve"
+      "typedRoutes": true
     },
     "extra": {
       "router": {},

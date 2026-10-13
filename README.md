@@ -151,6 +151,13 @@ and Russian, screenshots, privacy answers, review notes — is in
 npx eas-cli build --platform ios --profile production
 ```
 
+The web preview is exported with its GitHub Pages path set only for the web
+(`app.config.js`):
+
+```bash
+EXPO_WEB_BASE_URL=/verve npx expo export -p web
+```
+
 Store builds hide the internal "draft · reviewed" notes. To see them (review
 copy), build or export with `EXPO_PUBLIC_SHOW_REVIEW=1`.
 
