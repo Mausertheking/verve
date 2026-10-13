@@ -129,3 +129,6 @@ explainers/*/snapshots/
 explainers/*/.hyperframes/
 explainers/.work/
 explainers/*/.thumbnails/
+
+# Launch-video project and render (local only)
+/brag-output/
