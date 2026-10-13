@@ -33,6 +33,10 @@ export default function RootLayout() {
         >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen
+            name="about"
+            options={{ presentation: 'modal', animation: reduced ? 'none' : 'slide_from_bottom' }}
+          />
+          <Stack.Screen
             name="term/[id]"
             options={{ presentation: 'modal', animation: reduced ? 'none' : 'slide_from_bottom' }}
           />

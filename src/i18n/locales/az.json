@@ -103,5 +103,20 @@
   "notQuite": "Tam deyil",
   "videoLabel": "Video",
   "source": "Mənbə",
-  "whyDrill": "Bu məşq nə üçündür"
+  "whyDrill": "Bu məşq nə üçündür",
+  "findTeamIntroLabel": "Komandaya necə qoşulmaq",
+  "practiseCta": "Məşqləri aç",
+  "about": "Haqqında",
+  "aboutTitle": "Verve haqqında",
+  "aboutLead": "Verve Azərbaycanda qızlara və qadınlara futbolu sıfırdan öyrədir — qaydalar, mövqelər, qapıçılıq və məşqlər — azərbaycan, rus və ingilis dillərində.",
+  "privacyTitle": "Məxfilik",
+  "privacyBody": "Verve heç bir şəxsi məlumat toplamır. Hesab, izləmə, reklam və internet bağlantısı yoxdur. İrəliləyişin və seçdiyin dil yalnız bu telefonda saxlanılır və tətbiqi siləndə silinir.",
+  "sourcesTitle": "Qaydalar haradan götürülüb",
+  "sourcesBody": "Qaydalar dərsləri futbolun rəsmi qaydaları olan IFAB Laws of the Game 2026/27 əsasında sadə dillə yazılıb. Hər dərsdə hansı qaydanı izah etdiyi göstərilir.",
+  "supportTitle": "Kömək və rəy",
+  "supportBody": "Sualın var və ya səhv tapmısan? github.com/Mausertheking/verve ünvanına keç və issue yarat.",
+  "versionLabel": "Versiya",
+  "resetProgress": "İrəliləyişi sıfırla",
+  "resetConfirm": "Sıfırlamaq üçün yenə toxun",
+  "resetDone": "İrəliləyiş sıfırlandı"
 }

@@ -1,0 +1,140 @@
+{
+  "reviewed": false,
+  "intro": {
+    "az": "Komandaya qoşulmaq düşündüyündən asandır. Burada harada axtarmaq, nə soruşmaq və ilk məşqə nə götürmək lazım olduğu var.",
+    "ru": "Попасть в команду проще, чем кажется. Здесь — где искать, что спросить и что взять на первую тренировку.",
+    "en": "Joining a team is easier than it looks. Here is where to look, what to ask, and what to bring to your first training."
+  },
+  "sections": [
+    {
+      "id": "where",
+      "title": {
+        "az": "Harada axtarmaq",
+        "ru": "Где искать",
+        "en": "Where to look"
+      },
+      "items": [
+        {
+          "az": "Məktəbin — bədən tərbiyəsi müəllimindən soruş: məktəbdə futbol bölməsi varmı, yoxdursa, yaxınlıqda harada var.",
+          "ru": "Твоя школа — спроси учителя физкультуры: есть ли футбольная секция, а если нет — где рядом.",
+          "en": "Your school — ask your PE teacher whether there is a football group, and if not, where the nearest one is."
+        },
+        {
+          "az": "Rayonundakı uşaq-gənclər idman məktəbi — çoxunda futbol qrupları var, bəzilərində qızlar üçün ayrıca.",
+          "ru": "Детско-юношеская спортивная школа твоего района — во многих есть футбол, иногда отдельные группы для девочек.",
+          "en": "The youth sports school in your district — many run football groups, some especially for girls."
+        },
+        {
+          "az": "Futbol klublarının akademiyaları — qızlar qrupu olub-olmadığını soruş.",
+          "ru": "Академии футбольных клубов — спроси, есть ли группа для девочек.",
+          "en": "Football club academies — ask whether they have a girls’ group."
+        },
+        {
+          "az": "AFFA (Azərbaycan Futbol Federasiyaları Assosiasiyası) qadın futbolu ilə də məşğuldur — yaxınlıqdakı qızlar komandalarını soruşmaq olar.",
+          "ru": "АФФА (Ассоциация футбольных федераций Азербайджана) занимается и женским футболом — можно спросить о командах для девочек рядом с тобой.",
+          "en": "AFFA, Azerbaijan’s football association, also runs women’s football — you can ask about girls’ teams near you."
+        },
+        {
+          "az": "Dostların — həyətdə və ya futzal meydançasında oyun təşkil edin. Hər komanda belə başlayır.",
+          "ru": "Подруги — соберите игру во дворе или на мини-футбольной площадке. Так начинается любая команда.",
+          "en": "Your friends — get a game going in the yard or on a futsal court. Every team starts like that."
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "title": {
+        "az": "Nə soruşmaq",
+        "ru": "Что спросить",
+        "en": "What to ask"
+      },
+      "items": [
+        {
+          "az": "Mənim yaşımda qızlar qrupu və ya qarışıq qrup varmı?",
+          "ru": "Есть ли группа девочек или смешанная группа моего возраста?",
+          "en": "Is there a girls’ or mixed group for my age?"
+        },
+        {
+          "az": "Məşqçi kimdir və məşqçi lisenziyası varmı?",
+          "ru": "Кто тренер и есть ли у него тренерская лицензия?",
+          "en": "Who is the coach, and do they hold a coaching licence?"
+        },
+        {
+          "az": "Məşqlər nə vaxt və harada olur?",
+          "ru": "Когда и где проходят тренировки?",
+          "en": "When and where are the trainings?"
+        },
+        {
+          "az": "Ödəniş varmı?",
+          "ru": "Есть ли плата?",
+          "en": "Is there a fee?"
+        },
+        {
+          "az": "Valideyn ilk məşqə baxa bilərmi?",
+          "ru": "Может ли родитель посмотреть первую тренировку?",
+          "en": "Can a parent watch the first training?"
+        }
+      ]
+    },
+    {
+      "id": "bring",
+      "title": {
+        "az": "İlk məşqə nə götürmək",
+        "ru": "Что взять на первую тренировку",
+        "en": "What to bring"
+      },
+      "items": [
+        {
+          "az": "Butsi və ya idman ayaqqabısı (süni ot üçün — kiçik dişli ayaqqabı).",
+          "ru": "Бутсы или кроссовки (для искусственного газона — сороконожки).",
+          "en": "Boots or trainers (on artificial grass, turf shoes)."
+        },
+        {
+          "az": "Qamaşaltı qoruyucular.",
+          "ru": "Щитки.",
+          "en": "Shin guards."
+        },
+        {
+          "az": "Su butulkası.",
+          "ru": "Бутылка воды.",
+          "en": "A water bottle."
+        },
+        {
+          "az": "Rahat idman geyimi və saç bağı.",
+          "ru": "Удобная спортивная одежда и резинка для волос.",
+          "en": "Comfortable sports clothes and a hair tie."
+        }
+      ]
+    },
+    {
+      "id": "safe",
+      "title": {
+        "az": "Təhlükəsiz qal",
+        "ru": "Безопасность",
+        "en": "Stay safe"
+      },
+      "items": [
+        {
+          "az": "İlk dəfə valideyn və ya böyük biri ilə get.",
+          "ru": "В первый раз иди с родителем или кем-то из взрослых.",
+          "en": "Go with a parent or an adult you trust the first time."
+        },
+        {
+          "az": "Məşqlər açıq yerdə, başqa oyunçularla birlikdə keçirilir.",
+          "ru": "Тренировки проходят в открытом месте, вместе с другими игроками.",
+          "en": "Trainings happen in open places, with other players around."
+        },
+        {
+          "az": "Əsl klub sosial şəbəkədə səndən pul və ya şəkil istəmir. Belə mesajı valideyninə göstər.",
+          "ru": "Настоящий клуб не просит в соцсетях деньги или фотографии. Покажи такое сообщение родителям.",
+          "en": "A real club never asks for money or photos through social media. Show any message like that to a parent."
+        }
+      ]
+    }
+  ],
+  "practise": {
+    "az": "Komandanı tapana qədər — evdə və həyətdə məşq et.",
+    "ru": "Пока ищешь команду — тренируйся дома и во дворе.",
+    "en": "Until you find a team — practise at home and in the yard."
+  }
+}

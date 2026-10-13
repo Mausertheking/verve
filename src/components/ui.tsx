@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { SHOW_REVIEW_STATUS } from '@/config';
 import { PressableScale, Reveal, useMeterFill } from '@/motion';
 import { colors, radius, space, type, MIN_TAP } from '@/theme';
 
@@ -125,9 +126,11 @@ export function EmptyState({ title, body }: { title: string; body: string }) {
 
 /**
  * Marks unfinished or unreviewed content in the UI itself, so the state is
- * visible while using the app rather than only in the JSON.
+ * visible while using the app rather than only in the JSON. Shown only in
+ * review builds (see src/config.ts) — never in the store build.
  */
 export function StatusNote({ kind, children }: { kind: 'todo' | 'draft'; children: ReactNode }) {
+  if (!SHOW_REVIEW_STATUS) return null;
   return (
     <View style={styles.statusNote}>
       <View style={[styles.badge, kind === 'draft' && styles.badgeDraft]}>

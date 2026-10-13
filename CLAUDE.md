@@ -184,7 +184,10 @@ it; 32 px is the minimum size before the hatch stops resolving.
   ship as `status: "draft"`, `reviewed: false` until a licensed coach signs off.
   Re-check when IFAB publishes a new edition (each July).
 - Drill content and glossary entries MAY be drafted, but every content file is
-  marked `"reviewed": false` until a human signs off.
+  marked `"reviewed": false` until a human signs off. The in-app review notes
+  (`<StatusNote>`) show only when built with `EXPO_PUBLIC_SHOW_REVIEW=1`
+  (`src/config.ts`); store builds hide them. The `reviewed` flags in content
+  stay the source of truth.
 - **Do NOT generate fake clubs, fake contacts, or fake statistics.** Empty
   arrays plus a visible empty state.
 - Do not copy text from any website into content files.

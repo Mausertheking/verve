@@ -103,5 +103,20 @@
   "notQuite": "Not quite",
   "videoLabel": "Video",
   "source": "Source",
-  "whyDrill": "Why this drill"
+  "whyDrill": "Why this drill",
+  "findTeamIntroLabel": "How to join",
+  "practiseCta": "Open the drills",
+  "about": "About",
+  "aboutTitle": "About Verve",
+  "aboutLead": "Verve teaches girls and women in Azerbaijan to play football from zero — the rules, the positions, goalkeeping and drills — in Azerbaijani, Russian and English.",
+  "privacyTitle": "Privacy",
+  "privacyBody": "Verve collects no personal data. There is no account, no tracking, no ads and no internet connection. Your progress and language choice are stored only on this phone and are removed when you delete the app.",
+  "sourcesTitle": "Where the rules come from",
+  "sourcesBody": "The rules lessons are written in plain words from the IFAB Laws of the Game 2026/27, the official rules of football. Every rules lesson names the Law it explains.",
+  "supportTitle": "Help and feedback",
+  "supportBody": "Questions or a mistake to report? Visit github.com/Mausertheking/verve and open an issue.",
+  "versionLabel": "Version",
+  "resetProgress": "Reset my progress",
+  "resetConfirm": "Tap again to reset",
+  "resetDone": "Progress reset"
 }

@@ -141,6 +141,19 @@ Generated from geometry — no design-tool source, no raster master. See
 npm i -D @resvg/resvg-js && node scripts/build-brand.mjs
 ```
 
+## Publishing to the App Store
+
+Everything App Store Connect asks for — name, description, keywords in English
+and Russian, screenshots, privacy answers, review notes — is in
+[`store/APP_STORE.md`](store/APP_STORE.md). Builds use EAS (`eas.json`):
+
+```bash
+npx eas-cli build --platform ios --profile production
+```
+
+Store builds hide the internal "draft · reviewed" notes. To see them (review
+copy), build or export with `EXPO_PUBLIC_SHOW_REVIEW=1`.
+
 ## Privacy
 
 No login, no personal data, no permissions, no analytics, no network. Users are

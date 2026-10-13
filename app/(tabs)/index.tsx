@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { LanguageSwitch } from '@/components/LanguageSwitch';
@@ -41,7 +41,18 @@ export default function LearnScreen() {
         aside={
           <View style={styles.brandRow}>
             <VerveMark size={32} />
-            <LanguageSwitch />
+            <View style={styles.brandRight}>
+              <LanguageSwitch />
+              <Pressable
+                onPress={() => router.push('/about')}
+                accessibilityRole="button"
+                accessibilityLabel={t('about')}
+                hitSlop={10}
+                style={({ pressed }) => [styles.info, pressed && styles.infoPressed]}
+              >
+                <Text style={styles.infoText}>i</Text>
+              </Pressable>
+            </View>
           </View>
         }
       />
@@ -110,6 +121,13 @@ export default function LearnScreen() {
 
 const styles = StyleSheet.create({
   brandRow: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  brandRight: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
+  info: {
+    width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: colors.border,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  infoPressed: { backgroundColor: colors.surfaceRaised },
+  infoText: { fontFamily: serif, fontStyle: 'italic', fontSize: 17, color: colors.textSecondary },
 
   stats: {
     flexDirection: 'row',
