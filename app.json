@@ -53,6 +53,13 @@
     "experiments": {
       "typedRoutes": true,
       "baseUrl": "/verve"
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "cab75ad3-0561-46c2-9284-bb868fca72b9"
+      }
+    },
+    "owner": "mauser"
   }
 }
