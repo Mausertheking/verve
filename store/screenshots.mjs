@@ -17,6 +17,10 @@ const puppeteer = require(process.env.PUPPETEER_CORE ?? 'puppeteer-core');
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const BASE = process.env.BASE_URL ?? 'http://localhost:8087';
+// 6.9" (default): 440×956 pt → 1320×2868. 6.3": SIZE=6.3 → 402×874 pt → 1206×2622.
+const SIZE = process.env.SIZE ?? '6.9';
+const [SIZE_W, SIZE_H] = SIZE === '6.3' ? [402, 874] : [440, 956];
+const SUFFIX = SIZE === '6.3' ? '-6.3' : '';
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const progressFor = (locale) => JSON.stringify({
@@ -48,11 +52,11 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--hide-scrollbars'] });
 try {
   for (const locale of ['en', 'ru', 'az']) {
-    const out = join(HERE, 'screenshots', locale);
+    const out = join(HERE, 'screenshots', locale + SUFFIX);
     mkdirSync(out, { recursive: true });
     const page = await browser.newPage();
     await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
-    await page.setViewport({ width: 440, height: 956, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+    await page.setViewport({ width: SIZE_W, height: SIZE_H, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
     await page.goto(BASE, { waitUntil: 'networkidle0' });
     await page.evaluate((p) => localStorage.setItem('verve.progress.v1', p), progressFor(locale));
 
