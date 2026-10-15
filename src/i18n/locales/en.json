@@ -118,5 +118,6 @@
   "versionLabel": "Version",
   "resetProgress": "Reset my progress",
   "resetConfirm": "Tap again to reset",
-  "resetDone": "Progress reset"
+  "resetDone": "Progress reset",
+  "creditsTitle": "The team"
 }

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Nijat Shikhaliyev",
+    "role": {
+      "az": "Riyazi modelləşdirmə rəhbəri",
+      "ru": "Руководитель математического моделирования",
+      "en": "Mathematical Modeling Lead"
+    },
+    "about": {
+      "az": "Ötürmə bucaqlarının, oyunçu mövqelərinin və hərəkət trayektoriyalarının həndəsi modellərini hazırlayıb, real futbol taktikalarını qızlar üçün interaktiv öyrənmə tapşırıqlarına çevirib.",
+      "ru": "Геометрические модели углов передач, расположения игроков и траекторий движения, которые превращают реальную футбольную тактику в интерактивные учебные задания для девочек.",
+      "en": "Developed geometric models of passing angles, player positioning and movement trajectories to turn real football tactics into interactive learning challenges for girls."
+    }
+  },
+  {
+    "name": "Jamal Naghizade",
+    "role": {
+      "az": "Missiya və məhsul istiqaməti",
+      "ru": "Миссия и направление продукта",
+      "en": "Mission & Product Direction"
+    },
+    "about": {
+      "az": "Verve-nin feminist missiyasını və məhsul istiqamətini formalaşdırıb: funksiyalar, məzmun və vizual kimlik kişilər üçün olan məşqlərin uyğunlaşdırılması deyil, qadın oyunçuları təmsil edir.",
+      "ru": "Феминистская миссия Verve и направление продукта: функции, контент и визуальный стиль представляют футболисток, а не переделывают тренировки, созданные для мужчин.",
+      "en": "Shaped Verve’s feminist mission and product direction, making sure its features, content and visual identity represent female players rather than adapting male-oriented training."
+    }
+  },
+  {
+    "name": "Maksud Yusuf",
+    "role": {
+      "az": "Təsisçi və aparıcı tərtibatçı",
+      "ru": "Основатель и ведущий разработчик",
+      "en": "Founder & Lead Developer"
+    },
+    "about": {
+      "az": "Verve-ni yaradıb və başdan sona qurub: tətbiq, üç dildə dərslər və IFAB qaydalarına əsaslanan məzmun, hərəkət dizaynı və izah videoları — ilk prototipdən App Store-a qədər.",
+      "ru": "Создание Verve от начала до конца: приложение, уроки на трёх языках и контент по правилам IFAB, моушн-дизайн и обучающие видео — от первого прототипа до App Store.",
+      "en": "Founded Verve and built it end to end — the app, its three-language lessons and IFAB-based rules content, the motion design and explainer videos — from first prototype to the App Store."
+    }
+  }
+]

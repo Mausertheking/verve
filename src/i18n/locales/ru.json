@@ -118,5 +118,6 @@
   "versionLabel": "Версия",
   "resetProgress": "Сбросить прогресс",
   "resetConfirm": "Нажмите ещё раз для сброса",
-  "resetDone": "Прогресс сброшен"
+  "resetDone": "Прогресс сброшен",
+  "creditsTitle": "Команда"
 }

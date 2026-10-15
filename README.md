@@ -166,6 +166,12 @@ copy), build or export with `EXPO_PUBLIC_SHOW_REVIEW=1`.
 No login, no personal data, no permissions, no analytics, no network. Users are
 minors and the app is built accordingly. See [SECURITY.md](SECURITY.md).
 
+## Team
+
+- **Nijat Shikhaliyev** — Mathematical Modeling Lead. Developed geometric models of passing angles, player positioning and movement trajectories to turn real football tactics into interactive learning challenges for girls.
+- **Jamal Naghizade** — Mission & Product Direction. Shaped Verve's feminist mission and product direction, making sure its features, content and visual identity represent female players rather than adapting male-oriented training.
+- **Maksud Yusuf** — Founder & Lead Developer. Founded Verve and built it end to end — the app, its three-language lessons and IFAB-based rules content, the motion design and explainer videos — from first prototype to the App Store.
+
 ## Contributing
 
 Project constraints live in [CLAUDE.md](CLAUDE.md) — read it before changing
