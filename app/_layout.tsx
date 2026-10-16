@@ -29,6 +29,10 @@ export default function RootLayout() {
             headerTintColor: colors.accent,
             headerTitleStyle: { color: colors.textPrimary, fontSize: 17, fontFamily: serif },
             headerShadowVisible: false,
+            // Back buttons show only the chevron. Otherwise iOS labels them
+            // with the previous route's name, which for the tab group is
+            // the literal "(tabs)".
+            headerBackButtonDisplayMode: 'minimal',
           }}
         >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
